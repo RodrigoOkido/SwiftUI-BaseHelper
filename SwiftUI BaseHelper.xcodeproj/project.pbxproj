@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B294DA028F790F800F76609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B294D9F28F790F800F76609 /* Movie.swift */; };
+		2B294DA228F7918200F76609 /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B294DA128F7918200F76609 /* APIViewModel.swift */; };
 		2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD128F76D93000DE884 /* Color+Extensions.swift */; };
 		2B59CFD528F77086000DE884 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD428F77086000DE884 /* Income.swift */; };
 		2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */; };
@@ -26,6 +28,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B294D9F28F790F800F76609 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
+		2B294DA128F7918200F76609 /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
+		2B294DA328F7922D00F76609 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2B59CFD128F76D93000DE884 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		2B59CFD428F77086000DE884 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI BaseHelper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -56,10 +61,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2B294DA528F7967000F76609 /* Config */ = {
+			isa = PBXGroup;
+			children = (
+				2B294DA328F7922D00F76609 /* Config.xcconfig */,
+			);
+			path = Config;
+			sourceTree = "<group>";
+		};
 		2B59CFD328F76FCA000DE884 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				2B59CFD428F77086000DE884 /* Income.swift */,
+				2B294D9F28F790F800F76609 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,6 +81,7 @@
 		2B59CFD628F77228000DE884 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2B294DA528F7967000F76609 /* Config */,
 				2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */,
 				2B7AE53728F353E300B09959 /* Assets.xcassets */,
 				2B7AE54728F3581900B09959 /* Components */,
@@ -150,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				2B7AE54328F354AA00B09959 /* APIView.swift */,
+				2B294DA128F7918200F76609 /* APIViewModel.swift */,
 			);
 			path = APIView;
 			sourceTree = "<group>";
@@ -256,8 +272,10 @@
 				2B59CFD528F77086000DE884 /* Income.swift in Sources */,
 				2B7AE54228F3549E00B09959 /* BaseView.swift in Sources */,
 				2B7AE54F28F35C5800B09959 /* TextFieldView.swift in Sources */,
+				2B294DA228F7918200F76609 /* APIViewModel.swift in Sources */,
 				2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */,
 				2BFF776528F47D8900936E01 /* ViewModifiers.swift in Sources */,
+				2B294DA028F790F800F76609 /* Movie.swift in Sources */,
 				2B7AE55128F35D2700B09959 /* ActionAndSelectableView.swift in Sources */,
 				2B7AE54628F355EC00B09959 /* SectionButton.swift in Sources */,
 				2B7AE54428F354AA00B09959 /* APIView.swift in Sources */,
@@ -389,6 +407,7 @@
 		};
 		2B7AE53F28F353E300B09959 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B294DA328F7922D00F76609 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -398,6 +417,8 @@
 				DEVELOPMENT_TEAM = CFF4MPQ8FV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-BaseHelper-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -418,6 +439,7 @@
 		};
 		2B7AE54028F353E300B09959 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B294DA328F7922D00F76609 /* Config.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -427,6 +449,8 @@
 				DEVELOPMENT_TEAM = CFF4MPQ8FV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "SwiftUI-BaseHelper-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
