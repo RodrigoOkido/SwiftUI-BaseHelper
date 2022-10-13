@@ -22,7 +22,7 @@ class APIViewModel {
     func requestPopularMovies() async {
         guard let configURL = getKeyValue(forKey: "API_URL") else { return }
         guard let url = URL(string: "https://\(configURL)") else { return }
-        
+       
         do {
             let (data, responseCode) = try await URLSession.shared.data(from: url)
             guard (responseCode as? HTTPURLResponse)?.statusCode == 200 else { fatalError("Error while fetching data") }
