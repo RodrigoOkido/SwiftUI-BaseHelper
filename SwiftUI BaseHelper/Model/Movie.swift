@@ -8,9 +8,9 @@
 import Foundation
 
 struct Movie: Codable, Hashable {
-    var poster_path: String
+    var poster_path: String?
     var overview: String
-    var genres_ids: [Int] // Genres is defined by its IDs in the TMDB Movies API
+    var genre_ids: [Int]
     var id: Int
     var title: String
     var vote_average: Double

@@ -12,13 +12,47 @@ struct APIView: View {
     // MARK: - ViewModel
     private var viewModel: APIViewModel = APIViewModel()
     
+    // MARK: - Property Wrappers
+    @State private var popularMovies: [Movie] = []
+    
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                ForEach(popularMovies, id: \.id) { movie in
+                    NavigationLink {
+                        APIMovieDetailView(movie: movie)
+                    } label: {
+                        HStack {
+                            AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in
+                                image.resizable()
+                            } placeholder: {
+                                Text(movie.title)
+                            }
+                            .frame(width: 100, height: 160)
+                            .cornerRadius(10)
+                            VStack(alignment: .leading) {
+                                Text(movie.title)
+                                    .bold()
+                                    .foregroundColor(.black)
+                                Text(movie.overview)
+                                    .font(.body)
+                                    .frame(height: 140)
+                                    .multilineTextAlignment(.leading)
+                                Text("Average Score: \(String(format: "%.2f",movie.vote_average))")
+                            }
+                            .foregroundColor(.black)
+                        }
+                    }
+                    Divider()
+                }
+            }
+            .padding()
         }
+        .navigationTitle("Popular Movies")
+        .navigationBarTitleDisplayMode(.large)
         .onAppear{
             Task {
-                await viewModel.requestPopularMovies()
+                popularMovies = try await viewModel.requestPopularMovies()
             }
         }
     }
