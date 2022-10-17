@@ -11,6 +11,8 @@
 		2B164B2028F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B164B1F28F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift */; };
 		2B294DA028F790F800F76609 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B294D9F28F790F800F76609 /* Movie.swift */; };
 		2B294DA228F7918200F76609 /* APIViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B294DA128F7918200F76609 /* APIViewModel.swift */; };
+		2B370F6628FD9AB6000F4824 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B370F6528FD9AB6000F4824 /* MapView.swift */; };
+		2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B370F6728FD9AC2000F4824 /* MapViewModel.swift */; };
 		2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD128F76D93000DE884 /* Color+Extensions.swift */; };
 		2B59CFD528F77086000DE884 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD428F77086000DE884 /* Income.swift */; };
 		2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */; };
@@ -35,6 +37,8 @@
 		2B294D9F28F790F800F76609 /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		2B294DA128F7918200F76609 /* APIViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIViewModel.swift; sourceTree = "<group>"; };
 		2B294DA328F7922D00F76609 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2B370F6528FD9AB6000F4824 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2B370F6728FD9AC2000F4824 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		2B59CFD128F76D93000DE884 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		2B59CFD428F77086000DE884 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
 		2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI BaseHelper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -89,6 +93,15 @@
 				2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		2B370F6928FD9AC6000F4824 /* MapView */ = {
+			isa = PBXGroup;
+			children = (
+				2B370F6528FD9AB6000F4824 /* MapView.swift */,
+				2B370F6728FD9AC2000F4824 /* MapViewModel.swift */,
+			);
+			path = MapView;
 			sourceTree = "<group>";
 		};
 		2B59CFD328F76FCA000DE884 /* Model */ = {
@@ -169,6 +182,7 @@
 			children = (
 				2B7AE54928F3584600B09959 /* BaseView */,
 				2B7AE54A28F3585500B09959 /* APIView */,
+				2B370F6928FD9AC6000F4824 /* MapView */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -302,10 +316,12 @@
 				2B7AE54628F355EC00B09959 /* SectionButton.swift in Sources */,
 				2B7AE54428F354AA00B09959 /* APIView.swift in Sources */,
 				2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */,
+				2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */,
 				2B164B1E28F9DDE100FFFAD3 /* APIMovieDetailView.swift in Sources */,
 				2B7AE55528F35E3800B09959 /* ViewModifiersView.swift in Sources */,
 				2B7AE53628F353E200B09959 /* MainView.swift in Sources */,
 				2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */,
+				2B370F6628FD9AB6000F4824 /* MapView.swift in Sources */,
 				2B164B2028F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift in Sources */,
 				2B7AE54D28F3598500B09959 /* LabelView.swift in Sources */,
 				2B7AE55328F35E2900B09959 /* ChartsView.swift in Sources */,
@@ -444,6 +460,7 @@
 				INFOPLIST_FILE = "SwiftUI-BaseHelper-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app require share location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -477,6 +494,7 @@
 				INFOPLIST_FILE = "SwiftUI-BaseHelper-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "";
 				INFOPLIST_KEY_LSApplicationCategoryType = "";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "This app require share location.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

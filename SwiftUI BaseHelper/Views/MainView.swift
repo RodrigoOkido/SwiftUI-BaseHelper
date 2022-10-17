@@ -22,6 +22,12 @@ struct MainView: View {
             .tabItem {
                 Label("API", systemImage: "network")
             }
+            NavigationView(content: {
+                MapView()
+            })
+            .tabItem {
+                Label("Map", systemImage: "map")
+            }
         }
     }
 }
