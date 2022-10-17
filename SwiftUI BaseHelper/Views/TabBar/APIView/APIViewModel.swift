@@ -16,10 +16,12 @@ class APIViewModel {
     
     @Published var popularMovies = [Movie]()
     
+    // MARK: - Private Functions
     private func getKeyValue(forKey key: String) -> String? {
         return Bundle.main.infoDictionary?[key] as? String
     }
-    
+
+    // MARK: - Public Functions
     func getMoviePosterURL(posterPath: String?) -> String {
         guard let posterPath else { return "" }
         guard let configMoviePosterImage = getKeyValue(forKey: "API_URL_POSTER_IMAGE") else { return "" }
@@ -27,6 +29,7 @@ class APIViewModel {
         return url_poster_image
     }
     
+    // MARK: - API Request
     func requestPopularMovies() async throws -> [Movie]{
         guard let configURL = getKeyValue(forKey: "API_URL") else { return [] }
         guard let url = URL(string: "https://\(configURL)") else { return [] }
