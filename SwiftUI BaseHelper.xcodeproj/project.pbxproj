@@ -82,6 +82,15 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		2B370F6428FD9433000F4824 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				2B294DA528F7967000F76609 /* Config */,
+				2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
 		2B59CFD328F76FCA000DE884 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -94,11 +103,10 @@
 		2B59CFD628F77228000DE884 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2B294DA528F7967000F76609 /* Config */,
-				2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */,
 				2B7AE53728F353E300B09959 /* Assets.xcassets */,
 				2B7AE54728F3581900B09959 /* Components */,
 				2BFF774928F3902500936E01 /* Extensions */,
+				2B59CFD328F76FCA000DE884 /* Model */,
 				2BFF776628F47DA100936E01 /* ViewModifiers */,
 			);
 			path = Core;
@@ -132,8 +140,8 @@
 		2B7AE53228F353E200B09959 /* SwiftUI BaseHelper */ = {
 			isa = PBXGroup;
 			children = (
+				2B370F6428FD9433000F4824 /* App */,
 				2B59CFD628F77228000DE884 /* Core */,
-				2B59CFD328F76FCA000DE884 /* Model */,
 				2B59CFD728F77271000DE884 /* Views */,
 				2B7AE53928F353E300B09959 /* Preview Content */,
 			);
