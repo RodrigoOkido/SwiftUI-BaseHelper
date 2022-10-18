@@ -11,21 +11,38 @@ import CoreLocation
 
 class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
-    
     // MARK: - Property Wrapper
     @Published var permissionDenied: Bool = false
-    @Published var region = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+    @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     
-    var locationManager: CLLocationManager?
+    var locationManager: CLLocationManager = CLLocationManager()
 
-    // MARK: - Public Methods
-    func checkIfLocationServiceIsEnable() {
-        if CLLocationManager.locationServicesEnabled() {
-            locationManager = CLLocationManager()
-            locationManager?.delegate = self
-        }
+    // MARK: - Setup
+    func setupLocationManager() {
+        locationManager.delegate = self
+        locationManager.startUpdatingLocation()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = 5000
     }
     
+    // MARK: - Public Methods
+    func checkUserAuthorizationStatus() {
+        
+        switch locationManager.authorizationStatus {
+            
+        case .notDetermined:
+            locationManager.requestWhenInUseAuthorization()
+        case .denied:
+            permissionDenied.toggle()
+        case .authorizedAlways, .authorizedWhenInUse:
+            setupLocationManager()
+        case .restricted:
+            break
+        @unknown default:
+            break
+        }
+    }
+        
     // MARK: - Private Methods
     private func renderRegion(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
@@ -39,19 +56,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // MARK: - Map Delegate
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        
-        switch manager.authorizationStatus {
-            
-        case .notDetermined:
-            manager.requestWhenInUseAuthorization()
-        case .denied:
-            permissionDenied.toggle()
-        case .authorizedAlways, .authorizedWhenInUse:
-            guard let location = manager.location else { return }
-            renderRegion(location)
-        default:
-            break
-        }
+        checkUserAuthorizationStatus()
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -16,10 +16,10 @@ struct MapView: View {
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true)
-                .ignoresSafeArea()
+            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.follow))
+                .edgesIgnoringSafeArea([.top, .leading, .trailing])
                 .onAppear {
-                    viewModel.checkIfLocationServiceIsEnable()
+                    viewModel.checkUserAuthorizationStatus()
                 }
         }
         .alert(isPresented: $viewModel.permissionDenied) {
