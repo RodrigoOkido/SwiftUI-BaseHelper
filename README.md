@@ -12,7 +12,9 @@ Here you can find:
   - Pickers
   - Toggle
   - NavigationView & NavigationLink
+  - Property Wrappers
 - SwiftUI Charts
+- SwiftUI Lock Screen Widgets
 - SwiftUI ViewModifiers
 - API Requests using [MovieDB](https://www.themoviedb.org/documentation/api) (async / await)
 - MapKit & Core Location
