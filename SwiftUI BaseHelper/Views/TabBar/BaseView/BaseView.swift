@@ -16,6 +16,7 @@ struct BaseView: View {
                 SectionButton(sectionTitle: "Actions & Pickers", destinationView: AnyView(ActionAndSelectableView()))
                 SectionButton(sectionTitle: "Charts", destinationView: AnyView(ChartsView()))
                 SectionButton(sectionTitle: "View Modifiers", destinationView: AnyView(ViewModifiersView()))
+                SectionButton(sectionTitle: "Haptics Feedback", destinationView: AnyView(HapticsFeedbackView()))
             }
             .padding()
         }

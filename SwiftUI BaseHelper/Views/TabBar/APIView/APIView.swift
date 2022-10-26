@@ -9,6 +9,8 @@ import SwiftUI
 
 struct APIView: View {
     
+    @Environment(\.colorScheme) var colorScheme
+
     // MARK: - ViewModel
     private var viewModel: APIViewModel = APIViewModel()
     
@@ -33,14 +35,15 @@ struct APIView: View {
                             VStack(alignment: .leading) {
                                 Text(movie.title)
                                     .bold()
-                                    .foregroundColor(.black)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                                 Text(movie.overview)
                                     .font(.body)
                                     .frame(height: 140)
                                     .multilineTextAlignment(.leading)
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                                 Text("Average Score: \(String(format: "%.2f",movie.vote_average))")
+                                    .foregroundColor(colorScheme == .dark ? .white : .black)
                             }
-                            .foregroundColor(.black)
                         }
                     }
                     Divider()

@@ -20,4 +20,12 @@ extension View {
     func modifiedTextfieldStyle(borderColor: Color = .blue) -> some View {
         modifier(ModifiedTextField(borderColor: borderColor))
     }
+    
+    func addNotificationHapticFeedback(style: UINotificationFeedbackGenerator.FeedbackType) {
+        modifier(HapticsNotificationsFeedback(style: style))
+    }
+    
+    func addImpactHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
+        modifier(HapticsImpactFeedback(style: style))
+    }
 }

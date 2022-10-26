@@ -13,6 +13,8 @@ enum CustomColor {
     case customRed
     case customPurple
     case customOrange
+    case customGreen
+    case customYellow
     
     var colorDescription: String {
         switch self {
@@ -24,6 +26,10 @@ enum CustomColor {
                 return "customPurple"
             case .customOrange:
                 return "customOrange"
+            case .customGreen:
+                return "customGreen"
+            case .customYellow:
+                return "customYellow"
         }
     }
 }

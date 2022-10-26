@@ -1,5 +1,5 @@
 //
-//  ModifiedText.swift
+//  BasicViewModifiers.swift
 //  SwiftUI BaseHelper
 //
 //  Created by Rodrigo Okido on 10/10/22.
