@@ -14,15 +14,15 @@ struct HapticsFeedbackView: View {
                 .bold()
             HStack {
                 Button("Success") {
-                    addNotificationHapticFeedback(style: .success)
+                    UINotificationFeedbackGenerator().notificationOccurred(.success)
                 }
                 .modifiedButtonStyle(color: Color(custom: .customGreen), textColor: .white)
                 Button("Error") {
-                    addNotificationHapticFeedback(style: .error)
+                    UINotificationFeedbackGenerator().notificationOccurred(.error)
                 }
                 .modifiedButtonStyle(color: Color(custom: .customRed), textColor: .white)
                 Button("Warning") {
-                    addNotificationHapticFeedback(style: .warning)
+                    UINotificationFeedbackGenerator().notificationOccurred(.warning)
                 }
                 .modifiedButtonStyle(color: Color(custom: .customYellow), textColor: .white)
             }
@@ -31,26 +31,26 @@ struct HapticsFeedbackView: View {
                 .padding(.top, 30)
             HStack {
                 Button("Heavy") {
-                    addImpactHapticFeedback(style: .heavy)
+                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                 }
                 .modifiedButtonStyle(color: Color(custom: .customPurple), textColor: .white)
                 Button("Light") {
-                    addImpactHapticFeedback(style: .light)
+                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
                 }
                 .modifiedButtonStyle(color: Color(custom: .customPurple), textColor: .white)
             }
             HStack {
                 
                 Button("Medium") {
-                    addImpactHapticFeedback(style: .medium)
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                 }
                 .modifiedButtonStyle(color: Color(custom: .customPurple), textColor: .white)
                 Button("Rigid") {
-                    addImpactHapticFeedback(style:.rigid)
+                    UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
                 }
                 .modifiedButtonStyle(color: Color(custom: .customPurple), textColor: .white)
                 Button("Soft") {
-                    addImpactHapticFeedback(style: .soft)
+                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
                 }
                 .modifiedButtonStyle(color: Color(custom: .customPurple), textColor: .white)
             }
