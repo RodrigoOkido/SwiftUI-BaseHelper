@@ -13,6 +13,9 @@ Here you can find:
   - Toggle
   - NavigationView & NavigationLink
   - Property Wrappers
+  - Haptics
+  - Tab bars
+  
 - SwiftUI Charts
 - SwiftUI Lock Screen Widgets
 - SwiftUI ViewModifiers
