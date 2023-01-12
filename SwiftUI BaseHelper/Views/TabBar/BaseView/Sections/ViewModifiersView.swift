@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ViewModifiersView: View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @State var inputText: String = ""
     
     var body: some View {
@@ -25,7 +26,7 @@ struct ViewModifiersView: View {
                 Text("Hello i am another modified text!")
                     .modifiedTextStyle(font: .body)
                 Text("Hello i am one more modified text!")
-                    .modifiedTextStyle(font: .title2, color: .black)
+                    .modifiedTextStyle(font: .title2, color: isDarkMode ? .white : .black)
             }
             .padding()
             
