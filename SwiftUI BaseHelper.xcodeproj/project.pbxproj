@@ -15,7 +15,6 @@
 		2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B370F6728FD9AC2000F4824 /* MapViewModel.swift */; };
 		2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD128F76D93000DE884 /* Color+Extensions.swift */; };
 		2B59CFD528F77086000DE884 /* Income.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B59CFD428F77086000DE884 /* Income.swift */; };
-		2B5FDB082909975800B81DDE /* HapticsViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FDB072909975800B81DDE /* HapticsViewModifiers.swift */; };
 		2B5FDB0A2909A8AF00B81DDE /* HapticsFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B5FDB092909A8AF00B81DDE /* HapticsFeedbackView.swift */; };
 		2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */; };
 		2B7AE53628F353E200B09959 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53528F353E200B09959 /* MainView.swift */; };
@@ -34,7 +33,7 @@
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
 		2B98C36A2902CB86001BCBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B98C3692902CB86001BCBEC /* Assets.xcassets */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BB3EFA32900961400E31F94 /* SwiftUI-BaseHelper-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */; };
+		2BA2D72A297091BD000273DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2D729297091BD000273DB /* SettingsView.swift */; };
 		2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF774728F3901F00936E01 /* View+Extensions.swift */; };
 		2BFF776528F47D8900936E01 /* BasicViewModifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF776428F47D8900936E01 /* BasicViewModifiers.swift */; };
 /* End PBXBuildFile section */
@@ -73,7 +72,6 @@
 		2B370F6728FD9AC2000F4824 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		2B59CFD128F76D93000DE884 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		2B59CFD428F77086000DE884 /* Income.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Income.swift; sourceTree = "<group>"; };
-		2B5FDB072909975800B81DDE /* HapticsViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsViewModifiers.swift; sourceTree = "<group>"; };
 		2B5FDB092909A8AF00B81DDE /* HapticsFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsFeedbackView.swift; sourceTree = "<group>"; };
 		2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI BaseHelper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BaseHelperApp.swift; sourceTree = "<group>"; };
@@ -94,6 +92,7 @@
 		2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLockScreenWidget.swift; sourceTree = "<group>"; };
 		2B98C3692902CB86001BCBEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B98C36B2902CB86001BCBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BA2D729297091BD000273DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2BFF774728F3901F00936E01 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		2BFF776428F47D8900936E01 /* BasicViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewModifiers.swift; sourceTree = "<group>"; };
@@ -237,6 +236,7 @@
 				2B7AE54928F3584600B09959 /* BaseView */,
 				2B7AE54A28F3585500B09959 /* APIView */,
 				2B370F6928FD9AC6000F4824 /* MapView */,
+				2BA2D72B297091C3000273DB /* SettingsView */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -292,6 +292,14 @@
 			path = SimpleLockScreenWidget;
 			sourceTree = "<group>";
 		};
+		2BA2D72B297091C3000273DB /* SettingsView */ = {
+			isa = PBXGroup;
+			children = (
+				2BA2D729297091BD000273DB /* SettingsView.swift */,
+			);
+			path = SettingsView;
+			sourceTree = "<group>";
+		};
 		2BFF774928F3902500936E01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,7 +313,6 @@
 			isa = PBXGroup;
 			children = (
 				2BFF776428F47D8900936E01 /* BasicViewModifiers.swift */,
-				2B5FDB072909975800B81DDE /* HapticsViewModifiers.swift */,
 			);
 			path = ViewModifiers;
 			sourceTree = "<group>";
@@ -393,7 +400,6 @@
 			files = (
 				2B7AE53B28F353E300B09959 /* Preview Assets.xcassets in Resources */,
 				2B7AE53828F353E300B09959 /* Assets.xcassets in Resources */,
-				2BB3EFA32900961400E31F94 /* SwiftUI-BaseHelper-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,7 +429,6 @@
 				2B7AE55128F35D2700B09959 /* ActionAndSelectableView.swift in Sources */,
 				2B7AE54628F355EC00B09959 /* SectionButton.swift in Sources */,
 				2B7AE54428F354AA00B09959 /* APIView.swift in Sources */,
-				2B5FDB082909975800B81DDE /* HapticsViewModifiers.swift in Sources */,
 				2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */,
 				2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */,
 				2B164B1E28F9DDE100FFFAD3 /* APIMovieDetailView.swift in Sources */,
@@ -434,6 +439,7 @@
 				2B164B2028F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift in Sources */,
 				2B7AE54D28F3598500B09959 /* LabelView.swift in Sources */,
 				2B7AE55328F35E2900B09959 /* ChartsView.swift in Sources */,
+				2BA2D72A297091BD000273DB /* SettingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

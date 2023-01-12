@@ -22,10 +22,12 @@ extension View {
     }
     
     func addNotificationHapticFeedback(style: UINotificationFeedbackGenerator.FeedbackType) {
-        modifier(HapticsNotificationsFeedback(style: style))
+        let generateFeedback = UINotificationFeedbackGenerator()
+        generateFeedback.notificationOccurred(style)
     }
     
     func addImpactHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        modifier(HapticsImpactFeedback(style: style))
+        let generateFeedback = UIImpactFeedbackGenerator(style: style)
+        generateFeedback.impactOccurred()
     }
 }

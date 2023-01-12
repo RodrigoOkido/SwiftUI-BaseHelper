@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct MainView: View {
+    
+    @AppStorage("isDarkMode") private var isDarkMode = false
+    
     var body: some View {
         TabView {
             NavigationView(content: {
@@ -28,7 +31,14 @@ struct MainView: View {
             .tabItem {
                 Label("Map", systemImage: "map")
             }
+            NavigationView(content: {
+                SettingsView()
+            })
+            .tabItem {
+                Label("Settings", systemImage: "gearshape.fill")
+            }
         }
+        .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }
 
