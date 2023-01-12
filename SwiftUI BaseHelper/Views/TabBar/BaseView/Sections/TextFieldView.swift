@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TextFieldView: View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
     @State var firstName: String = "Apple"
     @State var lastName: String = "Framework"
     @State var middleName: String = "SwiftUI"
@@ -29,7 +30,7 @@ struct TextFieldView: View {
                     .bold()
                 TextField("Last Name", text: $lastName)
                     .padding(5)
-                    .border(.black)
+                    .border(isDarkMode ? .white : .black)
             }
             .padding()
             
@@ -42,7 +43,7 @@ struct TextFieldView: View {
                             focus = .blue
                         } else {
                             print("Focus off")
-                            focus = .black
+                            focus = .cyan
                         }
                     }, onCommit: {
                         print("Commit status")
