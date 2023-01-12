@@ -13,13 +13,18 @@ struct MapView: View {
     
     // MARK: - View Model
     @StateObject private var viewModel = MapViewModel()
+    @State var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
 
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: true, userTrackingMode: .constant(.follow))
+            Map(coordinateRegion: $region, showsUserLocation: true, userTrackingMode: .constant(.follow))
                 .edgesIgnoringSafeArea([.top, .leading, .trailing])
                 .onAppear {
                     viewModel.checkUserAuthorizationStatus()
+                    #warning("If you want to test your real location...uncomment this code")
+//                    if let myRegion = viewModel.region {
+//                        region = myRegion
+//                    }
                 }
         }
         .alert(isPresented: $viewModel.permissionDenied) {

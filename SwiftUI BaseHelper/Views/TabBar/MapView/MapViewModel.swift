@@ -13,7 +13,7 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
     
     // MARK: - Property Wrapper
     @Published var permissionDenied: Bool = false
-    @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+    var region: MKCoordinateRegion?
     
     var locationManager: CLLocationManager = CLLocationManager()
 

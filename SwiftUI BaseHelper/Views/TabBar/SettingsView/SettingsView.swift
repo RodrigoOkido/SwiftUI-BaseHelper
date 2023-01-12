@@ -14,7 +14,7 @@ struct SettingsView: View {
     var body: some View {
         VStack {
             HStack {
-                Text("Appearance")
+                Text("Dark Mode")
                     .bold()
                 Spacer()
                 Toggle("", isOn: $isDarkMode)
