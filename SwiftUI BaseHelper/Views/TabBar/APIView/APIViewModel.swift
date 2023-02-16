@@ -14,6 +14,7 @@ struct Response: Codable {
 
 class APIViewModel {
     
+    // MARK: - Property Wrappers
     @Published var popularMovies = [Movie]()
     
     // MARK: - Private Functions

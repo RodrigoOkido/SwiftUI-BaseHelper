@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HapticsFeedbackView: View {
+    
     var body: some View {
         VStack {
             Text("Notification Feedback types")

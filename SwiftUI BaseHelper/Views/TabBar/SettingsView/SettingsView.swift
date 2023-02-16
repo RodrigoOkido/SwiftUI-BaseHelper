@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SettingsView: View {
     
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     var body: some View {
@@ -27,7 +28,8 @@ struct SettingsView: View {
             }
         }
         .navigationTitle("Settings")
-        .navigationBarTitleDisplayMode(.large)    }
+        .navigationBarTitleDisplayMode(.large)
+    }
 }
 
 struct SettingsView_Previews: PreviewProvider {

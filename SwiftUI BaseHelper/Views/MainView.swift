@@ -9,6 +9,7 @@ import SwiftUI
 
 struct MainView: View {
     
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     
     var body: some View {

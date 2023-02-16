@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TextFieldView: View {
     
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State var firstName: String = "Apple"
     @State var lastName: String = "Framework"

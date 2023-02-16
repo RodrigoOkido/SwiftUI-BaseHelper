@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct LabelView: View {
+    
     var body: some View {
         VStack {
             Text("I am a 'largeTitle' label!")

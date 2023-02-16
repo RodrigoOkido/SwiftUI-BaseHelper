@@ -9,6 +9,7 @@ import SwiftUI
 
 struct SectionButton: View {
     
+    // MARK: - Stored Properties
     var sectionTitle: String
     var destinationView: AnyView
     

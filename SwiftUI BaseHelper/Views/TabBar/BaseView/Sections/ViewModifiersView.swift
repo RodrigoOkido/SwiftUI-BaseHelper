@@ -9,6 +9,7 @@ import SwiftUI
 
 struct ViewModifiersView: View {
     
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     @State var inputText: String = ""
     

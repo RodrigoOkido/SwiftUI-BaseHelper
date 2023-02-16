@@ -10,6 +10,7 @@ import SwiftUI
 // MARK: - Text Component Mofifier
 struct ModifiedText: ViewModifier {
     
+    // MARK: - Stored Properties
     var font: Font
     var color: Color
     
@@ -24,6 +25,7 @@ struct ModifiedText: ViewModifier {
 // MARK: - Button Component Modifier
 struct ModifiedButton: ViewModifier {
     
+    // MARK: - Stored Properties
     var color: Color
     var textColor: Color
 
@@ -41,6 +43,7 @@ struct ModifiedButton: ViewModifier {
 // MARK: - TextField Component Modifier
 struct ModifiedTextField: ViewModifier {
     
+    // MARK: - Stored Properties
     var borderColor: Color
 
     func body(content: Content) -> some View {
