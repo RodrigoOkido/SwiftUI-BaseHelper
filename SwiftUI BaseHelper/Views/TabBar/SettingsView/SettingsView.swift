@@ -20,7 +20,7 @@ struct SettingsView: View {
                 Toggle("", isOn: $isDarkMode)
             }
             HStack {
-                Link("Github Profile", destination: URL(string: "https://www.hackingwithswift.com/quick-start/swiftui")!)
+                Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
             }
             HStack {
                 Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
