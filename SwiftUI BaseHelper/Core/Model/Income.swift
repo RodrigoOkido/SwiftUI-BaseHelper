@@ -9,25 +9,24 @@ import Foundation
 import Charts
 import SwiftUI
 
-enum Month: String {
-    case january = "January"
-    case february = "February"
-    case march = "March"
-    case april = "April"
-    case may = "May"
-    case june = "June"
-    case july = "July"
-    case august = "August"
-    case september = "September"
-    case october = "October"
-    case november = "November"
-    case december = "December"
+enum Month: String, Plottable {
+    case January
+    case February
+    case March
+    case April
+    case May
+    case June
+    case July
+    case August
+    case September
+    case October
+    case November
+    case December
 }
 
 struct Income: Identifiable {
     var id = UUID()
-    var month: String
+    var month: Month
     var income: Double
     var color: String
 }
-

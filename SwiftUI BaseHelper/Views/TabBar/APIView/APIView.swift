@@ -28,7 +28,11 @@ struct APIView: View {
                             AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in
                                 image.resizable()
                             } placeholder: {
-                                Text(movie.title)
+                                VStack {
+                                    Text(movie.title)
+                                    ProgressView()
+                                        .progressViewStyle(.circular)
+                                }
                             }
                             .frame(width: 100, height: 160)
                             .cornerRadius(10)

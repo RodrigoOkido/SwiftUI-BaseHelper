@@ -13,7 +13,7 @@ struct TextFieldView: View {
     @State var firstName: String = "Apple"
     @State var lastName: String = "Framework"
     @State var middleName: String = "SwiftUI"
-    @State var focus: Color = .black
+    @State var focus: Color = .cyan
     
     var body: some View {
         VStack {
@@ -30,7 +30,7 @@ struct TextFieldView: View {
                     .bold()
                 TextField("Last Name", text: $lastName)
                     .padding(5)
-                    .border(isDarkMode ? .white : .black)
+                    .border(isDarkMode ? .blue : .gray)
             }
             .padding()
             

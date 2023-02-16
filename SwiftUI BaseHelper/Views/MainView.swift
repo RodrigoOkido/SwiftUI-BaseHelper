@@ -13,27 +13,27 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            NavigationView(content: {
+            NavigationStack {
                 BaseView()
-            })
+            }
             .tabItem {
                 Label("Components", systemImage: "rectangle.3.group.fill")
             }
-            NavigationView(content: {
+            NavigationStack {
                 APIView()
-            })
+            }
             .tabItem {
                 Label("API", systemImage: "network")
             }
-            NavigationView(content: {
+            NavigationStack {
                 MapView()
-            })
+            }
             .tabItem {
                 Label("Map", systemImage: "map")
             }
-            NavigationView(content: {
+            NavigationStack {
                 SettingsView()
-            })
+            }
             .tabItem {
                 Label("Settings", systemImage: "gearshape.fill")
             }

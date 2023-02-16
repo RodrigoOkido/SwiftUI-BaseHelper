@@ -20,6 +20,7 @@ enum FavoriteColor: String, CaseIterable, Identifiable {
 
 struct ActionAndSelectableView: View {
     
+    // MARK: - Property Wrappers
     @State var randomInt: Int = 0
     @State var toggleStatus: Bool = false
     @State var selectedColor: FavoriteColor = .blue
@@ -46,7 +47,6 @@ struct ActionAndSelectableView: View {
                     Text("Toggle")
                         .bold()
                         .font(.body)
-                        .foregroundColor(Color.black)
                 }
                 Text(toggleStatus ? "Toggle on": "")
                     .animation(.linear)

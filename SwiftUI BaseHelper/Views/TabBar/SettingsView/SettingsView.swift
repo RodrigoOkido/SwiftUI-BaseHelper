@@ -12,17 +12,20 @@ struct SettingsView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     var body: some View {
-        VStack {
+        List {
             HStack {
                 Text("Dark Mode")
                     .bold()
                 Spacer()
                 Toggle("", isOn: $isDarkMode)
             }
-            .padding(.horizontal)
-            Divider()
+            HStack {
+                Link("Github Profile", destination: URL(string: "https://www.hackingwithswift.com/quick-start/swiftui")!)
+            }
+            HStack {
+                Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
+            }
         }
-        .padding(.horizontal)
         .navigationTitle("Settings")
         .navigationBarTitleDisplayMode(.large)    }
 }
