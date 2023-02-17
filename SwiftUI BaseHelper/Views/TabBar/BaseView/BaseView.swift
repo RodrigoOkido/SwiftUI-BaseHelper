@@ -18,6 +18,7 @@ struct BaseView: View {
                 SectionButton(sectionTitle: "Charts", destinationView: AnyView(ChartsView()))
                 SectionButton(sectionTitle: "View Modifiers", destinationView: AnyView(ViewModifiersView()))
                 SectionButton(sectionTitle: "Haptics Feedback", destinationView: AnyView(HapticsFeedbackView()))
+                SectionButton(sectionTitle: "Present View", destinationView: AnyView(PresentSheetView()))
             }
             .padding()
         }

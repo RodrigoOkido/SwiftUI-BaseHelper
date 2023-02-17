@@ -30,7 +30,7 @@ struct MapView: View {
                 Spacer()
                 HStack {
                     Spacer()
-                    Toggle("Real Location?", isOn: $toggleStatus)
+                    Toggle("Your Location?", isOn: $toggleStatus)
                         .padding()
                         .foregroundColor(.white)
                 }

@@ -13,18 +13,24 @@ struct SettingsView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
 
     var body: some View {
-        List {
-            HStack {
-                Text("Dark Mode")
-                    .bold()
-                Spacer()
-                Toggle("", isOn: $isDarkMode)
-            }
-            HStack {
-                Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
-            }
-            HStack {
-                Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
+        VStack(alignment: .leading) {
+            List {
+                Section(header: Text("Appearance")) {
+                    HStack {
+                        Text("Dark Mode")
+                            .bold()
+                        Spacer()
+                        Toggle("", isOn: $isDarkMode)
+                    }
+                }
+                Section(header: Text("Social")) {
+                    HStack {
+                        Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
+                    }
+                    HStack {
+                        Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
+                    }
+                }
             }
         }
         .navigationTitle("Settings")
