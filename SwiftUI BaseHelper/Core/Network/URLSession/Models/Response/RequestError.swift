@@ -1,31 +1,5 @@
 //
 //  RequestError.swift
-//  Base
-//
-//  Created by Juan Collin on 10/10/22.
-//
-
-//import Foundation
-//
-//struct RequestError: Codable, Error, Equatable {
-//
-//    var statusCode: Int
-//    var errorMessage: String
-//}
-//
-//// MARK: Static Helpers
-//extension RequestError {
-//
-//    static let internalError = RequestError(statusCode: 400,
-//                                            errorMessage: "network.internalError".localized)
-//    static let noConnectionError = RequestError(statusCode: 503,
-//                                                errorMessage: "network.noInternetConnection".localized)
-//
-//    static let couldNotMapError = RequestError(statusCode: 400, errorMessage: "network.couldNotMap".localized)
-//}
-
-//
-//  RequestError.swift
 //  SwiftUI BaseHelper
 //
 //  Created by Rodrigo Okido on 07/03/24.
