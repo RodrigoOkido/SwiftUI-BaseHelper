@@ -1,13 +1,13 @@
 //
-//  SimpleRequestResponse.swift
-//  Base
+//  RequestEmptyResponse.swift
+//  SwiftUI BaseHelper
 //
-//  Created by Juan Collin on 10/10/22.
+//  Created by Rodrigo Okido on 07/03/24.
 //
 
 import Foundation
 
-enum SimpleRequestResponse<E: Codable & Error> {
+public enum RequestEmptyResponse<E: Codable & Error> {
 
     case success
     case customError(E)

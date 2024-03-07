@@ -40,9 +40,6 @@
 		2B927C942B9898CB000EA840 /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C812B9898CB000EA840 /* RequestBuilder.swift */; };
 		2B927C952B9898CB000EA840 /* QueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C822B9898CB000EA840 /* QueryBuilder.swift */; };
 		2B927C962B9898CB000EA840 /* BodyBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C832B9898CB000EA840 /* BodyBuilder.swift */; };
-		2B927C972B9898CB000EA840 /* CoreNetworkCodableParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C842B9898CB000EA840 /* CoreNetworkCodableParameters.swift */; };
-		2B927C982B9898CB000EA840 /* CoreNetworkDictionaryParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C852B9898CB000EA840 /* CoreNetworkDictionaryParameters.swift */; };
-		2B927C992B9898CB000EA840 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C872B9898CB000EA840 /* HTTPMethod.swift */; };
 		2B927C9A2B9898CB000EA840 /* Endpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C882B9898CB000EA840 /* Endpoint.swift */; };
 		2B927C9B2B9898CB000EA840 /* CoreNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C892B9898CB000EA840 /* CoreNetwork.swift */; };
 		2B927C9C2B9898CB000EA840 /* NetworkLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C8A2B9898CB000EA840 /* NetworkLogger.swift */; };
@@ -64,6 +61,7 @@
 		2B927CC82B98FF67000EA840 /* ModelMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CC72B98FF67000EA840 /* ModelMapper.swift */; };
 		2B927CCA2B99EF85000EA840 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CC92B99EF85000EA840 /* ResponseHandler.swift */; };
 		2B927CCC2B99EFBF000EA840 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */; };
+		2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */; };
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
@@ -135,9 +133,6 @@
 		2B927C812B9898CB000EA840 /* RequestBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		2B927C822B9898CB000EA840 /* QueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryBuilder.swift; sourceTree = "<group>"; };
 		2B927C832B9898CB000EA840 /* BodyBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BodyBuilder.swift; sourceTree = "<group>"; };
-		2B927C842B9898CB000EA840 /* CoreNetworkCodableParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkCodableParameters.swift; sourceTree = "<group>"; };
-		2B927C852B9898CB000EA840 /* CoreNetworkDictionaryParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkDictionaryParameters.swift; sourceTree = "<group>"; };
-		2B927C872B9898CB000EA840 /* HTTPMethod.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
 		2B927C882B9898CB000EA840 /* Endpoint.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		2B927C892B9898CB000EA840 /* CoreNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetwork.swift; sourceTree = "<group>"; };
 		2B927C8A2B9898CB000EA840 /* NetworkLogger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkLogger.swift; sourceTree = "<group>"; };
@@ -159,6 +154,7 @@
 		2B927CC72B98FF67000EA840 /* ModelMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelMapper.swift; sourceTree = "<group>"; };
 		2B927CC92B99EF85000EA840 /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
+		2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerb.swift; sourceTree = "<group>"; };
 		2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B98C3622902CB85001BCBEC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2B98C3642902CB85001BCBEC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -379,8 +375,6 @@
 				2B927C762B9898CB000EA840 /* Interceptors */,
 				2B927C7A2B9898CB000EA840 /* Response */,
 				2B927C7F2B9898CB000EA840 /* Builders */,
-				2B927C842B9898CB000EA840 /* CoreNetworkCodableParameters.swift */,
-				2B927C852B9898CB000EA840 /* CoreNetworkDictionaryParameters.swift */,
 				2B927C862B9898CB000EA840 /* HTTP */,
 				2B927C882B9898CB000EA840 /* Endpoint.swift */,
 			);
@@ -421,7 +415,7 @@
 		2B927C862B9898CB000EA840 /* HTTP */ = {
 			isa = PBXGroup;
 			children = (
-				2B927C872B9898CB000EA840 /* HTTPMethod.swift */,
+				2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */,
 			);
 			path = HTTP;
 			sourceTree = "<group>";
@@ -693,7 +687,6 @@
 				2B294DA228F7918200F76609 /* APIViewModel.swift in Sources */,
 				2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */,
 				2B927C912B9898CB000EA840 /* RestResponse.swift in Sources */,
-				2B927C972B9898CB000EA840 /* CoreNetworkCodableParameters.swift in Sources */,
 				2B927C8F2B9898CB000EA840 /* RequestResponse.swift in Sources */,
 				2BFF776528F47D8900936E01 /* BasicViewModifiers.swift in Sources */,
 				2B294DA028F790F800F76609 /* Movie.swift in Sources */,
@@ -710,7 +703,6 @@
 				2B59CFD228F76D93000DE884 /* Color+Extensions.swift in Sources */,
 				2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */,
 				2B164B1E28F9DDE100FFFAD3 /* APIMovieDetailView.swift in Sources */,
-				2B927C992B9898CB000EA840 /* HTTPMethod.swift in Sources */,
 				2B927C8B2B9898CB000EA840 /* CoreNetworkProtocol.swift in Sources */,
 				2B927C8D2B9898CB000EA840 /* JSONInterceptor.swift in Sources */,
 				2B7AE55528F35E3800B09959 /* ViewModifiersView.swift in Sources */,
@@ -719,7 +711,6 @@
 				2B927CB12B98D21D000EA840 /* NetworkDependencies.swift in Sources */,
 				2B927C8C2B9898CB000EA840 /* RequestInterceptor.swift in Sources */,
 				2B927CC32B98FC07000EA840 /* RemoteMovie.swift in Sources */,
-				2B927C982B9898CB000EA840 /* CoreNetworkDictionaryParameters.swift in Sources */,
 				2B7AE53628F353E200B09959 /* MainView.swift in Sources */,
 				2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */,
 				2B927CA32B98B6E4000EA840 /* DependencyFactory.swift in Sources */,
@@ -737,6 +728,7 @@
 				2B927C9B2B9898CB000EA840 /* CoreNetwork.swift in Sources */,
 				2BA2D72A297091BD000273DB /* SettingsView.swift in Sources */,
 				2B927CBD2B98D762000EA840 /* MovieDBRepositoryProtocol.swift in Sources */,
+				2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */,
 				2BAC0D7D299FB7C200CEB635 /* PresentSheetView.swift in Sources */,
 				2B927CAA2B98D14E000EA840 /* CoreModulesDependencies.swift in Sources */,
 				2B927C942B9898CB000EA840 /* RequestBuilder.swift in Sources */,

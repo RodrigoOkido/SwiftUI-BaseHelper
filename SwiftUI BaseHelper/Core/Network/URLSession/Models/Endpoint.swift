@@ -1,8 +1,8 @@
 //
 //  Endpoint.swift
-//  Base
+//  SwiftUI BaseHelper
 //
-//  Created by Juan Collin on 10/10/22.
+//  Created by Rodrigo Okido on 07/03/24.
 //
 
 import Foundation

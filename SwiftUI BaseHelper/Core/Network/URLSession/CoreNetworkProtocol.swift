@@ -1,29 +1,28 @@
-//
-//  CoreNetworkProtocol.swift
-//  Base
-//
-//  Created by Juan Collin on 10/10/22.
-//
-
 import Foundation
 
 protocol CoreNetworkProtocol: AnyObject {
 
-    func request<R: Decodable,
-                 E: Decodable>(_ parameters: CoreNetworkCodableParameters<R, E>) async -> RequestResponse<R, E>
+    func request<T: Decodable,
+                 Parameters: Encodable,
+                 E: Decodable>(endpoint: Endpoint,
+                               method: HTTPVerb,
+                               parameters: Parameters,
+                               responseType: T.Type,
+                               errorType: E.Type) async -> RequestResponse<T, E>
 
-    func request<R: Decodable,
-                 E: Decodable>(_ parameters: CoreNetworkDictionaryParameters<R, E>) async -> RequestResponse<R, E>
+    func request<T: Decodable,
+                 E: Decodable>(endpoint: Endpoint,
+                               method: HTTPVerb,
+                               responseType: T.Type,
+                               errorType: E.Type) async -> RequestResponse<T, E>
 
     func request<E: Decodable>(endpoint: Endpoint,
-                               method: HTTPMethod,
-                               parameters: Codable?,
-                               interceptors: [RequestInterceptor],
-                               errorType: E.Type) async -> SimpleRequestResponse<E>
+                               method: HTTPVerb,
+                               errorType: E.Type) async -> RequestEmptyResponse<E>
 
-    func request<E: Decodable>(endpoint: Endpoint,
-                               method: HTTPMethod,
-                               parameters: [String: Any],
-                               interceptors: [RequestInterceptor],
-                               errorType: E.Type) async -> SimpleRequestResponse<E>
+    func request<Parameters: Encodable,
+                 E: Decodable>(endpoint: Endpoint,
+                               method: HTTPVerb,
+                               parameters: Parameters,
+                               errorType: E.Type) async -> RequestEmptyResponse<E>
 }

@@ -1,46 +1,46 @@
 //
-//  HTTPMethod.swift
-//  Base
+//  HTTPVerb.swift
+//  SwiftUI BaseHelper
 //
-//  Created by Juan Collin on 10/10/22.
+//  Created by Rodrigo Okido on 07/03/24.
 //
 
 import Foundation
 
-enum HTTPMethod: String {
+enum HTTPVerb: String {
 
-    case get = "GET"
-    case post = "POST"
-    case put = "PUT"
-    case patch = "PATCH"
-    case delete = "DELETE"
+    case DELETE
+    case GET
+    case PATCH
+    case POST
+    case PUT
 
     var shouldUseQuery: Bool {
         switch self {
-        case .get:
+        case .GET:
             return true
-        case .post:
+        case .POST:
             return false
-        case .put:
+        case .PUT:
             return false
-        case .patch:
+        case .PATCH:
             return false
-        case .delete:
+        case .DELETE:
             return true
         }
     }
 
     var shouldUseBody: Bool {
         switch self {
-        case .get:
+        case .GET:
             return false
-        case .post:
+        case .POST:
             return true
-        case .put:
+        case .PUT:
             return true
-        case .patch:
+        case .PATCH:
             return true
-        case .delete:
+        case .DELETE:
             return false
         }
     }

@@ -1,8 +1,8 @@
 //
 //  RequestBuilder.swift
-//  Base
+//  SwiftUI BaseHelper
 //
-//  Created by Juan Collin on 10/10/22.
+//  Created by Rodrigo Okido on 07/03/24.
 //
 
 import Foundation
@@ -27,7 +27,7 @@ extension RequestBuilder {
 
     func makeRequest(host: String,
                      path: String,
-                     method: HTTPMethod,
+                     method: HTTPVerb,
                      parameters: Codable?,
                      interceptors: [RequestInterceptor]) async -> URLRequest? {
 
@@ -40,7 +40,7 @@ extension RequestBuilder {
 
     func makeRequest(host: String,
                      path: String,
-                     method: HTTPMethod,
+                     method: HTTPVerb,
                      parameters: [String: Any],
                      interceptors: [RequestInterceptor]) async -> URLRequest? {
 
