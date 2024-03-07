@@ -33,8 +33,7 @@ struct SectionButton: View {
 
 }
 
-struct SectionButton_Previews: PreviewProvider {
-    static var previews: some View {
-        SectionButton(sectionTitle: "Test", destinationView: AnyView(EmptyView()))
-    }
+#Preview {
+    SectionButton(sectionTitle: "Test", 
+                  destinationView: AnyView(EmptyView()))
 }

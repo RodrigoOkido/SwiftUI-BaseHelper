@@ -1,5 +1,6 @@
 import SwiftUI
 
+// MARK: - View Modifiers creations
 extension View {
     
     func modifiedTextStyle(font: Font = .system(size: 21), 
@@ -14,15 +15,5 @@ extension View {
     
     func modifiedTextfieldStyle(borderColor: Color = .blue) -> some View {
         modifier(ModifiedTextField(borderColor: borderColor))
-    }
-    
-    func addNotificationHapticFeedback(style: UINotificationFeedbackGenerator.FeedbackType) {
-        let generateFeedback = UINotificationFeedbackGenerator()
-        generateFeedback.notificationOccurred(style)
-    }
-    
-    func addImpactHapticFeedback(style: UIImpactFeedbackGenerator.FeedbackStyle) {
-        let generateFeedback = UIImpactFeedbackGenerator(style: style)
-        generateFeedback.impactOccurred()
     }
 }

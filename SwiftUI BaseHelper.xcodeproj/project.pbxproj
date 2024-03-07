@@ -208,9 +208,9 @@
 		2B370F6428FD9433000F4824 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				2B294DA528F7967000F76609 /* Config */,
 				2B927CA42B98B8AF000EA840 /* Environment */,
 				2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */,
-				2B294DA528F7967000F76609 /* Config */,
 				2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */,
 				2B927CB32B98D370000EA840 /* AppDependencies.swift */,
 			);
