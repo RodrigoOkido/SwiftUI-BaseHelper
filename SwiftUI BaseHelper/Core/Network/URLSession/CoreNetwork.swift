@@ -49,17 +49,40 @@ class CoreNetwork: CoreNetworkProtocol {
         return .failure(NetworkRequestError())
     }
     
-    func request<E>(endpoint: Endpoint, method: HTTPVerb, errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
-        return .failure(NetworkRequestError())
+    func request<E>(endpoint: Endpoint, 
+                    method: HTTPVerb,
+                    errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
+        let result = await doRequest(endpoint: endpoint,
+                                     method: method,
+                                     parameters: [:],
+                                     interceptors: defaultInterceptors)
 
+        switch result {
+        case .success(let response):
+            return serializeResponse(response: response,
+                                     errorType: errorType)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func request<Parameters, E>(endpoint: Endpoint, 
                                 method: HTTPVerb,
                                 parameters: Parameters,
                                 errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Codable, E : Error {
-        return .failure(NetworkRequestError())
+       
+        let result = await doRequest(endpoint: endpoint,
+                                     method: method,
+                                     parameters: parameters.asDictionary() ?? [:],
+                                     interceptors: defaultInterceptors)
 
+        switch result {
+        case .success(let response):
+            return serializeResponse(response: response,
+                                     errorType: errorType)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
 }
 
@@ -76,7 +99,8 @@ extension CoreNetwork {
                                                                 method: method,
                                                                 parameters: parameters,
                                                                 interceptors: interceptors) else {
-            return .failure(NetworkRequestError(statusCode: 500, error: "Internal Error Request"))
+            return .failure(NetworkRequestError(statusCode: 500, 
+                                                error: "Internal Error Request"))
         }
 
         var dataTask: (data: Data, urlResponse: URLResponse)!
@@ -86,9 +110,11 @@ extension CoreNetwork {
         } catch let error {
             if let error = error as? URLError,
                 error.errorCode == NSURLErrorNotConnectedToInternet {
-                return .failure(NetworkRequestError(statusCode: 503, error: "Service Unavailable. No connection detected"))
+                return .failure(NetworkRequestError(statusCode: 503, 
+                                                    error: "Service Unavailable. No connection detected"))
             } else {
-                return .failure(NetworkRequestError(statusCode: 500, error: "Internal Error Request"))
+                return .failure(NetworkRequestError(statusCode: 500, 
+                                                    error: "Internal Error Request"))
             }
         }
 
@@ -109,7 +135,8 @@ extension CoreNetwork {
         switch result {
         case .success(let response):
             guard let typedResponse: T = response as? T else {
-                return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                return .failure(NetworkRequestError(statusCode: 400, 
+                                                    error: "Could not map. Bad request"))
             }
             return .success(typedResponse)
         case .failure(let error):
@@ -117,16 +144,19 @@ extension CoreNetwork {
             switch error {
             case is E:
                 guard let typedError: E = error as? E else {
-                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                    return .failure(NetworkRequestError(statusCode: 400, 
+                                                        error: "Could not map. Bad request"))
                 }
                 return .customError(typedError)
             case is RequestError:
                 guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
-                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                    return .failure(NetworkRequestError(statusCode: 400, 
+                                                        error: "Could not map. Bad request"))
                 }
                 return .failure(typedFailure)
             default:
-                return .failure(NetworkRequestError(statusCode: response.statusCode, error: error.localizedDescription))
+                return .failure(NetworkRequestError(statusCode: response.statusCode, 
+                                                    error: error.localizedDescription))
             }
         }
     }
@@ -147,16 +177,19 @@ extension CoreNetwork {
             switch error {
             case is E:
                 guard let typedError: E = error as? E else {
-                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                    return .failure(NetworkRequestError(statusCode: 400, 
+                                                        error: "Could not map. Bad request"))
                 }
                 return .customError(typedError)
             case is RequestError:
                 guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
-                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                    return .failure(NetworkRequestError(statusCode: 400, 
+                                                        error: "Could not map. Bad request"))
                 }
                 return .failure(typedFailure)
             default:
-                return .failure(NetworkRequestError(statusCode: response.statusCode, error: error.localizedDescription))
+                return .failure(NetworkRequestError(statusCode: response.statusCode, 
+                                                    error: error.localizedDescription))
             }
         }
     }
