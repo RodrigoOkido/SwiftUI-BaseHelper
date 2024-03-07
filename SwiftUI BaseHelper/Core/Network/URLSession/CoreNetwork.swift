@@ -14,22 +14,42 @@ class CoreNetwork: CoreNetworkProtocol {
 
     // MARK: - Stored Properties
     private let requestBuilder = RequestBuilder()
+    let session = URLSession.shared
+
+    // MARK: - Computed Properties
+    var defaultInterceptors: [RequestInterceptor] {
+        [JSONInterceptor()]
+    }
 
     func request<T, Parameters, E>(endpoint: Endpoint,
                                    method: HTTPVerb,
                                    parameters: Parameters,
-                                   responseType: T.Type, errorType: E.Type) async -> RequestResponse<T, E> where T : Decodable, T : Encodable, Parameters : Encodable, E : Decodable, E : Encodable, E : Error {
-        return .failure(NetworkRequestError())
+                                   responseType: T.Type, 
+                                   errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, Parameters : Encodable, E : Codable, E : Error {
+
+        let result = await doRequest(endpoint: endpoint,
+                                     method: method,
+                                     parameters: parameters.asDictionary() ?? [:],
+                                     interceptors: defaultInterceptors)
+
+        switch result {
+        case .success(let response):
+            return serializeResponse(response: response,
+                                     responseType: responseType,
+                                     errorType: errorType)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func request<T, E>(endpoint: Endpoint, 
                        method: HTTPVerb,
                        responseType: T.Type,
-                       errorType: E.Type) async -> RequestResponse<T, E> where T : Decodable, T : Encodable, E : Decodable, E : Encodable, E : Error {
+                       errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
         return .failure(NetworkRequestError())
     }
     
-    func request<E>(endpoint: Endpoint, method: HTTPVerb, errorType: E.Type) async -> RequestEmptyResponse<E> where E : Decodable, E : Encodable, E : Error {
+    func request<E>(endpoint: Endpoint, method: HTTPVerb, errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
         return .failure(NetworkRequestError())
 
     }
@@ -37,8 +57,107 @@ class CoreNetwork: CoreNetworkProtocol {
     func request<Parameters, E>(endpoint: Endpoint, 
                                 method: HTTPVerb,
                                 parameters: Parameters,
-                                errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Decodable, E : Encodable, E : Error {
+                                errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Codable, E : Error {
         return .failure(NetworkRequestError())
 
+    }
+}
+
+// MARK: - Private Methods
+extension CoreNetwork {
+
+    private func doRequest(endpoint: Endpoint,
+                           method: HTTPVerb,
+                           parameters: [String: Any],
+                           interceptors: [RequestInterceptor]) async -> Result<RestResponse, NetworkRequestError> {
+
+        guard let urlRequest = await requestBuilder.makeRequest(host: environment.baseURL,
+                                                                path: endpoint.path,
+                                                                method: method,
+                                                                parameters: parameters,
+                                                                interceptors: interceptors) else {
+            return .failure(NetworkRequestError(statusCode: 500, error: "Internal Error Request"))
+        }
+
+        var dataTask: (data: Data, urlResponse: URLResponse)!
+
+        do {
+            dataTask = try await session.data(for: urlRequest)
+        } catch let error {
+            if let error = error as? URLError,
+                error.errorCode == NSURLErrorNotConnectedToInternet {
+                return .failure(NetworkRequestError(statusCode: 503, error: "Service Unavailable. No connection detected"))
+            } else {
+                return .failure(NetworkRequestError(statusCode: 500, error: "Internal Error Request"))
+            }
+        }
+
+        return .success(RestResponse(request: urlRequest,
+                                     dataTask: dataTask))
+    }
+
+    private func serializeResponse<T: Decodable,
+                                   E: Codable & Error>(response: RestResponse,
+                                                       responseType: T.Type,
+                                                       errorType: E.Type) -> RequestResponse<T, E> {
+#if DEBUG
+        NetworkLogger.log(response: response)
+#endif
+
+        let result = response.result(modelType: responseType, errorType: errorType)
+
+        switch result {
+        case .success(let response):
+            guard let typedResponse: T = response as? T else {
+                return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+            }
+            return .success(typedResponse)
+        case .failure(let error):
+
+            switch error {
+            case is E:
+                guard let typedError: E = error as? E else {
+                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                }
+                return .customError(typedError)
+            case is RequestError:
+                guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
+                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                }
+                return .failure(typedFailure)
+            default:
+                return .failure(NetworkRequestError(statusCode: response.statusCode, error: error.localizedDescription))
+            }
+        }
+    }
+
+    private func serializeResponse<E: Codable & Error>(response: RestResponse,
+                                                       errorType: E.Type) -> RequestEmptyResponse<E> {
+#if DEBUG
+        NetworkLogger.log(response: response)
+#endif
+
+        let result = response.result(errorType: errorType)
+
+        switch result {
+        case .success:
+            return .success
+        case .failure(let error):
+
+            switch error {
+            case is E:
+                guard let typedError: E = error as? E else {
+                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                }
+                return .customError(typedError)
+            case is RequestError:
+                guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
+                    return .failure(NetworkRequestError(statusCode: 400, error: "Could not map. Bad request"))
+                }
+                return .failure(typedFailure)
+            default:
+                return .failure(NetworkRequestError(statusCode: response.statusCode, error: error.localizedDescription))
+            }
+        }
     }
 }
