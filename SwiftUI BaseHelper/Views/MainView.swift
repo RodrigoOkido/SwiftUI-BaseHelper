@@ -11,7 +11,10 @@ struct MainView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-    
+
+    // MARK: - Stored Properties
+    let appDependencies = AppDependencies()
+
     var body: some View {
         TabView {
             NavigationStack {
@@ -40,6 +43,9 @@ struct MainView: View {
             }
         }
         .preferredColorScheme(isDarkMode ? .dark : .light)
+        .onAppear {
+            appDependencies.setup()
+        }
     }
 }
 

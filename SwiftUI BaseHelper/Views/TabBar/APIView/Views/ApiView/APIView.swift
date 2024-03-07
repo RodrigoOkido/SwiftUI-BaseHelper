@@ -15,8 +15,8 @@ struct APIView: View {
     private var viewModel: APIViewModel = APIViewModel()
     
     // MARK: - Property Wrappers
-    @State private var popularMovies: [Movie] = []
-    
+    @State private var popularMovies: [RemoteMovie] = []
+
     var body: some View {
         ScrollView {
             VStack {

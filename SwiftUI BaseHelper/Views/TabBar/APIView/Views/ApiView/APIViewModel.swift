@@ -9,13 +9,13 @@ import Foundation
 import UIKit
 
 struct Response: Codable {
-    var results: [Movie]
+    var results: [RemoteMovie]
 }
 
 class APIViewModel {
     
     // MARK: - Property Wrappers
-    @Published var popularMovies = [Movie]()
+    @Published var popularMovies = [RemoteMovie]()
     
     // MARK: - Private Functions
     private func getKeyValue(forKey key: String) -> String? {
@@ -31,7 +31,7 @@ class APIViewModel {
     }
     
     // MARK: - API Request
-    func requestPopularMovies() async throws -> [Movie]{
+    func requestPopularMovies() async throws -> [RemoteMovie]{
         guard let configURL = getKeyValue(forKey: "API_URL") else { return [] }
         guard let url = URL(string: "https://\(configURL)") else { return [] }
        

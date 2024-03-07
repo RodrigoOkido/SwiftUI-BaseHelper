@@ -1,10 +1,3 @@
-//
-//  Color+Extensions.swift
-//  SwiftUI BaseHelper
-//
-//  Created by Rodrigo Okido on 12/10/22.
-//
-
 import Foundation
 import SwiftUI
 

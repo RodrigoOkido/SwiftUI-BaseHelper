@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Codable, Hashable {
+struct Movie: Hashable {
     var poster_path: String?
     var overview: String
     var genre_ids: [Int]
