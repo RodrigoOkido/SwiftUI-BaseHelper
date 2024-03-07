@@ -115,8 +115,6 @@ struct ChartsView: View {
     }
 }
 
-struct GraphicsView_Previews: PreviewProvider {
-    static var previews: some View {
-        ChartsView()
-    }
+#Preview {
+    ChartsView()
 }

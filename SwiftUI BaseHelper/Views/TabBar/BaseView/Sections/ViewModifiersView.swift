@@ -72,8 +72,6 @@ struct ViewModifiersView: View {
     }
 }
 
-struct ViewModifiersView_Previews: PreviewProvider {
-    static var previews: some View {
-        ViewModifiersView()
-    }
+#Preview {
+    ViewModifiersView()
 }

@@ -35,8 +35,6 @@ struct LabelView: View {
     }
 }
 
-struct LabelView_Previews: PreviewProvider {
-    static var previews: some View {
-        LabelView()
-    }
+#Preview {
+    LabelView()
 }

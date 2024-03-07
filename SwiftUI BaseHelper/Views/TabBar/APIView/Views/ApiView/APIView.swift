@@ -65,8 +65,6 @@ struct APIView: View {
     }
 }
 
-struct APIView_Previews: PreviewProvider {
-    static var previews: some View {
-        APIView()
-    }
+#Preview {
+    APIView()
 }

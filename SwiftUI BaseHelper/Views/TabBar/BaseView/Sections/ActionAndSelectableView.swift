@@ -76,8 +76,7 @@ struct ActionAndSelectableView: View {
     }
 }
 
-struct ButtonView_Previews: PreviewProvider {
-    static var previews: some View {
-        ActionAndSelectableView(randomInt: 0, toggleStatus: true)
-    }
+#Preview {
+    ActionAndSelectableView(randomInt: 0,
+                            toggleStatus: true)
 }

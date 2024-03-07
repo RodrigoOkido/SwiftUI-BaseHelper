@@ -31,13 +31,19 @@ struct ResponseHandler {
 }
 
 public final class RequestErrorMapper {
+
     public static func map(_ input: NetworkRequestError) -> RequestError {
+        
         if input.isTokenError == true {
-            return RequestError(errorType: .tokenError, errorMessage: input.error)
+            return RequestError(errorType: .tokenError, 
+                                errorMessage: input.error)
         }
+
         guard let statusCode = input.statusCode else {
-            return RequestError(errorType: .undefined, errorMessage: input.error)
+            return RequestError(errorType: .undefined, 
+                                errorMessage: input.error)
         }
+        
         switch statusCode {
         case 500...599:
             return RequestError(errorType: .serverError, 
