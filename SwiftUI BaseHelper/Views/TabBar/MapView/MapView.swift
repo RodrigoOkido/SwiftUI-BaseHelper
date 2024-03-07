@@ -40,7 +40,10 @@ struct MapView: View {
             }
         }
         .alert(isPresented: $viewModel.permissionDenied) {
-            Alert(title: Text("Localization Denied"), message: Text("Please enable permission in App Settings."), dismissButton: .default(Text("Go to settings"), action: {
+            Alert(title: Text("Localization Denied"), 
+                  message: Text("Please enable permission in App Settings."),
+                  dismissButton: .default(Text("Go to settings"),
+                                          action: {
                 UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
             }))
         }
