@@ -46,7 +46,19 @@ class CoreNetwork: CoreNetworkProtocol {
                        method: HTTPVerb,
                        responseType: T.Type,
                        errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
-        return .failure(NetworkRequestError())
+        let result = await doRequest(endpoint: endpoint,
+                                     method: method,
+                                     parameters: [:],
+                                     interceptors: defaultInterceptors)
+
+        switch result {
+        case .success(let response):
+            return serializeResponse(response: response,
+                                     responseType: responseType,
+                                     errorType: errorType)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
     
     func request<E>(endpoint: Endpoint, 
