@@ -62,6 +62,7 @@
 		2B927CCA2B99EF85000EA840 /* ResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CC92B99EF85000EA840 /* ResponseHandler.swift */; };
 		2B927CCC2B99EFBF000EA840 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */; };
 		2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */; };
+		2B927CD52B9B70A9000EA840 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */; };
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
@@ -155,6 +156,7 @@
 		2B927CC92B99EF85000EA840 /* ResponseHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseHandler.swift; sourceTree = "<group>"; };
 		2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
 		2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerb.swift; sourceTree = "<group>"; };
+		2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B98C3622902CB85001BCBEC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2B98C3642902CB85001BCBEC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -238,11 +240,11 @@
 		2B59CFD628F77228000DE884 /* Core */ = {
 			isa = PBXGroup;
 			children = (
-				2B927C9F2B98B6A3000EA840 /* Dependencies */,
-				2B927C722B9898CB000EA840 /* Network */,
-				2B7AE53728F353E300B09959 /* Assets.xcassets */,
 				2B7AE54728F3581900B09959 /* Components */,
+				2B927C9F2B98B6A3000EA840 /* Dependencies */,
 				2BFF774928F3902500936E01 /* Extensions */,
+				2B927C722B9898CB000EA840 /* Network */,
+				2B927CD32B9B708B000EA840 /* Resources */,
 				2BFF776628F47DA100936E01 /* ViewModifiers */,
 			);
 			path = Core;
@@ -460,9 +462,9 @@
 		2B927CB52B98D692000EA840 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				2B927CC42B98FE5B000EA840 /* Mappers */,
 				2B927CC12B98FBFD000EA840 /* DTO */,
 				2B927CBE2B98DC3A000EA840 /* Endpoint */,
+				2B927CC42B98FE5B000EA840 /* Mappers */,
 				2B927CBA2B98D718000EA840 /* MovieDBRepository.swift */,
 			);
 			path = Data;
@@ -471,8 +473,8 @@
 		2B927CB62B98D6A9000EA840 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				2B927CB92B98D704000EA840 /* Protocols */,
 				2B59CFD328F76FCA000DE884 /* Model */,
+				2B927CB92B98D704000EA840 /* Protocols */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -525,6 +527,15 @@
 				2B927CC52B98FE73000EA840 /* MovieMapper.swift */,
 			);
 			path = Mappers;
+			sourceTree = "<group>";
+		};
+		2B927CD32B9B708B000EA840 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				2B7AE53728F353E300B09959 /* Assets.xcassets */,
+				2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		2B98C3612902CB85001BCBEC /* Frameworks */ = {
@@ -657,6 +668,7 @@
 			files = (
 				2B7AE53B28F353E300B09959 /* Preview Assets.xcassets in Resources */,
 				2B7AE53828F353E300B09959 /* Assets.xcassets in Resources */,
+				2B927CD52B9B70A9000EA840 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
