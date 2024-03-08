@@ -7,7 +7,7 @@ enum MovieDBEndpoint: Endpoint {
     var path: String {
         switch self {
         case .getMovies:
-            return "/v1/public/characters"
+            return "/3/movie/popular"
         }
     }
 }

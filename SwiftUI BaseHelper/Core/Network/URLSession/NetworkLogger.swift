@@ -16,7 +16,7 @@ struct NetworkLogger {
         log(body: response.request?.httpBody)
         log(httpResponse: response)
         log(headers: response.headers)
-        log(body: response.dataTask.data)
+        log(body: response.dataResponse.data)
         print("------------------------------")
     }
 

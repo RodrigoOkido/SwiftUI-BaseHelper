@@ -7,8 +7,8 @@ struct RestResponse {
     @Injected var decoder: JSONDecoder
 
     // MARK: - Properties
-    public let dataTask: (data: Data, urlResponse: URLResponse)
     public let request: URLRequest?
+    public let dataResponse: (data: Data, urlResponse: URLResponse)
 
     // MARK: - Computed Properties
     var isSuccessful: Bool {
@@ -22,9 +22,9 @@ struct RestResponse {
 
     // MARK: - Initialization
     public init(request: URLRequest?,
-                dataTask: (data: Data, urlResponse: URLResponse)) {
+                dataResponse: (data: Data, urlResponse: URLResponse)) {
         self.request = request
-        self.dataTask = dataTask
+        self.dataResponse = dataResponse
     }
 }
 
@@ -32,12 +32,12 @@ struct RestResponse {
 extension RestResponse {
 
     public var statusCode: Int {
-        guard let httpResponse = dataTask.urlResponse as? HTTPURLResponse else { return -1 }
+        guard let httpResponse = dataResponse.urlResponse as? HTTPURLResponse else { return -1 }
         return httpResponse.statusCode
     }
 
     public var headers: [AnyHashable: Any]? {
-        guard let httpResponse = dataTask.urlResponse as? HTTPURLResponse else { return nil }
+        guard let httpResponse = dataResponse.urlResponse as? HTTPURLResponse else { return nil }
         return httpResponse.allHeaderFields
     }
 }
@@ -67,7 +67,7 @@ extension RestResponse {
     private func successResult<T: Codable>(modelType: T.Type) -> Result<Codable, Error> {
 
         do {
-            let model = try decoder.decode(modelType, from: dataTask.data)
+            let model = try decoder.decode(modelType, from: dataResponse.data)
             return Result.success(model)
         } catch let error {
 #if DEBUG
@@ -79,7 +79,7 @@ extension RestResponse {
     }
 
     private func getRequestError<E: Codable & Error>(errorType: E.Type) -> Error {
-        if let error = try? decoder.decode(errorType, from: dataTask.data) {
+        if let error = try? decoder.decode(errorType, from: dataResponse.data) {
             return error
         } else {
             return defaultError

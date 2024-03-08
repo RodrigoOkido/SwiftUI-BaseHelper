@@ -13,12 +13,18 @@ class CoreNetwork: CoreNetworkProtocol {
     @Injected var environment: EnvironmentProtocol
 
     // MARK: - Stored Properties
-    private let requestBuilder = RequestBuilder()
-    let session = URLSession.shared
+    private let requestBuilder: RequestBuilder
+    private let session: URLSession
 
     // MARK: - Computed Properties
     var defaultInterceptors: [RequestInterceptor] {
         [JSONInterceptor()]
+    }
+
+    init(requestBuilder: RequestBuilder = RequestBuilder(),
+         session: URLSession = URLSession.shared) {
+        self.requestBuilder = requestBuilder
+        self.session = session
     }
 
     func request<T, Parameters, E>(endpoint: Endpoint,
@@ -106,6 +112,7 @@ extension CoreNetwork {
                            parameters: [String: Any],
                            interceptors: [RequestInterceptor]) async -> Result<RestResponse, NetworkRequestError> {
 
+        // URL build
         guard let urlRequest = await requestBuilder.makeRequest(host: environment.baseURL,
                                                                 path: endpoint.path,
                                                                 method: method,
@@ -115,10 +122,11 @@ extension CoreNetwork {
                                                 error: "Internal Error Request"))
         }
 
-        var dataTask: (data: Data, urlResponse: URLResponse)!
+        var dataResponse: (data: Data, urlResponse: URLResponse)
 
+        // Fetch request
         do {
-            dataTask = try await session.data(for: urlRequest)
+            dataResponse = try await session.data(for: urlRequest)
         } catch let error {
             if let error = error as? URLError,
                 error.errorCode == NSURLErrorNotConnectedToInternet {
@@ -131,7 +139,7 @@ extension CoreNetwork {
         }
 
         return .success(RestResponse(request: urlRequest,
-                                     dataTask: dataTask))
+                                     dataResponse: dataResponse))
     }
 
     private func serializeResponse<T: Decodable,

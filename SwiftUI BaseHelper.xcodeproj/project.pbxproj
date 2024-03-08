@@ -63,6 +63,7 @@
 		2B927CCC2B99EFBF000EA840 /* NetworkRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */; };
 		2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */; };
 		2B927CD52B9B70A9000EA840 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */; };
+		2B927CD82B9B9C4E000EA840 /* MovieDBDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD72B9B9C4E000EA840 /* MovieDBDependencies.swift */; };
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
@@ -157,6 +158,7 @@
 		2B927CCB2B99EFBF000EA840 /* NetworkRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRequestError.swift; sourceTree = "<group>"; };
 		2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerb.swift; sourceTree = "<group>"; };
 		2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		2B927CD72B9B9C4E000EA840 /* MovieDBDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBDependencies.swift; sourceTree = "<group>"; };
 		2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B98C3622902CB85001BCBEC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2B98C3642902CB85001BCBEC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -352,6 +354,8 @@
 		2B927C722B9898CB000EA840 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				2B927CD62B9B9C2F000EA840 /* Dependencies */,
+				2B927CBE2B98DC3A000EA840 /* Endpoints */,
 				2B927C732B9898CB000EA840 /* URLSession */,
 				2B927CC72B98FF67000EA840 /* ModelMapper.swift */,
 				2B927CC92B99EF85000EA840 /* ResponseHandler.swift */,
@@ -463,7 +467,6 @@
 			isa = PBXGroup;
 			children = (
 				2B927CC12B98FBFD000EA840 /* DTO */,
-				2B927CBE2B98DC3A000EA840 /* Endpoint */,
 				2B927CC42B98FE5B000EA840 /* Mappers */,
 				2B927CBA2B98D718000EA840 /* MovieDBRepository.swift */,
 			);
@@ -505,12 +508,12 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
-		2B927CBE2B98DC3A000EA840 /* Endpoint */ = {
+		2B927CBE2B98DC3A000EA840 /* Endpoints */ = {
 			isa = PBXGroup;
 			children = (
 				2B927CBF2B98DC49000EA840 /* MovieDBEndpoint.swift */,
 			);
-			path = Endpoint;
+			path = Endpoints;
 			sourceTree = "<group>";
 		};
 		2B927CC12B98FBFD000EA840 /* DTO */ = {
@@ -536,6 +539,14 @@
 				2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		2B927CD62B9B9C2F000EA840 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				2B927CD72B9B9C4E000EA840 /* MovieDBDependencies.swift */,
+			);
+			path = Dependencies;
 			sourceTree = "<group>";
 		};
 		2B98C3612902CB85001BCBEC /* Frameworks */ = {
@@ -718,6 +729,7 @@
 				2B927C8B2B9898CB000EA840 /* CoreNetworkProtocol.swift in Sources */,
 				2B927C8D2B9898CB000EA840 /* JSONInterceptor.swift in Sources */,
 				2B7AE55528F35E3800B09959 /* ViewModifiersView.swift in Sources */,
+				2B927CD82B9B9C4E000EA840 /* MovieDBDependencies.swift in Sources */,
 				2B927CBB2B98D718000EA840 /* MovieDBRepository.swift in Sources */,
 				2B927CA12B98B6B2000EA840 /* DependencyFactoryWrappers.swift in Sources */,
 				2B927CB12B98D21D000EA840 /* NetworkDependencies.swift in Sources */,

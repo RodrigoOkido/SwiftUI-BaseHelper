@@ -8,5 +8,9 @@
 	<string>$(API_URL)</string>
 	<key>API_URL_POSTER_IMAGE</key>
 	<string>$(API_URL_POSTER_IMAGE)</string>
+	<key>BASE_URL</key>
+	<string>$(BASE_URL)</string>
+	<key>HTTP_SCHEME</key>
+	<string>$(HTTP_SCHEME)</string>
 </dict>
 </plist>
