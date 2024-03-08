@@ -64,6 +64,7 @@
 		2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */; };
 		2B927CD52B9B70A9000EA840 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */; };
 		2B927CD82B9B9C4E000EA840 /* MovieDBDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD72B9B9C4E000EA840 /* MovieDBDependencies.swift */; };
+		2B927CDA2B9BAD48000EA840 /* MovieDBInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CD92B9BAD48000EA840 /* MovieDBInterceptor.swift */; };
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
@@ -159,6 +160,7 @@
 		2B927CD02B9A15DE000EA840 /* HTTPVerb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPVerb.swift; sourceTree = "<group>"; };
 		2B927CD42B9B70A9000EA840 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2B927CD72B9B9C4E000EA840 /* MovieDBDependencies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBDependencies.swift; sourceTree = "<group>"; };
+		2B927CD92B9BAD48000EA840 /* MovieDBInterceptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBInterceptor.swift; sourceTree = "<group>"; };
 		2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = SimpleLockScreenWidgetExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B98C3622902CB85001BCBEC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2B98C3642902CB85001BCBEC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
@@ -392,6 +394,7 @@
 			children = (
 				2B927C772B9898CB000EA840 /* RequestInterceptor.swift */,
 				2B927C782B9898CB000EA840 /* JSONInterceptor.swift */,
+				2B927CD92B9BAD48000EA840 /* MovieDBInterceptor.swift */,
 			);
 			path = Interceptors;
 			sourceTree = "<group>";
@@ -745,6 +748,7 @@
 				2B164B2028F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift in Sources */,
 				2B927CB42B98D370000EA840 /* AppDependencies.swift in Sources */,
 				2B927C9A2B9898CB000EA840 /* Endpoint.swift in Sources */,
+				2B927CDA2B9BAD48000EA840 /* MovieDBInterceptor.swift in Sources */,
 				2B7AE54D28F3598500B09959 /* LabelView.swift in Sources */,
 				2B7AE55328F35E2900B09959 /* ChartsView.swift in Sources */,
 				2B927CC82B98FF67000EA840 /* ModelMapper.swift in Sources */,

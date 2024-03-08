@@ -29,14 +29,15 @@ class CoreNetwork: CoreNetworkProtocol {
 
     func request<T, Parameters, E>(endpoint: Endpoint,
                                    method: HTTPVerb,
+                                   interceptors: [RequestInterceptor],
                                    parameters: Parameters,
-                                   responseType: T.Type, 
+                                   responseType: T.Type,
                                    errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, Parameters : Encodable, E : Codable, E : Error {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: parameters.asDictionary() ?? [:],
-                                     interceptors: defaultInterceptors)
+                                     interceptors: defaultInterceptors + interceptors)
 
         switch result {
         case .success(let response):
@@ -50,12 +51,13 @@ class CoreNetwork: CoreNetworkProtocol {
     
     func request<T, E>(endpoint: Endpoint, 
                        method: HTTPVerb,
+                       interceptors: [RequestInterceptor],
                        responseType: T.Type,
                        errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: [:],
-                                     interceptors: defaultInterceptors)
+                                     interceptors: defaultInterceptors + interceptors)
 
         switch result {
         case .success(let response):
@@ -69,11 +71,12 @@ class CoreNetwork: CoreNetworkProtocol {
     
     func request<E>(endpoint: Endpoint, 
                     method: HTTPVerb,
+                    interceptors: [RequestInterceptor],
                     errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: [:],
-                                     interceptors: defaultInterceptors)
+                                     interceptors: defaultInterceptors + interceptors)
 
         switch result {
         case .success(let response):
@@ -86,13 +89,14 @@ class CoreNetwork: CoreNetworkProtocol {
     
     func request<Parameters, E>(endpoint: Endpoint, 
                                 method: HTTPVerb,
+                                interceptors: [RequestInterceptor],
                                 parameters: Parameters,
                                 errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Codable, E : Error {
        
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: parameters.asDictionary() ?? [:],
-                                     interceptors: defaultInterceptors)
+                                     interceptors: defaultInterceptors + interceptors)
 
         switch result {
         case .success(let response):

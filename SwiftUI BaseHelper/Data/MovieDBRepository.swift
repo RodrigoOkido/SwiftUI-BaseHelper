@@ -16,6 +16,7 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
         
         let requestResponse = await network.request(endpoint: MovieDBEndpoint.getMovies,
                                                     method: .GET,
+                                                    interceptors: [MovieDBInterceptor()],
                                                     responseType: [RemoteMovie].self,
                                                     errorType:  NetworkRequestError.self)
         return ResponseHandler.handle(mapper: MovieMapper(), response: requestResponse)

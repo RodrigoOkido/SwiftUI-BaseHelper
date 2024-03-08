@@ -13,6 +13,10 @@ class BaseEnvironment: EnvironmentProtocol {
         return scheme.appending("://").appending(url)
     }
 
+    var apiKey: String {
+        return infoDictionary["API_KEY"] as? String ?? ""
+    }
+
     var publicKey: String {
         return infoDictionary["PUBLIC_KEY"] as? String ?? ""
     }

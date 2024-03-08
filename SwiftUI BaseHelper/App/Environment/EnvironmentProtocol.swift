@@ -11,6 +11,7 @@ protocol EnvironmentProtocol: AnyObject {
 
     var infoDictionary: [String: Any] { get }
     var baseURL: String { get }
+    var apiKey: String { get }
     var publicKey: String { get }
     var privateKey: String { get }
 }
