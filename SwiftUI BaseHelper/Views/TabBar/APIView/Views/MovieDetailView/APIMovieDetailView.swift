@@ -13,7 +13,7 @@ struct APIMovieDetailView: View {
     var viewModel: APIDetailMovieViewModel = APIDetailMovieViewModel()
     
     // MARK: - Stored properties
-    var movie: RemoteMovie
+    var movie: Movie
     
     var body: some View {
         ScrollView {

@@ -12,13 +12,14 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
     // MARK: - Dependencies
     @Injected var network: CoreNetworkProtocol
 
-    func getMovies() async -> Result<[RemoteMovie], RequestError> {
+    func getMovies() async -> Result<[Movie], RequestError> {
         
         let requestResponse = await network.request(endpoint: MovieDBEndpoint.getMovies,
                                                     method: .GET,
                                                     interceptors: [MovieDBInterceptor()],
-                                                    responseType: [RemoteMovie].self,
+                                                    responseType: RemoteMovies.self,
                                                     errorType:  NetworkRequestError.self)
-        return ResponseHandler.handle(mapper: MovieMapper(), response: requestResponse)
+
+        return ResponseHandler.handle(mapper: MoviesMapper(), response: requestResponse)
     }
 }

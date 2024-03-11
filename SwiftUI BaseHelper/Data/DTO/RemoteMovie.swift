@@ -1,11 +1,20 @@
 //
-//  MovieDTO.swift
+//  RemoteMovie.swift
 //  SwiftUI BaseHelper
 //
 //  Created by Rodrigo Okido on 06/03/24.
 //
 
 import Foundation
+
+public struct RemoteMovies: Codable {
+
+    var results: [RemoteMovie]
+
+    public init(results: [RemoteMovie]) {
+        self.results = results
+    }
+}
 
 public struct RemoteMovie: Codable, Hashable {
 

@@ -41,7 +41,7 @@ extension MovieDBInterceptor {
 
         var urlRequest = urlRequest
 
-        let queryItems = queryBuilder.build(parameters: apiKey)
+        let queryItems = queryBuilder.build(parameters: ["api_key": apiKey])
         urlComponents.queryItems?.append(contentsOf: queryItems)
 
         urlRequest.url = urlComponents.url

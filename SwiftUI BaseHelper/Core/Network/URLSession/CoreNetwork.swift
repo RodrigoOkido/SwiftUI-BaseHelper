@@ -54,6 +54,7 @@ class CoreNetwork: CoreNetworkProtocol {
                        interceptors: [RequestInterceptor],
                        responseType: T.Type,
                        errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
+        
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: [:],

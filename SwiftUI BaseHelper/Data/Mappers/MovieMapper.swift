@@ -1,7 +1,7 @@
 import Foundation
 
 public struct MovieMapper: ModelMapper {
-    public typealias T = RemoteMovie
+    public typealias T = Movie
 
     public static func map<T>(_ input: some Codable) throws -> T {
         guard let input: RemoteMovie = input as? RemoteMovie else {
@@ -28,12 +28,13 @@ public struct MoviesMapper: ModelMapper {
     public typealias T = [RemoteMovie]
 
     public static func map<T>(_ input: some Codable) throws -> T {
-        guard let input: [RemoteMovie] = input as? [RemoteMovie] else {
-            throw RequestError(errorType: .couldNotMap, 
+        guard let apiInput: RemoteMovies = input as? RemoteMovies,
+              let input: [RemoteMovie] = apiInput.results as? [RemoteMovie] else {
+            throw RequestError(errorType: .couldNotMap,
                                errorMessage: "Could not map")
         }
 
-        let items: [RemoteMovie] = try input.map {
+        let items: [Movie] = try input.map {
             return try MovieMapper.map($0)
         }
         guard let result = items as? T else {
