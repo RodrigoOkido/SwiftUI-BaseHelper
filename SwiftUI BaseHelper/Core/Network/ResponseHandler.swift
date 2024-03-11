@@ -9,10 +9,8 @@ import Foundation
 
 struct ResponseHandler {
 
-    static func handle<T>(
-        mapper: some ModelMapper,
-        response: RequestResponse<some Codable, NetworkRequestError>) -> Result<T,RequestError>
-     {
+    static func handle<T>(mapper: some ModelMapper,
+                          response: RequestResponse<some Codable, NetworkRequestError>) -> Result<T, RequestError> {
         switch response {
         case .success(let items):
             do {
@@ -22,9 +20,7 @@ struct ResponseHandler {
                 return .failure(RequestError(errorType: .couldNotMap,
                                                  errorMessage: "Could not map"))
             }
-        case .failure(let error):
-            return .failure(RequestErrorMapper.map(error))
-        case .customError(let error):
+        case .failure(let error), .customError(let error):
             return .failure(RequestErrorMapper.map(error))
         }
     }

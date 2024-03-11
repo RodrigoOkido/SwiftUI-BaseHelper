@@ -13,11 +13,9 @@ public struct NetworkRequestError: Codable, Error {
     public var error: String?
     public var isTokenError: Bool? = false
 
-    public init(
-        statusCode: Int? = nil,
-        error: String? = nil,
-        isTokenError: Bool? = nil
-    ) {
+    public init(statusCode: Int? = nil,
+                error: String? = nil,
+                isTokenError: Bool? = nil) {
         self.statusCode = statusCode
         self.error = error
         self.isTokenError = isTokenError

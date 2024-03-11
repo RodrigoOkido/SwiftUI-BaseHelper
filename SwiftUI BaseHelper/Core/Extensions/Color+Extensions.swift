@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 
 enum CustomColor {
+    
     case customBlue
     case customRed
     case customPurple

@@ -9,6 +9,7 @@ import SwiftUI
 
 @main
 struct SwiftUI_BaseHelperApp: App {
+    
     var body: some Scene {
         WindowGroup {
             MainView()
