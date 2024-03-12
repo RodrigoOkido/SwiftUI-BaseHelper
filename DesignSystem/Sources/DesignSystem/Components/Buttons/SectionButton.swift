@@ -7,13 +7,18 @@
 
 import SwiftUI
 
-struct SectionButton: View {
-    
+public struct SectionButton: View {
+
     // MARK: - Stored Properties
     var sectionTitle: String
     var destinationView: AnyView
     
-    var body: some View {
+    public init(sectionTitle: String, destinationView: AnyView) {
+        self.sectionTitle = sectionTitle
+        self.destinationView = destinationView
+    }
+
+    public var body: some View {
         NavigationLink {
             destinationView
         } label: {
