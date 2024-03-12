@@ -8,6 +8,7 @@
 import Foundation
 
 public enum RequestErrorType: Error, Equatable {
+    
     case tokenError
     case badRequest
     case unauthorized
