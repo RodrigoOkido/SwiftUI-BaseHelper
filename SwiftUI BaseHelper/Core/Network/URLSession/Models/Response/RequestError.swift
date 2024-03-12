@@ -21,6 +21,7 @@ public enum RequestErrorType: Error, Equatable {
 }
 
 public class RequestError: Error, Equatable {
+    
     public static func == (lhs: RequestError, rhs: RequestError) -> Bool {
         lhs.errorType == rhs.errorType
     }

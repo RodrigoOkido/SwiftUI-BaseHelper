@@ -60,7 +60,8 @@ extension RequestBuilder {
             request.httpBody = bodyBuilder.build(parameters: parameters)
         }
 
-        request = await interceptorBuilder.adapt(urlRequest: request, interceptors: interceptors)
+        request = await interceptorBuilder.adapt(urlRequest: request, 
+                                                 interceptors: interceptors)
 
         return request
     }

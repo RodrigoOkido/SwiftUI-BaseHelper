@@ -17,7 +17,7 @@ struct RestResponse {
 
     var defaultError: Error {
         return RequestError(errorType: .undefined,
-                            errorMessage: "network.error.default".localized)
+                            errorMessage: "Error to process the request")
     }
 
     // MARK: - Initialization
@@ -58,23 +58,17 @@ extension RestResponse {
                        E: Codable & Error>(modelType: T.Type, errorType: E.Type) -> Result<Codable, Error> {
 
         if isSuccessful {
-            return successResult(modelType: modelType)
+            do {
+                let model = try decoder.decode(modelType, from: dataResponse.data)
+                return Result.success(model)
+            } catch let error {
+#if DEBUG
+                NetworkLogger.log(error: error as? DecodingError)
+#endif
+                return Result.failure(defaultError)
+            }
         } else {
             return Result.failure(getRequestError(errorType: errorType))
-        }
-    }
-
-    private func successResult<T: Codable>(modelType: T.Type) -> Result<Codable, Error> {
-
-        do {
-            let model = try decoder.decode(modelType, from: dataResponse.data)
-            return Result.success(model)
-        } catch let error {
-#if DEBUG
-            NetworkLogger.log(error: error as? DecodingError)
-#endif
-            return Result.failure(RequestError(errorType: .undefined,
-                                               errorMessage: "network.error.default".localized))
         }
     }
 

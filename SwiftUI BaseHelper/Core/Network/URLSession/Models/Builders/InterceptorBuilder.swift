@@ -2,7 +2,8 @@ import Foundation
 
 class InterceptorBuilder {
 
-    func adapt(urlRequest: URLRequest, interceptors: [RequestInterceptor]) async -> URLRequest {
+    func adapt(urlRequest: URLRequest, 
+               interceptors: [RequestInterceptor]) async -> URLRequest {
 
         var urlRequest = urlRequest
 

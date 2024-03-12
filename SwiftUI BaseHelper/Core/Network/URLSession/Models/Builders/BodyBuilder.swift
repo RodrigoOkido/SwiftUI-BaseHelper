@@ -8,6 +8,7 @@ class BodyBuilder {
     }
 
     func build(parameters: [String: Any]) -> Data? {
-        return try? JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+        return try? JSONSerialization.data(withJSONObject: parameters, 
+                                           options: .prettyPrinted)
     }
 }
