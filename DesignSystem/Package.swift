@@ -5,6 +5,7 @@ import PackageDescription
 
 let package = Package(
     name: "DesignSystem",
+    defaultLocalization: "en",
     platforms: [
             .iOS(.v17)
         ],
@@ -14,12 +15,24 @@ let package = Package(
             name: "DesignSystem",
             targets: ["DesignSystem"]),
     ],
+    // If dependencies is needed
+//    dependencies: [
+//        .package(url: "https://github.com/airbnb/lottie-spm.git", .upToNextMinor(from: "4.2.0")),
+//        .package(url: "https://github.com/onevcat/Kingfisher.git", .upToNextMinor(from: "7.9.1")),
+//        .package(name: "MyCustomPackage", path: "../../MyCustomPackagePath")
+//    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "DesignSystem"),
-            //resources: [.process("Resources/Fonts")], -- If custom fonts available
+            // If dependencies or resources needed. Its added inside .target
+//            dependencies: [
+//                .product(name: "Lottie", package: "lottie-spm"),
+//                .product(name: "Kingfisher", package: "Kingfisher"),
+//                .product(name: "KanguroSharedDomain", package: "KanguroSharedDomain")
+//            ],
+//            resources: [.process("Resources/Fonts")], -- If custom fonts available
         .testTarget(
             name: "DesignSystemTests",
             dependencies: ["DesignSystem"]),
