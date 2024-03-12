@@ -18,7 +18,7 @@ struct ResponseHandler {
                 return .success(domainItems)
             } catch {
                 return .failure(RequestError(errorType: .couldNotMap,
-                                                 errorMessage: "Could not map"))
+                                             errorMessage: "Could not map"))
             }
         case .failure(let error), .customError(let error):
             return .failure(RequestErrorMapper.map(error))
@@ -45,10 +45,13 @@ public final class RequestErrorMapper {
             return RequestError(errorType: .serverError, 
                                 errorMessage: input.error)
         case 400:
-            return RequestError(errorType: .invalidRequest, 
+            return RequestError(errorType: .badRequest, 
                                 errorMessage: input.error)
         case 401:
-            return RequestError(errorType: .notAllowed, 
+            return RequestError(errorType: .unauthorized, 
+                                errorMessage: input.error)
+        case 403:
+            return RequestError(errorType: .forbidden,
                                 errorMessage: input.error)
         case 404:
             return RequestError(errorType: .notFound, 

@@ -9,15 +9,15 @@ import Foundation
 
 public enum RequestErrorType: Error, Equatable {
     case tokenError
-    case notAllowed
-    case timeout
+    case badRequest
+    case unauthorized
+    case forbidden
     case notFound
+    case timeout
+    case conflict
     case serverError
     case couldNotMap
-    case invalidRequest
     case undefined
-    case forbidden
-    case conflict
 }
 
 public class RequestError: Error, Equatable {

@@ -136,7 +136,7 @@ extension CoreNetwork {
         } catch let error {
             if let error = error as? URLError,
                 error.errorCode == NSURLErrorNotConnectedToInternet {
-                return .failure(NetworkRequestError(statusCode: 503, 
+                return .failure(NetworkRequestError(statusCode: 400, 
                                                     error: "Service Unavailable. No connection detected"))
             } else {
                 return .failure(NetworkRequestError(statusCode: 500, 
@@ -166,24 +166,9 @@ extension CoreNetwork {
             }
             return .success(typedResponse)
         case .failure(let error):
-
-            switch error {
-            case is E:
-                guard let typedError: E = error as? E else {
-                    return .failure(NetworkRequestError(statusCode: 400, 
-                                                        error: "Could not map. Bad request"))
-                }
-                return .customError(typedError)
-            case is RequestError:
-                guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
-                    return .failure(NetworkRequestError(statusCode: 400, 
-                                                        error: "Could not map. Bad request"))
-                }
-                return .failure(typedFailure)
-            default:
-                return .failure(NetworkRequestError(statusCode: response.statusCode, 
-                                                    error: error.localizedDescription))
-            }
+            return .failure(NetworkRequestError(statusCode: response.statusCode,
+                                                error: error.localizedDescription, 
+                                                isTokenError: response.statusCode == 401))
         }
     }
 
@@ -199,24 +184,9 @@ extension CoreNetwork {
         case .success:
             return .success
         case .failure(let error):
-
-            switch error {
-            case is E:
-                guard let typedError: E = error as? E else {
-                    return .failure(NetworkRequestError(statusCode: 400, 
-                                                        error: "Could not map. Bad request"))
-                }
-                return .customError(typedError)
-            case is RequestError:
-                guard let typedFailure: NetworkRequestError = error as? NetworkRequestError else {
-                    return .failure(NetworkRequestError(statusCode: 400, 
-                                                        error: "Could not map. Bad request"))
-                }
-                return .failure(typedFailure)
-            default:
-                return .failure(NetworkRequestError(statusCode: response.statusCode, 
-                                                    error: error.localizedDescription))
-            }
+            return .failure(NetworkRequestError(statusCode: response.statusCode,
+                                                error: error.localizedDescription,
+                                                isTokenError: response.statusCode == 401))
         }
     }
 }
