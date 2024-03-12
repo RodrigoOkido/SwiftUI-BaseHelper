@@ -74,6 +74,7 @@ class CoreNetwork: CoreNetworkProtocol {
                     method: HTTPVerb,
                     interceptors: [RequestInterceptor],
                     errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
+
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: [:],

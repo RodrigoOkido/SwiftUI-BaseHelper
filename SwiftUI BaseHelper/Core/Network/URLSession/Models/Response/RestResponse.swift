@@ -11,7 +11,7 @@ struct RestResponse {
     public let dataResponse: (data: Data, urlResponse: URLResponse)
 
     // MARK: - Computed Properties
-    var isSuccessful: Bool {
+    var isRequestSucceeded: Bool {
         statusCode >= 200 && statusCode < 300
     }
 
@@ -47,7 +47,7 @@ extension RestResponse {
 
     public func result<E: Codable & Error>(errorType: E.Type) -> Result<String, Error> {
 
-        if isSuccessful {
+        if isRequestSucceeded {
             return Result.success("")
         } else {
             return Result.failure(getRequestError(errorType: errorType))
@@ -57,7 +57,7 @@ extension RestResponse {
     public func result<T: Codable,
                        E: Codable & Error>(modelType: T.Type, errorType: E.Type) -> Result<Codable, Error> {
 
-        if isSuccessful {
+        if isRequestSucceeded {
             do {
                 let model = try decoder.decode(modelType, from: dataResponse.data)
                 return Result.success(model)
@@ -65,7 +65,7 @@ extension RestResponse {
 #if DEBUG
                 NetworkLogger.log(error: error as? DecodingError)
 #endif
-                return Result.failure(defaultError)
+                return Result.failure(error)
             }
         } else {
             return Result.failure(getRequestError(errorType: errorType))

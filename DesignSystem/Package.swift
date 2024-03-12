@@ -30,7 +30,7 @@ let package = Package(
 //            dependencies: [
 //                .product(name: "Lottie", package: "lottie-spm"),
 //                .product(name: "Kingfisher", package: "Kingfisher"),
-//                .product(name: "KanguroSharedDomain", package: "KanguroSharedDomain")
+//                .product(name: "MyCustomPackage", package: "MyCustomPackage")
 //            ],
             resources: [.process("Resources")]),
         .testTarget(
