@@ -23,6 +23,13 @@ Here you can find:
 - MapKit & Core Location
 - SwiftUI Preview Macros (iOS 17)
 
+Other Contents:
+- Dependency Injection
+- Repositories
+- Network Layer
+- Custom Fonts
+- Unit tests (TODO)
+
 ## Minimum Requirements to run
 In order to run this project properly, its important to have your XCode and iOS versions updated. Its recommended to have the following:
 - Xcode 15.2
