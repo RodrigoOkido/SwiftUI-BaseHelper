@@ -1,0 +1,250 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+
+    },
+    "Actions & Pickers" : {
+
+    },
+    "API" : {
+
+    },
+    "Appearance" : {
+
+    },
+    "Area Mark" : {
+
+    },
+    "Average Score: %@" : {
+
+    },
+    "Bar mark" : {
+
+    },
+    "Bar mark with Rule Mark" : {
+
+    },
+    "Base Components" : {
+
+    },
+    "Charts" : {
+
+    },
+    "Components" : {
+
+    },
+    "Custom button" : {
+
+    },
+    "Custom button 2" : {
+
+    },
+    "Custom button 3" : {
+
+    },
+    "Dark Mode" : {
+
+    },
+    "Dismiss me!" : {
+
+    },
+    "Error" : {
+
+    },
+    "Favorite Color" : {
+
+    },
+    "Favorite Color:" : {
+
+    },
+    "First Name" : {
+
+    },
+    "First Name:" : {
+
+    },
+    "Generate Number" : {
+
+    },
+    "Github Profile" : {
+
+    },
+    "Go to settings" : {
+
+    },
+    "Haptics" : {
+
+    },
+    "Heavy" : {
+
+    },
+    "Hello i am a modified text!" : {
+
+    },
+    "Hello i am a normal text!" : {
+
+    },
+    "Hello i am another modified text!" : {
+
+    },
+    "Hello i am one more modified text!" : {
+
+    },
+    "Hello! I am a bottom sheet view!" : {
+
+    },
+    "I am a 'caption' label!" : {
+
+    },
+    "I am a 'caption2' label!" : {
+
+    },
+    "I am a 'footnote' label!" : {
+
+    },
+    "I am a 'headline' label!" : {
+
+    },
+    "I am a 'largeTitle' label!" : {
+
+    },
+    "I am a 'subheadline' label!" : {
+
+    },
+    "I am a 'title' label!" : {
+
+    },
+    "I am a 'title2' label!" : {
+
+    },
+    "I am a 'title3' label!" : {
+
+    },
+    "Impact Feedback types" : {
+
+    },
+    "Income" : {
+
+    },
+    "Label" : {
+
+    },
+    "Last Name" : {
+
+    },
+    "Last Name:" : {
+
+    },
+    "Light" : {
+
+    },
+    "Line Mark with Point Mark" : {
+
+    },
+    "Linkedin Profile" : {
+
+    },
+    "Localization Denied" : {
+
+    },
+    "Map" : {
+
+    },
+    "Medium" : {
+
+    },
+    "Middle Name" : {
+
+    },
+    "Middle Name:" : {
+
+    },
+    "Minimum ideal income" : {
+
+    },
+    "Modified Textfield" : {
+
+    },
+    "Month" : {
+
+    },
+    "Month Color" : {
+
+    },
+    "Normal Button" : {
+
+    },
+    "Notification Feedback types" : {
+
+    },
+    "Output: Hello %@ %@ %@!" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Output: Hello %1$@ %2$@ %3$@!"
+          }
+        }
+      }
+    },
+    "Please enable permission in App Settings." : {
+
+    },
+    "Popular Movies" : {
+
+    },
+    "Rectangle Mark" : {
+
+    },
+    "Rigid" : {
+
+    },
+    "Select a date:" : {
+
+    },
+    "Settings" : {
+
+    },
+    "Show Sheet" : {
+
+    },
+    "Social" : {
+
+    },
+    "Soft" : {
+
+    },
+    "Success" : {
+
+    },
+    "Textfield" : {
+
+    },
+    "Toggle" : {
+
+    },
+    "Toggle on" : {
+
+    },
+    "Total" : {
+
+    },
+    "Type something" : {
+
+    },
+    "View Modifiers" : {
+
+    },
+    "Vote average:" : {
+
+    },
+    "Warning" : {
+
+    },
+    "Your Location?" : {
+
+    }
+  },
+  "version" : "1.0"
+}

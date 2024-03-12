@@ -25,14 +25,14 @@ let package = Package(
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "DesignSystem"),
+            name: "DesignSystem",
             // If dependencies or resources needed. Its added inside .target
 //            dependencies: [
 //                .product(name: "Lottie", package: "lottie-spm"),
 //                .product(name: "Kingfisher", package: "Kingfisher"),
 //                .product(name: "KanguroSharedDomain", package: "KanguroSharedDomain")
 //            ],
-//            resources: [.process("Resources/Fonts")], -- If custom fonts available
+            resources: [.process("Resources")]),
         .testTarget(
             name: "DesignSystemTests",
             dependencies: ["DesignSystem"]),
