@@ -28,6 +28,17 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "2B8E90292BA0EC600079F8B2"
+               BuildableName = "SwiftUI BaseHelperTests.xctest"
+               BlueprintName = "SwiftUI BaseHelperTests"
+               ReferencedContainer = "container:SwiftUI BaseHelper.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
