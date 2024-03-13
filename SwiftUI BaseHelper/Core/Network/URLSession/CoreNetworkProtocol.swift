@@ -1,6 +1,6 @@
 import Foundation
 
-protocol CoreNetworkProtocol: AnyObject {
+public protocol CoreNetworkProtocol: AnyObject {
 
     // MARK: - Request with Parameters
     func request<T: Decodable,

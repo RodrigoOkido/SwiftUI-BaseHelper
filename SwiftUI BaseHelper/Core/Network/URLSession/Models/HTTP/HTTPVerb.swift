@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum HTTPVerb: String {
+public enum HTTPVerb: String {
 
     case DELETE
     case GET

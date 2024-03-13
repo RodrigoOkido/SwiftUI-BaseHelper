@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Endpoint {
+public protocol Endpoint {
 
     var path: String { get }
 }

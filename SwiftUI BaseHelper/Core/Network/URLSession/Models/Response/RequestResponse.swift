@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum RequestResponse<D: Codable, E: Codable & Error> {
+public enum RequestResponse<D: Codable, E: Codable & Error> {
 
     case success(D)
     case customError(E)

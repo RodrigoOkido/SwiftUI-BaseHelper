@@ -9,8 +9,12 @@ import Foundation
 
 public class MovieDBRepository: MovieDBRepositoryProtocol {
 
-    // MARK: - Dependencies
-    @Injected var network: CoreNetworkProtocol
+    // MARK: - Stored Properties
+    private let network: CoreNetworkProtocol
+
+    public init(network: CoreNetworkProtocol) {
+        self.network = network
+    }
 
     func getMovies() async -> Result<[Movie], RequestError> {
         
