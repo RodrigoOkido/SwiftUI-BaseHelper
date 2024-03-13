@@ -11,45 +11,57 @@ import XCTest
 final class MovieDBRepositoryTests: XCTestCase {
 
     func testInitShouldNotCallNetwork() {
+        
         let (network, _) = makeSUT()
-//        XCTAssertEqual(network.completions.count, 0)
+        XCTAssertEqual(network.requestsCounter, 0)
+    }
+
+    func test_init_WhenRepositoryStarts_ShouldHaveNoCalledMethodsAndRequestShouldFailSetFalse() {
+
+        let (_, repository) = makeSUT()
+        XCTAssertEqual(repository.calledMethods, [])
+        XCTAssertFalse(repository.requestShouldFail)
     }
 
     func test_getMovies_WhenAPICallIsSuccessful_ShouldReturnMoviesList() {
-        let (network, repository) = makeSUT()
-        let remoteMovie1 = TestMovieFactory.makeRemoteMovie()
-        let remoteMovie2 = TestMovieFactory.makeRemoteMovie()
-        let movie1 = TestMovieFactory.makeMovie()
-        let movie2 = TestMovieFactory.makeMovie()
+        
+        let (_, repository) = makeSUT()
+        let movie1 = TestMovieFactory.makeMovie(id: 870)
+        let movie2 = TestMovieFactory.makeMovie(id: 910)
+
         let expect = XCTestExpectation(description: "test expectation")
 
         Task {
             let result = await repository.getMovies()
             switch result {
             case .success(let moviesList):
-                XCTAssertEqual(moviesList, [movie1, movie2])
-            case .failure(let error):
-                XCTFail("It should receive valid Scheduled Items")
+                XCTAssertEqual(moviesList[0].id, movie1.id)
+                XCTAssertEqual(moviesList[1].id, movie2.id)
+                XCTAssertEqual(repository.calledMethods, [.getMovies])
+            case .failure(_):
+                XCTFail("Request should succeed")
             }
             expect.fulfill()
         }
-
         wait(for: [expect], timeout: 2)
     }
 
     func test_getScheduledItems_WhenAPIFails_ShouldReturnErrorWithReason() {
-        let (network, repository) = makeSUT()
+        
+        let (_, repository) = makeSUT()
+        repository.requestShouldFail = true
+
         let expect = XCTestExpectation(description: "test expectation")
-        let expectedError = RequestError(errorType: .unauthorized, errorMessage: "error message")
 
         Task {
             let result = await repository.getMovies()
             switch result {
-            case .success:
-                XCTFail("It should fail")
+            case .success(_):
+                XCTFail("Request should fail")
             case .failure(let error):
-                XCTAssertEqual(error.errorType, expectedError.errorType)
-                XCTAssertEqual(error.errorMessage, expectedError.errorMessage)
+                XCTAssertEqual(error.errorType, .badRequest)
+                XCTAssertEqual(error.errorMessage, "Test failed successfully")
+                XCTAssertEqual(repository.calledMethods, [.getMovies])
             }
             expect.fulfill()
         }
@@ -63,9 +75,9 @@ extension MovieDBRepositoryTests {
     func makeSUT(
         file: StaticString = #filePath,
         line: UInt = #line
-    ) -> (NetworkMock, MovieDBRepository) {
+    ) -> (NetworkMock, MockMovieDBRepository) {
         let network = NetworkMock()
-        let movieDBRepository: MovieDBRepository = MovieDBRepository(network: network)
+        let movieDBRepository: MockMovieDBRepository = MockMovieDBRepository(network: network)
         trackForMemoryLeaks(network, file: file, line: line)
         trackForMemoryLeaks(movieDBRepository, file: file, line: line)
         return (network, movieDBRepository)

@@ -11,7 +11,8 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
 
     // MARK: - Stored Properties
     private let network: CoreNetworkProtocol
-
+    
+    // MARK: - Initializer
     public init(network: CoreNetworkProtocol) {
         self.network = network
     }
