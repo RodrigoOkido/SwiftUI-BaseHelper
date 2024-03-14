@@ -10,11 +10,11 @@ public struct MovieMapper: ModelMapper {
         }
 
         let movie = Movie(poster_path: input.poster_path,
-                          overview: input.overview,
-                          genre_ids: input.genre_ids,
+                          overview: input.overview ?? "No overview data",
+                          genre_ids: input.genre_ids ?? [],
                           id: input.id,
-                          title: input.title,
-                          vote_average: input.vote_average)
+                          title: input.title ?? "No title",
+                          vote_average: input.vote_average ?? 0)
 
         guard let result: T = movie as? T else {
             throw RequestError(errorType: .couldNotMap, 
