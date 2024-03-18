@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct ViewModifiersView: View {
     
@@ -41,8 +42,8 @@ struct ViewModifiersView: View {
                 .font(.body)
                 .foregroundColor(.black)
                 .bold()
-                .cornerRadius(10)
-                
+                .cornerRadius(CornerRadius.sm)
+
                 Button("Custom button") {
                     print("Custom button")
                 }

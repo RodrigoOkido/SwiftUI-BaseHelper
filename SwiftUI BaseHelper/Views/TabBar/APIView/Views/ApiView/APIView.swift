@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct APIView: View {
     
@@ -34,18 +35,19 @@ struct APIView: View {
                                         .progressViewStyle(.circular)
                                 }
                             }
-                            .frame(width: 100, height: 160)
-                            .cornerRadius(10)
+                            .frame(width: WidthSize.xxl,
+                                   height: HeightSize.huge)
+                            .cornerRadius(CornerRadius.sm)
                             VStack(alignment: .leading) {
                                 Text(movie.title)
                                     .bold()
                                     .foregroundColor(colorScheme == .dark ? .white : .black)
                                 Text(movie.overview)
                                     .font(.body)
-                                    .frame(height: 140)
+                                    .frame(height: HeightSize.huge)
                                     .multilineTextAlignment(.leading)
                                     .foregroundColor(colorScheme == .dark ? .white : .black)
-                                Text("Average Score: \(String(format: "%.2f",movie.vote_average))")
+                                Text("Average Score: \(String(format: "%.2f", movie.vote_average))")
                                     .foregroundColor(colorScheme == .dark ? .white : .black)
                             }
                         }

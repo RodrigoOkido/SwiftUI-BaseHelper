@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 enum FavoriteColor: String, CaseIterable, Identifiable {
     case blue
@@ -36,7 +37,7 @@ struct ActionAndSelectableView: View {
                 .padding()
                 .foregroundColor(.white)
                 .background(.blue)
-                .cornerRadius(10)
+                .cornerRadius(CornerRadius.sm)
                 Spacer()
                 Text(randomInt.description)
             }

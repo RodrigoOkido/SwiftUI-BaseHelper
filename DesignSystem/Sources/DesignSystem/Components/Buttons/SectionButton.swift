@@ -28,11 +28,11 @@ public struct SectionButton: View {
                     .foregroundColor(.black)
                     .bold()
             }
-            .frame(height: 80)
+            .frame(height: HeightSize.xl)
             .frame(maxWidth: .infinity)
-            .padding(.horizontal, 30)
+            .padding(.horizontal, InsetSpacing.md)
             .background(.cyan)
-            .cornerRadius(10)
+            .cornerRadius(CornerRadius.md)
         }
     }
 

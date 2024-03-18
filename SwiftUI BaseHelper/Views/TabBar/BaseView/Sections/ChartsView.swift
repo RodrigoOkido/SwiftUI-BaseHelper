@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Charts
+import DesignSystem
 
 struct ChartsView: View {
     
@@ -39,10 +40,10 @@ struct ChartsView: View {
                 .chartForegroundStyleScale([
                     "Purple": .purple, "Gray": .gray, "Green": .green, "Yellow": .yellow, "Red": .red, "Black": .black
                 ])
-                .frame(height: 300)
+                .frame(height: HeightSize.giant)
                 .padding()
-                .padding([.bottom], 30)
-                
+                .padding([.bottom], InsetSpacing.md)
+
                 // MARK: - AREA MARK
                 Text("Area Mark")
                     .bold()
@@ -54,9 +55,9 @@ struct ChartsView: View {
                         )
                     }
                 }
-                .frame(height: 300)
+                .frame(height: HeightSize.giant)
                 .padding()
-                .padding([.bottom], 30)
+                .padding([.bottom], InsetSpacing.md)
 
                 // MARK: - LINE MARK WITH POINT MARK
                 Text("Line Mark with Point Mark")
@@ -73,10 +74,10 @@ struct ChartsView: View {
                         )
                     }
                 }
-                .frame(height: 300)
+                .frame(height: HeightSize.giant)
                 .padding()
-                .padding([.bottom], 30)
-                
+                .padding([.bottom], InsetSpacing.md)
+
                 // MARK: - RECTANGLE MARK
                 Text("Rectangle Mark")
                     .bold()
@@ -88,10 +89,10 @@ struct ChartsView: View {
                         )
                     }
                 }
-                .frame(height: 300)
+                .frame(height: HeightSize.giant)
                 .padding()
-                .padding([.bottom], 30)
-                
+                .padding([.bottom], InsetSpacing.md)
+
                 // MARK: - BAR MARK WITH RULE MARK
                 Text("Bar mark with Rule Mark")
                     .bold()
@@ -105,9 +106,9 @@ struct ChartsView: View {
                     RuleMark(y: .value("Minimum ideal income", 650))
                         .foregroundStyle(.red)
                 }
-                .frame(height: 300)
+                .frame(height: HeightSize.giant)
                 .padding()
-                .padding([.bottom], 30)
+                .padding([.bottom], InsetSpacing.md)
             }
         }
         .navigationTitle("Charts")

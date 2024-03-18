@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct PresentSheetView: View {
     
@@ -19,7 +20,7 @@ struct PresentSheetView: View {
         .padding()
         .background(.purple)
         .foregroundColor(.white)
-        .cornerRadius(10)
+        .cornerRadius(CornerRadius.sm)
         .sheet(isPresented: $showingSheet) {
             SheetView()
         }
@@ -40,7 +41,7 @@ struct SheetView: View {
             .padding()
             .background(.purple)
             .foregroundColor(.white)
-            .cornerRadius(10)
+            .cornerRadius(CornerRadius.sm)
         }
     }
 }

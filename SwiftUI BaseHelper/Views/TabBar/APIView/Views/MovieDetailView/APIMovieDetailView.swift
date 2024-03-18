@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct APIMovieDetailView: View {
     
@@ -23,8 +24,10 @@ struct APIMovieDetailView: View {
                 } placeholder: {
                     Text(movie.title)
                 }
-                .frame(width: 280, height: 360, alignment: .center)
-                .cornerRadius(10)
+                .frame(width: WidthSize.giant, 
+                       height: HeightSize.titan,
+                       alignment: .center)
+                .cornerRadius(CornerRadius.sm)
                 VStack(alignment: .leading) {
                     Text(movie.title)
                         .font(.title2)

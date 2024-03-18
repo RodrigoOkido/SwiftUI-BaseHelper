@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct TextFieldView: View {
     
@@ -30,7 +31,7 @@ struct TextFieldView: View {
                 Text("Last Name:")
                     .bold()
                 TextField("Last Name", text: $lastName)
-                    .padding(5)
+                    .padding(InsetSpacing.quarck)
                     .border(isDarkMode ? .blue : .gray)
             }
             .padding()
@@ -50,9 +51,9 @@ struct TextFieldView: View {
                         print("Commit status")
                     }
                 )
-                .padding(15)
+                .padding(InsetSpacing.xxs)
                 .overlay(
-                    RoundedRectangle(cornerRadius: 14)
+                    RoundedRectangle(cornerRadius: CornerRadius.md)
                         .stroke(focus, lineWidth: 2)
                 )
             }

@@ -8,6 +8,7 @@
 import SwiftUI
 import MapKit
 import CoreLocation
+import DesignSystem
 
 struct MapView: View {
     
@@ -19,7 +20,9 @@ struct MapView: View {
     
     var body: some View {
         ZStack {
-            Map(coordinateRegion: $viewModel.region, showsUserLocation: toggleStatus ? true : false, userTrackingMode: .constant(.follow))
+            Map(coordinateRegion: $viewModel.region, 
+                showsUserLocation: toggleStatus ? true : false,
+                userTrackingMode: .constant(.follow))
                 .edgesIgnoringSafeArea([.top, .leading, .trailing])
                 .onChange(of: toggleStatus) { status in
                     if !status {
@@ -34,9 +37,9 @@ struct MapView: View {
                         .padding()
                         .foregroundColor(.white)
                 }
-                .padding(5)
+                .padding(InsetSpacing.quarck)
                 .background(.black)
-                .opacity(0.8)
+                .opacity(OpacityLevel.opaque)
             }
         }
         .alert(isPresented: $viewModel.permissionDenied) {
