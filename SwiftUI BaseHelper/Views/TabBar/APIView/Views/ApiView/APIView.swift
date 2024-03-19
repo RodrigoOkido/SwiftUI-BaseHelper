@@ -10,18 +10,20 @@ import DesignSystem
 
 struct APIView: View {
     
+    // MARK: - Environments
     @Environment(\.colorScheme) var colorScheme
 
     // MARK: - ViewModel
-    private var viewModel: APIViewModel = APIViewModel()
-    
-    // MARK: - Property Wrappers
-    @State private var popularMovies: [Movie] = []
+    @ObservedObject private var viewModel: APIViewModel
+
+    init(viewModel: APIViewModel = APIViewModel()) {
+        self.viewModel = viewModel
+    }
 
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(popularMovies, id: \.id) { movie in
+                ForEach(viewModel.popularMovies, id: \.id) { movie in
                     NavigationLink {
                         APIMovieDetailView(movie: movie)
                     } label: {
@@ -61,9 +63,15 @@ struct APIView: View {
         .navigationBarTitleDisplayMode(.large)
         .onAppear{
             Task {
-                popularMovies = try await viewModel.requestPopularMovies()
+                try await viewModel.requestPopularMovies()
             }
         }
+        .alert(isPresented: $viewModel.requestFailed,
+               content: { () -> Alert in
+                    Alert(title: Text("Error"),
+                          message: Text(viewModel.requestFailedMessage),
+                          dismissButton: .default(Text("Ok")))
+                })
     }
 }
 

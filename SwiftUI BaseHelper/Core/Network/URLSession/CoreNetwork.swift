@@ -22,7 +22,7 @@ class CoreNetwork: CoreNetworkProtocol {
     }
 
     init(requestBuilder: RequestBuilder = RequestBuilder(),
-         session: URLSession = URLSession.shared) {
+         session: URLSession = URLSession(configuration: .default)) {
         self.requestBuilder = requestBuilder
         self.session = session
     }
