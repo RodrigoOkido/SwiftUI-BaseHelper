@@ -10,10 +10,12 @@ import DesignSystem
 
 struct BaseView: View {
     
+    var p: Double = 3144.40
     var body: some View {
         
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
+                Text("\(p.getCurrencyFormatted(fractionDigits: 2))")
                 SectionButton(sectionTitle: "Labels", destinationView: AnyView(LabelView()))
                 SectionButton(sectionTitle: "Textfield", destinationView: AnyView(TextFieldView()))
                 SectionButton(sectionTitle: "Actions & Pickers", destinationView: AnyView(ActionAndSelectableView()))

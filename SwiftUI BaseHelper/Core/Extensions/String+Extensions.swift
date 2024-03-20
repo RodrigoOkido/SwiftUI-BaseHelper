@@ -7,6 +7,7 @@ extension String {
         return count
     }
 
+    @available(*, deprecated, message: "Use Localizable.xcstrings instead")
     var localized: String {
         return NSLocalizedString(self, comment: "")
     }
@@ -52,5 +53,27 @@ extension String {
 
     subscript(index: Int) -> String {
         return self[index ..< index + 1]
+    }
+}
+
+// MARK: - File extension
+enum FileExtension: String, CaseIterable {
+
+    case JPEG
+    case JPG
+    case PNG
+    case PDF
+    case MP4
+    case MOV
+    case MKV
+}
+
+extension String {
+
+    var getFileExtension: FileExtension? {
+        let fileExtension = self.components(separatedBy: ".").last
+        return FileExtension.allCases.first {
+            $0.rawValue == fileExtension?.uppercased()
+        } ?? nil
     }
 }
