@@ -29,6 +29,7 @@ class APIViewModel: ObservableObject {
 
     
     // MARK: - API Request
+    @MainActor
     func requestPopularMovies() async throws -> [Movie] {
 
         let response = await movieDBService.getMovies()
