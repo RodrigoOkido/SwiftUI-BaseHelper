@@ -11,7 +11,7 @@ Here you can find:
   - Buttons and Actions
   - Pickers
   - Toggle
-  - NavigationView & NavigationLink
+  - NavigationStack & NavigationLink
   - Property Wrappers
   - Haptics
   - Tab bars
@@ -28,7 +28,7 @@ Other Contents:
 - Repositories
 - Network Layer
 - Custom Fonts
-- Unit tests (TODO)
+- Unit tests
 
 ## Minimum Requirements to run
 In order to run this project properly, its important to have your XCode and iOS versions updated. Its recommended to have the following:
