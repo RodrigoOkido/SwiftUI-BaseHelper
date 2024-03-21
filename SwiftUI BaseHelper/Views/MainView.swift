@@ -14,7 +14,13 @@ struct MainView: View {
     @AppStorage("appLanguage") private var appLanguage: Language = .English
 
     // MARK: - Stored Properties
-    let appDependencies = AppDependencies()
+    let appDependencies: AppDependencies
+
+    // MARK: - Initializer
+    init(appDependencies: AppDependencies = AppDependencies()) {
+        self.appDependencies = appDependencies
+        self.appDependencies.setup()
+    }
 
     var body: some View {
         TabView {
@@ -37,7 +43,7 @@ struct MainView: View {
                 Label("Map", systemImage: "map")
             }
             NavigationStack {
-                SettingsView()
+                SettingsView(language: appLanguage)
             }
             .tabItem {
                 Label("Settings", systemImage: "gearshape.fill")
@@ -45,9 +51,6 @@ struct MainView: View {
         }
         .environment(\.locale, .init(identifier: appLanguage.rawValue))
         .preferredColorScheme(isDarkMode ? .dark : .light)
-        .onAppear {
-            appDependencies.setup()
-        }
     }
 }
 

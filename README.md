@@ -19,6 +19,7 @@ Here you can find:
 - SwiftUI Charts
 - SwiftUI Lock Screen Widgets
 - SwiftUI ViewModifiers
+- SwiftUI AppStorage
 - API Requests using [MovieDB](https://www.themoviedb.org/documentation/api) (async / await)
 - MapKit & Core Location
 - SwiftUI Preview Macros (iOS 17)
@@ -29,6 +30,7 @@ Other Contents:
 - Network Layer
 - Custom Fonts
 - Unit tests
+- String Catalogs (iOS 17)
 
 ## Minimum Requirements to run
 In order to run this project properly, its important to have your XCode and iOS versions updated. Its recommended to have the following:

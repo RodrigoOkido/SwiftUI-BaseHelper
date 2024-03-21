@@ -59,7 +59,7 @@ struct ActionAndSelectableView: View {
                         .bold()
                         .font(.body)
                 }
-                Text(toggleStatus ? "Toggle on": "")
+                Text(toggleStatus ? "Toggle on": "Toggle off")
                     .animation(.linear)
             }
             
