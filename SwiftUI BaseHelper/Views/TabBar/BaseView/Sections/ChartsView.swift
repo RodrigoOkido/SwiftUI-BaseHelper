@@ -38,7 +38,12 @@ struct ChartsView: View {
                     }
                 }
                 .chartForegroundStyleScale([
-                    "Purple": .purple, "Gray": .gray, "Green": .green, "Yellow": .yellow, "Red": .red, "Black": .black
+                    "Purple": .purple, 
+                    "Gray": .gray,
+                    "Green": .green,
+                    "Yellow": .yellow,
+                    "Red": .red,
+                    "Black": .black
                 ])
                 .frame(height: HeightSize.giant)
                 .padding()

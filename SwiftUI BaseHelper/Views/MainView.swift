@@ -11,6 +11,7 @@ struct MainView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
+    @AppStorage("appLanguage") private var appLanguage: Language = .English
 
     // MARK: - Stored Properties
     let appDependencies = AppDependencies()
@@ -42,6 +43,7 @@ struct MainView: View {
                 Label("Settings", systemImage: "gearshape.fill")
             }
         }
+        .environment(\.locale, .init(identifier: appLanguage.rawValue))
         .preferredColorScheme(isDarkMode ? .dark : .light)
         .onAppear {
             appDependencies.setup()

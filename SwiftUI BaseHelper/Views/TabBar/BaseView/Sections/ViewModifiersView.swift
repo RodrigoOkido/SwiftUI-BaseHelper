@@ -28,7 +28,8 @@ struct ViewModifiersView: View {
                 Text("Hello i am another modified text!")
                     .modifiedTextStyle(font: .body)
                 Text("Hello i am one more modified text!")
-                    .modifiedTextStyle(font: .title2, color: isDarkMode ? .white : .black)
+                    .modifiedTextStyle(font: .title2, 
+                                       color: isDarkMode ? .white : .black)
             }
             .padding()
             
@@ -57,7 +58,8 @@ struct ViewModifiersView: View {
                 Button("Custom button 3") {
                     print("Custom button")
                 }
-                .modifiedButtonStyle(color: .purple, textColor: .white)
+                .modifiedButtonStyle(color: .purple, 
+                                     textColor: .white)
             }
             
             VStack(alignment: .leading) {

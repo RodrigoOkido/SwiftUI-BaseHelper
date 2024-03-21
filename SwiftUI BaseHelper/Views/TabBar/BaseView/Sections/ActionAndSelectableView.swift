@@ -22,11 +22,21 @@ enum FavoriteColor: String, CaseIterable, Identifiable {
 struct ActionAndSelectableView: View {
     
     // MARK: - Property Wrappers
-    @State var randomInt: Int = 0
-    @State var toggleStatus: Bool = false
-    @State var selectedColor: FavoriteColor = .blue
-    @State var birthDate = Date()
-    
+    @State var randomInt: Int
+    @State var toggleStatus: Bool
+    @State var selectedColor: FavoriteColor
+    @State var birthDate: Date
+
+    init(randomInt: Int = 0,
+         toggleStatus: Bool = false,
+         selectedColor: FavoriteColor = .blue, 
+         birthDate: Date = Date()) {
+        self.randomInt = randomInt
+        self.toggleStatus = toggleStatus
+        self.selectedColor = selectedColor
+        self.birthDate = birthDate
+    }
+
     var body: some View {
         VStack {
             // MARK: - Button

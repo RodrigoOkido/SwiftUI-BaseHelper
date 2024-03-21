@@ -14,13 +14,20 @@ struct BaseView: View {
         
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
-                SectionButton(sectionTitle: "Labels", destinationView: AnyView(LabelView()))
-                SectionButton(sectionTitle: "Textfield", destinationView: AnyView(TextFieldView()))
-                SectionButton(sectionTitle: "Actions & Pickers", destinationView: AnyView(ActionAndSelectableView()))
-                SectionButton(sectionTitle: "Charts", destinationView: AnyView(ChartsView()))
-                SectionButton(sectionTitle: "View Modifiers", destinationView: AnyView(ViewModifiersView()))
-                SectionButton(sectionTitle: "Haptics Feedback", destinationView: AnyView(HapticsFeedbackView()))
-                SectionButton(sectionTitle: "Present View", destinationView: AnyView(PresentSheetView()))
+                SectionButton(sectionTitle: "Labels", 
+                              destinationView: AnyView(LabelView()))
+                SectionButton(sectionTitle: "Textfield", 
+                              destinationView: AnyView(TextFieldView()))
+                SectionButton(sectionTitle: "Actions & Pickers", 
+                              destinationView: AnyView(ActionAndSelectableView()))
+                SectionButton(sectionTitle: "Charts", 
+                              destinationView: AnyView(ChartsView()))
+                SectionButton(sectionTitle: "View Modifiers", 
+                              destinationView: AnyView(ViewModifiersView()))
+                SectionButton(sectionTitle: "Haptics Feedback", 
+                              destinationView: AnyView(HapticsFeedbackView()))
+                SectionButton(sectionTitle: "Present View", 
+                              destinationView: AnyView(PresentSheetView()))
             }
             .padding()
         }

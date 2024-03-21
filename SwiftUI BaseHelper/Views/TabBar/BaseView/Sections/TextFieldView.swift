@@ -12,17 +12,29 @@ struct TextFieldView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @State var firstName: String = "Apple"
-    @State var lastName: String = "Framework"
-    @State var middleName: String = "SwiftUI"
-    @State var focus: Color = .cyan
-    
+    @State var firstName: String
+    @State var lastName: String
+    @State var middleName: String
+    @State var focus: Color
+
+    // MARK: - Initializer
+    init(firstName: String = "Apple",
+         lastName: String = "Framework",
+         middleName: String = "SwiftUI",
+         focus: Color = .cyan) {
+        self.firstName = firstName
+        self.lastName = lastName
+        self.middleName = middleName
+        self.focus = focus
+    }
+
     var body: some View {
         VStack {
             VStack(alignment: .leading) {
                 Text("First Name:")
                     .bold()
-                TextField("First Name", text: $firstName)
+                TextField("First Name", 
+                          text: $firstName)
                     .textFieldStyle(.roundedBorder)
             }
             .padding()
@@ -30,7 +42,8 @@ struct TextFieldView: View {
             HStack {
                 Text("Last Name:")
                     .bold()
-                TextField("Last Name", text: $lastName)
+                TextField("Last Name", 
+                          text: $lastName)
                     .padding(InsetSpacing.quarck)
                     .border(isDarkMode ? .blue : .gray)
             }
@@ -39,7 +52,9 @@ struct TextFieldView: View {
             VStack(alignment: .leading) {
                 Text("Middle Name:")
                     .bold()
-                TextField("Middle Name", text: $middleName, onEditingChanged: { onFocus in
+                TextField("Middle Name", 
+                          text: $middleName,
+                          onEditingChanged: { onFocus in
                         if onFocus {
                             print("On focus")
                             focus = .blue
