@@ -6,24 +6,20 @@
 //
 
 import SwiftUI
-
-enum Language: String, CaseIterable, Identifiable {
-    case English = "en"
-    case Portuguese = "pt-BR"
-
-    var id: Language { self }
-}
+import DesignSystem
 
 struct SettingsView: View {
     
+    // MARK: - View Model
+    @ObservedObject var viewModel: SettingsViewModel
+
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @AppStorage("appLanguage") private var appLanguage: Language = .English
+    @AppStorage("appLanguage") private var appLanguage: AppLanguage = .English
 
-    @State var language: Language
-
-    init(language: Language = .English) {
-        self.language = language
+    // MARK: - Initializer
+    init(viewModel: SettingsViewModel) {
+        self.viewModel = viewModel
     }
 
     var body: some View {
@@ -37,26 +33,22 @@ struct SettingsView: View {
                         }
                     })
                     Picker("App Language", 
-                           selection: $language,
+                           selection: $viewModel.language,
                            content: {
-                        ForEach(Language.allCases, content: { lang in
+                        ForEach(AppLanguage.allCases, content: { lang in
                             Text(lang.rawValue)
                         })
                     })
                     .bold()
-                    .onChange(of: language) { oldValue, newValue in
+                    .onChange(of: viewModel.language) { oldValue, newValue in
                         if oldValue != newValue {
                             appLanguage = newValue
                         }
                     }
                 }
                 Section(header: Text("Social")) {
-                    HStack {
-                        Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
-                    }
-                    HStack {
-                        Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
-                    }
+                    Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
+                    Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
                 }
             }
         }
@@ -66,5 +58,5 @@ struct SettingsView: View {
 }
 
 #Preview {
-    SettingsView()
+    SettingsView(viewModel: SettingsViewModel(language: .English))
 }

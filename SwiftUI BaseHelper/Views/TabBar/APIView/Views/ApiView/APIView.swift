@@ -16,6 +16,12 @@ struct APIView: View {
     // MARK: - ViewModel
     @ObservedObject private var viewModel: APIViewModel
 
+    // MARK: - Computed Properties
+    private var isDarkModeEnabled: Bool {
+        return colorScheme == .dark ? true : false
+    }
+
+    // MARK: - Initializer
     init(viewModel: APIViewModel = APIViewModel()) {
         self.viewModel = viewModel
     }
@@ -25,7 +31,7 @@ struct APIView: View {
             VStack {
                 ForEach(viewModel.popularMovies, id: \.id) { movie in
                     NavigationLink {
-                        APIMovieDetailView(movie: movie)
+                        APIMovieDetailView(viewModel: APIDetailMovieViewModel(movie: movie))
                     } label: {
                         HStack {
                             AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in
@@ -43,14 +49,14 @@ struct APIView: View {
                             VStack(alignment: .leading) {
                                 Text(movie.title)
                                     .bold()
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundColor(isDarkModeEnabled ? .white : .black)
                                 Text(movie.overview)
                                     .font(.body)
                                     .frame(height: HeightSize.huge)
                                     .multilineTextAlignment(.leading)
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundColor(isDarkModeEnabled ? .white : .black)
                                 Text("Average Score: \(String(format: "%.2f", movie.vote_average))")
-                                    .foregroundColor(colorScheme == .dark ? .white : .black)
+                                    .foregroundColor(isDarkModeEnabled ? .white : .black)
                             }
                         }
                     }

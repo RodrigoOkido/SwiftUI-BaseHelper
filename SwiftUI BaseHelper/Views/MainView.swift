@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct MainView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @AppStorage("appLanguage") private var appLanguage: Language = .English
+    @AppStorage("appLanguage") private var appLanguage: AppLanguage = .English
 
     // MARK: - Stored Properties
     let appDependencies: AppDependencies
@@ -43,13 +44,13 @@ struct MainView: View {
                 Label("Map", systemImage: "map")
             }
             NavigationStack {
-                SettingsView(language: appLanguage)
+                SettingsView(viewModel: SettingsViewModel(language: appLanguage))
             }
             .tabItem {
                 Label("Settings", systemImage: "gearshape.fill")
             }
         }
-        .environment(\.locale, .init(identifier: appLanguage.rawValue))
+        .environment(\.locale, .init(identifier: appLanguage.langCode))
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }

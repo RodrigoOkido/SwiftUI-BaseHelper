@@ -9,50 +9,61 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
-    
+class MapViewModel: NSObject, ObservableObject {
+
     // MARK: - Property Wrapper
-    @Published var permissionDenied: Bool = false
-    @Published var region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, 
-                                                                                                  longitude: -0.12),
-                                                                   span: MKCoordinateSpan(latitudeDelta: 0.2,
-                                                                                          longitudeDelta: 0.2))
+    @Published var permissionDenied: Bool
+    @Published var region: MKCoordinateRegion
 
     // MARK: - Stored Properties
-    var locationManager: CLLocationManager = CLLocationManager()
-    
+    var locationManager: CLLocationManager
+
     // MARK: - Computed Properties
     var defaultMapLocation: MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12), 
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12),
                            span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
     }
 
+    // MARK: - Initializer
+    init(permissionDenied: Bool = false,
+         region: MKCoordinateRegion = MKCoordinateRegion(),
+         locationManager: CLLocationManager = CLLocationManager()) {
+        self.permissionDenied = permissionDenied
+        self.region = region
+        self.locationManager = locationManager
+    }
+
     // MARK: - Setup
-    func setupLocationManager() {
+    private func setupLocationManager() {
         locationManager.delegate = self
         locationManager.startUpdatingLocation()
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 5000
     }
-    
+
+    private func setupRegion() {
+        region = defaultMapLocation
+    }
+
     // MARK: - Public Methods
     func checkUserAuthorizationStatus() {
-        
+
         switch locationManager.authorizationStatus {
-            
+
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .denied:
             permissionDenied.toggle()
         case .authorizedAlways, .authorizedWhenInUse:
             setupLocationManager()
+            setupRegion()
         case .restricted:
             break
         @unknown default:
             break
         }
     }
-        
+
     // MARK: - Public Methods
     func renderRegion(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
@@ -60,21 +71,25 @@ class MapViewModel: NSObject, ObservableObject, CLLocationManagerDelegate {
         let coordinateDelta = 0.1
         let span = MKCoordinateSpan(latitudeDelta: coordinateDelta,
                                     longitudeDelta: coordinateDelta)
-        
+
         region = MKCoordinateRegion(center: coordinate, span: span)
     }
+}
+
+extension MapViewModel: CLLocationManagerDelegate {
     
     // MARK: - Map Delegate
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkUserAuthorizationStatus()
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         guard let location = locations.last else { return }
         renderRegion(location)
     }
-    
+
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print(error.localizedDescription)
     }
 }
+

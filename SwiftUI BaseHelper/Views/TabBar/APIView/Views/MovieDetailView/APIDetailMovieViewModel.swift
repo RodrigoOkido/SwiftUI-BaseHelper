@@ -8,8 +8,16 @@
 import Foundation
 
 
-class APIDetailMovieViewModel {
-    
+class APIDetailMovieViewModel: ObservableObject {
+
+    // MARK: - Stored properties
+    var movie: Movie
+
+    // MARK: - Initializer
+    init(movie: Movie) {
+        self.movie = movie
+    }
+
     // MARK: - Private Functions
     private func getKeyValue(forKey key: String) -> String? {
         return Bundle.main.infoDictionary?[key] as? String

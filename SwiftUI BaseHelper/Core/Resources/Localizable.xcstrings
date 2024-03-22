@@ -43,7 +43,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Linguagem"
+            "value" : "Idioma"
           }
         }
       }
@@ -73,7 +73,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Pontuação Média"
+            "value" : "Pontuação Média: %@"
           }
         }
       }
@@ -473,7 +473,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Claro"
+            "value" : "Leve"
           }
         }
       }
@@ -634,7 +634,18 @@
         }
       }
     },
+    "Please enable localizations permission in App Settings to track your current location." : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Por favor, habilite a localização nas configurações do App para pegar sua localização. "
+          }
+        }
+      }
+    },
     "Please enable permission in App Settings." : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -719,7 +730,7 @@
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Leve"
+            "value" : "Suave"
           }
         }
       }

@@ -11,33 +11,35 @@ import DesignSystem
 struct APIMovieDetailView: View {
     
     // MARK: - ViewModel
-    var viewModel: APIDetailMovieViewModel = APIDetailMovieViewModel()
-    
-    // MARK: - Stored properties
-    var movie: Movie
-    
+    @ObservedObject var viewModel: APIDetailMovieViewModel
+
+    // MARK: - Initializer
+    init(viewModel: APIDetailMovieViewModel) {
+        self.viewModel = viewModel
+    }
+
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in
+                AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: viewModel.movie.poster_path))) { image in
                     image.resizable()
                 } placeholder: {
-                    Text(movie.title)
+                    Text(viewModel.movie.title)
                 }
                 .frame(width: WidthSize.giant, 
                        height: HeightSize.titan,
                        alignment: .center)
                 .cornerRadius(CornerRadius.sm)
                 VStack(alignment: .leading) {
-                    Text(movie.title)
+                    Text(viewModel.movie.title)
                         .font(.title2)
                         .bold()
-                    Text(movie.overview)
+                    Text(viewModel.movie.overview)
                         .padding()
                     HStack {
                         Text("Vote average:")
                             .bold()
-                        Text(String(format: "%.2f", movie.vote_average))
+                        Text(String(format: "%.2f", viewModel.movie.vote_average))
                     }
                     Spacer()
                 }
