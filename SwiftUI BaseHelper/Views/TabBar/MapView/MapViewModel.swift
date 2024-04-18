@@ -12,7 +12,7 @@ import CoreLocation
 class MapViewModel: NSObject, ObservableObject {
 
     // MARK: - Property Wrapper
-    @Published var permissionDenied: Bool
+    @Published var isUserLocalizationAllowed: Bool
     @Published var region: MKCoordinateRegion
 
     // MARK: - Stored Properties
@@ -20,15 +20,20 @@ class MapViewModel: NSObject, ObservableObject {
 
     // MARK: - Computed Properties
     var defaultMapLocation: MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, longitude: -0.12),
-                           span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2))
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, 
+                                                          longitude: -0.12),
+                           span: MKCoordinateSpan(latitudeDelta: 0.2, 
+                                                  longitudeDelta: 0.2))
     }
 
     // MARK: - Initializer
     init(permissionDenied: Bool = false,
-         region: MKCoordinateRegion = MKCoordinateRegion(),
+         region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5,
+                                                                                        longitude: -0.12),
+                                                         span: MKCoordinateSpan(latitudeDelta: 0.2,
+                                                                                longitudeDelta: 0.2)),
          locationManager: CLLocationManager = CLLocationManager()) {
-        self.permissionDenied = permissionDenied
+        self.isUserLocalizationAllowed = permissionDenied
         self.region = region
         self.locationManager = locationManager
     }
@@ -53,7 +58,7 @@ class MapViewModel: NSObject, ObservableObject {
         case .notDetermined:
             locationManager.requestWhenInUseAuthorization()
         case .denied:
-            permissionDenied.toggle()
+            isUserLocalizationAllowed.toggle()
         case .authorizedAlways, .authorizedWhenInUse:
             setupLocationManager()
             setupRegion()
@@ -72,23 +77,28 @@ class MapViewModel: NSObject, ObservableObject {
         let span = MKCoordinateSpan(latitudeDelta: coordinateDelta,
                                     longitudeDelta: coordinateDelta)
 
-        region = MKCoordinateRegion(center: coordinate, span: span)
+        region = MKCoordinateRegion(center: coordinate, 
+                                    span: span)
     }
 }
 
+// MARK: - Map Delegate
 extension MapViewModel: CLLocationManagerDelegate {
     
-    // MARK: - Map Delegate
     func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
         checkUserAuthorizationStatus()
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(_ manager: CLLocationManager, 
+                         didUpdateLocations locations: [CLLocation]) {
+
         guard let location = locations.last else { return }
         renderRegion(location)
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    func locationManager(_ manager: CLLocationManager, 
+                         didFailWithError error: Error) {
+
         print(error.localizedDescription)
     }
 }

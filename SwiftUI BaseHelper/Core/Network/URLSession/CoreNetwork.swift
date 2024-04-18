@@ -153,7 +153,8 @@ extension CoreNetwork {
                                                        responseType: T.Type,
                                                        errorType: E.Type) -> RequestResponse<T, E> {
 #if DEBUG
-        NetworkLogger.log(response: response)
+        NetworkLogger.log(response: response, 
+                          logType: .complete)
 #endif
 
         let result = response.result(modelType: responseType, errorType: errorType)
@@ -175,7 +176,8 @@ extension CoreNetwork {
     private func serializeResponse<E: Codable & Error>(response: RestResponse,
                                                        errorType: E.Type) -> RequestEmptyResponse<E> {
 #if DEBUG
-        NetworkLogger.log(response: response)
+        NetworkLogger.log(response: response,
+                          logType: .onlyResponse)
 #endif
 
         let result = response.result(errorType: errorType)

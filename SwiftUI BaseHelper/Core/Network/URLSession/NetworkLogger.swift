@@ -7,16 +7,40 @@
 
 import Foundation
 
+enum NetworkLogType {
+    case onlyRequest
+    case onlyHeaders
+    case onlyBody
+    case onlyResponse
+    case complete
+}
+
 struct NetworkLogger {
 
-    static func log(response: RestResponse) {
+    static func log(response: RestResponse, 
+                    logType: NetworkLogType) {
+
         print("==============================================")
-        log(request: response.request)
-        log(headers: response.request?.allHTTPHeaderFields)
-        log(body: response.request?.httpBody)
-        log(httpResponse: response)
-        log(headers: response.headers)
-        log(body: response.dataResponse.data)
+
+        switch logType {
+
+        case .onlyRequest:
+            log(request: response.request)
+        case .onlyHeaders:
+            log(headers: response.request?.allHTTPHeaderFields)
+            log(headers: response.headers)
+        case .onlyBody:
+            log(body: response.request?.httpBody)
+        case .onlyResponse:
+            log(httpResponse: response)
+        case .complete:
+            log(request: response.request)
+            log(headers: response.request?.allHTTPHeaderFields)
+            log(body: response.request?.httpBody)
+            log(httpResponse: response)
+            log(headers: response.headers)
+            log(body: response.dataResponse.data)
+        }
         print("------------------------------")
     }
 

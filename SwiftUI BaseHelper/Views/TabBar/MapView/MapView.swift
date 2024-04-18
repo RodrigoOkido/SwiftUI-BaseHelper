@@ -28,15 +28,20 @@ struct MapView: View {
     var body: some View {
 
         ZStack {
-            Map(coordinateRegion: $viewModel.region, 
-                showsUserLocation: toggleStatus ? true : false,
-                userTrackingMode: .constant(.follow))
+            Map(initialPosition: .region(viewModel.region), interactionModes: .all)
                 .edgesIgnoringSafeArea([.top, .leading, .trailing])
                 .onChange(of: toggleStatus) { status, _ in
                     if !status {
                         viewModel.region = viewModel.defaultMapLocation
+                    } else {
+                        viewModel.checkUserAuthorizationStatus()
                     }
                 }
+
+//            Map(coordinateRegion: $viewModel.region,
+//                showsUserLocation: toggleStatus ? true : false,
+//                userTrackingMode: .constant(.follow))
+
             VStack {
                 Spacer()
                 HStack {
@@ -50,8 +55,8 @@ struct MapView: View {
                 .opacity(OpacityLevel.opaque)
             }
         }
-        .alert(isPresented: $viewModel.permissionDenied) {
-            Alert(title: Text("Localization Denied"), 
+        .alert(isPresented: $viewModel.isUserLocalizationAllowed) {
+            Alert(title: Text("Localization Denied"),
                   message: Text("Please enable localizations permission in App Settings to track your current location."),
                   dismissButton: .default(Text("Go to settings"),
                                           action: {
