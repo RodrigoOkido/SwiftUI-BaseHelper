@@ -1,6 +1,8 @@
 import Foundation
 
-class InterceptorBuilder {
+public class InterceptorBuilder {
+
+    public init() {}
 
     func adapt(urlRequest: URLRequest, 
                interceptors: [RequestInterceptor]) async -> URLRequest {

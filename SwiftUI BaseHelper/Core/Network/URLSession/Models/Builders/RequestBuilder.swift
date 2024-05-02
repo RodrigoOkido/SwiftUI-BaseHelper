@@ -7,13 +7,13 @@
 
 import Foundation
 
-class RequestBuilder {
+public class RequestBuilder {
 
     let queryBuilder: QueryBuilder
     let bodyBuilder: BodyBuilder
     let interceptorBuilder: InterceptorBuilder
 
-    init(queryBuilder: QueryBuilder = QueryBuilder(),
+    public init(queryBuilder: QueryBuilder = QueryBuilder(),
          bodyBuilder: BodyBuilder = BodyBuilder(),
          interceptorBuilder: InterceptorBuilder = InterceptorBuilder()) {
         self.queryBuilder = queryBuilder

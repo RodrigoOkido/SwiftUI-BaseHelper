@@ -13,7 +13,7 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
     private let network: CoreNetworkProtocol
     
     // MARK: - Initializer
-    public init(network: CoreNetworkProtocol) {
+    public init(network: CoreNetworkProtocol = CoreNetwork()) {
         self.network = network
     }
 

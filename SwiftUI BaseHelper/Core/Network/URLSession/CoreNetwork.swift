@@ -7,7 +7,7 @@
 
 import Foundation
 
-class CoreNetwork: CoreNetworkProtocol {
+public class CoreNetwork: CoreNetworkProtocol {
 
     // MARK: - Dependencies
     @Injected var environment: EnvironmentProtocol
@@ -21,13 +21,13 @@ class CoreNetwork: CoreNetworkProtocol {
         [JSONInterceptor()]
     }
 
-    init(requestBuilder: RequestBuilder = RequestBuilder(),
+    public init(requestBuilder: RequestBuilder = RequestBuilder(),
          session: URLSession = URLSession(configuration: .default)) {
         self.requestBuilder = requestBuilder
         self.session = session
     }
 
-    func request<T, Parameters, E>(endpoint: Endpoint,
+    public func request<T, Parameters, E>(endpoint: Endpoint,
                                    method: HTTPVerb,
                                    interceptors: [RequestInterceptor],
                                    parameters: Parameters,
@@ -49,7 +49,7 @@ class CoreNetwork: CoreNetworkProtocol {
         }
     }
     
-    func request<T, E>(endpoint: Endpoint, 
+    public func request<T, E>(endpoint: Endpoint,
                        method: HTTPVerb,
                        interceptors: [RequestInterceptor],
                        responseType: T.Type,
@@ -70,7 +70,7 @@ class CoreNetwork: CoreNetworkProtocol {
         }
     }
     
-    func request<E>(endpoint: Endpoint, 
+    public func request<E>(endpoint: Endpoint,
                     method: HTTPVerb,
                     interceptors: [RequestInterceptor],
                     errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
@@ -89,7 +89,7 @@ class CoreNetwork: CoreNetworkProtocol {
         }
     }
     
-    func request<Parameters, E>(endpoint: Endpoint, 
+    public func request<Parameters, E>(endpoint: Endpoint,
                                 method: HTTPVerb,
                                 interceptors: [RequestInterceptor],
                                 parameters: Parameters,

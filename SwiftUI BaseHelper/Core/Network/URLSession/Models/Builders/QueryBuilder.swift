@@ -1,6 +1,8 @@
 import Foundation
 
-class QueryBuilder {
+public class QueryBuilder {
+
+    public init() {}
 
     func build(parameters: Codable) -> [URLQueryItem] {
         guard let dict = parameters.asDictionary() else { return [] }

@@ -21,7 +21,7 @@ class APIViewModel: ObservableObject {
     // MARK: - Initializer
     init(popularMovies: [Movie] = [], 
          requestFailedMessage: String = "",
-         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository(network: CoreNetwork())) {
+         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
         self.popularMovies = popularMovies
         self.movieDBService = movieDBService
         self.requestFailedMessage = requestFailedMessage
