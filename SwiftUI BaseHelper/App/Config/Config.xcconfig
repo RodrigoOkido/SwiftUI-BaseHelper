@@ -15,5 +15,5 @@ API_URL_POSTER_IMAGE = image.tmdb.org/t/p/w500
 
 HTTP_SCHEME = https
 BASE_URL = api.themoviedb.org/
-API_KEY = // INSERT YOUR API KEY HERE FROM TMDB CREATING AN ACCOUNT.
+API_KEY = be6d0595d46b3a6e2bda3ca50aaf8db2
           // https://www.themoviedb.org/

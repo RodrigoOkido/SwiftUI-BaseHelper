@@ -22,17 +22,17 @@ public class CoreNetwork: CoreNetworkProtocol {
     }
 
     public init(requestBuilder: RequestBuilder = RequestBuilder(),
-         session: URLSession = URLSession(configuration: .default)) {
+                session: URLSession = URLSession(configuration: .default)) {
         self.requestBuilder = requestBuilder
         self.session = session
     }
 
     public func request<T, Parameters, E>(endpoint: Endpoint,
-                                   method: HTTPVerb,
-                                   interceptors: [RequestInterceptor],
-                                   parameters: Parameters,
-                                   responseType: T.Type,
-                                   errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, Parameters : Encodable, E : Codable, E : Error {
+                                          method: HTTPVerb,
+                                          interceptors: [RequestInterceptor],
+                                          parameters: Parameters,
+                                          responseType: T.Type,
+                                          errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, Parameters : Encodable, E : Codable, E : Error {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
@@ -48,13 +48,13 @@ public class CoreNetwork: CoreNetworkProtocol {
             return .failure(error)
         }
     }
-    
+
     public func request<T, E>(endpoint: Endpoint,
-                       method: HTTPVerb,
-                       interceptors: [RequestInterceptor],
-                       responseType: T.Type,
-                       errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
-        
+                              method: HTTPVerb,
+                              interceptors: [RequestInterceptor],
+                              responseType: T.Type,
+                              errorType: E.Type) async -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {
+
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: [:],
@@ -69,11 +69,11 @@ public class CoreNetwork: CoreNetworkProtocol {
             return .failure(error)
         }
     }
-    
+
     public func request<E>(endpoint: Endpoint,
-                    method: HTTPVerb,
-                    interceptors: [RequestInterceptor],
-                    errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
+                           method: HTTPVerb,
+                           interceptors: [RequestInterceptor],
+                           errorType: E.Type) async -> RequestEmptyResponse<E> where E : Codable, E : Error {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
@@ -88,13 +88,13 @@ public class CoreNetwork: CoreNetworkProtocol {
             return .failure(error)
         }
     }
-    
+
     public func request<Parameters, E>(endpoint: Endpoint,
-                                method: HTTPVerb,
-                                interceptors: [RequestInterceptor],
-                                parameters: Parameters,
-                                errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Codable, E : Error {
-       
+                                       method: HTTPVerb,
+                                       interceptors: [RequestInterceptor],
+                                       parameters: Parameters,
+                                       errorType: E.Type) async -> RequestEmptyResponse<E> where Parameters : Encodable, E : Codable, E : Error {
+
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
                                      parameters: parameters.asDictionary() ?? [:],
@@ -124,7 +124,7 @@ extension CoreNetwork {
                                                                 method: method,
                                                                 parameters: parameters,
                                                                 interceptors: interceptors) else {
-            return .failure(NetworkRequestError(statusCode: 500, 
+            return .failure(NetworkRequestError(statusCode: 500,
                                                 error: "Internal Error Request"))
         }
 
@@ -135,11 +135,11 @@ extension CoreNetwork {
             dataResponse = try await session.data(for: urlRequest)
         } catch let error {
             if let error = error as? URLError,
-                error.errorCode == NSURLErrorNotConnectedToInternet {
-                return .failure(NetworkRequestError(statusCode: 400, 
+               error.errorCode == NSURLErrorNotConnectedToInternet {
+                return .failure(NetworkRequestError(statusCode: 400,
                                                     error: "Service Unavailable. No connection detected"))
             } else {
-                return .failure(NetworkRequestError(statusCode: 500, 
+                return .failure(NetworkRequestError(statusCode: 500,
                                                     error: "Internal Error Request"))
             }
         }
@@ -153,7 +153,7 @@ extension CoreNetwork {
                                                        responseType: T.Type,
                                                        errorType: E.Type) -> RequestResponse<T, E> {
 #if DEBUG
-        NetworkLogger.log(response: response, 
+        NetworkLogger.log(response: response,
                           logType: .complete)
 #endif
 
@@ -162,13 +162,13 @@ extension CoreNetwork {
         switch result {
         case .success(let response):
             guard let typedResponse: T = response as? T else {
-                return .failure(NetworkRequestError(statusCode: 400, 
+                return .failure(NetworkRequestError(statusCode: 400,
                                                     error: "Could not map. Bad request"))
             }
             return .success(typedResponse)
         case .failure(let error):
             return .failure(NetworkRequestError(statusCode: response.statusCode,
-                                                error: error.localizedDescription, 
+                                                error: error.localizedDescription,
                                                 isTokenError: response.statusCode == 401))
         }
     }

@@ -18,7 +18,7 @@ struct APIView: View {
 
     // MARK: - Computed Properties
     private var isDarkModeEnabled: Bool {
-        return colorScheme == .dark ? true : false
+        return colorScheme == .dark
     }
 
     // MARK: - Initializer
