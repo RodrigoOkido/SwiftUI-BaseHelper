@@ -77,6 +77,8 @@
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BA2D72A297091BD000273DB /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BA2D729297091BD000273DB /* SettingsView.swift */; };
 		2BAC0D7D299FB7C200CEB635 /* PresentSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC0D7C299FB7C200CEB635 /* PresentSheetView.swift */; };
+		2BBF7B172C5964AC003762CC /* DatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF7B162C5964AC003762CC /* DatesView.swift */; };
+		2BBF7B1A2C596AB1003762CC /* DateFormatTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */; };
 		2BF39FF32BADCFFE00A52AE9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */; };
 		2BFB3F912BAB41B100E7217C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */; };
 		2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF774728F3901F00936E01 /* View+Extensions.swift */; };
@@ -190,6 +192,8 @@
 		2BA2D729297091BD000273DB /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		2BAC0D7C299FB7C200CEB635 /* PresentSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentSheetView.swift; sourceTree = "<group>"; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2BBF7B162C5964AC003762CC /* DatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesView.swift; sourceTree = "<group>"; };
+		2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatTypes.swift; sourceTree = "<group>"; };
 		2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		2BFF774728F3901F00936E01 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -432,6 +436,7 @@
 				2B7AE55428F35E3800B09959 /* ViewModifiersView.swift */,
 				2B5FDB092909A8AF00B81DDE /* HapticsFeedbackView.swift */,
 				2BAC0D7C299FB7C200CEB635 /* PresentSheetView.swift */,
+				2BBF7B162C5964AC003762CC /* DatesView.swift */,
 			);
 			path = Sections;
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 		2B8E8FEB2BA09F7A0079F8B2 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				2BBF7B182C596AA5003762CC /* Helpers */,
 				2B7AE53728F353E300B09959 /* Assets.xcassets */,
 				2B8E8FEE2BA0A8230079F8B2 /* Localizable.xcstrings */,
 			);
@@ -680,6 +686,14 @@
 			path = SettingsView;
 			sourceTree = "<group>";
 		};
+		2BBF7B182C596AA5003762CC /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		2BFF774928F3902500936E01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +882,7 @@
 				2B927C8B2B9898CB000EA840 /* CoreNetworkProtocol.swift in Sources */,
 				2B927C8D2B9898CB000EA840 /* JSONInterceptor.swift in Sources */,
 				2B7AE55528F35E3800B09959 /* ViewModifiersView.swift in Sources */,
+				2BBF7B172C5964AC003762CC /* DatesView.swift in Sources */,
 				2B927CD82B9B9C4E000EA840 /* MovieDBDependencies.swift in Sources */,
 				2B927CBB2B98D718000EA840 /* MovieDBRepository.swift in Sources */,
 				2B927CA12B98B6B2000EA840 /* DependencyFactoryWrappers.swift in Sources */,
@@ -894,6 +909,7 @@
 				2BA2D72A297091BD000273DB /* SettingsView.swift in Sources */,
 				2B927CBD2B98D762000EA840 /* MovieDBRepositoryProtocol.swift in Sources */,
 				2B927CD12B9A15DE000EA840 /* HTTPVerb.swift in Sources */,
+				2BBF7B1A2C596AB1003762CC /* DateFormatTypes.swift in Sources */,
 				2BAC0D7D299FB7C200CEB635 /* PresentSheetView.swift in Sources */,
 				2B927CAA2B98D14E000EA840 /* CoreModulesDependencies.swift in Sources */,
 				2B927C942B9898CB000EA840 /* RequestBuilder.swift in Sources */,

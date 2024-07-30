@@ -28,6 +28,8 @@ struct BaseView: View {
                               destinationView: AnyView(HapticsFeedbackView()))
                 SectionButton(sectionTitle: "Present View", 
                               destinationView: AnyView(PresentSheetView()))
+                SectionButton(sectionTitle: "Dates View",
+                              destinationView: AnyView(DatesView()))
             }
             .padding()
         }
