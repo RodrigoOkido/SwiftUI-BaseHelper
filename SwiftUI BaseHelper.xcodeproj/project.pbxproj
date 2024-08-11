@@ -79,6 +79,8 @@
 		2BAC0D7D299FB7C200CEB635 /* PresentSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC0D7C299FB7C200CEB635 /* PresentSheetView.swift */; };
 		2BBF7B172C5964AC003762CC /* DatesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF7B162C5964AC003762CC /* DatesView.swift */; };
 		2BBF7B1A2C596AB1003762CC /* DateFormatTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */; };
+		2BDDD1382C68419800EB94D4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD1372C68419800EB94D4 /* Date+Extensions.swift */; };
+		2BDDD13B2C68430C00EB94D4 /* Locale+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD13A2C68430C00EB94D4 /* Locale+Extension.swift */; };
 		2BF39FF32BADCFFE00A52AE9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */; };
 		2BFB3F912BAB41B100E7217C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */; };
 		2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF774728F3901F00936E01 /* View+Extensions.swift */; };
@@ -194,6 +196,8 @@
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2BBF7B162C5964AC003762CC /* DatesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatesView.swift; sourceTree = "<group>"; };
 		2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatTypes.swift; sourceTree = "<group>"; };
+		2BDDD1372C68419800EB94D4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		2BDDD13A2C68430C00EB94D4 /* Locale+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extension.swift"; sourceTree = "<group>"; };
 		2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		2BFF774728F3901F00936E01 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -694,6 +698,16 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		2BDDD1392C6842F000EB94D4 /* Date+Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2B927CAE2B98D1DC000EA840 /* DateFormatter+Extensions.swift */,
+				2BDDD1372C68419800EB94D4 /* Date+Extensions.swift */,
+				2BDDD13A2C68430C00EB94D4 /* Locale+Extension.swift */,
+			);
+			path = "Date+Extensions";
+			sourceTree = "<group>";
+		};
 		2BFF774928F3902500936E01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -701,7 +715,7 @@
 				2B59CFD128F76D93000DE884 /* Color+Extensions.swift */,
 				2B927C6E2B98985F000EA840 /* Encodable+Extensions.swift */,
 				2B927C9D2B98B5DC000EA840 /* String+Extensions.swift */,
-				2B927CAE2B98D1DC000EA840 /* DateFormatter+Extensions.swift */,
+				2BDDD1392C6842F000EB94D4 /* Date+Extensions */,
 				2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */,
 			);
 			path = Extensions;
@@ -853,6 +867,7 @@
 			files = (
 				2B927C9C2B9898CB000EA840 /* NetworkLogger.swift in Sources */,
 				2B927C922B9898CB000EA840 /* RequestError.swift in Sources */,
+				2BDDD1382C68419800EB94D4 /* Date+Extensions.swift in Sources */,
 				2B59CFD528F77086000DE884 /* Income.swift in Sources */,
 				2B7AE54228F3549E00B09959 /* BaseView.swift in Sources */,
 				2B927CA62B98B8B9000EA840 /* Environment.swift in Sources */,
@@ -891,6 +906,7 @@
 				2B927C8C2B9898CB000EA840 /* RequestInterceptor.swift in Sources */,
 				2B927CC32B98FC07000EA840 /* RemoteMovie.swift in Sources */,
 				2B7AE53628F353E200B09959 /* MainView.swift in Sources */,
+				2BDDD13B2C68430C00EB94D4 /* Locale+Extension.swift in Sources */,
 				2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */,
 				2B927CA32B98B6E4000EA840 /* DependencyFactory.swift in Sources */,
 				2B370F6628FD9AB6000F4824 /* MapView.swift in Sources */,

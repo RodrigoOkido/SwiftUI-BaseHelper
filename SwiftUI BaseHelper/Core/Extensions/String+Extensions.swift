@@ -22,9 +22,19 @@ extension String {
         return self.filter { okayChars.contains($0) }
     }
 
+    var onlyNumbersAndPuntuaction: String {
+        let okayChars = Set("1234567890.,")
+        return self.filter { okayChars.contains($0) }
+    }
+
     var onlyNumbersAndLetters: String {
         let okayChars = Set("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLKMNOPQRSTUVWXYZ1234567890ãÃõÕâÂôÔéÉàÀ")
         return self.filter { okayChars.contains($0) }
+    }
+
+    var isValidPassword: Bool {
+        let regex = "^(?=.*[a-z])(?=.*[A-Z])(?=.*?[0-9]).{6,}$"
+        return range(of: regex, options: .regularExpression, range: nil, locale: nil) != nil
     }
 }
 
