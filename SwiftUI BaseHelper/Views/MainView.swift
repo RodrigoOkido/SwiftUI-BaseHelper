@@ -25,6 +25,7 @@ struct MainView: View {
 
     var body: some View {
         TabView {
+//            NavigationViewFactory.make(.home)
             NavigationStack {
                 BaseView()
             }
