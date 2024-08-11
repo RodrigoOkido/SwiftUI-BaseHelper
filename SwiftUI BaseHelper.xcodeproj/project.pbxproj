@@ -81,6 +81,9 @@
 		2BBF7B1A2C596AB1003762CC /* DateFormatTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */; };
 		2BDDD1382C68419800EB94D4 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD1372C68419800EB94D4 /* Date+Extensions.swift */; };
 		2BDDD13B2C68430C00EB94D4 /* Locale+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD13A2C68430C00EB94D4 /* Locale+Extension.swift */; };
+		2BDDD13E2C692D9100EB94D4 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD13D2C692D9100EB94D4 /* Router.swift */; };
+		2BDDD1402C696C5500EB94D4 /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD13F2C696C5500EB94D4 /* Navigation.swift */; };
+		2BDDD1422C696CC500EB94D4 /* DestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BDDD1412C696CC500EB94D4 /* DestinationView.swift */; };
 		2BF39FF32BADCFFE00A52AE9 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */; };
 		2BFB3F912BAB41B100E7217C /* Double+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */; };
 		2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BFF774728F3901F00936E01 /* View+Extensions.swift */; };
@@ -198,6 +201,9 @@
 		2BBF7B192C596AB1003762CC /* DateFormatTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatTypes.swift; sourceTree = "<group>"; };
 		2BDDD1372C68419800EB94D4 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		2BDDD13A2C68430C00EB94D4 /* Locale+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+Extension.swift"; sourceTree = "<group>"; };
+		2BDDD13D2C692D9100EB94D4 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
+		2BDDD13F2C696C5500EB94D4 /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		2BDDD1412C696CC500EB94D4 /* DestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationView.swift; sourceTree = "<group>"; };
 		2BF39FF22BADCFFE00A52AE9 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
 		2BFB3F902BAB41B100E7217C /* Double+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Extensions.swift"; sourceTree = "<group>"; };
 		2BFF774728F3901F00936E01 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
@@ -282,6 +288,7 @@
 		2B59CFD628F77228000DE884 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				2BDDD13C2C692D8800EB94D4 /* Navigation */,
 				2B927C9F2B98B6A3000EA840 /* Dependencies */,
 				2BFF774928F3902500936E01 /* Extensions */,
 				2B927C722B9898CB000EA840 /* Network */,
@@ -708,6 +715,16 @@
 			path = "Date+Extensions";
 			sourceTree = "<group>";
 		};
+		2BDDD13C2C692D8800EB94D4 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				2BDDD13D2C692D9100EB94D4 /* Router.swift */,
+				2BDDD13F2C696C5500EB94D4 /* Navigation.swift */,
+				2BDDD1412C696CC500EB94D4 /* DestinationView.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
 		2BFF774928F3902500936E01 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -868,6 +885,7 @@
 				2B927C9C2B9898CB000EA840 /* NetworkLogger.swift in Sources */,
 				2B927C922B9898CB000EA840 /* RequestError.swift in Sources */,
 				2BDDD1382C68419800EB94D4 /* Date+Extensions.swift in Sources */,
+				2BDDD1402C696C5500EB94D4 /* Navigation.swift in Sources */,
 				2B59CFD528F77086000DE884 /* Income.swift in Sources */,
 				2B7AE54228F3549E00B09959 /* BaseView.swift in Sources */,
 				2B927CA62B98B8B9000EA840 /* Environment.swift in Sources */,
@@ -877,6 +895,7 @@
 				2B927C952B9898CB000EA840 /* QueryBuilder.swift in Sources */,
 				2B294DA228F7918200F76609 /* APIViewModel.swift in Sources */,
 				2BFF774828F3901F00936E01 /* View+Extensions.swift in Sources */,
+				2BDDD13E2C692D9100EB94D4 /* Router.swift in Sources */,
 				2BFB3F912BAB41B100E7217C /* Double+Extensions.swift in Sources */,
 				2B927C912B9898CB000EA840 /* RestResponse.swift in Sources */,
 				2B927C8F2B9898CB000EA840 /* RequestResponse.swift in Sources */,
@@ -895,6 +914,7 @@
 				2B370F6828FD9AC2000F4824 /* MapViewModel.swift in Sources */,
 				2B164B1E28F9DDE100FFFAD3 /* APIMovieDetailView.swift in Sources */,
 				2B927C8B2B9898CB000EA840 /* CoreNetworkProtocol.swift in Sources */,
+				2BDDD1422C696CC500EB94D4 /* DestinationView.swift in Sources */,
 				2B927C8D2B9898CB000EA840 /* JSONInterceptor.swift in Sources */,
 				2B7AE55528F35E3800B09959 /* ViewModifiersView.swift in Sources */,
 				2BBF7B172C5964AC003762CC /* DatesView.swift in Sources */,

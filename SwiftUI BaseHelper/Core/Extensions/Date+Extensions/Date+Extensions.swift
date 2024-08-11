@@ -288,4 +288,3 @@ public extension Date {
         return dateCurrentImpl()
     }
 }
-
