@@ -12,6 +12,7 @@ public enum DestinationView: Identifiable, Hashable {
 
     case home
     case movies
+    case movieDetails(movie: Movie)
     case map
     case settings(appLanguage: AppLanguage)
 
@@ -22,6 +23,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "home"
         case .movies:
             return "movies"
+        case .movieDetails:
+            return "movieDetails"
         case .map:
             return "map"
         case .settings(_):
@@ -30,12 +33,14 @@ public enum DestinationView: Identifiable, Hashable {
     }
 
     @ViewBuilder
-    public var view: some View {
+    public var makeView: some View {
         switch self {
         case .home:
             BaseView()
         case .movies:
             APIView()
+        case .movieDetails(let movie):
+            APIMovieDetailView(viewModel: APIDetailMovieViewModel(movie: movie))
         case .map:
             MapView()
         case .settings(let appLanguage):

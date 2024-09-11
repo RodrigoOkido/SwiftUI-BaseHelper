@@ -12,6 +12,7 @@ struct APIView: View {
     
     // MARK: - Environments
     @Environment(\.colorScheme) var colorScheme
+    @EnvironmentObject var router: Router<DestinationView>
 
     // MARK: - ViewModel
     @ObservedObject private var viewModel: APIViewModel
@@ -30,8 +31,10 @@ struct APIView: View {
         ScrollView {
             VStack {
                 ForEach(viewModel.popularMovies, id: \.id) { movie in
-                    NavigationLink {
-                        APIMovieDetailView(viewModel: APIDetailMovieViewModel(movie: movie))
+                    Button {
+                        router.push(
+                            DestinationView.movieDetails(movie: movie)
+                        )
                     } label: {
                         HStack {
                             AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in

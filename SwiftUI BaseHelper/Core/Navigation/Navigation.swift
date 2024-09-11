@@ -13,25 +13,21 @@ public struct Navigation<RootView: View>: View {
     let rootView: RootView
 
     // MARK: - Wrapped Properties
-    @EnvironmentObject var router: Router<DestinationView>
+    @StateObject var router: Router<DestinationView>
 
     // MARK: - Content
     public var body: some View {
         NavigationStack(path: $router.path) {
             rootView
-                .navigationDestination(for: DestinationView.self) { page in
-                    NavigationViewFactory.make(page, router: router)
-                        .environmentObject(router)
-                        .navigationBarBackButtonHidden(true)
+                .navigationDestination(for: DestinationView.self) { destination in
+                    destination.makeView
                 }
         }
         .sheet(item: $router.sheet) { rootView in
             NavigationStack(path: $router.bottomSheetPath) {
                 NavigationViewFactory.make(rootView, router: router)
-                    .navigationDestination(for: DestinationView.self) { destinationView in
-                        NavigationViewFactory.make(destinationView, router: router)
-                            .environmentObject(router)
-                            .navigationBarBackButtonHidden(true)
+                    .navigationDestination(for: DestinationView.self) { destination in
+                        destination.makeView
                     }
             }
         }
@@ -44,7 +40,7 @@ public struct NavigationViewFactory {
     static func make(_ destinationView: DestinationView,
                      router: Router<DestinationView> = Router<DestinationView>()) -> some View {
         Navigation(
-            rootView: destinationView.view
+            rootView: destinationView.makeView, router: router
         ).environmentObject(router)
     }
 }
