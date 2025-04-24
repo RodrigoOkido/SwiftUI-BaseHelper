@@ -169,6 +169,7 @@
       }
     },
     "Dismiss me!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -706,6 +707,7 @@
       }
     },
     "Show Sheet" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

@@ -10,26 +10,44 @@ import DesignSystem
 
 struct BaseView: View {
     
+    @EnvironmentObject var router: Router<DestinationView>
+    
     var body: some View {
         
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
-                SectionButton(sectionTitle: "Labels", 
-                              destinationView: AnyView(LabelView()))
-                SectionButton(sectionTitle: "Textfield", 
-                              destinationView: AnyView(TextFieldView()))
-                SectionButton(sectionTitle: "Actions & Pickers", 
-                              destinationView: AnyView(ActionAndSelectableView()))
-                SectionButton(sectionTitle: "Charts", 
-                              destinationView: AnyView(ChartsView()))
-                SectionButton(sectionTitle: "View Modifiers", 
-                              destinationView: AnyView(ViewModifiersView()))
-                SectionButton(sectionTitle: "Haptics Feedback", 
-                              destinationView: AnyView(HapticsFeedbackView()))
-                SectionButton(sectionTitle: "Present View", 
-                              destinationView: AnyView(PresentSheetView()))
-                SectionButton(sectionTitle: "Dates View",
-                              destinationView: AnyView(DatesView()))
+                CustomButton(title: "Labels",
+                             action: {
+                    router.push(DestinationView.labelView)
+                })
+                CustomButton(title: "Textfield",
+                             action: {
+                    router.push(DestinationView.textFieldView)
+                })
+                CustomButton(title: "Actions & Pickers",
+                             action: {
+                    router.push(DestinationView.actionAndSelectableView)
+                })
+                CustomButton(title: "Chats",
+                             action: {
+                    router.push(DestinationView.chartsView)
+                })
+                CustomButton(title: "View Modifiers",
+                             action: {
+                    router.push(DestinationView.viewModifiersView)
+                })
+                CustomButton(title: "Haptics Feedback",
+                             action: {
+                    router.push(DestinationView.hapticsFeedbackView)
+                })
+                CustomButton(title: "Present View",
+                             action: {
+                    router.push(DestinationView.presentSheetView)
+                })
+                CustomButton(title: "Dates View",
+                             action: {
+                    router.push(DestinationView.datesView)
+                })
             }
             .padding()
         }

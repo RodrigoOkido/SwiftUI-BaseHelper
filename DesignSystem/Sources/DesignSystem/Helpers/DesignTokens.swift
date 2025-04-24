@@ -65,7 +65,7 @@ public struct CornerRadius {
     public static var lg: CGFloat = 24
 }
 
-public struct StackSpacing {
+public struct StackSpacing { // Spacing for VStack, HStack
 
     public static var quarck: CGFloat = 4
     public static var nano: CGFloat = 8
@@ -95,7 +95,7 @@ public struct InlineSpacing {
     public static var xl: CGFloat = 80
 }
 
-public struct InsetSpacing {
+public struct InsetSpacing { // same as Paddings
 
     public static var quarck: CGFloat = 4
     public static var nano: CGFloat = 8

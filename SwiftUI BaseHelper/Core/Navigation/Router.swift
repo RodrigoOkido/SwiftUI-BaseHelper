@@ -43,6 +43,10 @@ public class Router<View: Hashable>: ObservableObject {
     public func present(view: View) {
         sheet = view
     }
+    
+    public func dismiss() {
+        sheet = nil
+    }
 
     public func pop(pathType: PathType = .normal) {
         switch pathType {

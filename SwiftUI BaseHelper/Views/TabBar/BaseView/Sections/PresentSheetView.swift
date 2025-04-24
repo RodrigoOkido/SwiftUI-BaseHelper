@@ -11,19 +11,18 @@ import DesignSystem
 struct PresentSheetView: View {
     
     // MARK: - Property Wrappers
-    @State private var showingSheet = false
+    @EnvironmentObject var router: Router<DestinationView>
+    @State private var showSheet: Bool = false
 
     var body: some View {
-        Button("Show Sheet") {
-            showingSheet.toggle()
+        CustomButton(type: .tertiary,
+                     title: "Show Sheet",
+                     cornerRadius: .small) {
+            showSheet = true
         }
-        .padding()
-        .background(.purple)
-        .foregroundColor(.white)
-        .cornerRadius(CornerRadius.sm)
-        .sheet(isPresented: $showingSheet) {
-            SheetView()
-        }
+                     .sheet(isPresented: $showSheet, content: {
+                         SheetView()
+                     })
     }
 }
 
@@ -31,17 +30,16 @@ struct SheetView: View {
     
     // MARK: - Property Wrappers
     @Environment(\.dismiss) var dismissMe
-    
+    @EnvironmentObject var router: Router<DestinationView>
+
     var body: some View {
         VStack {
             Text("Hello! I am a bottom sheet view!")
-            Button("Dismiss me!") {
-                dismissMe()
+            CustomButton(title: "Dismiss me!",
+                         cornerRadius: .small) {
+                router.push(DestinationView.movies, pathType: .sheet)
             }
             .padding()
-            .background(.purple)
-            .foregroundColor(.white)
-            .cornerRadius(CornerRadius.sm)
         }
     }
 }

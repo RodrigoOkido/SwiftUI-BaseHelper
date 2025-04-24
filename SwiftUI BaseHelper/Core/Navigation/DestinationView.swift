@@ -15,7 +15,17 @@ public enum DestinationView: Identifiable, Hashable {
     case movieDetails(movie: Movie)
     case map
     case settings(appLanguage: AppLanguage)
-
+    case sheetView
+    
+    case labelView
+    case textFieldView
+    case actionAndSelectableView
+    case chartsView
+    case viewModifiersView
+    case hapticsFeedbackView
+    case presentSheetView
+    case datesView
+    
     // MARK: - Computed Properties
     public var id: String {
         switch self {
@@ -29,6 +39,24 @@ public enum DestinationView: Identifiable, Hashable {
             return "map"
         case .settings(_):
             return "settings"
+        case .sheetView:
+            return "sheetView"
+        case .labelView:
+            return "labelView"
+        case .textFieldView:
+            return "textFieldView"
+        case .actionAndSelectableView:
+            return "actionAndSelectableView"
+        case .chartsView:
+            return "chartsView"
+        case .viewModifiersView:
+            return "viewModifiersView"
+        case .hapticsFeedbackView:
+            return "hapticsFeedbackView"
+        case .presentSheetView:
+            return "presentSheetView"
+        case .datesView:
+            return "datesView"
         }
     }
 
@@ -45,6 +73,24 @@ public enum DestinationView: Identifiable, Hashable {
             MapView()
         case .settings(let appLanguage):
             SettingsView(viewModel: SettingsViewModel(language: appLanguage))
+        case .sheetView:
+            SheetView()
+        case .labelView:
+            LabelView()
+        case .textFieldView:
+            TextFieldView()
+        case .actionAndSelectableView:
+            ActionAndSelectableView()
+        case .chartsView:
+            ChartsView()
+        case .viewModifiersView:
+            ViewModifiersView()
+        case .hapticsFeedbackView:
+            HapticsFeedbackView()
+        case .presentSheetView:
+            PresentSheetView()
+        case .datesView:
+            DatesView()
         }
     }
 }

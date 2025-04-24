@@ -7,6 +7,18 @@
 
 import SwiftUI
 
+public struct NavigationViewFactory {
+
+    @ViewBuilder
+    static func make(_ destinationView: DestinationView,
+                     router: Router<DestinationView> = Router<DestinationView>()) -> some View {
+        Navigation(
+            rootView: destinationView.makeView,
+            router: router
+        ).environmentObject(router)
+    }
+}
+
 public struct Navigation<RootView: View>: View {
 
     // MARK: - Stored Properties
@@ -23,24 +35,16 @@ public struct Navigation<RootView: View>: View {
                     destination.makeView
                 }
         }
-        .sheet(item: $router.sheet) { rootView in
+        .sheet(item: $router.sheet) { rootSheetView in
             NavigationStack(path: $router.bottomSheetPath) {
-                NavigationViewFactory.make(rootView, router: router)
+                rootSheetView.makeView
                     .navigationDestination(for: DestinationView.self) { destination in
                         destination.makeView
                     }
+                    .onDisappear {
+                        router.dismiss()
+                    }
             }
         }
-    }
-}
-
-public struct NavigationViewFactory {
-
-    @ViewBuilder
-    static func make(_ destinationView: DestinationView,
-                     router: Router<DestinationView> = Router<DestinationView>()) -> some View {
-        Navigation(
-            rootView: destinationView.makeView, router: router
-        ).environmentObject(router)
     }
 }
