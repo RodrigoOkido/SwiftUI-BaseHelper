@@ -28,6 +28,57 @@ struct APIView: View {
     }
 
     var body: some View {
+        VStack {
+            switch viewModel.viewState {
+            case .loading:
+                loadingView
+            case .loaded:
+                contentView
+            case .error:
+                errorView
+            }
+        }
+        .navigationTitle("Popular Movies")
+        .navigationBarTitleDisplayMode(.large)
+        .onAppear{
+            Task {
+                try await viewModel.requestPopularMovies()
+            }
+        }
+        .alert(isPresented: $viewModel.requestFailed,
+               content: { () -> Alert in
+                    Alert(title: Text("Error"),
+                          message: Text(viewModel.requestFailedMessage),
+                          dismissButton: .default(Text("Ok")))
+                })
+    }
+    
+    private var loadingView: some View {
+        VStack {
+            Spacer()
+            ProgressView()
+            Spacer()
+        }
+    }
+    
+    private var errorView: some View {
+        VStack {
+            Spacer()
+            Text(viewModel.requestFailedMessage)
+            Button {
+                Task {
+                   try await viewModel.requestPopularMovies()
+                }
+            } label: {
+                Text("Refresh")
+                    .underline()
+            }
+
+            Spacer()
+        }
+    }
+    
+    private var contentView: some View {
         ScrollView {
             VStack {
                 ForEach(viewModel.popularMovies, id: \.id) { movie in
@@ -68,19 +119,6 @@ struct APIView: View {
             }
             .padding()
         }
-        .navigationTitle("Popular Movies")
-        .navigationBarTitleDisplayMode(.large)
-        .onAppear{
-            Task {
-                try await viewModel.requestPopularMovies()
-            }
-        }
-        .alert(isPresented: $viewModel.requestFailed,
-               content: { () -> Alert in
-                    Alert(title: Text("Error"),
-                          message: Text(viewModel.requestFailedMessage),
-                          dismissButton: .default(Text("Ok")))
-                })
     }
 }
 

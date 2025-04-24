@@ -8,15 +8,22 @@
 import Foundation
 import UIKit
 
+enum ViewState {
+    case loading
+    case loaded
+    case error
+}
+
 class APIViewModel: ObservableObject {
     
     // MARK: - Stored Properties
     private var movieDBService: MovieDBRepositoryProtocol
     var requestFailedMessage: String
+    var popularMovies: [Movie]
 
     // MARK: - Property Wrappers
-    @Published var popularMovies: [Movie]
     @Published var requestFailed = false
+    @Published var viewState: ViewState = .loading
 
     // MARK: - Initializer
     init(popularMovies: [Movie] = [], 
@@ -30,18 +37,18 @@ class APIViewModel: ObservableObject {
     
     // MARK: - API Request
     @MainActor
-    func requestPopularMovies() async throws -> [Movie] {
-
+    func requestPopularMovies() async throws {
+        viewState = .loading
         let response = await movieDBService.getMovies()
 
         switch response {
         case .success(let data):
             popularMovies = data
-            return popularMovies
+            viewState = .loaded
         case .failure(let error):
-            requestFailed = true
             requestFailedMessage = error.errorMessage ?? "Unknown error"
-            return []
+            requestFailed = true
+            viewState = .error
         }
     }
 
