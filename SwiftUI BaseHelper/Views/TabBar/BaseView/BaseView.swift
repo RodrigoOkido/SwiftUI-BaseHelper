@@ -18,35 +18,35 @@ struct BaseView: View {
             VStack(alignment: .leading) {
                 CustomButton(title: "Labels",
                              action: {
-                    router.push(DestinationView.labelView)
+                    router.navigate(to: DestinationView.labelView)
                 })
                 CustomButton(title: "Textfield",
                              action: {
-                    router.push(DestinationView.textFieldView)
+                    router.navigate(to: DestinationView.textFieldView)
                 })
                 CustomButton(title: "Actions & Pickers",
                              action: {
-                    router.push(DestinationView.actionAndSelectableView)
+                    router.navigate(to: DestinationView.actionAndSelectableView)
                 })
                 CustomButton(title: "Chats",
                              action: {
-                    router.push(DestinationView.chartsView)
+                    router.navigate(to: DestinationView.chartsView)
                 })
                 CustomButton(title: "View Modifiers",
                              action: {
-                    router.push(DestinationView.viewModifiersView)
+                    router.navigate(to: DestinationView.viewModifiersView)
                 })
                 CustomButton(title: "Haptics Feedback",
                              action: {
-                    router.push(DestinationView.hapticsFeedbackView)
+                    router.navigate(to: DestinationView.hapticsFeedbackView)
                 })
                 CustomButton(title: "Present View",
                              action: {
-                    router.push(DestinationView.presentSheetView)
+                    router.navigate(to: DestinationView.presentSheetView)
                 })
                 CustomButton(title: "Dates View",
                              action: {
-                    router.push(DestinationView.datesView)
+                    router.navigate(to: DestinationView.datesView)
                 })
             }
             .padding()

@@ -18,11 +18,8 @@ struct PresentSheetView: View {
         CustomButton(type: .tertiary,
                      title: "Show Sheet",
                      cornerRadius: .small) {
-            showSheet = true
+            router.present(view: DestinationView.sheetView)
         }
-                     .sheet(isPresented: $showSheet, content: {
-                         SheetView()
-                     })
     }
 }
 
@@ -37,7 +34,7 @@ struct SheetView: View {
             Text("Hello! I am a bottom sheet view!")
             CustomButton(title: "Dismiss me!",
                          cornerRadius: .small) {
-                router.push(DestinationView.movies, pathType: .sheet)
+                router.navigate(to: DestinationView.movies)
             }
             .padding()
         }

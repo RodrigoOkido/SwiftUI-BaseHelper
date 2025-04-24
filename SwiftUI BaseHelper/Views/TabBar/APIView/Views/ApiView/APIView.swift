@@ -32,8 +32,8 @@ struct APIView: View {
             VStack {
                 ForEach(viewModel.popularMovies, id: \.id) { movie in
                     Button {
-                        router.push(
-                            DestinationView.movieDetails(movie: movie)
+                        router.navigate(
+                            to: DestinationView.movieDetails(movie: movie)
                         )
                     } label: {
                         HStack {

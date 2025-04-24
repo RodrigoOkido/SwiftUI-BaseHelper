@@ -17,52 +17,36 @@ public class Router<View: Hashable>: ObservableObject {
     // MARK: - Wrapped Properties
     @Published public var path = NavigationPath()
     @Published public var bottomSheetPath = NavigationPath()
-    @Published public var sheet: View?
+    @Published public var presentedView: View?
 
     public init() {}
 
     // MARK: - Public Methods
-    public func reset(pathType: PathType = .normal) {
-        switch pathType {
-        case .normal:
+    public func reset() {
+        guard presentedView != nil else {
             path = NavigationPath()
-        case .sheet:
-            bottomSheetPath = NavigationPath()
+            return
         }
+        bottomSheetPath = NavigationPath()
     }
 
-    public func push(_ view: any Hashable, pathType: PathType = .normal) {
-        switch pathType {
-        case .normal:
-            path.append(view)
-        case .sheet:
-            bottomSheetPath.append(view)
-        }
+    public func navigate(to view: any Hashable) {
+        presentedView != nil ? bottomSheetPath.append(view) : path.append(view)
     }
 
     public func present(view: View) {
-        sheet = view
+        presentedView = view
     }
     
     public func dismiss() {
-        sheet = nil
+        presentedView = nil
     }
 
     public func pop(pathType: PathType = .normal) {
-        switch pathType {
-        case .normal:
-            path.removeLast()
-        case .sheet:
-            bottomSheetPath.removeLast()
-        }
+        presentedView != nil ? bottomSheetPath.removeLast() : path.removeLast()
     }
 
     public func popToRoot(pathType: PathType = .normal) {
-        switch pathType {
-        case .normal:
-            path.removeLast(path.count)
-        case .sheet:
-            bottomSheetPath.removeLast(bottomSheetPath.count)
-        }
+        presentedView != nil ? bottomSheetPath.removeLast(bottomSheetPath.count) : path.removeLast(path.count)
     }
 }

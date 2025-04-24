@@ -35,16 +35,15 @@ public struct Navigation<RootView: View>: View {
                     destination.makeView
                 }
         }
-        .sheet(item: $router.sheet) { rootSheetView in
+        .sheet(item: $router.presentedView,
+               onDismiss: { router.dismiss() },
+               content: { rootSheetView in
             NavigationStack(path: $router.bottomSheetPath) {
                 rootSheetView.makeView
                     .navigationDestination(for: DestinationView.self) { destination in
                         destination.makeView
                     }
-                    .onDisappear {
-                        router.dismiss()
-                    }
             }
-        }
+        })
     }
 }

@@ -16,7 +16,7 @@ struct MainView: View {
 
     // MARK: - Stored Properties
     let appDependencies: AppDependencies
-
+    
     // MARK: - Initializer
     init(appDependencies: AppDependencies = AppDependencies()) {
         self.appDependencies = appDependencies
