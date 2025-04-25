@@ -48,6 +48,10 @@ struct BaseView: View {
                              action: {
                     router.navigate(to: DestinationView.datesView)
                 })
+                CustomButton(title: "Custom Fonts View",
+                             action: {
+                    router.navigate(to: DestinationView.customFontsView)
+                })
             }
             .padding()
         }

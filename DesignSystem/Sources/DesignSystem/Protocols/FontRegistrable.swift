@@ -15,5 +15,5 @@ public enum FontRegisterError: Error {
 
 public protocol FontRegistrable {
 
-    public static func registerFont() throws
+    static func registerFont() throws
 }

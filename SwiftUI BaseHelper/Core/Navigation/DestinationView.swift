@@ -25,6 +25,7 @@ public enum DestinationView: Identifiable, Hashable {
     case hapticsFeedbackView
     case presentSheetView
     case datesView
+    case customFontsView
     
     // MARK: - Computed Properties
     public var id: String {
@@ -57,6 +58,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "presentSheetView"
         case .datesView:
             return "datesView"
+        case .customFontsView:
+            return "customFontsView"
         }
     }
 
@@ -91,6 +94,8 @@ public enum DestinationView: Identifiable, Hashable {
             PresentSheetView()
         case .datesView:
             DatesView()
+        case .customFontsView:
+            CustomFontView()
         }
     }
 }

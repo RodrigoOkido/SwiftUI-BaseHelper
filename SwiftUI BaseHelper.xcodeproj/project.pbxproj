@@ -34,6 +34,7 @@
 		2B8E8FED2BA09FBD0079F8B2 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */; };
 		2B8E8FEF2BA0A8230079F8B2 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 2B8E8FEE2BA0A8230079F8B2 /* Localizable.xcstrings */; };
 		2B8E902D2BA0EC600079F8B2 /* MovieDBRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8E902C2BA0EC600079F8B2 /* MovieDBRepositoryTests.swift */; };
+		2B92443E2DBC06090039266F /* CustomFontView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B92443D2DBC06040039266F /* CustomFontView.swift */; };
 		2B927C6F2B98985F000EA840 /* Encodable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C6E2B98985F000EA840 /* Encodable+Extensions.swift */; };
 		2B927C8B2B9898CB000EA840 /* CoreNetworkProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C742B9898CB000EA840 /* CoreNetworkProtocol.swift */; };
 		2B927C8C2B9898CB000EA840 /* RequestInterceptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927C772B9898CB000EA840 /* RequestInterceptor.swift */; };
@@ -152,6 +153,7 @@
 		2B8E8FEE2BA0A8230079F8B2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		2B8E902A2BA0EC600079F8B2 /* SwiftUI BaseHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SwiftUI BaseHelperTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B8E902C2BA0EC600079F8B2 /* MovieDBRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDBRepositoryTests.swift; sourceTree = "<group>"; };
+		2B92443D2DBC06040039266F /* CustomFontView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFontView.swift; sourceTree = "<group>"; };
 		2B927C6E2B98985F000EA840 /* Encodable+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Encodable+Extensions.swift"; sourceTree = "<group>"; };
 		2B927C742B9898CB000EA840 /* CoreNetworkProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreNetworkProtocol.swift; sourceTree = "<group>"; };
 		2B927C772B9898CB000EA840 /* RequestInterceptor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestInterceptor.swift; sourceTree = "<group>"; };
@@ -440,6 +442,7 @@
 		2B7AE54B28F3597600B09959 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				2B92443D2DBC06040039266F /* CustomFontView.swift */,
 				2B7AE54C28F3598500B09959 /* LabelView.swift */,
 				2B7AE54E28F35C5800B09959 /* TextFieldView.swift */,
 				2B7AE55028F35D2700B09959 /* ActionAndSelectableView.swift */,
@@ -935,6 +938,7 @@
 				2B927CCC2B99EFBF000EA840 /* NetworkRequestError.swift in Sources */,
 				2B164B2028F9E4BC00FFFAD3 /* APIDetailMovieViewModel.swift in Sources */,
 				2B927CB42B98D370000EA840 /* AppDependencies.swift in Sources */,
+				2B92443E2DBC06090039266F /* CustomFontView.swift in Sources */,
 				2B927C9A2B9898CB000EA840 /* Endpoint.swift in Sources */,
 				2B927CDA2B9BAD48000EA840 /* MovieDBInterceptor.swift in Sources */,
 				2B7AE54D28F3598500B09959 /* LabelView.swift in Sources */,

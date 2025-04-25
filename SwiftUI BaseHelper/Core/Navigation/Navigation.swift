@@ -10,12 +10,13 @@ import SwiftUI
 public struct NavigationViewFactory {
 
     @ViewBuilder
-    static func make(_ destinationView: DestinationView,
-                     router: Router<DestinationView> = Router<DestinationView>()) -> some View {
+    static func make(_ rootView: DestinationView,
+                     router: Router<DestinationView>) -> some View {
         Navigation(
-            rootView: destinationView.makeView,
+            rootView: rootView.makeView,
             router: router
-        ).environmentObject(router)
+        )
+        .environmentObject(router)
     }
 }
 

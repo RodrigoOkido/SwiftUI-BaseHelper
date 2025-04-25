@@ -16,7 +16,11 @@ struct MainView: View {
 
     // MARK: - Stored Properties
     let appDependencies: AppDependencies
-    
+    let router: Router<DestinationView> = Router<DestinationView>()
+    let router2: Router<DestinationView> = Router<DestinationView>()
+    let router3: Router<DestinationView> = Router<DestinationView>()
+    let router4: Router<DestinationView> = Router<DestinationView>()
+
     // MARK: - Initializer
     init(appDependencies: AppDependencies = AppDependencies()) {
         self.appDependencies = appDependencies
@@ -25,19 +29,20 @@ struct MainView: View {
 
     var body: some View {
         TabView {
-            NavigationViewFactory.make(.home)
+            // Creates independent Navigation for each tab.
+            NavigationViewFactory.make(.home, router: router)
                 .tabItem {
                     Label("Components", systemImage: "rectangle.3.group.fill")
                 }
-            NavigationViewFactory.make(.movies)
+            NavigationViewFactory.make(.movies, router: router2)
                 .tabItem {
                     Label("API", systemImage: "network")
                 }
-            NavigationViewFactory.make(.map)
+            NavigationViewFactory.make(.map, router: router3)
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
-            NavigationViewFactory.make(.settings(appLanguage: appLanguage))
+            NavigationViewFactory.make(.settings(appLanguage: appLanguage), router: router4)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }

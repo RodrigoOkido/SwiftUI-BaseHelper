@@ -34,7 +34,7 @@ struct SheetView: View {
             Text("Hello! I am a bottom sheet view!")
             CustomButton(title: "Dismiss me!",
                          cornerRadius: .small) {
-                router.navigate(to: DestinationView.movies)
+                router.dismiss()
             }
             .padding()
         }
