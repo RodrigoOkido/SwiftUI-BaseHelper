@@ -32,6 +32,7 @@ public enum OpenSans: String, CaseIterable, FontRegistrable {
                 }
                 return
             }
+            Font.openSansInitialized = true
         }
     }
 }

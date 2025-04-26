@@ -25,6 +25,7 @@ struct MainView: View {
     init(appDependencies: AppDependencies = AppDependencies()) {
         self.appDependencies = appDependencies
         self.appDependencies.setup()
+        registerCustomFonts()
     }
 
     var body: some View {
@@ -49,6 +50,17 @@ struct MainView: View {
         }
         .environment(\.locale, .init(identifier: appLanguage.langCode))
         .preferredColorScheme(isDarkMode ? .dark : .light)
+    }
+}
+
+extension MainView {
+    
+    private func registerCustomFonts() {
+        do {
+            try OpenSans.registerFont()
+        } catch(let error) {
+            print(error)
+        }
     }
 }
 

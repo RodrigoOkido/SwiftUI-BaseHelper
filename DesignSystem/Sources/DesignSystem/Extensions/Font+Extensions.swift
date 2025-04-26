@@ -13,12 +13,7 @@ public extension Font {
 
     static func openSans(_ openSans: OpenSans, size: CGFloat) -> Font {
         if !openSansInitialized {
-            do {
-                try OpenSans.registerFont()
-                openSansInitialized = true
-            } catch {
-                assertionFailure("Could not initialize font")
-            }
+            print("Custom Font OpenSans not registered.")
         }
         return .custom(openSans.rawValue, size: size)
     }
