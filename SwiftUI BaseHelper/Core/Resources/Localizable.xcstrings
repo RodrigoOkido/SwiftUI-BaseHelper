@@ -1,22 +1,8 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"\""
-          }
-        },
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "\"\""
-          }
-        }
-      }
+    "** This View is developed using Observable Macro! New feature syntax that came in iOS 17." : {
+
     },
     "Actions & Pickers" : {
       "localizations" : {
@@ -27,6 +13,9 @@
           }
         }
       }
+    },
+    "Add new Fruit" : {
+
     },
     "API" : {
       "localizations" : {
@@ -118,6 +107,9 @@
         }
       }
     },
+    "Close" : {
+
+    },
     "Components" : {
       "localizations" : {
         "pt-BR" : {
@@ -164,17 +156,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Modo Escuro"
-          }
-        }
-      }
-    },
-    "Dismiss me!" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Fechar"
           }
         }
       }
@@ -228,6 +209,9 @@
           }
         }
       }
+    },
+    "Fruit name" : {
+
     },
     "Generate Number" : {
       "localizations" : {
@@ -589,6 +573,9 @@
         }
       }
     },
+    "My Store" : {
+
+    },
     "Normal Button" : {
       "localizations" : {
         "pt-BR" : {
@@ -645,17 +632,6 @@
         }
       }
     },
-    "Please enable permission in App Settings." : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Por favor, habilite as permissões nas configurações do aplicativo"
-          }
-        }
-      }
-    },
     "Popular Movies" : {
       "localizations" : {
         "pt-BR" : {
@@ -677,7 +653,14 @@
       }
     },
     "Refresh" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atualizar"
+          }
+        }
+      }
     },
     "Rigid" : {
       "localizations" : {
@@ -705,17 +688,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Configurações"
-          }
-        }
-      }
-    },
-    "Show Sheet" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Mostrar Sheet"
           }
         }
       }
@@ -751,22 +723,64 @@
       }
     },
     "Text open sans bold" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans negrito"
+          }
+        }
+      }
     },
     "Text open sans extra bold" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans extra negrito"
+          }
+        }
+      }
     },
     "Text open sans light" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans light"
+          }
+        }
+      }
     },
     "Text open sans medium" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans médio"
+          }
+        }
+      }
     },
     "Text open sans regular" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans regular"
+          }
+        }
+      }
     },
     "Text open sans semi bold" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Text open sans semi negrito"
+          }
+        }
+      }
     },
     "Textfield" : {
       "localizations" : {

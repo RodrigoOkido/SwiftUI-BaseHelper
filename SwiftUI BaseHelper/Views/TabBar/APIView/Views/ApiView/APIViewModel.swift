@@ -47,7 +47,6 @@ class APIViewModel: ObservableObject {
             viewState = .loaded
         case .failure(let error):
             requestFailedMessage = error.errorMessage ?? "Unknown error"
-            requestFailed = true
             viewState = .error
         }
     }

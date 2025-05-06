@@ -20,6 +20,8 @@ struct MainView: View {
     let router2: Router<DestinationView> = Router<DestinationView>()
     let router3: Router<DestinationView> = Router<DestinationView>()
     let router4: Router<DestinationView> = Router<DestinationView>()
+    
+    @State private var storeModel = StoreModel()
 
     // MARK: - Initializer
     init(appDependencies: AppDependencies = AppDependencies()) {
@@ -49,6 +51,7 @@ struct MainView: View {
                 }
         }
         .environment(\.locale, .init(identifier: appLanguage.langCode))
+        .environment(storeModel)
         .preferredColorScheme(isDarkMode ? .dark : .light)
     }
 }

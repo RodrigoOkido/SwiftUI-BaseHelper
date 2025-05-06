@@ -26,6 +26,7 @@ public enum DestinationView: Identifiable, Hashable {
     case presentSheetView
     case datesView
     case customFontsView
+    case observableMacro
     
     // MARK: - Computed Properties
     public var id: String {
@@ -60,6 +61,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "datesView"
         case .customFontsView:
             return "customFontsView"
+        case .observableMacro:
+            return "observableMacro"
         }
     }
 
@@ -96,6 +99,8 @@ public enum DestinationView: Identifiable, Hashable {
             DatesView()
         case .customFontsView:
             CustomFontView()
+        case .observableMacro:
+            ObservableMacroView()
         }
     }
 }

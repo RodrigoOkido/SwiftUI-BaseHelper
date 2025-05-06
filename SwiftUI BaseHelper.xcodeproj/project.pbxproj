@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -211,6 +211,10 @@
 		2BFF774728F3901F00936E01 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		2BFF776428F47D8900936E01 /* BasicViewModifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicViewModifiers.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		2B9244412DCA400D0039266F /* ObservableMacro */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = ObservableMacro; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		2B7AE52D28F353E200B09959 /* Frameworks */ = {
@@ -442,6 +446,7 @@
 		2B7AE54B28F3597600B09959 /* Sections */ = {
 			isa = PBXGroup;
 			children = (
+				2B9244412DCA400D0039266F /* ObservableMacro */,
 				2B92443D2DBC06040039266F /* CustomFontView.swift */,
 				2B7AE54C28F3598500B09959 /* LabelView.swift */,
 				2B7AE54E28F35C5800B09959 /* TextFieldView.swift */,
@@ -765,6 +770,9 @@
 			);
 			dependencies = (
 				2B98C36D2902CB86001BCBEC /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				2B9244412DCA400D0039266F /* ObservableMacro */,
 			);
 			name = "SwiftUI BaseHelper";
 			packageProductDependencies = (

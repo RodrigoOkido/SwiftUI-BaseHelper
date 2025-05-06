@@ -48,3 +48,14 @@ public struct Navigation<RootView: View>: View {
         })
     }
 }
+
+extension Navigation: Hashable, Equatable {
+    public static func == (lhs: Navigation, rhs: Navigation) -> Bool {
+        switch (lhs, rhs) {
+        default:
+            return String(describing: lhs) == String(describing: rhs)
+        }
+    }
+
+    public func hash(into hasher: inout Hasher) { }
+}

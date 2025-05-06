@@ -52,6 +52,10 @@ struct BaseView: View {
                              action: {
                     router.navigate(to: DestinationView.customFontsView)
                 })
+                CustomButton(title: "iOS17 ObservableMacro",
+                             action: {
+                    router.navigate(to: DestinationView.observableMacro)
+                })
             }
             .padding()
         }

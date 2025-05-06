@@ -76,6 +76,9 @@ struct APIView: View {
 
             Spacer()
         }
+        .onAppear {
+            viewModel.requestFailed = true
+        }
     }
     
     private var contentView: some View {
