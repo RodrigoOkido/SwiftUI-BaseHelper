@@ -16,12 +16,16 @@ struct AddFruitView: View {
             TextField("Fruit name", text: $fruitName)
                 .textFieldStyle(.roundedBorder)
                 .onSubmit {
-                    store.addFruit(Fruit(name: fruitName))
+                    if !fruitName.isEmpty {
+                        store.addFruit(Fruit(name: fruitName))
+                    }
                     dismiss()
                 }
             
             Button("Close") {
-                store.addFruit(Fruit(name: fruitName))
+                if !fruitName.isEmpty {
+                    store.addFruit(Fruit(name: fruitName))
+                }
                 dismiss()
             }
             .buttonStyle(.borderedProminent)

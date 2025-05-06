@@ -15,4 +15,4 @@ API_URL_POSTER_IMAGE = image.tmdb.org/t/p/w500
 
 HTTP_SCHEME = https
 BASE_URL = api.themoviedb.org/
-API_KEY = MYKEY // https://www.themoviedb.org/
+API_KEY = 9379e095cbff11df340e84404b75765e // https://www.themoviedb.org/
