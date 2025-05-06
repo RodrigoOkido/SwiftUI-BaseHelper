@@ -22,7 +22,7 @@ struct AddFruitView: View {
                     dismiss()
                 }
             
-            Button("Close") {
+            Button("Add") {
                 if !fruitName.isEmpty {
                     store.addFruit(Fruit(name: fruitName))
                 }
