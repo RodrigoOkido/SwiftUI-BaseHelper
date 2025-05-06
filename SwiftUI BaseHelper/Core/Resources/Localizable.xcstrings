@@ -2,7 +2,14 @@
   "sourceLanguage" : "en",
   "strings" : {
     "** This View is developed using Observable Macro! New feature syntax that came in iOS 17." : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "** Esta view foi desenvolvida usando Observable Macro! Nova feature que chegou no iOS 17."
+          }
+        }
+      }
     },
     "Actions & Pickers" : {
       "localizations" : {
@@ -14,8 +21,25 @@
         }
       }
     },
+    "Add" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar"
+          }
+        }
+      }
+    },
     "Add new Fruit" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar nova fruta"
+          }
+        }
+      }
     },
     "API" : {
       "localizations" : {
@@ -106,9 +130,6 @@
           }
         }
       }
-    },
-    "Close" : {
-
     },
     "Components" : {
       "localizations" : {
@@ -211,7 +232,14 @@
       }
     },
     "Fruit name" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome da Fruta"
+          }
+        }
+      }
     },
     "Generate Number" : {
       "localizations" : {
@@ -574,7 +602,14 @@
       }
     },
     "My Store" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Minha loja"
+          }
+        }
+      }
     },
     "Normal Button" : {
       "localizations" : {
