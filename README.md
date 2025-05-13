@@ -3,6 +3,8 @@ Personal SwiftUI project which aims to help and demonstrate many basic concepts 
 
 This project was developed based on **Xcode 15.2 and Swift 5** (using some Swift 5.7 syntax released on september 2022). So you can find here contents which are only available on iOS 16 or above like Swift Charts for example. 
 
+All the content here is boilerplates! The only more robust thing is how navigation is implemented. We do not use NavigationLink directly in the view. 
+
 Here you can find:
 - SwiftUI 
   - Stacks (VStack / HStack / ZStack)
@@ -20,6 +22,7 @@ Here you can find:
 - SwiftUI Lock Screen Widgets
 - SwiftUI ViewModifiers
 - SwiftUI AppStorage
+- SwiftData
 - API Requests using [MovieDB](https://www.themoviedb.org/documentation/api) (async / await)
 - MapKit & Core Location
 - SwiftUI Preview Macros (iOS 17)
@@ -31,6 +34,7 @@ Other Contents:
 - Custom Fonts
 - Unit tests
 - String Catalogs (iOS 17)
+- Swift Macros (upcoming)
 
 ## Minimum Requirements to run
 In order to run this project properly, its important to have your XCode and iOS versions updated. Its recommended to have the following:
