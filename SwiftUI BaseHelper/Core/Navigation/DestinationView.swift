@@ -13,6 +13,7 @@ public enum DestinationView: Identifiable, Hashable {
     case home
     case movies
     case movieDetails(movie: Movie)
+    case swiftData
     case map
     case settings(appLanguage: AppLanguage)
     case sheetView
@@ -63,6 +64,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "customFontsView"
         case .observableMacro:
             return "observableMacro"
+        case .swiftData:
+            return "swiftData"
         }
     }
 
@@ -101,6 +104,8 @@ public enum DestinationView: Identifiable, Hashable {
             CustomFontView()
         case .observableMacro:
             ObservableMacroView()
+        case .swiftData:
+            SchedulerView()
         }
     }
 }

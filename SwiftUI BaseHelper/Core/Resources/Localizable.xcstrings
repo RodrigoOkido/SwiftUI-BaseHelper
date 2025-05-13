@@ -31,6 +31,16 @@
         }
       }
     },
+    "Add new event sample" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Adicionar um evento teste"
+          }
+        }
+      }
+    },
     "Add new Fruit" : {
       "localizations" : {
         "pt-BR" : {
@@ -707,6 +717,16 @@
         }
       }
     },
+    "Scheduler View" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Visualizador de Eventos"
+          }
+        }
+      }
+    },
     "Select a date:" : {
       "localizations" : {
         "pt-BR" : {
@@ -753,6 +773,16 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Sucesso"
+          }
+        }
+      }
+    },
+    "SwiftData" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "SwiftData"
           }
         }
       }

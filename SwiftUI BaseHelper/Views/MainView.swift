@@ -20,6 +20,7 @@ struct MainView: View {
     let router2: Router<DestinationView> = Router<DestinationView>()
     let router3: Router<DestinationView> = Router<DestinationView>()
     let router4: Router<DestinationView> = Router<DestinationView>()
+    let router5: Router<DestinationView> = Router<DestinationView>()
     
     @State private var storeModel = StoreModel()
 
@@ -41,11 +42,15 @@ struct MainView: View {
                 .tabItem {
                     Label("API", systemImage: "network")
                 }
-            NavigationViewFactory.make(.map, router: router3)
+            NavigationViewFactory.make(.swiftData, router: router3)
+                .tabItem {
+                    Label("SwiftData", systemImage: "swiftdata")
+                }
+            NavigationViewFactory.make(.map, router: router4)
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
-            NavigationViewFactory.make(.settings(appLanguage: appLanguage), router: router4)
+            NavigationViewFactory.make(.settings(appLanguage: appLanguage), router: router5)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 @main
 struct SwiftUI_BaseHelperApp: App {
@@ -14,5 +15,6 @@ struct SwiftUI_BaseHelperApp: App {
         WindowGroup {
             MainView()
         }
+        .modelContainer(for: [Event.self])
     }
 }
