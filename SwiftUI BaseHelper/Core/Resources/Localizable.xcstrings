@@ -611,6 +611,12 @@
         }
       }
     },
+    "Movie name" : {
+
+    },
+    "MovieSelection" : {
+
+    },
     "My Store" : {
       "localizations" : {
         "pt-BR" : {
@@ -620,6 +626,9 @@
           }
         }
       }
+    },
+    "No movies added to favorites" : {
+
     },
     "Normal Button" : {
       "localizations" : {
@@ -726,6 +735,9 @@
           }
         }
       }
+    },
+    "Search a movie:" : {
+
     },
     "Select a date:" : {
       "localizations" : {

@@ -7,16 +7,32 @@
 
 import SwiftUI
 import DesignSystem
+import SwiftData
+
+enum MovieTabMenu: CaseIterable {
+    case movieList, favoriteMovies
+    
+    var label: String {
+        switch self {
+        case .movieList: "Movies"
+        case .favoriteMovies: "Favorites"
+        }
+    }
+}
 
 struct APIView: View {
     
     // MARK: - Environments
     @Environment(\.colorScheme) var colorScheme
+    @Environment(\.modelContext) var modelContext
     @EnvironmentObject var router: Router<DestinationView>
+    @Query(sort: \FavoriteMovie.title) var favoriteMovies: [FavoriteMovie]
 
-    // MARK: - ViewModel
+    // MARK: - Stored Properties
     @ObservedObject private var viewModel: APIViewModel
-
+    @State private var selectedBar: MovieTabMenu = .movieList
+    @State private var favMovies: [FavoriteMovie] = []
+    
     // MARK: - Computed Properties
     private var isDarkModeEnabled: Bool {
         return colorScheme == .dark
@@ -40,9 +56,11 @@ struct APIView: View {
         }
         .navigationTitle("Popular Movies")
         .navigationBarTitleDisplayMode(.large)
-        .onAppear{
-            Task {
+        .task {
+            do {
                 try await viewModel.requestPopularMovies()
+            } catch {
+                print("Error")
             }
         }
         .alert(isPresented: $viewModel.requestFailed,
@@ -82,6 +100,25 @@ struct APIView: View {
     }
     
     private var contentView: some View {
+        VStack {
+            Picker("MovieSelection", selection: $selectedBar) {
+                ForEach(MovieTabMenu.allCases, id: \.self) { option in
+                    Text(option.label)
+                }
+            }
+            .pickerStyle(.segmented)
+            .padding(.horizontal)
+            
+            switch selectedBar {
+            case .favoriteMovies:
+                FavoriteMoviesView()
+            case .movieList:
+                moviesView
+            }
+        }
+    }
+    
+    private var moviesView: some View {
         ScrollView {
             VStack {
                 ForEach(viewModel.popularMovies, id: \.id) { movie in
@@ -104,9 +141,23 @@ struct APIView: View {
                                    height: HeightSize.huge)
                             .cornerRadius(CornerRadius.sm)
                             VStack(alignment: .leading) {
-                                Text(movie.title)
-                                    .bold()
-                                    .foregroundColor(isDarkModeEnabled ? .white : .black)
+                                HStack(spacing: 10) {
+                                    Text(movie.title)
+                                        .bold()
+                                        .foregroundColor(isDarkModeEnabled ? .white : .black)
+                                    Button {
+                                        addOrRemoveMovieFromFavorites(movie: movie)
+                                    } label: {
+                                        if favoriteMovies.contains(where: { favMovie in
+                                            favMovie.title == movie.title
+                                        }) {
+                                            Image(systemName: "star.fill")
+                                        } else {
+                                            Image(systemName: "star")
+                                        }
+                                    }
+
+                                }
                                 Text(movie.overview)
                                     .font(.body)
                                     .frame(height: HeightSize.huge)
@@ -121,7 +172,37 @@ struct APIView: View {
                 }
             }
             .padding()
+            .onAppear {
+                favMovies = favoriteMovies
+            }
         }
+    }
+}
+
+extension APIView {
+    
+    private func addOrRemoveMovieFromFavorites(movie: Movie) {
+        if let _ = favoriteMovies.first(where: { favMovie in
+            favMovie.title == movie.title
+        }) {
+            removeMovieFromFavorites(movie)
+        } else {
+            let newFavoriteMovie = FavoriteMovie(title: movie.title,
+                                                 overview: movie.overview)
+            modelContext.insert(newFavoriteMovie)
+            favMovies.append(newFavoriteMovie)
+        }
+        try? modelContext.save()
+    }
+    
+    private func removeMovieFromFavorites(_ movie: Movie) {
+        if let index = favoriteMovies.firstIndex(where: { favMovie in
+            favMovie.title == movie.title
+        }) {
+            modelContext.delete(favoriteMovies[index])
+            favMovies.remove(at: index)
+        }
+        try? modelContext.save()
     }
 }
 

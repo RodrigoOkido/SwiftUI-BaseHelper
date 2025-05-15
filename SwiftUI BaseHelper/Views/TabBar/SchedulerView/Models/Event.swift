@@ -7,6 +7,9 @@
 import SwiftData
 import Foundation
 
+// This model will be used on SwiftDataEventService.
+// We will use this to show how we can fetch data using a service layer.
+// Without using directly through View.
 @Model
 class Event {
     

@@ -15,6 +15,6 @@ struct SwiftUI_BaseHelperApp: App {
         WindowGroup {
             MainView()
         }
-        .modelContainer(for: [Event.self])
+        .modelContainer(for: [FavoriteMovie.self])
     }
 }
