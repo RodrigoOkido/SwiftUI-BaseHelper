@@ -15,12 +15,12 @@ struct MainView: View {
     @AppStorage("appLanguage") private var appLanguage: AppLanguage = .English
 
     // MARK: - Stored Properties
-    let appDependencies: AppDependencies
-    let router: Router<DestinationView> = Router<DestinationView>()
-    let router2: Router<DestinationView> = Router<DestinationView>()
-    let router3: Router<DestinationView> = Router<DestinationView>()
-    let router4: Router<DestinationView> = Router<DestinationView>()
-    let router5: Router<DestinationView> = Router<DestinationView>()
+    private let appDependencies: AppDependencies
+    private let componentsRouter: Router<DestinationView> = Router<DestinationView>()
+    private let apiRouter: Router<DestinationView> = Router<DestinationView>()
+    private let swiftDataRouter: Router<DestinationView> = Router<DestinationView>()
+    private let mapRouter: Router<DestinationView> = Router<DestinationView>()
+    private let settingsRouter: Router<DestinationView> = Router<DestinationView>()
     
     @State private var storeModel = StoreModel()
 
@@ -34,23 +34,23 @@ struct MainView: View {
     var body: some View {
         TabView {
             // Creates independent Navigation for each tab.
-            NavigationViewFactory.make(.home, router: router)
+            NavigationViewFactory.make(.home, router: componentsRouter)
                 .tabItem {
                     Label("Components", systemImage: "rectangle.3.group.fill")
                 }
-            NavigationViewFactory.make(.movies, router: router2)
+            NavigationViewFactory.make(.movies, router: apiRouter)
                 .tabItem {
                     Label("API", systemImage: "network")
                 }
-            NavigationViewFactory.make(.swiftData, router: router3)
+            NavigationViewFactory.make(.swiftData, router: swiftDataRouter)
                 .tabItem {
                     Label("SwiftData", systemImage: "swiftdata")
                 }
-            NavigationViewFactory.make(.map, router: router4)
+            NavigationViewFactory.make(.map, router: mapRouter)
                 .tabItem {
                     Label("Map", systemImage: "map")
                 }
-            NavigationViewFactory.make(.settings(appLanguage: appLanguage), router: router5)
+            NavigationViewFactory.make(.settings(appLanguage: appLanguage), router: settingsRouter)
                 .tabItem {
                     Label("Settings", systemImage: "gearshape.fill")
                 }

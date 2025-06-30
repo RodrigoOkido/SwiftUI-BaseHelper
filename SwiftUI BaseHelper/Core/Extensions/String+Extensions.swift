@@ -94,7 +94,7 @@ extension String {
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
 
         for type in types {
-            dateFormatter.dateFormat = type.description
+            dateFormatter.dateFormat = type.formatDescription
             date = dateFormatter.date(from: self)
             if let date {
                 return date

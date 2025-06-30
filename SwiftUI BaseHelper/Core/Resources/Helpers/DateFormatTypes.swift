@@ -17,7 +17,7 @@ enum DateFormatTypes: String, CaseIterable {
     case isoDate
 
     // MARK: - Computed Properties
-    var description : String {
+    var formatDescription : String {
 
         switch self {
         case .isoDateTimeMilliSec: return "yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ"

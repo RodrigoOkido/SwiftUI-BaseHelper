@@ -252,6 +252,12 @@ extension Date {
     func getCurrentDateWithHoursAndMinutes() -> Date {
         return Date.current.setTime(hour: self.getHoursOfDate(), minute: self.getMinutesOfDate())
     }
+    
+    func getFormatted(format: DateFormatTypes) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = format.formatDescription
+        return dateFormatter.string(from: self)
+    }
 
     /// Default start and end time for setting a device action as a trigger
     static var defaultStartTime: String = DateFormatter.timeFormatter.string(

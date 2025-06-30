@@ -13,11 +13,12 @@ struct SchedulerView: View {
     
     var body: some View {
         VStack {
+            Text("This is a Swift Data Sample")
             ForEach(viewModel.events) { event in
                 VStack {
                     HStack {
                         Text(event.name)
-                        Text(event.date.description)
+                        Text(event.date.getFormatted(format: .localDateType2))
                     }
                     Text(event.eventDescription)
                 }

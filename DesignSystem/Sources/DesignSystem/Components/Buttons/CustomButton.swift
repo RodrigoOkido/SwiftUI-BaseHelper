@@ -10,12 +10,12 @@ import SwiftUI
 public struct CustomButton: View {
     
     // MARK: - Stored Properties
-    private var type: ButtonType
-    private var title: String
-    private var height: ButtonHeight
-    private var padding: ButtonPadding
-    private var cornerRadius: ButtonCornerRadius
-    private var action: () -> Void
+    private let type: ButtonType
+    private let title: String
+    private let height: ButtonHeight
+    private let padding: ButtonPadding
+    private let cornerRadius: ButtonCornerRadius
+    private let action: () -> Void
     
     public init(type: ButtonType = .primary,
          title: String,

@@ -869,6 +869,9 @@
         }
       }
     },
+    "This is a Swift Data Sample" : {
+
+    },
     "Toggle" : {
       "localizations" : {
         "pt-BR" : {
