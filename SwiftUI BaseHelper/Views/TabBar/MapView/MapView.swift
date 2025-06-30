@@ -13,7 +13,7 @@ import DesignSystem
 struct MapView: View {
     
     // MARK: - View Model
-    @ObservedObject private var viewModel: MapViewModel
+    @State private var viewModel: MapViewModel
 
     // MARK: - Property Wrappers
     @State var toggleStatus: Bool

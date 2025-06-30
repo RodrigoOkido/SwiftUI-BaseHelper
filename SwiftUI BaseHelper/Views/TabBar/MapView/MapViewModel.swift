@@ -9,11 +9,11 @@ import Foundation
 import MapKit
 import CoreLocation
 
-class MapViewModel: NSObject, ObservableObject {
+class MapViewModel: BaseViewModel {
 
     // MARK: - Property Wrapper
-    @Published var isUserLocalizationAllowed: Bool
-    @Published var region: MKCoordinateRegion
+    var isUserLocalizationAllowed: Bool
+    var region: MKCoordinateRegion
 
     // MARK: - Stored Properties
     var locationManager: CLLocationManager

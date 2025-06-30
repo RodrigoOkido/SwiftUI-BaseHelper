@@ -11,7 +11,7 @@ import DesignSystem
 struct SettingsView: View {
     
     // MARK: - View Model
-    @ObservedObject var viewModel: SettingsViewModel
+    @State var viewModel: SettingsViewModel
 
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false

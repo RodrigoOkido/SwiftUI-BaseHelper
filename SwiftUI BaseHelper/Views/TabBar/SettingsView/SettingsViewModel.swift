@@ -8,10 +8,10 @@
 import Foundation
 import DesignSystem
 
-class SettingsViewModel: ObservableObject {
+class SettingsViewModel: BaseViewModel {
 
     // MARK: - Property Wrapper
-    @Published var language: AppLanguage
+    var language: AppLanguage
 
     // MARK: - Initializer
     init(language: AppLanguage) {

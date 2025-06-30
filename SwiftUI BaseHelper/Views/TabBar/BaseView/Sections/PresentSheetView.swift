@@ -11,7 +11,7 @@ import DesignSystem
 struct PresentSheetView: View {
     
     // MARK: - Property Wrappers
-    @EnvironmentObject var router: Router<DestinationView>
+    @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
     @State private var showSheet: Bool = false
 
     var body: some View {
@@ -27,7 +27,7 @@ struct SheetView: View {
     
     // MARK: - Property Wrappers
     @Environment(\.dismiss) var dismissMe
-    @EnvironmentObject var router: Router<DestinationView>
+    @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
 
     var body: some View {
         VStack {

@@ -25,11 +25,11 @@ struct APIView: View {
     // MARK: - Environments
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
-    @EnvironmentObject var router: Router<DestinationView>
+    @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
     @Query(sort: \FavoriteMovie.title) var favoriteMovies: [FavoriteMovie]
 
     // MARK: - Stored Properties
-    @ObservedObject private var viewModel: APIViewModel
+    @State private var viewModel: APIViewModel
     @State private var selectedBar: MovieTabMenu = .movieList
     @State private var favMovies: [FavoriteMovie] = []
     
@@ -50,8 +50,8 @@ struct APIView: View {
                 loadingView
             case .loaded:
                 contentView
-            case .error:
-                errorView
+            case .error(let error):
+                errorView(error)
             }
         }
         .navigationTitle("Popular Movies")
@@ -63,12 +63,6 @@ struct APIView: View {
                 print("Error")
             }
         }
-        .alert(isPresented: $viewModel.requestFailed,
-               content: { () -> Alert in
-                    Alert(title: Text("Error"),
-                          message: Text(viewModel.requestFailedMessage),
-                          dismissButton: .default(Text("Ok")))
-                })
     }
     
     private var loadingView: some View {
@@ -79,10 +73,10 @@ struct APIView: View {
         }
     }
     
-    private var errorView: some View {
+    private func errorView(_ error: Error) -> some View {
         VStack {
             Spacer()
-            Text(viewModel.requestFailedMessage)
+            Text(viewModel.errorMessage(from: error))
             Button {
                 Task {
                    try await viewModel.requestPopularMovies()

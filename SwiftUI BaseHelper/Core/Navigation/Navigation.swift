@@ -16,7 +16,7 @@ public struct NavigationViewFactory {
             rootView: rootView.makeView,
             router: router
         )
-        .environmentObject(router)
+        .environment(router)
     }
 }
 
@@ -26,7 +26,7 @@ public struct Navigation<RootView: View>: View {
     let rootView: RootView
 
     // MARK: - Wrapped Properties
-    @StateObject var router: Router<DestinationView>
+    @State var router: Router<DestinationView>
 
     // MARK: - Content
     public var body: some View {

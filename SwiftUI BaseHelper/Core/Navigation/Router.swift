@@ -12,12 +12,13 @@ public enum PathType {
     case sheet
 }
 
-public class Router<View: Hashable>: ObservableObject {
+@Observable
+public class Router<View: Hashable> {
 
     // MARK: - Wrapped Properties
-    @Published public var path = NavigationPath()
-    @Published public var bottomSheetPath = NavigationPath()
-    @Published public var presentedView: View?
+    public var path = NavigationPath()
+    public var bottomSheetPath = NavigationPath()
+    public var presentedView: View?
 
     public init() {}
 

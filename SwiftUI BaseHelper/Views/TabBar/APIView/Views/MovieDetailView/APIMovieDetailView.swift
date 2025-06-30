@@ -11,7 +11,7 @@ import DesignSystem
 struct APIMovieDetailView: View {
     
     // MARK: - ViewModel
-    @ObservedObject var viewModel: APIDetailMovieViewModel
+    @State var viewModel: APIDetailMovieViewModel
 
     // MARK: - Initializer
     init(viewModel: APIDetailMovieViewModel) {

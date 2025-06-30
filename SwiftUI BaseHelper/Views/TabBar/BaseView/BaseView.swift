@@ -10,7 +10,7 @@ import DesignSystem
 
 struct BaseView: View {
     
-    @EnvironmentObject var router: Router<DestinationView>
+    @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
     
     var body: some View {
         

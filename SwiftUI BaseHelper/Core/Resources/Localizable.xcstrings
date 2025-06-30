@@ -651,6 +651,7 @@
       }
     },
     "Ok" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

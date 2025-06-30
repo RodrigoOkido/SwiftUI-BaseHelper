@@ -7,8 +7,7 @@
 
 import Foundation
 
-
-class APIDetailMovieViewModel: ObservableObject {
+class APIDetailMovieViewModel: BaseViewModel {
 
     // MARK: - Stored properties
     var movie: Movie

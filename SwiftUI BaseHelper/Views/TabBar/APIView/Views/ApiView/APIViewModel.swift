@@ -8,30 +8,17 @@
 import Foundation
 import UIKit
 
-enum ViewState {
-    case loading
-    case loaded
-    case error
-}
-
-class APIViewModel: ObservableObject {
+class APIViewModel: BaseViewModel {
     
     // MARK: - Stored Properties
     private var movieDBService: MovieDBRepositoryProtocol
-    var requestFailedMessage: String
     var popularMovies: [Movie]
-
-    // MARK: - Property Wrappers
-    @Published var requestFailed = false
-    @Published var viewState: ViewState = .loading
 
     // MARK: - Initializer
     init(popularMovies: [Movie] = [], 
-         requestFailedMessage: String = "",
          movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
         self.popularMovies = popularMovies
         self.movieDBService = movieDBService
-        self.requestFailedMessage = requestFailedMessage
     }
 
     
@@ -46,8 +33,7 @@ class APIViewModel: ObservableObject {
             popularMovies = data
             viewState = .loaded
         case .failure(let error):
-            requestFailedMessage = error.errorMessage ?? "Unknown error"
-            viewState = .error
+            viewState = .error(error)
         }
     }
 

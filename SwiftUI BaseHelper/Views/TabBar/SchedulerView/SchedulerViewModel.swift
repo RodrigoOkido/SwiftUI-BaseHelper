@@ -7,8 +7,7 @@
 import SwiftUI
 import SwiftData
 
-@Observable
-class SchedulerViewModel {
+class SchedulerViewModel: BaseViewModel {
     
     var events: [Event]
     private let dataSource: SwiftDataEventService
