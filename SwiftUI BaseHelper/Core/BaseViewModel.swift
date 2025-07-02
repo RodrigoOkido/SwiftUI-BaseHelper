@@ -16,7 +16,6 @@ public class BaseViewModel: NSObject {
     }
     
     // MARK: - Stored Properties
-    var requestFailed = false
     var viewState: ViewState = .loading
     
     // MARK: - Helpers

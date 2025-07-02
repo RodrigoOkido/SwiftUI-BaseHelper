@@ -14,4 +14,7 @@ protocol EnvironmentProtocol: AnyObject {
     var apiKey: String { get }
     var publicKey: String { get }
     var privateKey: String { get }
+    
+    // MARK: - Functions
+    func getValue(forKey key: String) -> String
 }

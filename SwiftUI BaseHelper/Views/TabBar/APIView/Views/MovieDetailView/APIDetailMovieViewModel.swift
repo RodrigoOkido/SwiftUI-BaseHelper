@@ -8,6 +8,8 @@
 import Foundation
 
 class APIDetailMovieViewModel: BaseViewModel {
+    
+    @Injected var environment: EnvironmentProtocol
 
     // MARK: - Stored properties
     var movie: Movie
@@ -16,17 +18,12 @@ class APIDetailMovieViewModel: BaseViewModel {
     init(movie: Movie) {
         self.movie = movie
     }
-
-    // MARK: - Private Functions
-    private func getKeyValue(forKey key: String) -> String? {
-        return Bundle.main.infoDictionary?[key] as? String
-    }
     
     // MARK: - Public Functions
     func getMoviePosterURL(posterPath: String?) -> String {
         guard let posterPath else { return "" }
-        guard let configMoviePosterImage = getKeyValue(forKey: "API_URL_POSTER_IMAGE") else { return "" }
-        let url_poster_image = "https://\(configMoviePosterImage)\(posterPath)"
+        let posterBaseUrl = environment.getValue(forKey: "API_URL_POSTER_IMAGE")
+        let url_poster_image = "https://\(posterBaseUrl)\(posterPath)"
         return url_poster_image
     }
 }

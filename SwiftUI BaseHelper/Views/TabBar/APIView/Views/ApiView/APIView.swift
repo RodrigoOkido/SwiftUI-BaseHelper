@@ -47,11 +47,16 @@ struct APIView: View {
         VStack {
             switch viewModel.viewState {
             case .loading:
-                loadingView
+                LoadingView()
             case .loaded:
                 contentView
             case .error(let error):
-                errorView(error)
+                ErrorView(errorMessage: viewModel.getRequestErrorMessage(from: error),
+                          action: {
+                    Task {
+                       try await viewModel.requestPopularMovies()
+                    }
+                })
             }
         }
         .navigationTitle("Popular Movies")
@@ -62,34 +67,6 @@ struct APIView: View {
             } catch {
                 print("Error")
             }
-        }
-    }
-    
-    private var loadingView: some View {
-        VStack {
-            Spacer()
-            ProgressView()
-            Spacer()
-        }
-    }
-    
-    private func errorView(_ error: Error) -> some View {
-        VStack {
-            Spacer()
-            Text(viewModel.getRequestErrorMessage(from: error))
-            Button {
-                Task {
-                   try await viewModel.requestPopularMovies()
-                }
-            } label: {
-                Text("Refresh")
-                    .underline()
-            }
-
-            Spacer()
-        }
-        .onAppear {
-            viewModel.requestFailed = true
         }
     }
     

@@ -24,4 +24,8 @@ class BaseEnvironment: EnvironmentProtocol {
     var privateKey: String {
         return infoDictionary["PRIVATE_KEY"] as? String ?? ""
     }
+    
+    func getValue(forKey: String) -> String {
+        return infoDictionary[forKey] as? String ?? ""
+    }
 }
