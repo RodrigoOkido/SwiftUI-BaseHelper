@@ -612,10 +612,24 @@
       }
     },
     "Movie name" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nome do filme"
+          }
+        }
+      }
     },
-    "MovieSelection" : {
-
+    "Movie Selection" : {
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Movie Selection"
+          }
+        }
+      }
     },
     "My Store" : {
       "localizations" : {
@@ -628,7 +642,14 @@
       }
     },
     "No movies added to favorites" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Não há filmes adicionados"
+          }
+        }
+      }
     },
     "Normal Button" : {
       "localizations" : {
@@ -646,17 +667,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Tipos de notificação de feedback"
-          }
-        }
-      }
-    },
-    "Ok" : {
-      "extractionState" : "stale",
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ok"
           }
         }
       }
@@ -738,7 +748,14 @@
       }
     },
     "Search a movie:" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Procure um filme:"
+          }
+        }
+      }
     },
     "Select a date:" : {
       "localizations" : {
@@ -871,7 +888,14 @@
       }
     },
     "This is a Swift Data Sample" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Isto é um exemplo de Swift Data"
+          }
+        }
+      }
     },
     "Toggle" : {
       "localizations" : {

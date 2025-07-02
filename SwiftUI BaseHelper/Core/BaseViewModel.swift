@@ -19,12 +19,14 @@ public class BaseViewModel: NSObject {
     var requestFailed = false
     var viewState: ViewState = .loading
     
-    
     // MARK: - Helpers
-    public func errorMessage(from error: Error) -> String {
-        if let requestError = error as? RequestError {
-            return requestError.errorMessage ?? "Unknown error"
+    public func getRequestErrorMessage(from error: Error) -> String {
+        switch error {
+        case is RequestError:
+            let error = error as? RequestError
+            return error?.errorMessage ?? "Unknown error"
+        default:
+            return error.localizedDescription
         }
-        return error.localizedDescription
     }
 }

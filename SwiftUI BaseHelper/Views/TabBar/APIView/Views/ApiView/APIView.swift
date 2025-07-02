@@ -76,7 +76,7 @@ struct APIView: View {
     private func errorView(_ error: Error) -> some View {
         VStack {
             Spacer()
-            Text(viewModel.errorMessage(from: error))
+            Text(viewModel.getRequestErrorMessage(from: error))
             Button {
                 Task {
                    try await viewModel.requestPopularMovies()
@@ -95,7 +95,7 @@ struct APIView: View {
     
     private var contentView: some View {
         VStack {
-            Picker("MovieSelection", selection: $selectedBar) {
+            Picker("Movie Selection", selection: $selectedBar) {
                 ForEach(MovieTabMenu.allCases, id: \.self) { option in
                     Text(option.label)
                 }
