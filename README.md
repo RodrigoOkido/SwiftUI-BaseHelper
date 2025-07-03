@@ -1,6 +1,8 @@
 # SwiftUI-BaseHelper
 Personal SwiftUI project which aims to help and demonstrate many basic concepts of Swift using the brand new declarative framework developed by Apple.
 
+<img width="346" alt="Captura de Tela 2025-07-03 às 16 01 19" src="https://github.com/user-attachments/assets/1f78c2d4-9fb7-46e0-b444-66bdbb3a6bce" />
+
 This project was developed based on **Xcode 16.4 and Swift 5**. So you can find here contents which are only available on iOS 17 or above.
 
 All the content here is boilerplates! The only more robust thing is how navigation is implemented. We do not use NavigationLink directly in the view. 
