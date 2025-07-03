@@ -1,6 +1,7 @@
 import SwiftUI
 
 // MARK: - View Modifiers creations
+import DesignSystem
 
 // Components modifers
 extension View {

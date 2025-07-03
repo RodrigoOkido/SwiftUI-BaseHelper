@@ -26,6 +26,7 @@ public struct ExpandableCardView: View {
             HStack {
                 Text(title)
                     .font(.headline)
+                    .foregroundStyle(.black)
                 Spacer()
                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
             }
@@ -39,6 +40,7 @@ public struct ExpandableCardView: View {
             
             if isExpanded {
                 Text(innerDescription)
+                    .foregroundStyle(.black)
                     .padding()
                     .transition(.opacity)
             }
