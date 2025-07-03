@@ -22,6 +22,8 @@
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
 		2B98C36A2902CB86001BCBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B98C3692902CB86001BCBEC /* Assets.xcassets */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BC74F142E16ECD40033321F /* Config.xcconfig */; };
+		2BC74F172E16ED900033321F /* Config_temp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BC74F162E16ED900033321F /* Config_temp.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +58,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		2B294DA328F7922D00F76609 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2B7321632BA1C6A5007EB026 /* TestMovieFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMovieFactory.swift; sourceTree = "<group>"; };
 		2B7321662BA1C9F8007EB026 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		2B7321682BA1D484007EB026 /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
@@ -76,6 +77,8 @@
 		2B98C3692902CB86001BCBEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B98C36B2902CB86001BCBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2BC74F142E16ECD40033321F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		2BC74F162E16ED900033321F /* Config_temp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config_temp.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -117,7 +120,8 @@
 		2B294DA528F7967000F76609 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				2B294DA328F7922D00F76609 /* Config.xcconfig */,
+				2BC74F142E16ECD40033321F /* Config.xcconfig */,
+				2BC74F162E16ED900033321F /* Config_temp.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -388,6 +392,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */,
+				2BC74F172E16ED900033321F /* Config_temp.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -573,7 +579,6 @@
 		};
 		2B7AE53F28F353E300B09959 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B294DA328F7922D00F76609 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -613,7 +618,6 @@
 		};
 		2B7AE54028F353E300B09959 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B294DA328F7922D00F76609 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;

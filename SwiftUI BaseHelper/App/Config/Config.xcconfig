@@ -1,0 +1,18 @@
+//
+//  Config.xcconfig
+//  SwiftUI BaseHelper
+//
+//  Created by Rodrigo Okido on 12/10/22.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+// TEMP
+API_URL = api.themoviedb.org/3/movie/popular?api_key=$(API_KEY)
+API_URL_POSTER_IMAGE = image.tmdb.org/t/p/w500
+// =======
+
+HTTP_SCHEME = https
+BASE_URL = api.themoviedb.org/
+API_KEY = // https://www.themoviedb.org/
