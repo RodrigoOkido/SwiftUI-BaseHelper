@@ -23,7 +23,6 @@
 		2B98C36A2902CB86001BCBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B98C3692902CB86001BCBEC /* Assets.xcassets */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BC74F142E16ECD40033321F /* Config.xcconfig */; };
-		2BC74F172E16ED900033321F /* Config_temp.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BC74F162E16ED900033321F /* Config_temp.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +77,6 @@
 		2B98C36B2902CB86001BCBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
 		2BC74F142E16ECD40033321F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		2BC74F162E16ED900033321F /* Config_temp.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config_temp.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -121,7 +119,6 @@
 			isa = PBXGroup;
 			children = (
 				2BC74F142E16ECD40033321F /* Config.xcconfig */,
-				2BC74F162E16ED900033321F /* Config_temp.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -393,7 +390,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */,
-				2BC74F172E16ED900033321F /* Config_temp.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
