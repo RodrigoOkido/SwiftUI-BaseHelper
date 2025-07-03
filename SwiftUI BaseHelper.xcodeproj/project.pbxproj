@@ -22,7 +22,7 @@
 		2B98C3682902CB85001BCBEC /* SimpleLockScreenWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */; };
 		2B98C36A2902CB86001BCBEC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B98C3692902CB86001BCBEC /* Assets.xcassets */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BC74F142E16ECD40033321F /* Config.xcconfig */; };
+		2BAEA61D2E1704A400C27B39 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 2BAEA61C2E1704A400C27B39 /* Config.xcconfig */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,8 +75,8 @@
 		2B98C3672902CB85001BCBEC /* SimpleLockScreenWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleLockScreenWidget.swift; sourceTree = "<group>"; };
 		2B98C3692902CB86001BCBEC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B98C36B2902CB86001BCBEC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2BAEA61C2E1704A400C27B39 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
-		2BC74F142E16ECD40033321F /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -118,7 +118,7 @@
 		2B294DA528F7967000F76609 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				2BC74F142E16ECD40033321F /* Config.xcconfig */,
+				2BAEA61C2E1704A400C27B39 /* Config.xcconfig */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -389,7 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2BC74F152E16ECD40033321F /* Config.xcconfig in Resources */,
+				2BAEA61D2E1704A400C27B39 /* Config.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -461,7 +461,7 @@
 /* Begin XCBuildConfiguration section */
 		2B7AE53C28F353E300B09959 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BC74F142E16ECD40033321F /* Config.xcconfig */;
+			baseConfigurationReference = 2BAEA61C2E1704A400C27B39 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -522,7 +522,7 @@
 		};
 		2B7AE53D28F353E300B09959 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2BC74F142E16ECD40033321F /* Config.xcconfig */;
+			baseConfigurationReference = 2BAEA61C2E1704A400C27B39 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
