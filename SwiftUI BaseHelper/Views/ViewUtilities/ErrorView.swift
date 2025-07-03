@@ -10,10 +10,14 @@ import DesignSystem
 struct ErrorView: View {
     
     private let errorMessage: String
+    private let actionLabel: String?
     private let action: (() -> Void)?
     
-    init(errorMessage: String, action: @escaping () -> Void = {}) {
+    init(errorMessage: String,
+         actionLabel: String? = nil,
+         action: @escaping () -> Void = {}) {
         self.errorMessage = errorMessage
+        self.actionLabel = actionLabel
         self.action = action
     }
     
@@ -25,11 +29,12 @@ struct ErrorView: View {
                 .frame(width: 50, height: 50)
             Text(errorMessage)
                 .font(.title2)
-            if let action {
+            if let actionLabel,
+                let action {
                 Button {
                     action()
                 } label: {
-                    Text("Refresh")
+                    Text(actionLabel)
                         .underline()
                 }
             }
@@ -39,5 +44,12 @@ struct ErrorView: View {
 }
 
 #Preview {
-    ErrorView(errorMessage: "Something went wrong", action: {})
+    ErrorView(errorMessage: "Something went wrong",
+              action: {})
+}
+
+#Preview {
+    ErrorView(errorMessage: "Something went wrong",
+              actionLabel: "Try again",
+              action: {})
 }

@@ -46,7 +46,7 @@ public struct CustomButton: View {
                     leadingImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: ButtonHeight * 0.6, height: ButtonHeight * 0.6)
+                        .frame(width: height.size * 0.5, height: height.size * 0.5)
                 }
                 Text(title)
                     .font(type.fontSize)
@@ -56,7 +56,7 @@ public struct CustomButton: View {
                     trailingImage
                         .resizable()
                         .aspectRatio(contentMode: .fit)
-                        .frame(width: ButtonHeight * 0.6, height: ButtonHeight * 0.6)
+                        .frame(width: height.size * 0.5, height: height.size * 0.5)
                 }
             }
             .frame(height: height.size)
@@ -70,6 +70,18 @@ public struct CustomButton: View {
 }
 
 #Preview {
-    CustomButton(title: "Test",
+    CustomButton(title: "Sample 1",
+                 action: {})
+    CustomButton(title: "Sample 2",
+                 leadingImage: Image(systemName: "globe"),
+                 action: {})
+    CustomButton(title: "Sample 3",
+                 trailingImage: Image(systemName: "globe"),
+                 action: {})
+    CustomButton(type: .secondary,
+                 title: "Sample secondary",
+                 action: {})
+    CustomButton(type: .tertiary,
+                 title: "Sample tertiary",
                  action: {})
 }
