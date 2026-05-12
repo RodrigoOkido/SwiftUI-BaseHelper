@@ -18,7 +18,6 @@ public enum DestinationView: Identifiable, Hashable {
     case settings(appLanguage: AppLanguage)
     case sheetView
     
-    case labelView
     case textFieldView
     case actionAndSelectableView
     case chartsView
@@ -45,8 +44,6 @@ public enum DestinationView: Identifiable, Hashable {
             return "settings"
         case .sheetView:
             return "sheetView"
-        case .labelView:
-            return "labelView"
         case .textFieldView:
             return "textFieldView"
         case .actionAndSelectableView:
@@ -87,8 +84,6 @@ public enum DestinationView: Identifiable, Hashable {
             SettingsView(viewModel: SettingsViewModel(language: appLanguage))
         case .sheetView:
             SheetView()
-        case .labelView:
-            LabelView()
         case .textFieldView:
             TextFieldView()
         case .actionAndSelectableView:

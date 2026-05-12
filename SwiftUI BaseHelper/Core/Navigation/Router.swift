@@ -43,11 +43,11 @@ public class Router<View: Hashable> {
         presentedView = nil
     }
 
-    public func pop(pathType: PathType = .normal) {
+    public func pop() {
         presentedView != nil ? bottomSheetPath.removeLast() : path.removeLast()
     }
 
-    public func popToRoot(pathType: PathType = .normal) {
+    public func popToRoot() {
         presentedView != nil ? bottomSheetPath.removeLast(bottomSheetPath.count) : path.removeLast(path.count)
     }
 }

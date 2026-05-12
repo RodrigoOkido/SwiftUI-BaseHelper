@@ -30,49 +30,16 @@ struct TextFieldView: View {
 
     var body: some View {
         VStack {
-            VStack(alignment: .leading) {
-                Text("First Name:")
-                    .bold()
-                TextField("First Name", 
-                          text: $firstName)
-                    .textFieldStyle(.roundedBorder)
-            }
-            .padding()
+            CustomTextField(fieldName: "First Name",
+                            placeholder: "Your name",
+                            leadingIcon: Image(systemName: "person.crop.circle"),
+                            text: $firstName)
+            CustomTextField(fieldName: "Middle name",
+                            placeholder: "middleName",
+                            trailingIcon: Image(systemName: "eye"),
+                            text: $middleName)
             
-            HStack {
-                Text("Last Name:")
-                    .bold()
-                TextField("Last Name", 
-                          text: $lastName)
-                    .padding(InsetSpacing.quarck)
-                    .border(isDarkMode ? .blue : .gray)
-            }
-            .padding()
-            
-            VStack(alignment: .leading) {
-                Text("Middle Name:")
-                    .bold()
-                TextField("Middle Name", 
-                          text: $middleName,
-                          onEditingChanged: { onFocus in
-                        if onFocus {
-                            print("On focus")
-                            focus = .blue
-                        } else {
-                            print("Focus off")
-                            focus = .cyan
-                        }
-                    }, onCommit: {
-                        print("Commit status")
-                    }
-                )
-                .padding(InsetSpacing.xxs)
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.md)
-                        .stroke(focus, lineWidth: 2)
-                )
-            }
-            .padding()
+            SimpleTextField(fieldName: "Last name", placeholder: "Last name", text: $lastName)
             
             Text("Output: Hello \(firstName) \(middleName) \(lastName)!")
                 .padding()

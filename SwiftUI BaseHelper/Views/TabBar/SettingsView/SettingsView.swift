@@ -33,7 +33,7 @@ struct SettingsView: View {
                         }
                     })
                     Picker("App Language", 
-                           selection: $viewModel.language,
+                           selection: $appLanguage,
                            content: {
                         ForEach(AppLanguage.allCases, content: { lang in
                             Text(lang.rawValue)

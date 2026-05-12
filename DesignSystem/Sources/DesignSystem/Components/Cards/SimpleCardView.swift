@@ -47,7 +47,7 @@ public struct SimpleCardView: View {
             .padding()
         }
         .background(.white)
-        .cornerRadius(8)
-        .shadow(color: .black.opacity(0.3), radius: 2, y: 2)
+        .cornerRadius(CornerRadius.sm)
+        .shadow(color: .black.opacity(OpacityLevel.transparent), radius: 2, y: 2)
     }
 }

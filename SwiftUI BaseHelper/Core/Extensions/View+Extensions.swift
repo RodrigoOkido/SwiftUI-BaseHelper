@@ -31,6 +31,6 @@ extension View {
 
 
 #Preview {
-    LabelView()
+    TextFieldView()
         .onLoading(.constant(true))
 }

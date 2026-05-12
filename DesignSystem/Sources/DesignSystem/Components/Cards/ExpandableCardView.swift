@@ -46,7 +46,7 @@ public struct ExpandableCardView: View {
             }
         }
         .background(Color.white)
-        .cornerRadius(10)
+        .cornerRadius(CornerRadius.sm)
         .shadow(radius: 5)
     }
 }
