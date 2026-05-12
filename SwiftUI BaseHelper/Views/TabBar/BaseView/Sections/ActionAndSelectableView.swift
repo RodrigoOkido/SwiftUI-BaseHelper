@@ -61,6 +61,10 @@ struct ActionAndSelectableView: View {
                 }
                 Text(toggleStatus ? "Toggle on": "Toggle off")
                     .animation(.linear)
+                Toggle("Styling 1", isOn: $toggleStatus)
+                    .toggleStyle(CustomToggleStyle())
+                Toggle("Styling 2", isOn: $toggleStatus)
+                    .toggleStyle(CustomToggleStyle2())
             }
             
             // MARK: - Picker

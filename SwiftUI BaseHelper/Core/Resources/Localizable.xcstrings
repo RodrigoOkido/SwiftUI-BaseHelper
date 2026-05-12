@@ -227,6 +227,7 @@
       }
     },
     "First Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -237,6 +238,7 @@
       }
     },
     "First Name:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -487,6 +489,7 @@
       }
     },
     "Last Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -497,6 +500,7 @@
       }
     },
     "Last Name:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -567,6 +571,7 @@
       }
     },
     "Middle Name" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
@@ -577,6 +582,7 @@
       }
     },
     "Middle Name:" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

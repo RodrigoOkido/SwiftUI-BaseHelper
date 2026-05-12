@@ -9,7 +9,7 @@
 import SwiftUI
 
 public enum TextFieldType {
-    case regular, phone, email, password
+    case regular, phone, email, password, textArea
 }
 
 public struct CustomTextField: View {
@@ -50,7 +50,7 @@ public struct CustomTextField: View {
             Text(fieldName)
                 .bold()
             HStack(spacing: StackSpacing.quarck) {
-                if let leadingIcon {
+                if let leadingIcon, type != .textArea  {
                     leadingIcon
                         .resizable()
                         .aspectRatio(contentMode: .fit)
@@ -58,13 +58,12 @@ public struct CustomTextField: View {
                 }
                 TextField(placeholder,
                           text: $text,
-                          onEditingChanged: { onFocus in
-                    focus = onFocus ? .orange : .black
-                }
+                          axis: .vertical
                 )
                 .keyboardType(keyboardType)
+                .lineLimit(type == .textArea ? 5 : 1, reservesSpace: type == .textArea)
                 .padding(.horizontal, InsetSpacing.quarck)
-                if let trailingIcon {
+                if let trailingIcon, type != .textArea {
                     Spacer()
                     trailingIcon
                         .resizable()
