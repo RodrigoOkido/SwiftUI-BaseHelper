@@ -8,41 +8,38 @@
 
 import SwiftUI
 
-public enum TextFieldType {
-    case regular, phone, email, password, textArea
+public protocol CustomTextField {
+    
+    var fieldName: String { get set }
+    var placeholder: String { get set }
+    var isFocused: Bool { get set }
+    var textContent: String { get set }
 }
 
-public struct CustomTextField: View {
+public struct RegularTextField: CustomTextField, View {
     
-    private let type: TextFieldType
-    private let fieldName: String
-    private let placeholder: String
-    private let leadingIcon: Image?
-    private let trailingIcon: Image?
-    @State var focus: Color = .black
-    @Binding private var text: String
+    public var fieldName: String
+    public var placeholder: String
+    public var leadingIcon: Image?
+    public var trailingIcon: Image?
+    @Binding public var textContent: String
+    @FocusState public var isFocused: Bool
     
-    private var keyboardType: UIKeyboardType {
-        switch type {
-        case .phone: return .phonePad
-        case .email: return .emailAddress
-        case .password: return .asciiCapable
-        default: return .default
-        }
+    private var borderColor: Color {
+        isFocused ? .orange : .black
     }
     
-    public init(type: TextFieldType = .regular,
+    public init(
          fieldName: String,
          placeholder: String,
          leadingIcon: Image? = nil,
          trailingIcon: Image? = nil,
-         text: Binding<String>) {
-        self.type = type
+         textContent: Binding<String>) {
         self.fieldName = fieldName
         self.placeholder = placeholder
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
-        self._text = text
+        self._textContent = textContent
     }
     
     public var body: some View {
@@ -50,20 +47,19 @@ public struct CustomTextField: View {
             Text(fieldName)
                 .bold()
             HStack(spacing: StackSpacing.quarck) {
-                if let leadingIcon, type != .textArea  {
+                if let leadingIcon {
                     leadingIcon
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: IconSize.xs, height: IconSize.xs)
                 }
                 TextField(placeholder,
-                          text: $text,
+                          text: $textContent,
                           axis: .vertical
                 )
-                .keyboardType(keyboardType)
-                .lineLimit(type == .textArea ? 5 : 1, reservesSpace: type == .textArea)
+                .focused($isFocused)
                 .padding(.horizontal, InsetSpacing.quarck)
-                if let trailingIcon, type != .textArea {
+                if let trailingIcon {
                     Spacer()
                     trailingIcon
                         .resizable()
@@ -74,19 +70,88 @@ public struct CustomTextField: View {
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: CornerRadius.sm)
-                    .stroke(focus, lineWidth: 1)
+                    .stroke(borderColor, lineWidth: 1)
             )
+            .animation(.easeInOut(duration: 0.2), value: isFocused)
         }
     }
 }
 
+public struct PasswordTextField: CustomTextField, View {
+    
+    public var fieldName: String
+    public var placeholder: String
+    @FocusState public var isFocused: Bool
+    @Binding public var textContent: String
+    @State public var shouldShowPassword: Bool
+    
+    private var borderColor: Color {
+        isFocused ? .orange : .black
+    }
+    
+    public init(
+         fieldName: String,
+         placeholder: String,
+         textContent: Binding<String>) {
+        self.fieldName = fieldName
+        self.placeholder = placeholder
+        self.shouldShowPassword = false
+        self._textContent = textContent
+    }
+    
+    public var body: some View {
+        VStack(alignment: .leading) {
+            Text(fieldName)
+                .bold()
+            HStack(spacing: StackSpacing.quarck) {
+                
+                if shouldShowPassword {
+                    TextField(placeholder,
+                              text: $textContent,
+                              axis: .vertical
+                    )
+                    .focused($isFocused)
+                    .padding(.horizontal, InsetSpacing.quarck)
+                    
+                    Spacer()
+                    Image(systemName: "eye")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: IconSize.xs, height: IconSize.xs)
+                        .onTapGesture {
+                            shouldShowPassword = false
+                        }
+                } else {
+                    SecureField(placeholder, text: $textContent)
+                        .focused($isFocused)
+                        .padding(.horizontal, InsetSpacing.quarck)
+                    Spacer()
+                    Image(systemName: "eye.slash")
+                        .resizable()
+                        .aspectRatio(contentMode: .fit)
+                        .frame(width: IconSize.xs, height: IconSize.xs)
+                        .onTapGesture {
+                            shouldShowPassword = true
+                        }
+                }
+
+            }
+        }
+        .padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(borderColor, lineWidth: 1)
+        )
+        .animation(.easeInOut(duration: 0.2), value: isFocused)
+    }
+}
+
 #Preview {
-    CustomTextField(fieldName: "Name",
+    RegularTextField(fieldName: "Name",
                     placeholder: "Your name",
                     leadingIcon: Image(systemName: "person.crop.circle"),
-                    text: .constant(""))
-    CustomTextField(fieldName: "Password",
+                    textContent: .constant(""))
+    PasswordTextField(fieldName: "Password",
                     placeholder: "Your password",
-                    trailingIcon: Image(systemName: "eye"),
-                    text: .constant(""))
+                    textContent: .constant(""))
 }

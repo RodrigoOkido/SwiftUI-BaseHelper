@@ -21,7 +21,7 @@ struct BaseView: View {
                                  action: {
                         router.navigate(to: DestinationView.componentsView)
                     })
-                    CustomButton(title: "Textfield",
+                    CustomButton(title: "Textfields",
                                  action: {
                         router.navigate(to: DestinationView.textFieldView)
                     })

@@ -15,31 +15,34 @@ struct TextFieldView: View {
     @State var firstName: String
     @State var lastName: String
     @State var middleName: String
+    @State var commentArea: String
     @State var focus: Color
 
     // MARK: - Initializer
     init(firstName: String = "Apple",
          lastName: String = "Framework",
          middleName: String = "SwiftUI",
+         commentArea: String = "",
          focus: Color = .cyan) {
         self.firstName = firstName
         self.lastName = lastName
         self.middleName = middleName
+        self.commentArea = commentArea
         self.focus = focus
     }
 
     var body: some View {
         VStack {
-            CustomTextField(fieldName: "First Name",
+            RegularTextField(fieldName: "First Name",
                             placeholder: "Your name",
                             leadingIcon: Image(systemName: "person.crop.circle"),
-                            text: $firstName)
-            CustomTextField(fieldName: "Middle name",
+                            textContent: $firstName)
+            RegularTextField(fieldName: "Middle name",
                             placeholder: "middleName",
                             trailingIcon: Image(systemName: "eye"),
-                            text: $middleName)
+                            textContent: $middleName)
             
-            SimpleTextField(fieldName: "Last name", placeholder: "Last name", text: $lastName)
+            RegularTextField(fieldName: "Last name", placeholder: "Last name", textContent: $lastName)
             
             Text("Output: Hello \(firstName) \(middleName) \(lastName)!")
                 .padding()
