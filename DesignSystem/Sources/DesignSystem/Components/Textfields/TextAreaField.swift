@@ -1,13 +1,13 @@
 //
-//  SimpleTextField.swift
+//  TextAreaField.swift
 //  DesignSystem
 //
-//  Created by Rodrigo Okido on 12/05/26.
+//  Created by Rodrigo Okido on 14/05/26.
 //
 
 import SwiftUI
 
-public struct SimpleTextField: CustomTextField, View {
+public struct TextAreaField: CustomTextField, View {
     
     public var fieldName: String
     public var placeholder: String
@@ -31,8 +31,10 @@ public struct SimpleTextField: CustomTextField, View {
             Text(fieldName)
                 .bold()
             TextField(placeholder,
-                      text: $textContent)
+                      text: $textContent,
+                      axis: .vertical)
             .focused($isFocused)
+            .lineLimit(5, reservesSpace: true)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: CornerRadius.sm)
@@ -44,7 +46,7 @@ public struct SimpleTextField: CustomTextField, View {
 }
 
 #Preview {
-    SimpleTextField(fieldName: "Name",
-                    placeholder: "Insert your name",
-                    textContent: .constant(""))
+    TextAreaField(fieldName: "Write your feedback",
+                  placeholder: "Enter your text",
+                  textContent: .constant(""))
 }

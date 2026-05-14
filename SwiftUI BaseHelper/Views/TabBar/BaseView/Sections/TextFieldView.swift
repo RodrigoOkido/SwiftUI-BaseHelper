@@ -12,40 +12,44 @@ struct TextFieldView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-    @State var firstName: String
-    @State var lastName: String
-    @State var middleName: String
-    @State var commentArea: String
-    @State var focus: Color
+    @State var simpleTextFieldInput: String
+    @State var regularTextFieldInput: String
+    @State var regularTextFieldInput2: String
+    @State var passwordTextFieldInput: String
+    @State var textAreaInputField: String
 
     // MARK: - Initializer
-    init(firstName: String = "Apple",
-         lastName: String = "Framework",
-         middleName: String = "SwiftUI",
-         commentArea: String = "",
-         focus: Color = .cyan) {
-        self.firstName = firstName
-        self.lastName = lastName
-        self.middleName = middleName
-        self.commentArea = commentArea
-        self.focus = focus
+    init(simpleTextFieldInput: String = "",
+         regularTextFieldInput: String = "",
+         regularTextFieldInput2: String = "",
+         passwordTextFieldInput: String = "",
+         textAreaInputField: String = "") {
+        self.simpleTextFieldInput = simpleTextFieldInput
+        self.regularTextFieldInput = regularTextFieldInput
+        self.regularTextFieldInput2 = regularTextFieldInput2
+        self.passwordTextFieldInput = passwordTextFieldInput
+        self.textAreaInputField = textAreaInputField
     }
 
     var body: some View {
         VStack {
-            RegularTextField(fieldName: "First Name",
-                            placeholder: "Your name",
+            SimpleTextField(fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
+            RegularTextField(fieldName: "Regular TextField",
+                            placeholder: "Enter your text",
                             leadingIcon: Image(systemName: "person.crop.circle"),
-                            textContent: $firstName)
-            RegularTextField(fieldName: "Middle name",
-                            placeholder: "middleName",
-                            trailingIcon: Image(systemName: "eye"),
-                            textContent: $middleName)
+                            textContent: $regularTextFieldInput)
+            RegularTextField(fieldName: "Regular TextField 2",
+                            placeholder: "Enter your text",
+                            trailingIcon: Image(systemName: "magnifyingglass"),
+                            textContent: $regularTextFieldInput2)
             
-            RegularTextField(fieldName: "Last name", placeholder: "Last name", textContent: $lastName)
+            PasswordTextField(fieldName: "Password TextField",
+                              placeholder: "Password",
+                              textContent: $passwordTextFieldInput)
+            TextAreaField(fieldName: "Area TextField",
+                          placeholder: "Enter your text",
+                          textContent: $textAreaInputField)
             
-            Text("Output: Hello \(firstName) \(middleName) \(lastName)!")
-                .padding()
         }
         .padding()
         .navigationTitle("Textfield")
@@ -54,6 +58,5 @@ struct TextFieldView: View {
 }
 
 #Preview {
-    TextFieldView(firstName: "Apple", 
-                  lastName: "Framework")
+    TextFieldView()
 }

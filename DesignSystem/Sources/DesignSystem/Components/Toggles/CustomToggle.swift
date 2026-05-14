@@ -34,7 +34,11 @@ public struct CustomToggleStyle: ToggleStyle {
 
 public struct CustomToggleStyle2: ToggleStyle {
     
-    public init(){}
+    private var withLabel: Bool
+    
+    public init(withLabel: Bool){
+        self.withLabel = withLabel
+    }
     
     public func makeBody(configuration: Configuration) -> some View {
         HStack {
@@ -49,8 +53,10 @@ public struct CustomToggleStyle2: ToggleStyle {
                         .padding(3)
                         .frame(width: 55, height: 28)
                         .offset(x: configuration.isOn ? 22 : -22)
-                    Text(configuration.isOn ? "ON" : "OFF")
-                        .offset(x: configuration.isOn ? 22 : -22)
+                    if withLabel {
+                        Text(configuration.isOn ? "ON" : "OFF")
+                            .offset(x: configuration.isOn ? 22 : -22)
+                    }
                 }
                 .animation(.spring(duration: 0.1), value: configuration.isOn)
                 .onTapGesture {
@@ -65,5 +71,7 @@ public struct CustomToggleStyle2: ToggleStyle {
     Toggle("Styling 1", isOn: $isOn)
         .toggleStyle(CustomToggleStyle())
     Toggle("Styling 2", isOn: $isOn)
-        .toggleStyle(CustomToggleStyle2())
+        .toggleStyle(CustomToggleStyle2(withLabel: true))
+    Toggle("Styling 2 alternative", isOn: $isOn)
+        .toggleStyle(CustomToggleStyle2(withLabel: false))
 }

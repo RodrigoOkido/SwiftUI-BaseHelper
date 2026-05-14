@@ -55,16 +55,24 @@ struct ActionAndSelectableView: View {
             // MARK: - Toggle
             VStack {
                 Toggle(isOn: $toggleStatus) {
-                    Text("Toggle")
+                    Text("Native Toggle")
                         .bold()
                         .font(.body)
                 }
-                Text(toggleStatus ? "Toggle on": "Toggle off")
-                    .animation(.linear)
                 Toggle("Styling 1", isOn: $toggleStatus)
                     .toggleStyle(CustomToggleStyle())
+                    .bold()
+                    .font(.body)
                 Toggle("Styling 2", isOn: $toggleStatus)
-                    .toggleStyle(CustomToggleStyle2())
+                    .toggleStyle(CustomToggleStyle2(withLabel: true))
+                    .bold()
+                    .font(.body)
+                Toggle("Styling 2 alternative", isOn: $toggleStatus)
+                    .toggleStyle(CustomToggleStyle2(withLabel: false))
+                    .bold()
+                    .font(.body)
+                Text(toggleStatus ? "Toggle on": "Toggle off")
+                    .animation(.linear)
             }
             
             // MARK: - Picker
