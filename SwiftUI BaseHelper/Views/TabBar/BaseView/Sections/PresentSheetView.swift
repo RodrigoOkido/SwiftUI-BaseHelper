@@ -26,7 +26,6 @@ struct PresentSheetView: View {
 struct SheetView: View {
     
     // MARK: - Property Wrappers
-    @Environment(\.dismiss) var dismissMe
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
 
     var body: some View {

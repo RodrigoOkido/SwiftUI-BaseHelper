@@ -38,62 +38,130 @@ struct ActionAndSelectableView: View {
     }
 
     var body: some View {
-        VStack {
-            // MARK: - Button
-            HStack {
-                Button("Generate Number") {
-                    randomInt = Int.random(in: 1..<1000)
-                }
-                .padding()
-                .foregroundColor(.white)
-                .background(.blue)
-                .cornerRadius(CornerRadius.sm)
-                Spacer()
-                Text(randomInt.description)
-            }
-            
-            // MARK: - Toggle
+        ScrollView {
             VStack {
-                Toggle(isOn: $toggleStatus) {
-                    Text("Native Toggle")
-                        .bold()
-                        .font(.body)
+                // MARK: - Button
+                HStack {
+                    Button("Generate Number") {
+                        randomInt = Int.random(in: 1..<1000)
+                    }
+                    .padding()
+                    .foregroundColor(.white)
+                    .background(.blue)
+                    .cornerRadius(CornerRadius.sm)
+                    Spacer()
+                    Text(randomInt.description)
                 }
-                Toggle("Styling 1", isOn: $toggleStatus)
-                    .toggleStyle(CustomToggleStyle())
-                    .bold()
-                    .font(.body)
-                Toggle("Styling 2", isOn: $toggleStatus)
-                    .toggleStyle(CustomToggleStyle2(withLabel: true))
-                    .bold()
-                    .font(.body)
-                Toggle("Styling 2 alternative", isOn: $toggleStatus)
-                    .toggleStyle(CustomToggleStyle2(withLabel: false))
-                    .bold()
-                    .font(.body)
-                Text(toggleStatus ? "Toggle on": "Toggle off")
-                    .animation(.linear)
+                // MARK: - Toggle
+                VStack {
+                    Text("Toggles")
+                    VStack {
+                        Toggle(isOn: $toggleStatus) {
+                            Text("Native Toggle")
+                                .bold()
+                                .font(.body)
+                        }
+                        Toggle("Styling 1", isOn: $toggleStatus)
+                            .toggleStyle(CustomToggleStyle())
+                            .bold()
+                            .font(.body)
+                        Toggle("Styling 2", isOn: $toggleStatus)
+                            .toggleStyle(CustomToggleStyle2(withLabel: true))
+                            .bold()
+                            .font(.body)
+                        Toggle("Styling 2 alternative", isOn: $toggleStatus)
+                            .toggleStyle(CustomToggleStyle2(withLabel: false))
+                            .bold()
+                            .font(.body)
+                        Text(toggleStatus ? "Toggle on" : "Toggle off")
+                            .animation(.linear)
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(style: .init(lineWidth: 1))
+                    )
+                }
+                .padding(5)
+                // MARK: - Picker
+                VStack {
+                    Text("Pickers")
+                    VStack {
+                        Text("Favorite Color:")
+                            .bold()
+                        Text("Palette")
+                        Picker("Favorite Color", selection: $selectedColor) {
+                            ForEach(FavoriteColor.allCases) { color in
+                                Text(color.rawValue.capitalized)
+                            }
+                        }
+                        .pickerStyle(.palette)
+                        Text("Menu")
+                        Picker("Favorite Color", selection: $selectedColor) {
+                            ForEach(FavoriteColor.allCases) { color in
+                                Text(color.rawValue.capitalized)
+                            }
+                        }
+                        .pickerStyle(.menu)
+                        Text("Wheel")
+                        Picker("Favorite Color", selection: $selectedColor) {
+                            ForEach(FavoriteColor.allCases) { color in
+                                Text(color.rawValue.capitalized)
+                            }
+                        }
+                        .pickerStyle(.wheel)
+                        Text("Segmented")
+                        Picker("Favorite Color", selection: $selectedColor) {
+                            ForEach(FavoriteColor.allCases) { color in
+                                Text(color.rawValue.capitalized)
+                            }
+                        }
+                        .pickerStyle(.segmented)
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(style: .init(lineWidth: 1))
+                    )
+                }
+                .padding(5)
+                // MARK: - DatePicker
+                VStack {
+                    Text("DatePickers")
+                    VStack {
+                        Text("Compact")
+                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date:")
+                                .bold()
+                        }.datePickerStyle(.compact)
+                        
+                        Text("Graphical")
+                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date:")
+                                .bold()
+                        }.datePickerStyle(.graphical)
+                        
+                        Text("Wheel")
+                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+        
+                        }.datePickerStyle(.wheel)
+                        
+                        Text("Automatic")
+                        DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
+                            Text("Select a date:")
+                                .bold()
+                        }.datePickerStyle(.automatic)
+                    }
+                    .padding()
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(style: .init(lineWidth: 1))
+                    )
+                }
             }
-            
-            // MARK: - Picker
-            HStack {
-                Text("Favorite Color:")
-                    .bold()
-                Spacer()
-                Picker("Favorite Color", selection: $selectedColor, content: {
-                    ForEach(FavoriteColor.allCases, content: { color in
-                        Text(color.rawValue.capitalized)
-                    })
-                })
-            }
-            
-           // MARK: - DatePicker
-           DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
-               Text("Select a date:")
-                   .bold()
-           }
+            .frame(maxWidth: .infinity)
+            .padding()
         }
-        .padding()
         .navigationTitle("Actions & Pickers")
         .navigationBarTitleDisplayMode(.large)
     }
