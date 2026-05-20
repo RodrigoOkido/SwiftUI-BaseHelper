@@ -6,24 +6,35 @@
 //
 import SwiftUI
 
-public struct ExpandableCardView: View {
+/// Expandable Card View. Receives an optional leading icon, a title, and a View as
+/// expandable content. It provides flexibility to make anything within the hidden content.
+public struct ExpandableCardView<Content: View>: View {
     
     // MARK: - Wrappers
     @State private var isExpanded = false
     
     // MARK: - Private
+    private let icon: Image?
     private let title: String
-    private let innerDescription: String
+    private let innerContent: () -> Content
     
     // MARK: - Init
-    public init(title: String, innerDescription: String) {
+    public init(icon: Image? = nil,
+                title: String,
+                @ViewBuilder innerContent: @escaping () -> Content) {
+        self.icon = icon
         self.title = title
-        self.innerDescription = innerDescription
+        self.innerContent = innerContent
     }
     
     public var body: some View {
         VStack {
             HStack {
+                if let icon {
+                    icon
+                        .resizable()
+                        .frame(width: IconSize.xxs, height: IconSize.xxs)
+                }
                 Text(title)
                     .font(.headline)
                     .foregroundStyle(.black)
@@ -31,7 +42,6 @@ public struct ExpandableCardView: View {
                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
             }
             .padding()
-            .background(Color.blue.opacity(0.1))
             .onTapGesture {
                 withAnimation {
                     isExpanded.toggle()
@@ -39,9 +49,7 @@ public struct ExpandableCardView: View {
             }
             
             if isExpanded {
-                Text(innerDescription)
-                    .foregroundStyle(.black)
-                    .padding()
+                innerContent()
                     .transition(.opacity)
             }
         }
@@ -54,7 +62,23 @@ public struct ExpandableCardView: View {
 #Preview {
     ExpandableCardView(
         title: "Expandable Card",
-        innerDescription: "This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card."
-    )
+    ) {
+        VStack {
+            Text("This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card.")
+                .foregroundStyle(.black)
+                .padding()
+        }
+    }
+    .padding()
+    ExpandableCardView(
+        icon: Image(systemName: "globe"),
+        title: "Expandable Card"
+    ) {
+        VStack {
+            Text("This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card.")
+                .foregroundStyle(.black)
+                .padding()
+        }
+    }
     .padding()
 }

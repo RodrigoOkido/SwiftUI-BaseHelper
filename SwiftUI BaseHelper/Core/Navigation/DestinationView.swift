@@ -24,6 +24,7 @@ public enum DestinationView: Identifiable, Hashable {
     case viewModifiersView
     case hapticsFeedbackView
     case presentSheetView
+    case progressBarsView
     case datesView
     case customFontsView
     case observableMacro
@@ -48,6 +49,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "textFieldView"
         case .actionAndSelectableView:
             return "actionAndSelectableView"
+        case .progressBarsView:
+            return "progressBarsView"
         case .chartsView:
             return "chartsView"
         case .viewModifiersView:
@@ -88,6 +91,8 @@ public enum DestinationView: Identifiable, Hashable {
             TextFieldView()
         case .actionAndSelectableView:
             ActionAndSelectableView()
+        case .progressBarsView:
+            ProgressBarsView()
         case .chartsView:
             ChartsView()
         case .viewModifiersView:

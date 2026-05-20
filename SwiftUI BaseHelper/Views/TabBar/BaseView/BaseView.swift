@@ -25,6 +25,10 @@ struct BaseView: View {
                                  action: {
                         router.navigate(to: DestinationView.textFieldView)
                     })
+                    CustomButton(title: "Progress bars",
+                                 action: {
+                        router.navigate(to: DestinationView.progressBarsView)
+                    })
                     CustomButton(title: "Actions & Pickers",
                                  action: {
                         router.navigate(to: DestinationView.actionAndSelectableView)
