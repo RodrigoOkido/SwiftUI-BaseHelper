@@ -13,8 +13,8 @@ struct ProgressBarsView: View {
         VStack {
             ProgressBarView(progress: 0.7)
             ProgressBarView(progress: 0.7,
-                            progressStyle: .circular,
-                            progressThickness: .giant)
+                            style: .circular,
+                            thickness: .giant)
             .frame(width: 100, height: 100)
         }
     }
@@ -23,7 +23,7 @@ struct ProgressBarsView: View {
 #Preview {
     ProgressBarView(progress: 0.7)
     ProgressBarView(progress: 0.7,
-                    progressStyle: .circular,
-                    progressThickness: .giant)
+                    style: .circular,
+                    thickness: .giant)
     .frame(width: 100, height: 100)
 }

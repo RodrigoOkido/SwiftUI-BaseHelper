@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-
+/// Thickness values of the progress bar. If not defined, .medium will be used
 public enum ProgressThickness: CGFloat {
     case small = 2
     case medium = 3
@@ -16,6 +16,7 @@ public enum ProgressThickness: CGFloat {
     case giant = 10
 }
 
+/// Styles of the progress bar. If not defined, .linear will be used.
 public enum ProgressStyle {
     case linear
     case circular
@@ -23,38 +24,44 @@ public enum ProgressStyle {
 
 public struct ProgressBarView: View {
     
-    
+    /// Progress value of the progress bar
     @State private var progress: CGFloat
-    private var progressStyle: ProgressStyle
-    private var progressColor: Color
-    private var progressThickness: ProgressThickness
+    
+    /// Style of the progress bar. If not defined, linear will be used.
+    private var style: ProgressStyle
+    
+    /// Color of the progress bar.
+    private var statusColor: Color
+    
+    /// Thickness of the progress bar.
+    private var thickness: ProgressThickness
     
     public init(progress: CGFloat,
-         progressStyle: ProgressStyle = .linear,
-         progressColor: Color = .green,
-         progressThickness: ProgressThickness = .medium
+                style: ProgressStyle = .linear,
+                statusColor: Color = .green,
+                thickness: ProgressThickness = .medium
     ) {
         self.progress = progress
-        self.progressStyle = progressStyle
-        self.progressColor = progressColor
-        self.progressThickness = progressThickness
+        self.style = style
+        self.statusColor = statusColor
+        self.thickness = thickness
     }
     
     public var body: some View {
         
-        switch progressStyle {
+        switch style {
         case .linear:
             ProgressView(value: progress)
                 .progressViewStyle(.linear)
-                .tint(progressColor)
-                .scaleEffect(x: 1, y: progressThickness.rawValue)
+                .tint(statusColor)
+                .scaleEffect(x: 1, y: thickness.rawValue)
         case .circular:
             ZStack {
                 Circle()
-                    .stroke(Color.gray.opacity(0.3), lineWidth: progressThickness.rawValue)
+                    .stroke(Color.gray.opacity(0.3), lineWidth: thickness.rawValue)
                 Circle()
                     .trim(from: 0, to: progress)
-                    .stroke(progressColor, style: StrokeStyle(lineWidth: progressThickness.rawValue - 1, lineCap: .round))
+                    .stroke(statusColor, style: StrokeStyle(lineWidth: thickness.rawValue - 1, lineCap: .round))
                     .rotationEffect(.degrees(-90))
                     .animation(.easeInOut, value: progress)
                 Text("\(Int(progress * 100))%")
@@ -70,8 +77,7 @@ public struct ProgressBarView: View {
 #Preview {
     ProgressBarView(progress: 0.7)
     ProgressBarView(progress: 0.7,
-                    progressStyle: .circular,
-                    progressThickness: .giant)
+                    style: .circular,
+                    thickness: .giant)
         .frame(width: 100, height: 100)
-    
 }

@@ -134,10 +134,17 @@ extension CoreNetwork {
         do {
             dataResponse = try await session.data(for: urlRequest)
         } catch let error {
-            if let error = error as? URLError,
-               error.errorCode == NSURLErrorNotConnectedToInternet {
-                return .failure(NetworkRequestError(statusCode: 400,
-                                                    error: "Service Unavailable. No connection detected"))
+            if let error = error as? URLError {
+               switch error.code {
+               case .notConnectedToInternet, .networkConnectionLost:
+                   return .failure(NetworkRequestError(statusCode: 503, error: "No internet connection. Or connection lost."))
+               case .timedOut:
+                   return .failure(NetworkRequestError(statusCode: 408, error: "Request timed out"))
+               case .cannotFindHost, .cannotConnectToHost, .dnsLookupFailed:
+                   return .failure(NetworkRequestError(statusCode: 503, error: "Server unreachable"))
+               default:
+                   return .failure(NetworkRequestError(statusCode: 500, error: "Internal Error Request"))
+               }
             } else {
                 return .failure(NetworkRequestError(statusCode: 500,
                                                     error: "Internal Error Request"))
