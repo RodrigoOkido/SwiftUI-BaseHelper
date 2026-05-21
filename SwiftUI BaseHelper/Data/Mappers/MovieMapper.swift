@@ -8,8 +8,13 @@ public struct MovieMapper: ModelMapper {
             throw RequestError(errorType: .couldNotMap, 
                                errorMessage: "Could not map")
         }
+        
+        var posterURL: String?
+        if let posterPath = input.poster_path {
+            posterURL = "https://image.tmdb.org/t/p/w500\(posterPath)"
+        }
 
-        let movie = Movie(poster_path: input.poster_path,
+        let movie = Movie(poster_path: posterURL,
                           overview: input.overview ?? "No overview data",
                           genre_ids: input.genre_ids ?? [],
                           id: input.id,

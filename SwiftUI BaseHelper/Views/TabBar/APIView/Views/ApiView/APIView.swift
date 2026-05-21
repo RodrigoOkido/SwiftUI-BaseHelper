@@ -62,11 +62,7 @@ struct APIView: View {
         .navigationTitle("Popular Movies")
         .navigationBarTitleDisplayMode(.large)
         .task {
-            do {
-                try await viewModel.requestPopularMovies()
-            } catch {
-                print("Error")
-            }
+            try? await viewModel.requestPopularMovies()
         }
     }
     
@@ -99,7 +95,7 @@ struct APIView: View {
                         )
                     } label: {
                         HStack {
-                            AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: movie.poster_path))) { image in
+                            AsyncImage(url: URL(string: movie.poster_path ?? "")) { image in
                                 image.resizable()
                             } placeholder: {
                                 VStack {
