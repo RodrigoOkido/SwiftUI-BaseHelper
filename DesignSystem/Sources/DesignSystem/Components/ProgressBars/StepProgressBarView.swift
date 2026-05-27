@@ -29,7 +29,6 @@ public enum StepProgressStyle {
 public struct StepProgressBarView: View {
 
     private var items: [StepItem]
-    /// Zero-based index of the current active step. Used by `.indicator`; ignored by `.arrow`.
     private var currentStep: Int
     private var style: StepProgressStyle
 
@@ -46,7 +45,7 @@ public struct StepProgressBarView: View {
     public var body: some View {
         switch style {
         case .arrow:
-            ArrowStepsBar(items: items)
+            ArrowStepsBar(items: items, currentStep: currentStep)
         case .indicator:
             IndicatorStepsBar(items: items, currentStep: currentStep)
         }
@@ -61,21 +60,24 @@ private let teal = Color(red: 0.22, green: 0.78, blue: 0.68)
     ScrollView {
         VStack(alignment: .leading, spacing: 28) {
             Group {
-                Text("Arrow")
+                Text("Arrow — currentStep: 2")
                     .font(.caption).foregroundStyle(.secondary)
-                StepProgressBarView(items: [
-                    StepItem(label: "Step 1", color: Color(red: 0.33, green: 0.47, blue: 0.18)),
-                    StepItem(label: "Step 2", color: Color(red: 0.93, green: 0.89, blue: 0.55)),
-                    StepItem(label: "Step 3", color: Color(red: 0.93, green: 0.72, blue: 0.27)),
-                    StepItem(label: "Step 4", color: Color(red: 0.87, green: 0.47, blue: 0.13)),
-                    StepItem(label: "Step 5", color: Color(red: 0.72, green: 0.18, blue: 0.07))
-                ])
+                StepProgressBarView(
+                    items: [
+                        StepItem(label: "Step 1", color: Color(red: 0.33, green: 0.47, blue: 0.18)),
+                        StepItem(label: "Step 2", color: Color(red: 0.93, green: 0.89, blue: 0.55)),
+                        StepItem(label: "Step 3", color: Color(red: 0.93, green: 0.72, blue: 0.27)),
+                        StepItem(label: "Step 4", color: Color(red: 0.87, green: 0.47, blue: 0.13)),
+                        StepItem(label: "Step 5", color: Color(red: 0.72, green: 0.18, blue: 0.07))
+                    ],
+                    currentStep: 2
+                )
             }
 
             Divider()
 
             Group {
-                Text("Indicator")
+                Text("Indicator — currentStep: 2")
                     .font(.caption).foregroundStyle(.secondary)
                 StepProgressBarView(
                     items: [
