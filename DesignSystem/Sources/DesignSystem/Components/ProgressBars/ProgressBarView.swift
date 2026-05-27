@@ -69,15 +69,15 @@ public struct ProgressBarView: View {
                     .bold()
             }
         }
-        
-        
     }
 }
 
 #Preview {
-    ProgressBarView(progress: 0.7)
-    ProgressBarView(progress: 0.7,
-                    style: .circular,
-                    thickness: .giant)
-        .frame(width: 100, height: 100)
+    VStack(spacing: 24) {
+        ProgressBarView(progress: 0.7)
+        ProgressBarView(progress: 0.4, statusColor: .orange, thickness: .huge)
+        ProgressBarView(progress: 0.7, style: .circular, thickness: .giant)
+            .frame(width: 100, height: 100)
+    }
+    .padding()
 }
