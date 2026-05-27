@@ -15,21 +15,20 @@ struct ArrowStepsBar: View {
     var body: some View {
         HStack(spacing: -arrowDepth) {
             ForEach(Array(items.enumerated()), id: \.offset) { index, item in
-                let isFirst = index == 0
                 let isFuture = index > currentStep
 
                 ZStack {
-                    ArrowStepShape(isFirst: isFirst)
+                    ArrowStepShape(isFirst: index == 0)
                         .fill(isFuture ? item.color.opacity(0.3) : item.color)
                     Text(item.label)
-                        .font(.subheadline)
+                        .font(.headline)
                         .fontWeight(.semibold)
                         .foregroundStyle(isFuture ? .white.opacity(0.5) : .white)
                         .shadow(color: .black.opacity(0.18), radius: 1, x: 0, y: 1)
-                        .padding(.leading, isFirst ? 14 : arrowDepth + 14)
-                        .padding(.trailing, arrowDepth + 10)
+                        .padding(.leading, arrowDepth + 6)
+                        .padding(.trailing, arrowDepth + 4)
                         .lineLimit(1)
-                        .minimumScaleFactor(0.6)
+                        .minimumScaleFactor(0.5)
                 }
                 .frame(maxWidth: .infinity, minHeight: 44)
                 .zIndex(Double(items.count - index))
