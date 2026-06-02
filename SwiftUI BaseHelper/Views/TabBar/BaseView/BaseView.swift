@@ -19,7 +19,7 @@ struct BaseView: View {
                 Section("Components") {
                     CustomButton(title: "Cards",
                                  action: {
-                        router.navigate(to: DestinationView.componentsView)
+                        router.navigate(to: DestinationView.cardsView)
                     })
                     CustomButton(title: "Textfields",
                                  action: {
@@ -32,6 +32,10 @@ struct BaseView: View {
                     CustomButton(title: "Actions & Pickers",
                                  action: {
                         router.navigate(to: DestinationView.actionAndSelectableView)
+                    })
+                    CustomButton(title: "Dates Handling View",
+                                 action: {
+                        router.navigate(to: DestinationView.datesView)
                     })
                     CustomButton(title: "Charts",
                                  action: {
@@ -47,17 +51,13 @@ struct BaseView: View {
                 }
 
                 Section("Special") {
-                    CustomButton(title: "View Modifiers",
+                    CustomButton(title: "Geometry Reader",
                                  action: {
-                        router.navigate(to: DestinationView.viewModifiersView)
+                        router.navigate(to: DestinationView.geometryReaderExampleView)
                     })
                     CustomButton(title: "Haptics Feedback",
                                  action: {
                         router.navigate(to: DestinationView.hapticsFeedbackView)
-                    })
-                    CustomButton(title: "Dates View",
-                                 action: {
-                        router.navigate(to: DestinationView.datesView)
                     })
                     CustomButton(title: "Custom Fonts View",
                                  action: {
@@ -72,7 +72,7 @@ struct BaseView: View {
             }
             .padding()
         }
-        .navigationTitle("Base")
+        .navigationTitle("Topics")
         .navigationBarTitleDisplayMode(.large)
     }
 }

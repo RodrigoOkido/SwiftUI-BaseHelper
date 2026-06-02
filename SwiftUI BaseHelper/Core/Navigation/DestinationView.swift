@@ -21,14 +21,14 @@ public enum DestinationView: Identifiable, Hashable {
     case textFieldView
     case actionAndSelectableView
     case chartsView
-    case viewModifiersView
+    case geometryReaderExampleView
     case hapticsFeedbackView
     case presentSheetView
     case progressBarsView
     case datesView
     case customFontsView
     case bindableView
-    case componentsView
+    case cardsView
     
     // MARK: - Computed Properties
     public var id: String {
@@ -53,8 +53,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "progressBarsView"
         case .chartsView:
             return "chartsView"
-        case .viewModifiersView:
-            return "viewModifiersView"
+        case .geometryReaderExampleView:
+            return "geometryReaderExampleView"
         case .hapticsFeedbackView:
             return "hapticsFeedbackView"
         case .presentSheetView:
@@ -67,8 +67,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "bindableView"
         case .swiftData:
             return "swiftData"
-        case .componentsView:
-            return "componentsView"
+        case .cardsView:
+            return "cardsView"
         }
     }
 
@@ -95,7 +95,7 @@ public enum DestinationView: Identifiable, Hashable {
             ProgressBarsView()
         case .chartsView:
             ChartsView()
-        case .viewModifiersView:
+        case .geometryReaderExampleView:
             GeometryReaderExampleView()
         case .hapticsFeedbackView:
             HapticsFeedbackView()
@@ -109,8 +109,8 @@ public enum DestinationView: Identifiable, Hashable {
             BindableMacroView()
         case .swiftData:
             SchedulerView()
-        case .componentsView:
-            ComponentsView()
+        case .cardsView:
+            CardsView()
         }
     }
 }

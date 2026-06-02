@@ -7,7 +7,7 @@
 import SwiftUI
 import DesignSystem
 
-struct ComponentsView: View {
+struct CardsView: View {
     
     var body: some View {
         ScrollView {
@@ -37,5 +37,5 @@ struct ComponentsView: View {
 }
 
 #Preview {
-    ComponentsView()
+    CardsView()
 }
