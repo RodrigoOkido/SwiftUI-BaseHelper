@@ -6,11 +6,14 @@
 //
 
 import SwiftUI
+import DesignSystem
 
 struct HapticsFeedbackView: View {
     
     var body: some View {
         VStack {
+            Text("You must test this on a real device to feel the different feedback types")
+                .padding(.bottom, StackSpacing.xxs)
             Text("Notification Feedback types")
                 .bold()
             HStack {

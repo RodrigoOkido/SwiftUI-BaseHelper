@@ -16,6 +16,7 @@ struct TextFieldView: View {
     @State var regularTextFieldInput: String
     @State var regularTextFieldInput2: String
     @State var passwordTextFieldInput: String
+    @State var modifierTextFieldInput: String
     @State var textAreaInputField: String
 
     // MARK: - Initializer
@@ -23,11 +24,13 @@ struct TextFieldView: View {
          regularTextFieldInput: String = "",
          regularTextFieldInput2: String = "",
          passwordTextFieldInput: String = "",
+         modifierTextFieldInput: String = "",
          textAreaInputField: String = "") {
         self.simpleTextFieldInput = simpleTextFieldInput
         self.regularTextFieldInput = regularTextFieldInput
         self.regularTextFieldInput2 = regularTextFieldInput2
         self.passwordTextFieldInput = passwordTextFieldInput
+        self.modifierTextFieldInput = modifierTextFieldInput
         self.textAreaInputField = textAreaInputField
     }
 
@@ -49,6 +52,13 @@ struct TextFieldView: View {
             TextAreaField(fieldName: "Area TextField",
                           placeholder: "Enter your text",
                           textContent: $textAreaInputField)
+            
+            VStack(alignment: .leading) {
+                Text("Textfield style using viewModifier")
+                    .bold()
+                TextField("Type something", text: $modifierTextFieldInput)
+                    .modifiedTextfieldStyle()
+            }
             
         }
         .padding()

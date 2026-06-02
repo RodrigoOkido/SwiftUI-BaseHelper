@@ -21,7 +21,7 @@ struct APIMovieDetailView: View {
     var body: some View {
         ScrollView {
             VStack {
-                AsyncImage(url: URL(string: viewModel.getMoviePosterURL(posterPath: viewModel.movie.poster_path))) { image in
+                AsyncImage(url: URL(string: viewModel.movie.poster_path ?? "")) { image in
                     image.resizable()
                 } placeholder: {
                     Text(viewModel.movie.title)

@@ -64,9 +64,9 @@ struct BaseView: View {
                         router.navigate(to: DestinationView.customFontsView)
                     })
                     
-                    CustomButton(title: "iOS17 ObservableMacro",
+                    CustomButton(title: "iOS17 Bindable Example",
                                  action: {
-                        router.navigate(to: DestinationView.observableMacro)
+                        router.navigate(to: DestinationView.bindableView)
                     })
                 }
             }

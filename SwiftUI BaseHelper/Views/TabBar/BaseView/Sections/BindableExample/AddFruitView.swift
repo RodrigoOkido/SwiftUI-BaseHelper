@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AddFruitView: View {
-    @Bindable var store: StoreModel
+    @Bindable var store: StoreModel // Used for @Observable class types.
     @State var fruitName: String = ""
     @Environment(\.dismiss) private var dismiss
     

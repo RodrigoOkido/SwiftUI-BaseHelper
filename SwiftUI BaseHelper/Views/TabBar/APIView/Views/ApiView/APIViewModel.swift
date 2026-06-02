@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import UIKit
+import SwiftUI
 
+@Observable
 class APIViewModel: BaseViewModel {
     
     // MARK: - Stored Properties

@@ -22,16 +22,13 @@ enum FavoriteColor: String, CaseIterable, Identifiable {
 struct ActionAndSelectableView: View {
     
     // MARK: - Property Wrappers
-    @State var randomInt: Int
     @State var toggleStatus: Bool
     @State var selectedColor: FavoriteColor
     @State var birthDate: Date
 
-    init(randomInt: Int = 0,
-         toggleStatus: Bool = false,
+    init(toggleStatus: Bool = false,
          selectedColor: FavoriteColor = .blue, 
          birthDate: Date = Date()) {
-        self.randomInt = randomInt
         self.toggleStatus = toggleStatus
         self.selectedColor = selectedColor
         self.birthDate = birthDate
@@ -40,18 +37,34 @@ struct ActionAndSelectableView: View {
     var body: some View {
         ScrollView {
             VStack {
-                // MARK: - Button
-                HStack {
-                    Button("Generate Number") {
-                        randomInt = Int.random(in: 1..<1000)
+                // MARK: - Buttons
+                VStack {
+                    Text("Buttons")
+                    VStack {
+                        Button("Button 1 with viewModifier style") {
+                            print("Custom button")
+                        }
+                        .modifiedButtonStyle()
+                        
+                        Button("Button 2 with viewModifier style") {
+                            print("Custom button")
+                        }
+                        .modifiedButtonStyle(textColor: .white)
+                        
+                        Button("Button 3 with viewModifier style") {
+                            print("Custom button")
+                        }
+                        .modifiedButtonStyle(color: .purple,
+                                             textColor: .white)
                     }
+                    .frame(maxWidth: .infinity)
                     .padding()
-                    .foregroundColor(.white)
-                    .background(.blue)
-                    .cornerRadius(CornerRadius.sm)
-                    Spacer()
-                    Text(randomInt.description)
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 10)
+                            .stroke(style: .init(lineWidth: 1))
+                    )
                 }
+                .padding(5)
                 // MARK: - Toggle
                 VStack {
                     Text("Toggles")
@@ -168,6 +181,5 @@ struct ActionAndSelectableView: View {
 }
 
 #Preview {
-    ActionAndSelectableView(randomInt: 0,
-                            toggleStatus: true)
+    ActionAndSelectableView(toggleStatus: true)
 }
