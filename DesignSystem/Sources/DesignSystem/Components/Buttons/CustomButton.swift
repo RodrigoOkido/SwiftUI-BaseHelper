@@ -12,29 +12,35 @@ public struct CustomButton: View {
     // MARK: - Stored Properties
     private let type: ButtonType
     private let title: String
+    private let alignment: ButtonContentPosition
     private let leadingImage: Image?
     private let trailingImage: Image?
     private let height: ButtonHeight
     private let padding: ButtonPadding
     private let cornerRadius: ButtonCornerRadius
+    private let borderColor: Color?
     private let action: () -> Void
     
     public init(type: ButtonType = .primary,
                 title: String,
+                alignment: ButtonContentPosition = .center,
                 leadingImage: Image? = nil,
                 trailingImage: Image? = nil,
                 height: ButtonHeight = .normal,
                 padding: ButtonPadding = .normal,
-                cornerRadius: ButtonCornerRadius = .normal,
+                cornerRadius: ButtonCornerRadius = .small,
+                borderColor: Color? = nil,
                 action: @escaping () -> Void) {
         self.type = type
         self.title = title
+        self.alignment = alignment
         self.action = action
         self.leadingImage = leadingImage
         self.trailingImage = trailingImage
         self.height = height
         self.padding = padding
         self.cornerRadius = cornerRadius
+        self.borderColor = borderColor
     }
 
     public var body: some View {
@@ -42,6 +48,9 @@ public struct CustomButton: View {
             action()
         } label: {
             HStack(spacing: StackSpacing.nano) {
+                if alignment == .trailing {
+                    Spacer()
+                }
                 if let leadingImage {
                     leadingImage
                         .resizable()
@@ -58,12 +67,19 @@ public struct CustomButton: View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: height.size * 0.5, height: height.size * 0.5)
                 }
+                if alignment == .leading {
+                    Spacer()
+                }
             }
             .frame(height: height.size)
             .frame(maxWidth: .infinity)
             .padding(.horizontal, padding.value)
             .background(type.backgroundColor)
             .cornerRadius(cornerRadius.value)
+            .overlay(
+                RoundedRectangle(cornerRadius: cornerRadius.value)
+                    .stroke(borderColor ?? .clear, lineWidth: 1)
+            )
         }
     }
 

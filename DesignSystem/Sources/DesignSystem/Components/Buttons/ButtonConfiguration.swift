@@ -21,15 +21,15 @@ public enum ButtonType {
     }
     var backgroundColor: Color {
         switch self {
-        case .primary: .cyan
-        case .secondary: .orange
+        case .primary: .orange
+        case .secondary: .cyan
         case .tertiary: .purple
         }
     }
     var textColor: Color {
         switch self {
-        case .primary: .black
-        case .secondary: .white
+        case .primary: .white
+        case .secondary: .black
         case .tertiary: .white
         }
     }
@@ -90,4 +90,10 @@ public enum ButtonCornerRadius {
             return CornerRadius.lg
         }
     }
+}
+
+public enum ButtonContentPosition {
+    case leading
+    case center
+    case trailing
 }
