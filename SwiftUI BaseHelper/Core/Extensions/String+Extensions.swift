@@ -72,22 +72,32 @@ enum FileExtension: String, CaseIterable {
     case JPEG
     case JPG
     case PNG
+    case GIF
     case PDF
     case MP4
     case MOV
     case MKV
+    case AVI
+    case MPEG
 }
 
 extension String {
 
+    /// Returns the file extension of the given String. Should detect the most commons image and video formats.
+    /// If the string is a path like "/file.jpg", it will return JPG.
     var getFileExtension: FileExtension? {
         let fileExtension = self.components(separatedBy: ".").last
         return FileExtension.allCases.first {
             $0.rawValue == fileExtension?.uppercased()
         } ?? nil
     }
+}
 
-    var asDate: Date? {
+// MARK: - Dates
+extension String {
+    
+    /// Process the String date and convert into a Date object. Use UTC timezone as default.
+    var asUTCDate: Date? {
         var date: Date?
         let types: [DateFormatTypes] = DateFormatTypes.allCases
         let dateFormatter = DateFormatter.formatter
