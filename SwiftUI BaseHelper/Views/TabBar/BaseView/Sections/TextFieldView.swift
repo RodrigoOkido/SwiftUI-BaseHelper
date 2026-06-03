@@ -35,31 +35,33 @@ struct TextFieldView: View {
     }
 
     var body: some View {
-        VStack {
-            SimpleTextField(fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
-            RegularTextField(fieldName: "Regular TextField",
-                            placeholder: "Enter your text",
-                            leadingIcon: Image(systemName: "person.crop.circle"),
-                            textContent: $regularTextFieldInput)
-            RegularTextField(fieldName: "Regular TextField 2",
-                            placeholder: "Enter your text",
-                            trailingIcon: Image(systemName: "magnifyingglass"),
-                            textContent: $regularTextFieldInput2)
-            
-            PasswordTextField(fieldName: "Password TextField",
-                              placeholder: "Password",
-                              textContent: $passwordTextFieldInput)
-            TextAreaField(fieldName: "Area TextField",
-                          placeholder: "Enter your text",
-                          textContent: $textAreaInputField)
-            
-            VStack(alignment: .leading) {
-                Text("Textfield style using viewModifier")
-                    .bold()
-                TextField("Type something", text: $modifierTextFieldInput)
-                    .modifiedTextfieldStyle()
+        ScrollView {
+            VStack {
+                SimpleTextField(fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
+                RegularTextField(fieldName: "Regular TextField",
+                                 placeholder: "Enter your text",
+                                 leadingIcon: Image(systemName: "person.crop.circle"),
+                                 textContent: $regularTextFieldInput)
+                RegularTextField(fieldName: "Regular TextField 2",
+                                 placeholder: "Enter your text",
+                                 trailingIcon: Image(systemName: "magnifyingglass"),
+                                 textContent: $regularTextFieldInput2)
+                
+                PasswordTextField(fieldName: "Password TextField",
+                                  placeholder: "Password",
+                                  textContent: $passwordTextFieldInput)
+                TextAreaField(fieldName: "Area TextField",
+                              placeholder: "Enter your text",
+                              textContent: $textAreaInputField)
+                
+                VStack(alignment: .leading) {
+                    Text("Textfield style using viewModifier")
+                        .bold()
+                    TextField("Type something", text: $modifierTextFieldInput)
+                        .modifiedTextfieldStyle()
+                }
+                
             }
-            
         }
         .padding()
         .navigationTitle("Textfield")

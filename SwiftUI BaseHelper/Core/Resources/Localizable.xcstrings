@@ -350,6 +350,7 @@
       }
     },
     "Hello i am a normal text!" : {
+      "extractionState" : "stale",
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {

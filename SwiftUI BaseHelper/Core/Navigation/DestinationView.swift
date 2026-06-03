@@ -18,17 +18,18 @@ public enum DestinationView: Identifiable, Hashable {
     case settings(appLanguage: AppLanguage)
     case sheetView
     
-    case textFieldView
-    case actionAndSelectableView
+    case bindableView
+    case buttonsView
+    case cardsView
     case chartsView
+    case customTextAndFontsView
+    case datesView
     case geometryReaderExampleView
     case hapticsFeedbackView
+    case pickersAndTogglesView
     case presentSheetView
     case progressBarsView
-    case datesView
-    case customFontsView
-    case bindableView
-    case cardsView
+    case textFieldView
     
     // MARK: - Computed Properties
     public var id: String {
@@ -47,8 +48,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "sheetView"
         case .textFieldView:
             return "textFieldView"
-        case .actionAndSelectableView:
-            return "actionAndSelectableView"
+        case .pickersAndTogglesView:
+            return "pickersAndTogglesView"
         case .progressBarsView:
             return "progressBarsView"
         case .chartsView:
@@ -61,7 +62,7 @@ public enum DestinationView: Identifiable, Hashable {
             return "presentSheetView"
         case .datesView:
             return "datesView"
-        case .customFontsView:
+        case .customTextAndFontsView:
             return "customFontsView"
         case .bindableView:
             return "bindableView"
@@ -69,6 +70,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "swiftData"
         case .cardsView:
             return "cardsView"
+        case .buttonsView:
+            return "buttonsView"
         }
     }
 
@@ -89,8 +92,8 @@ public enum DestinationView: Identifiable, Hashable {
             SheetView()
         case .textFieldView:
             TextFieldView()
-        case .actionAndSelectableView:
-            ActionAndSelectableView()
+        case .pickersAndTogglesView:
+            PickersAndTogglesView()
         case .progressBarsView:
             ProgressBarsView()
         case .chartsView:
@@ -103,7 +106,7 @@ public enum DestinationView: Identifiable, Hashable {
             PresentSheetView()
         case .datesView:
             DatesView()
-        case .customFontsView:
+        case .customTextAndFontsView:
             CustomTextAndFontView()
         case .bindableView:
             BindableMacroView()
@@ -111,6 +114,8 @@ public enum DestinationView: Identifiable, Hashable {
             SchedulerView()
         case .cardsView:
             CardsView()
+        case .buttonsView:
+            ButtonsView()
         }
     }
 }

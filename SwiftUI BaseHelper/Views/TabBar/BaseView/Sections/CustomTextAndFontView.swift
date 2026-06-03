@@ -18,10 +18,6 @@ struct CustomTextAndFontView: View {
             VStack {
                 Text("TEXT WITH MODIFIERS")
                 VStack {
-                    Text("Hello i am a normal text!")
-                        .font(.system(size: 21))
-                        .foregroundColor(.blue)
-                        .bold()
                     Text("Hello i am a modified text!")
                         .modifiedTextStyle()
                     Text("Hello i am another modified text!")

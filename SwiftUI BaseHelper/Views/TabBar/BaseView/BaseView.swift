@@ -17,35 +17,40 @@ struct BaseView: View {
         ScrollView(showsIndicators: false) {
             VStack(alignment: .leading) {
                 Section("Components") {
+                    CustomButton(title: "Buttons",
+                                 alignment: .leading,
+                                 action: {
+                        router.navigate(to: DestinationView.buttonsView)
+                    })
                     CustomButton(title: "Cards",
                                  alignment: .leading,
                                  action: {
                         router.navigate(to: DestinationView.cardsView)
                     })
-                    CustomButton(title: "Textfields",
+                    CustomButton(title: "Charts",
                                  alignment: .leading,
                                  action: {
-                        router.navigate(to: DestinationView.textFieldView)
-                    })
-                    CustomButton(title: "Progress bars",
-                                 alignment: .leading,
-                                 action: {
-                        router.navigate(to: DestinationView.progressBarsView)
-                    })
-                    CustomButton(title: "Actions & Pickers",
-                                 alignment: .leading,
-                                 action: {
-                        router.navigate(to: DestinationView.actionAndSelectableView)
+                        router.navigate(to: DestinationView.chartsView)
                     })
                     CustomButton(title: "Dates Handling View",
                                  alignment: .leading,
                                  action: {
                         router.navigate(to: DestinationView.datesView)
                     })
-                    CustomButton(title: "Charts",
+                    CustomButton(title: "Pickers & Toggles",
                                  alignment: .leading,
                                  action: {
-                        router.navigate(to: DestinationView.chartsView)
+                        router.navigate(to: DestinationView.pickersAndTogglesView)
+                    })
+                    CustomButton(title: "Progress bars",
+                                 alignment: .leading,
+                                 action: {
+                        router.navigate(to: DestinationView.progressBarsView)
+                    })
+                    CustomButton(title: "Textfields",
+                                 alignment: .leading,
+                                 action: {
+                        router.navigate(to: DestinationView.textFieldView)
                     })
                 }
                 
@@ -71,9 +76,8 @@ struct BaseView: View {
                     CustomButton(title: "Custom Fonts View",
                                  alignment: .leading,
                                  action: {
-                        router.navigate(to: DestinationView.customFontsView)
+                        router.navigate(to: DestinationView.customTextAndFontsView)
                     })
-                    
                     CustomButton(title: "iOS17 Bindable Example",
                                  alignment: .leading,
                                  action: {

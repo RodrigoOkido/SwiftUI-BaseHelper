@@ -9,13 +9,15 @@ import SwiftUI
 
 public struct TextAreaField: CustomTextField, View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     public var fieldName: String
     public var placeholder: String
     @FocusState public var isFocused: Bool
     @Binding public var textContent: String
     
     private var borderColor: Color {
-        isFocused ? .orange : .black
+        isFocused ? .orange : isDarkMode ? .white : .black
     }
     
     public init(fieldName: String,

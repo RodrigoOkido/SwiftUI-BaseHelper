@@ -8,6 +8,8 @@ import SwiftUI
 
 public struct PasswordTextField: CustomTextField, View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     public var fieldName: String
     public var placeholder: String
     @FocusState public var isFocused: Bool
@@ -15,7 +17,7 @@ public struct PasswordTextField: CustomTextField, View {
     @State public var shouldShowPassword: Bool
     
     private var borderColor: Color {
-        isFocused ? .orange : .black
+        isFocused ? .orange : isDarkMode ? .white : .black
     }
     
     public init(

@@ -8,6 +8,8 @@ import SwiftUI
 
 public struct RegularTextField: CustomTextField, View {
     
+    @AppStorage("isDarkMode") private var isDarkMode = false
+
     public var fieldName: String
     public var placeholder: String
     public var leadingIcon: Image?
@@ -16,7 +18,7 @@ public struct RegularTextField: CustomTextField, View {
     @FocusState public var isFocused: Bool
     
     private var borderColor: Color {
-        isFocused ? .orange : .black
+        isFocused ? .orange : isDarkMode ? .white : .black
     }
     
     public init(
