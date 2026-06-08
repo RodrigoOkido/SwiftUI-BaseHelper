@@ -137,6 +137,9 @@ For `Repositories` the API name or some name that identifies better the endpoint
 
 Make sure to make the app build after the changes. Any doubt please check SwiftUI-BaseHelper to get some context.
 
+On /Core, if you find any API or file that looks more project related, and its not generic, you
+can remove or dont replicate. But always ask before removing to make sure.
+
 ---
 
 ## 3. Architecture
