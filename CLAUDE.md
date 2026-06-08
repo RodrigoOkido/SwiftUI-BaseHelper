@@ -25,7 +25,9 @@ with the existing codebase.
    screenshot when practical.
 4. **Use the DesignSystem.** Never hardcode spacing, sizes, colors, fonts, or
    reuse ad-hoc text fields/buttons. Use the components and design tokens in the
-   `DesignSystem` package (see §5).
+   `DesignSystem` package (see §5). Avoid at all changing the existing package, 
+   only remove or modify the existing content within this package if really needd. 
+   You can ask to the user to confirm.
 5. **Only commit when explicitly asked.** Do not run `git commit`/`git push`
    unless the user requests it.
 6. **Keep comments meaningful.** Explain *why* (intent, trade-offs, non-obvious
@@ -37,6 +39,9 @@ with the existing codebase.
    privacy and security.
    Never include in the commits, commit messages, branches without confirming with the
    developer the extreme necessity to it (in case of integrating some new API for example).
+9. **DO NOT** change or edit already documented functions, computed properties, class, 
+   structs or properties, unless really needed. You can ask for improvements if you feel 
+   that its good and might be needed. But never change by your own.
 
 ---
 
@@ -67,7 +72,7 @@ MyProject/
 ```
 
 Because the app and test targets use **`PBXFileSystemSynchronizedRootGroup`**,
-new `.swift` files dropped into `ReMe/` or `ReMeTests/` are picked up
+new `.swift` files dropped into `MyProjectName/` or `MyProjectNameTests/` are picked up
 automatically — no `project.pbxproj` edit needed for ordinary source files. The
 pbxproj only needs manual editing for targets, build phases, dependencies, and
 package products.
