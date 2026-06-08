@@ -7,16 +7,6 @@
 
 import Foundation
 
-class TimeInSeconds {
-    static let SECONDS: Double = 1
-    static let MINUTES: Double = 60
-    static let HOUR: Double = TimeInSeconds.MINUTES * 60
-    static let DAY: Double = TimeInSeconds.HOUR * 24
-    static let WEEK: Double = TimeInSeconds.DAY * 7
-    static let MONTH: Double = TimeInSeconds.WEEK * 4.5
-    static let YEAR: Double = TimeInSeconds.MONTH * 12
-}
-
 extension Double {
 
     /// Formats the `Double` value as a localized currency string.

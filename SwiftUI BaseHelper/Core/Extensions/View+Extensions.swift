@@ -13,7 +13,7 @@ extension View {
     
     func modifiedButtonStyle(color: Color = .blue, 
                              textColor: Color = .black) -> some View {
-        modifier(ModifiedButton(color: color, textColor: textColor))
+        modifier(ButtonModifier(color: color, textColor: textColor))
     }
     
     func modifiedTextfieldStyle(borderColor: Color = .blue) -> some View {
