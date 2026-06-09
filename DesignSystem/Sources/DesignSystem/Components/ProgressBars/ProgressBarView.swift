@@ -24,9 +24,13 @@ public enum ProgressStyle {
 
 public struct ProgressBarView: View {
     
+    // MARK: - Wrappers
+    
     /// Progress value of the progress bar
     @State private var progress: CGFloat
     
+    // MARK: - Private Properties
+
     /// Style of the progress bar. If not defined, linear will be used.
     private var style: ProgressStyle
     
@@ -36,6 +40,7 @@ public struct ProgressBarView: View {
     /// Thickness of the progress bar.
     private var thickness: ProgressThickness
     
+    // MARK: - Init
     public init(progress: CGFloat,
                 style: ProgressStyle = .linear,
                 statusColor: Color = .green,
@@ -47,6 +52,7 @@ public struct ProgressBarView: View {
         self.thickness = thickness
     }
     
+    // MARK: - Content
     public var body: some View {
         
         switch style {

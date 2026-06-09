@@ -9,17 +9,27 @@ import SwiftUI
 
 public struct TextAreaField: CustomTextField, View {
     
+    // MARK: - Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-
-    public var fieldName: String
-    public var placeholder: String
     @FocusState public var isFocused: Bool
     @Binding public var textContent: String
+
+    // MARK: - Public Properties
     
+    /// Textfield field name to indicate what the textfield is intended for.
+    public var fieldName: String
+    
+    /// Textfield placeholder to hint what the textfield is intended for.
+    public var placeholder: String
+    
+    // MARK: - Computed Properties
+    
+    /// Textfield border.
     private var borderColor: Color {
         isFocused ? .orange : isDarkMode ? .white : .black
     }
     
+    // MARK: - Init
     public init(fieldName: String,
          placeholder: String,
          textContent: Binding<String>) {
@@ -28,6 +38,7 @@ public struct TextAreaField: CustomTextField, View {
         self._textContent = textContent
     }
     
+    // MARK: - Content
     public var body: some View {
         VStack(alignment: .leading) {
             Text(fieldName)

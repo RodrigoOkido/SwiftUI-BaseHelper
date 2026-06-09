@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct IndicatorStepsBar: View {
-    let items: [StepItem]
-    let currentStep: Int
+    
+    // MARK: - Private Properties
+    
+    /// Defines the Circle size of each step.
     private let circleSize: CGFloat = 28
+    
+    // MARK: - Public Properties
+    
+    /// List of each step within the indicators step bar.
+    let items: [StepItem]
+    
+    /// Indicates the current step the bar is focused on or stopped.
+    let currentStep: Int
 
+    // MARK: - Content
     var body: some View {
         VStack(spacing: 6) {
             // Circles row with inline connecting lines
@@ -43,6 +54,7 @@ struct IndicatorStepsBar: View {
         }
     }
 
+    // MARK: - Private Methods
     @ViewBuilder
     private func stepCircle(index: Int, color: Color) -> some View {
         let isCompleted = index < currentStep

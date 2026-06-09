@@ -28,10 +28,18 @@ public enum StepProgressStyle {
 
 public struct StepProgressBarView: View {
 
+    // MARK: - Private Properties
+    
+    /// List of each step within the step progress bar.
     private var items: [StepItem]
+    
+    /// Indicates the current step the bar is focused on or stopped.
     private var currentStep: Int
+    
+    /// Style of the step progress style.
     private var style: StepProgressStyle
 
+    // MARK: - Init
     public init(
         items: [StepItem],
         currentStep: Int = 0,
@@ -42,6 +50,7 @@ public struct StepProgressBarView: View {
         self.style = style
     }
 
+    // MARK: - Content
     public var body: some View {
         switch style {
         case .arrow:
@@ -53,7 +62,6 @@ public struct StepProgressBarView: View {
 }
 
 // MARK: - Preview
-
 private let teal = Color(red: 0.22, green: 0.78, blue: 0.68)
 
 #Preview {

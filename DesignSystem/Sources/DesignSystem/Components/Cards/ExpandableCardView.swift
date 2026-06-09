@@ -13,9 +13,15 @@ public struct ExpandableCardView<Content: View>: View {
     // MARK: - Wrappers
     @State private var isExpanded = false
     
-    // MARK: - Private
+    // MARK: - Private Propeties
+    
+    /// Icon of the Card (Optional).
     private let icon: Image?
+    
+    /// Title of the card.
     private let title: String
+    
+    /// Content of the expandable card. It expects a View to provide flexibility to the expandable content.
     private let innerContent: () -> Content
     
     // MARK: - Init
@@ -27,6 +33,7 @@ public struct ExpandableCardView<Content: View>: View {
         self.innerContent = innerContent
     }
     
+    // MARK: - Content
     public var body: some View {
         VStack {
             HStack {

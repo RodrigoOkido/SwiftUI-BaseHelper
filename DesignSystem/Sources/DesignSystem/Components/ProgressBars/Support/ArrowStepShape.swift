@@ -9,10 +9,16 @@ import SwiftUI
 
 /// Pentagon (first step) or hexagon (subsequent steps) arrow shape used by `ArrowStepsBar`.
 struct ArrowStepShape: Shape {
+    
+    // MARK: - Public Properties
+    
+    /// Checks if the step is the first one.
     var isFirst: Bool
+
     /// Depth of the right-side arrow point and the matching left-side notch.
     let arrowDepth: CGFloat = 16
 
+    // MARK: - Public Methods
     func path(in rect: CGRect) -> Path {
         var path = Path()
         let w = rect.width

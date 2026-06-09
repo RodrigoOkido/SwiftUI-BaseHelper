@@ -8,18 +8,22 @@ import SwiftUI
 
 public struct PasswordTextField: CustomTextField, View {
     
+    // MARK: - Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
-
-    public var fieldName: String
-    public var placeholder: String
     @FocusState public var isFocused: Bool
     @Binding public var textContent: String
     @State public var shouldShowPassword: Bool
+
+    // MARK: - Public Properties
+    public var fieldName: String
+    public var placeholder: String
     
+    // MARK: - Computed Properties
     private var borderColor: Color {
         isFocused ? .orange : isDarkMode ? .white : .black
     }
     
+    // MARK: - Init
     public init(
          fieldName: String,
          placeholder: String,
@@ -30,6 +34,7 @@ public struct PasswordTextField: CustomTextField, View {
         self._textContent = textContent
     }
     
+    // MARK: - Content
     public var body: some View {
         VStack(alignment: .leading) {
             Text(fieldName)

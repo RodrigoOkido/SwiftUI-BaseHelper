@@ -10,17 +10,39 @@ import SwiftUI
 public struct CustomButton: View {
     
     // MARK: - Stored Properties
+    
+    /// Preset of button type.
     private let type: ButtonType
+    
+    /// Title of the button.
     private let title: String
+    
+    /// Defines where the title will be aligned within the button.
+    /// Can be centered, left-aligned, or right-aligned.
     private let alignment: ButtonContentPosition
+    
+    /// Leading image of the button title (Optional).
     private let leadingImage: Image?
+    
+    /// Trailing image of the button title (Optional).
     private let trailingImage: Image?
+    
+    /// Height of the button.
     private let height: ButtonHeight
+    
+    /// Padding of the button.
     private let padding: ButtonPadding
+    
+    /// Corner radius of the button.
     private let cornerRadius: ButtonCornerRadius
+    
+    /// Border of the button (Optional).
     private let borderColor: Color?
+    
+    /// Action of the button when clicked.
     private let action: () -> Void
     
+    // MARK: - Init
     public init(type: ButtonType = .primary,
                 title: String,
                 alignment: ButtonContentPosition = .center,
@@ -43,6 +65,7 @@ public struct CustomButton: View {
         self.borderColor = borderColor
     }
 
+    // MARK: - Content
     public var body: some View {
         Button {
             action()

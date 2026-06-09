@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct ArrowStepsBar: View {
-    let items: [StepItem]
-    let currentStep: Int
+    
+    // MARK: - Private Properties
+    
+    /// Arrow depth.
     private let arrowDepth: CGFloat = 16
+    
+    // MARK: - Public Properties
+    
+    /// List of each step within the arrows steps bar.
+    let items: [StepItem]
+    
+    /// Indicates the current step the bar is focused on or stopped.
+    let currentStep: Int
 
+    // MARK: - Content
     var body: some View {
         HStack(spacing: -arrowDepth) {
             ForEach(Array(items.enumerated()), id: \.offset) { index, item in

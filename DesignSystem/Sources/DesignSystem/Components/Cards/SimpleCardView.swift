@@ -9,9 +9,17 @@ import SwiftUI
 public struct SimpleCardView: View {
     
     // MARK: - Private Properties
+    
+    /// Header image of the card (Optional).
     private let headerImage: Image?
+    
+    /// Title of the card.
     private let title: String
+    
+    /// Description of the card.
     private let description: String
+    
+    /// Action of the card when clicking (Optional).
     private let action: (() -> Void)?
     
     // MARK: - Init
@@ -26,6 +34,7 @@ public struct SimpleCardView: View {
         self.action = action
     }
     
+    // MARK: - Content
     public var body: some View {
         VStack(alignment: .leading) {
             if let headerImage {
@@ -49,5 +58,15 @@ public struct SimpleCardView: View {
         .background(.white)
         .cornerRadius(CornerRadius.sm)
         .shadow(color: .black.opacity(OpacityLevel.transparent), radius: 2, y: 2)
+        .onTapGesture {
+            if let action {
+                action()
+            }
+        }
     }
+}
+
+#Preview {
+    SimpleCardView(headerImage: nil, title: "Sample", description: "Test", action: {})
+    
 }

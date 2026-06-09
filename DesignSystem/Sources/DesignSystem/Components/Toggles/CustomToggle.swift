@@ -9,8 +9,10 @@ import SwiftUI
 
 public struct CustomToggleStyle: ToggleStyle {
     
+    // MARK: - Init
     public init(){}
     
+    // MARK: - Content
     public func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label
@@ -34,12 +36,17 @@ public struct CustomToggleStyle: ToggleStyle {
 
 public struct CustomToggleStyle2: ToggleStyle {
     
+    // MARK: - Private Properties
+    
+    /// Adds ON and OFF label to the toggle.
     private var withLabel: Bool
     
+    // MARK: - Init
     public init(withLabel: Bool){
         self.withLabel = withLabel
     }
     
+    // MARK: - Content
     public func makeBody(configuration: Configuration) -> some View {
         HStack {
             configuration.label

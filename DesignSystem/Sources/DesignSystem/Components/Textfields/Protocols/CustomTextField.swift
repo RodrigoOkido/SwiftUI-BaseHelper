@@ -10,9 +10,18 @@ import SwiftUI
 
 public protocol CustomTextField {
     
+    // MARK: - Public Properties
+
+    /// Textfield field name to indicate what the textfield is intended for.
     var fieldName: String { get set }
+    
+    /// Textfield placeholder to hint what the textfield is intended for.
     var placeholder: String { get set }
+    
+    /// Textfield indicator to tell when its being focused by the user.
     var isFocused: Bool { get set }
+    
+    /// Textfield content written by the user.
     var textContent: String { get set }
 }
 
