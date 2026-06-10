@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Custom Button to provide a fully custom button design.
 public struct CustomButton: View {
     
     // MARK: - Stored Properties

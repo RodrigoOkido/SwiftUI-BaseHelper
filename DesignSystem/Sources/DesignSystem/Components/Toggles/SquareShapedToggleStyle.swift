@@ -1,5 +1,5 @@
 //
-//  CustomToggle.swift
+//  SquareShapedToggleStyle.swift
 //  DesignSystem
 //
 //  Created by Rodrigo Okido on 12/05/26.
@@ -7,34 +7,9 @@
 
 import SwiftUI
 
-public struct CustomToggleStyle: ToggleStyle {
-    
-    // MARK: - Init
-    public init(){}
-    
-    // MARK: - Content
-    public func makeBody(configuration: Configuration) -> some View {
-        HStack {
-            configuration.label
-            Spacer()
-            RoundedRectangle(cornerRadius: 16)
-                .fill(configuration.isOn ? Color.green : Color.gray.opacity(0.4))
-                .frame(width: 50, height: 28)
-                .overlay {
-                    Circle()
-                        .fill(.white)
-                        .padding(3)
-                        .offset(x: configuration.isOn ? 11 : -11)
-                }
-                .animation(.spring(duration: 0.2), value: configuration.isOn)
-                .onTapGesture {
-                    configuration.isOn.toggle()
-                }
-        }
-    }
-}
-
-public struct CustomToggleStyle2: ToggleStyle {
+/// Square shaped toggle style. This style provides the option to add labeling (ON and
+/// OFF) when toggle is activated by the user.
+public struct SquareShapedToggleStyle: ToggleStyle {
     
     // MARK: - Private Properties
     
@@ -75,10 +50,8 @@ public struct CustomToggleStyle2: ToggleStyle {
 
 #Preview {
     @Previewable @State var isOn = false
-    Toggle("Styling 1", isOn: $isOn)
-        .toggleStyle(CustomToggleStyle())
-    Toggle("Styling 2", isOn: $isOn)
-        .toggleStyle(CustomToggleStyle2(withLabel: true))
-    Toggle("Styling 2 alternative", isOn: $isOn)
-        .toggleStyle(CustomToggleStyle2(withLabel: false))
+    Toggle("Square Shaped Style", isOn: $isOn)
+        .toggleStyle(SquareShapedToggleStyle(withLabel: false))
+    Toggle("Square Shaped Style alternative", isOn: $isOn)
+        .toggleStyle(SquareShapedToggleStyle(withLabel: true))
 }

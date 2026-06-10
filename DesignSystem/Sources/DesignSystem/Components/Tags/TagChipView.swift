@@ -20,8 +20,6 @@ public enum TagChipStyle {
     case squareOutlined
 }
 
-// MARK: - TagChip
-
 /// A compact, pill or square shaped label for any categorical value.
 ///
 /// Accepts plain strings and a `Color` so it can be driven by any domain
@@ -30,8 +28,8 @@ public enum TagChipStyle {
 ///
 /// Usage:
 /// ```swift
-/// TagChip(label: "Swift", color: .orange, icon: "swift")
-/// TagChip(label: "Archived", color: .gray)
+/// TagChipView(label: "Swift", color: .orange, icon: "swift")
+/// TagChipView(label: "Archived", color: .gray)
 /// ```
 public struct TagChipView: View {
 

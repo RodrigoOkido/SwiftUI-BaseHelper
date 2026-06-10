@@ -6,6 +6,8 @@
 //
 import SwiftUI
 
+/// Textfield that provides input with optional for styling inserting icons on
+/// leading or trailing.
 public struct RegularTextField: CustomTextField, View {
     
     // MARK: - Wrappers
@@ -14,6 +16,7 @@ public struct RegularTextField: CustomTextField, View {
     @FocusState public var isFocused: Bool
 
     // MARK: - Public Properties
+    public var style: TextfieldStyle
     public var fieldName: String
     public var placeholder: String
     public var leadingIcon: Image?
@@ -26,11 +29,13 @@ public struct RegularTextField: CustomTextField, View {
     
     // MARK: - Init
     public init(
+         style: TextfieldStyle,
          fieldName: String,
          placeholder: String,
          leadingIcon: Image? = nil,
          trailingIcon: Image? = nil,
          textContent: Binding<String>) {
+        self.style = style
         self.fieldName = fieldName
         self.placeholder = placeholder
         self.leadingIcon = leadingIcon
@@ -65,18 +70,44 @@ public struct RegularTextField: CustomTextField, View {
                 }
             }
             .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.sm)
-                    .stroke(borderColor, lineWidth: 1)
-            )
+            .overlay(styleOverlay)
             .animation(.easeInOut(duration: 0.2), value: isFocused)
+        }
+    }
+    
+    @ViewBuilder
+    private var styleOverlay: some View {
+        switch style {
+        case .bordered:
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(borderColor, lineWidth: 0.5)
+        case .underline:
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundStyle(borderColor)
+            }
+        case .none:
+            EmptyView()
         }
     }
 }
 
 #Preview {
-    RegularTextField(fieldName: "Name",
-                    placeholder: "Your name",
-                    leadingIcon: Image(systemName: "person.crop.circle"),
-                    textContent: .constant(""))
+    RegularTextField(style: .bordered,
+                     fieldName: "Name",
+                     placeholder: "Your name",
+                     leadingIcon: Image(systemName: "person.crop.circle"),
+                     textContent: .constant(""))
+    RegularTextField(style: .underline,
+                     fieldName: "Name",
+                     placeholder: "Your name",
+                     leadingIcon: Image(systemName: "person.crop.circle"),
+                     textContent: .constant(""))
+    RegularTextField(style: .none,
+                     fieldName: "Name",
+                     placeholder: "Your name",
+                     leadingIcon: Image(systemName: "person.crop.circle"),
+                     textContent: .constant(""))
 }

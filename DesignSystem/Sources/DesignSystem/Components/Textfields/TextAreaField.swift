@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// TextAreaField provides an area to user insert an text like feedbacks, comments or
+/// whatever info which needs more space.
 public struct TextAreaField: CustomTextField, View {
     
     // MARK: - Wrappers
@@ -15,11 +17,8 @@ public struct TextAreaField: CustomTextField, View {
     @Binding public var textContent: String
 
     // MARK: - Public Properties
-    
-    /// Textfield field name to indicate what the textfield is intended for.
+    public var style: TextfieldStyle    
     public var fieldName: String
-    
-    /// Textfield placeholder to hint what the textfield is intended for.
     public var placeholder: String
     
     // MARK: - Computed Properties
@@ -30,9 +29,12 @@ public struct TextAreaField: CustomTextField, View {
     }
     
     // MARK: - Init
-    public init(fieldName: String,
+    public init(
+         style: TextfieldStyle = .bordered,
+         fieldName: String,
          placeholder: String,
          textContent: Binding<String>) {
+        self.style = style
         self.fieldName = fieldName
         self.placeholder = placeholder
         self._textContent = textContent
@@ -51,7 +53,7 @@ public struct TextAreaField: CustomTextField, View {
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: CornerRadius.sm)
-                    .stroke(borderColor, lineWidth: 1)
+                    .stroke(borderColor, lineWidth: 0.5)
             )
             .animation(.easeInOut(duration: 0.2), value: isFocused)
         }

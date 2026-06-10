@@ -6,6 +6,9 @@
 //
 import SwiftUI
 
+/// Simple Card View. Receives an optional header image, a title, and a description as
+/// content. Provides an card style visualization about any sort of information. Provides
+/// also the possibility to add some action if user click on it.
 public struct SimpleCardView: View {
     
     // MARK: - Private Properties

@@ -22,6 +22,29 @@ public enum ProgressStyle {
     case circular
 }
 
+/// Communicates the status of an ongoing process to the user.
+///
+/// Use `ProgressBarView` whenever an operation has a measurable duration and
+/// the user would otherwise be left wondering whether anything is happening —
+/// file uploads, downloads, media exports, or any background task where
+/// progress can be expressed as a value between `0.0` and `1.0`.
+///
+/// Two visual styles are available:
+/// - `.linear` — a full-width horizontal bar, best for task screens and lists.
+/// - `.circular` — a ring with a percentage label at its center, suited for
+///   compact contexts such as cards or dashboards.
+///
+/// Thickness is controlled independently via `ProgressThickness` so the bar
+/// can be made more prominent without changing its color or progress value.
+///
+/// ```swift
+/// // Upload feedback on a file row
+/// ProgressBarView(progress: uploadProgress, statusColor: .blue)
+///
+/// // Circular storage indicator
+/// ProgressBarView(progress: 0.73, style: .circular, thickness: .giant)
+///     .frame(width: 80, height: 80)
+/// ```
 public struct ProgressBarView: View {
     
     // MARK: - Wrappers

@@ -6,6 +6,7 @@
 //
 import SwiftUI
 
+/// Textfield used to provide secure input informations like passwords.
 public struct PasswordTextField: CustomTextField, View {
     
     // MARK: - Wrappers
@@ -15,6 +16,7 @@ public struct PasswordTextField: CustomTextField, View {
     @State public var shouldShowPassword: Bool
 
     // MARK: - Public Properties
+    public var style: TextfieldStyle
     public var fieldName: String
     public var placeholder: String
     
@@ -25,9 +27,11 @@ public struct PasswordTextField: CustomTextField, View {
     
     // MARK: - Init
     public init(
+         style: TextfieldStyle,
          fieldName: String,
          placeholder: String,
          textContent: Binding<String>) {
+        self.style = style
         self.fieldName = fieldName
         self.placeholder = placeholder
         self.shouldShowPassword = false
@@ -73,17 +77,41 @@ public struct PasswordTextField: CustomTextField, View {
 
             }
             .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.sm)
-                    .stroke(borderColor, lineWidth: 1)
-            )
+            .overlay(styleOverlay)
             .animation(.easeInOut(duration: 0.2), value: isFocused)
+        }
+    }
+    
+    @ViewBuilder
+    private var styleOverlay: some View {
+        switch style {
+        case .bordered:
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(borderColor, lineWidth: 0.5)
+        case .underline:
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundStyle(borderColor)
+            }
+        case .none:
+            EmptyView()
         }
     }
 }
 
 #Preview {
-    PasswordTextField(fieldName: "Password",
+    PasswordTextField(style: .bordered,
+                    fieldName: "Password",
                     placeholder: "Your password",
                     textContent: .constant(""))
+    PasswordTextField(style: .underline,
+                      fieldName: "Password",
+                      placeholder: "Your password",
+                      textContent: .constant(""))
+    PasswordTextField(style: .none,
+                      fieldName: "Password",
+                      placeholder: "Your password",
+                      textContent: .constant(""))
 }

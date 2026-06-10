@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+/// Simple Textfield that provides only the input field without any styling like icons on
+/// leading or trailing. Use RegularTextField for this purpose.
 public struct SimpleTextField: CustomTextField, View {
     
     // MARK: - Wrappers
@@ -15,6 +17,7 @@ public struct SimpleTextField: CustomTextField, View {
     @Binding public var textContent: String
 
     // MARK: - Public Properties
+    public var style: TextfieldStyle
     public var fieldName: String
     public var placeholder: String
     
@@ -24,9 +27,12 @@ public struct SimpleTextField: CustomTextField, View {
     }
     
     // MARK: - Init
-    public init(fieldName: String,
+    public init(
+         style: TextfieldStyle,
+         fieldName: String,
          placeholder: String,
          textContent: Binding<String>) {
+        self.style = style
         self.fieldName = fieldName
         self.placeholder = placeholder
         self._textContent = textContent
@@ -41,17 +47,41 @@ public struct SimpleTextField: CustomTextField, View {
                       text: $textContent)
             .focused($isFocused)
             .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.sm)
-                    .stroke(borderColor, lineWidth: 1)
-            )
+            .overlay(styleOverlay)
             .animation(.easeInOut(duration: 0.2), value: isFocused)
+        }
+    }
+    
+    @ViewBuilder
+    private var styleOverlay: some View {
+        switch style {
+        case .bordered:
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(borderColor, lineWidth: 0.5)
+        case .underline:
+            VStack {
+                Spacer()
+                Rectangle()
+                    .frame(height: 0.5)
+                    .foregroundStyle(borderColor)
+            }
+        case .none:
+            EmptyView()
         }
     }
 }
 
 #Preview {
-    SimpleTextField(fieldName: "Name",
+    SimpleTextField(style: .bordered,
+                    fieldName: "Name",
+                    placeholder: "Insert your name",
+                    textContent: .constant(""))
+    SimpleTextField(style: .underline,
+                    fieldName: "Name",
+                    placeholder: "Insert your name",
+                    textContent: .constant(""))
+    SimpleTextField(style: .none,
+                    fieldName: "Name",
                     placeholder: "Insert your name",
                     textContent: .constant(""))
 }

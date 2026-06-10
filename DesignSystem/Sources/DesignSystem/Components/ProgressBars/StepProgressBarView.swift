@@ -26,6 +26,35 @@ public enum StepProgressStyle {
     case indicator
 }
 
+/// Shows a user's position within a fixed sequence of steps.
+///
+/// Use `StepProgressBarView` in multi-step flows — onboarding, checkout,
+/// form wizards, or any process where the user needs to know how far they
+/// have come and how much is left. Each `StepItem` carries its own label
+/// and accent color, giving teams full control over the visual language.
+///
+/// Two layouts are available:
+/// - `.arrow` — overlapping chevron shapes that suit branded, high-contrast
+///   flows where each step has a distinct color identity.
+/// - `.indicator` — connected circles with checkmarks for completed steps,
+///   a neutral pattern that works well in standard form flows.
+///
+/// `currentStep` is zero-indexed. Passing a value beyond the last item
+/// renders all steps as completed.
+///
+/// ```swift
+/// // Checkout flow
+/// StepProgressBarView(
+///     items: [
+///         StepItem(label: "Cart",    color: .blue),
+///         StepItem(label: "Address", color: .blue),
+///         StepItem(label: "Payment", color: .blue),
+///         StepItem(label: "Review",  color: .blue),
+///     ],
+///     currentStep: 1,
+///     style: .indicator
+/// )
+/// ```
 public struct StepProgressBarView: View {
 
     // MARK: - Private Properties
