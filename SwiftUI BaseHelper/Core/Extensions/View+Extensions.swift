@@ -15,10 +15,6 @@ extension View {
                              textColor: Color = .black) -> some View {
         modifier(ButtonModifier(color: color, textColor: textColor))
     }
-    
-    func modifiedTextfieldStyle(borderColor: Color = .blue) -> some View {
-        modifier(ModifiedTextField(borderColor: borderColor))
-    }
 }
 
 // Loader Modifier
