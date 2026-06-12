@@ -9,6 +9,13 @@ import SwiftUI
 
 /// TextAreaField provides an area to user insert an text like feedbacks, comments or
 /// whatever info which needs more space.
+///
+/// Usage example:
+/// ```swift
+///     TextAreaField(fieldName: "Write your feedback",
+///                   placeholder: "Enter your text",
+///                   textContent: .constant(""))
+/// ```
 public struct TextAreaField: CustomTextField, View {
     
     // MARK: - Wrappers

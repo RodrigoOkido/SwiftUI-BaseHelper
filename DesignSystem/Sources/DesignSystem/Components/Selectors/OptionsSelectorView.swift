@@ -7,11 +7,25 @@
 
 import SwiftUI
 
+/// Selector type enum.
 public enum SelectorType {
     case radio
     case checkbox
 }
 
+/// OptionsSelectorView provides the capability to offer a selector view
+/// to the user. It can be single option with `radio`, or multiple option
+/// with `checkbox`. If `radio`selected, the `selected list` will always
+/// return a single element.
+///
+/// Usage example:
+/// ```swift
+///     @State var selected: [String] = []
+///
+///     OptionsSelectorView(type: .checkbox,
+///                         options: ["Apple", "Banana", "Pear"],
+///                         selected: $selected)
+/// ```
 public struct OptionsSelectorView: View {
     
     // MARK: - Wrappers

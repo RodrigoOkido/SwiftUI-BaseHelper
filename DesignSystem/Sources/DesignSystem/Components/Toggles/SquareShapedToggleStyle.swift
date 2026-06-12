@@ -9,6 +9,12 @@ import SwiftUI
 
 /// Square shaped toggle style. This style provides the option to add labeling (ON and
 /// OFF) when toggle is activated by the user.
+///
+/// Usage example:
+/// ```swift
+///     Toggle("Styling 1", isOn: $isOn)
+///         .toggleStyle(SquareShapedToggleStyle(withLabel: false))
+/// ```
 public struct SquareShapedToggleStyle: ToggleStyle {
     
     // MARK: - Private Properties

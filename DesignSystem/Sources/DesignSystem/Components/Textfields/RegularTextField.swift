@@ -8,6 +8,14 @@ import SwiftUI
 
 /// Textfield that provides input with optional for styling inserting icons on
 /// leading or trailing.
+///
+/// Usage example:
+/// ```swift
+///     RegularTextField(style: .bordered,
+///                      fieldName: "Name",
+///                      placeholder: "Your name",
+///                      leadingIcon: Image(systemName: "person.crop.circle")
+/// ```
 public struct RegularTextField: CustomTextField, View {
     
     // MARK: - Wrappers

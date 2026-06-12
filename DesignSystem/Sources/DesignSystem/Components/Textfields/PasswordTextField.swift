@@ -7,6 +7,14 @@
 import SwiftUI
 
 /// Textfield used to provide secure input informations like passwords.
+///
+/// Usage example:
+/// ```swift
+///     PasswordTextField(style: .bordered,
+///                     fieldName: "Password",
+///                     placeholder: "Your password",
+///                     textContent: .constant(""))
+/// ```
 public struct PasswordTextField: CustomTextField, View {
     
     // MARK: - Wrappers

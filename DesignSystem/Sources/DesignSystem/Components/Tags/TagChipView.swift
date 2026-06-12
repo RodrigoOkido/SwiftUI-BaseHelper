@@ -26,7 +26,7 @@ public enum TagChipStyle {
 /// model — not just `ReminderTag`. Pass an SF Symbol name via `icon` to
 /// prepend a small glyph.
 ///
-/// Usage:
+/// Usage example:
 /// ```swift
 /// TagChipView(label: "Swift", color: .orange, icon: "swift")
 /// TagChipView(label: "Archived", color: .gray)

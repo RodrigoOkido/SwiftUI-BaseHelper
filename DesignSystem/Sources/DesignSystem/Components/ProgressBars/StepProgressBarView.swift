@@ -42,6 +42,7 @@ public enum StepProgressStyle {
 /// `currentStep` is zero-indexed. Passing a value beyond the last item
 /// renders all steps as completed.
 ///
+/// Usage example:
 /// ```swift
 /// // Checkout flow
 /// StepProgressBarView(

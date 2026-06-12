@@ -9,7 +9,7 @@ import SwiftUI
 /// Expandable Card View. Receives an optional leading icon, a title, and a View as
 /// expandable content. It provides flexibility to make anything within the hidden content.
 ///
-/// Usage:
+/// Usage example:
 /// ```swift
 ///     ExpandableCardView(
 ///         icon: Image(systemName: "globe"),
@@ -24,6 +24,7 @@ import SwiftUI
 ///                 .padding()
 ///         }
 ///     }
+/// ```
 public struct ExpandableCardView<Content: View>: View {
     
     // MARK: - Wrappers

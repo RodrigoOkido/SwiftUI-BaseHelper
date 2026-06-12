@@ -37,6 +37,7 @@ public enum ProgressStyle {
 /// Thickness is controlled independently via `ProgressThickness` so the bar
 /// can be made more prominent without changing its color or progress value.
 ///
+/// Usage example:
 /// ```swift
 /// // Upload feedback on a file row
 /// ProgressBarView(progress: uploadProgress, statusColor: .blue)

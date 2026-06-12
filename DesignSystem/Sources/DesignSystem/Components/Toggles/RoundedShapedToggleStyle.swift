@@ -9,6 +9,12 @@ import SwiftUI
 
 /// Rounded shaped toggle style. This is a simple alternative toggle style similar to native
 /// Apple toggle. It does not use Liquid Glass for its animation.
+///
+/// Usage example:
+/// ```swift
+///     Toggle("Styling 1", isOn: $isOn)
+///         .toggleStyle(RoundedShapedToggleStyle())
+/// ```
 public struct RoundedShapedToggleStyle: ToggleStyle {
     
     // MARK: - Init

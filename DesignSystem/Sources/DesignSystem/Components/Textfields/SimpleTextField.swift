@@ -9,6 +9,14 @@ import SwiftUI
 
 /// Simple Textfield that provides only the input field without any styling like icons on
 /// leading or trailing. Use RegularTextField for this purpose.
+///
+/// Usage example:
+/// ```swift
+///     SimpleTextField(style: .bordered,
+///                     fieldName: "Name",
+///                     placeholder: "Insert your name",
+///                     textContent: .constant(""))
+/// ```
 public struct SimpleTextField: CustomTextField, View {
     
     // MARK: - Wrappers

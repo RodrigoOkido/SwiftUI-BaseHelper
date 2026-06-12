@@ -8,6 +8,12 @@
 import SwiftUI
 
 /// Custom Button to provide a fully custom button design.
+///
+/// Usage example:
+/// ```swift
+///     CustomButton(title: "Sample 1",
+///                  action: {})
+/// ```
 public struct CustomButton: View {
     
     // MARK: - Stored Properties

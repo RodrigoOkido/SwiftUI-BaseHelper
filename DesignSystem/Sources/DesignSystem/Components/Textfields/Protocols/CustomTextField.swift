@@ -26,7 +26,7 @@ public protocol CustomTextField {
     
     // MARK: - Public Properties
     
-    /// Defines the UI of the textfield. Can be Bordered, or inline
+    /// Defines the UI of the textfield. Can be Bordered, inline or none if user wants to make your own style around the field.
     var style: TextfieldStyle { get set }
 
     /// Textfield field name to indicate what the textfield is intended for.
