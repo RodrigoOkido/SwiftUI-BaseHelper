@@ -103,6 +103,9 @@ public struct StackSpacing {
     /// nano: StackSpacing of 8pt
     public static var nano: CGFloat = 8
     
+    /// micro: StackSpacing of 12pt
+    public static var micro: CGFloat = 12
+    
     /// xxxs: StackSpacing of 16pt
     public static var xxxs: CGFloat = 16
     
