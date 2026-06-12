@@ -22,6 +22,7 @@ public enum TextfieldStyle {
 
 /// Protocol to create custom Textfields. Provides the most basic properties to
 /// create whatever type of textfield.
+@MainActor
 public protocol CustomTextField {
     
     // MARK: - Public Properties

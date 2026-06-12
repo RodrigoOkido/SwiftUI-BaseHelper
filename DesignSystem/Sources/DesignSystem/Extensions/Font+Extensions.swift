@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+@MainActor
 public extension Font {
 
     static var openSansInitialized = false
@@ -18,7 +19,7 @@ public extension Font {
         return .custom(openSans.rawValue, size: size)
     }
 
-    static func listAllFonts() {
+    nonisolated static func listAllFonts() {
         UIFont.familyNames.forEach({ familyName in
             let fontNames = UIFont.fontNames(forFamilyName: familyName)
             print(familyName, fontNames)

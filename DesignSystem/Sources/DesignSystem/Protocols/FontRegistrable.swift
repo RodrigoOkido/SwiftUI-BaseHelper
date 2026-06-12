@@ -13,6 +13,7 @@ public enum FontRegisterError: Error {
     case couldNotRegisterFont(String)
 }
 
+@MainActor
 public protocol FontRegistrable {
 
     static func registerFont() throws
