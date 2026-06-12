@@ -8,6 +8,22 @@ import SwiftUI
 
 /// Expandable Card View. Receives an optional leading icon, a title, and a View as
 /// expandable content. It provides flexibility to make anything within the hidden content.
+///
+/// Usage:
+/// ```swift
+///     ExpandableCardView(
+///         icon: Image(systemName: "globe"),
+///         title: "Expandable Card"
+///     ) {
+///         VStack {
+///             Text("This is the hidden content that appears
+///             when the card is expanded. You can put any
+///             information here that you want to show when the
+///             user taps on the card.")
+///                 .foregroundStyle(.black)
+///                 .padding()
+///         }
+///     }
 public struct ExpandableCardView<Content: View>: View {
     
     // MARK: - Wrappers
