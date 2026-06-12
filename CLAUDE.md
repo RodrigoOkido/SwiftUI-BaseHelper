@@ -1,51 +1,52 @@
 # CLAUDE.md
 
 Guidance for AI assistants (and humans) working in the **SwiftUI-BaseHelper** repository. 
-Or wants to follow the same **SwiftUI-BaseHelper** architecture.
 SwiftUI-BaseHelper is a SwiftUI project created by Rodrigo Okido, which aims to 
 explore many concepts of the Apple SwiftUI framework. Explores navigation, design system 
 components, view modifiers, and so on. This document captures the architecture, 
 conventions, and working agreements established so far so that new changes stay consistent 
-with the existing codebase.
+with the existing codebase. The GitHub profile of the author is `https://github.com/RodrigoOkido/`.
 
 ---
 
 ## 1. Main Rules
-1. **Check who is the Github author and repository objective** This CLAUDE document is used only for projects which wants to follow the `SwiftUI-BaseHelper` project. All the rules below should apply ONLY if this is the case. Always ask the user if this is the intention, if Yes, you can follow this guide.
-    Othewise, you can ignore the entire document and you can work by your own.
-2. **Mirror the existing architecture.** This project intentionally follows the
+1. **Mirror the existing architecture.** This project intentionally follows the
    `SwiftUI-BaseHelper` reference architecture (MVVM + Clean layering, DI,
    router-based navigation). Before adding a screen, store, or service, look at
    how an existing equivalent is built and copy that shape. Deviate only when
-   there is a concrete technical reason, and call it out. If you dont find
-   the SwiftUI-BaseHelper project, you can clone using 
-   `git@github.com:RodrigoOkido/SwiftUI-BaseHelper.git` this url.
-3. **Always build before declaring done.** Compile the app and run the test
-   suite (see §9). UI changes should be verified in the simulator with a
+   there is a concrete technical reason, and call it out. 
+2. **Always build before declaring done.** Compile the app and run the test
+   suite (see §10). UI changes should be verified in the simulator with a
    screenshot when practical.
-4. **Use the DesignSystem.** Never hardcode spacing, sizes, colors, fonts, or
+3. **Use the DesignSystem.** Never hardcode spacing, sizes, colors, fonts, or
    reuse ad-hoc text fields/buttons. Use the components and design tokens in the
-   `DesignSystem` package (see §5). Avoid at all changing the existing package, 
-   only remove or modify the existing content within this package if really needd. 
-   You can ask to the user to confirm.
-5. **Only commit when explicitly asked.** Do not run `git commit`/`git push`
-   unless the user requests it.
-6. **Keep comments meaningful.** Explain *why* (intent, trade-offs, non-obvious
-   constraints), never narrate *what* the code obviously does.
-7. **No new files unless necessary**, and never create documentation files
+   `DesignSystem` package (see §6). Avoid at all changing the existing package.
+   If you need to create a compoonent, you can create following the pattern 
+   in package.
+4. **No new files unless necessary**, and never create documentation files
    unprompted.
-8. **DO NOT, Never or regardless the condition** expose any private token, api token,
+5. **DO NOT, Never or regardless the condition** expose any private token, api token,
    keychains, or any sensitive content that might expose or harm user or developer 
    privacy and security.
    Never include in the commits, commit messages, branches without confirming with the
    developer the extreme necessity to it (in case of integrating some new API for example).
-9. **DO NOT** change or edit already documented functions, computed properties, class, 
-   structs or properties, unless really needed. You can ask for improvements if you feel 
+6. **DO NOT** change or edit already documented functions, computed properties, class, 
+   structs or properties, unless really needed. You should ask for improvements if you feel 
    that its good and might be needed. But never change by your own.
 
 ---
 
-## 2. Project Layout
+## 2. Git rules
+1. **Only commit when explicitly asked.** Do not run `git commit`/`git push`
+   unless the user requests it.
+2. **Keep comments meaningful.** Explain *why* (intent, trade-offs, non-obvious
+   constraints), never narrate *what* the code obviously does.
+3. **USE CRUD** on commits. (Example: Created new view. / Updated viewModel logic). Deviate from this only if its really necessary. 
+4. **Provide a preview** of each commit. If many files changes included, separate in smaller commits to make each commit change more clear about its intention.
+
+---
+
+## 3. Project Layout
 
 This project structure is based on the reference project (see 1. Main Rules). 
 So it will contain a generic name below.
@@ -147,7 +148,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 3. Architecture
+## 4. Architecture
 
 - **Pattern:** MVVM over a light Clean-Architecture layering (App / Core / Data /
   Domain / Views).
@@ -169,7 +170,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 4. Swift / Concurrency Conventions
+## 5. Swift / Concurrency Conventions
 
 - Build setting `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor` — types are
   main-actor isolated by default. Keep this in mind for protocol conformances
@@ -188,7 +189,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 5. DesignSystem Usage
+## 6. DesignSystem Usage
 
 - **Components first:** text input → `SimpleTextField` / `TextAreaField` /
   `PasswordTextField`; buttons → `CustomButton`; cards → `SimpleCardView`, etc.;
@@ -203,7 +204,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 6. Domain & Persistence
+## 7. Domain & Persistence
 
 - (`Domain/Model`) is the core model: `Hashable`, `Identifiable`. Its where we
   separate concerns from DTO models (API-related with API property namings) from our models.
@@ -218,7 +219,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 7. App Intents / Siri
+## 8. App Intents / Siri
 
 - The AppIntents metadata extractor cannot synthesize `AppEnum` conformance for
   a type defined in another module. So instead of conforming
@@ -228,7 +229,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 8. Networking / API Requests
+## 9. Networking / API Requests
 
 The generic network infrastructure from the reference project is kept
 (`Core/Network`: `CoreNetworkProtocol`, builders, interceptors, response models,
@@ -237,7 +238,7 @@ The generic network infrastructure from the reference project is kept
 
 ---
 
-## 9. Testing
+## 10. Testing
 
 - **Framework:** XCTest (matches the reference project and `DesignSystemTests`).
 - **Location:** app tests in `ReMeTests/` (a unit-test target hosted by the
@@ -270,7 +271,7 @@ xcodebuild -project ReMe.xcodeproj -scheme ReMe -configuration Debug \
 
 ---
 
-## 10. UI / UX Notes
+## 11. UI / UX Notes
 
 - **Home dashboard** has three mutually exclusive sections — *Happening Now*
   (with an animated `LiveDot`), *Today Events*, *Future Events* — sorted
@@ -290,7 +291,7 @@ xcodebuild -project ReMe.xcodeproj -scheme ReMe -configuration Debug \
 
 ---
 
-## 11. Workflow Checklist
+## 12. Workflow Checklist
 
 When implementing a request:
 
