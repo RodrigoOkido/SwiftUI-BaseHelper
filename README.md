@@ -1,20 +1,19 @@
 # SwiftUI-BaseHelper
 Personal SwiftUI project which aims to help and demonstrate many basic concepts of Swift using the brand new declarative framework developed by Apple.
 
-This project was developed based on **Xcode 16.4 and Swift 5**. So you can find here contents which are only available on iOS 17 or above.
+This project was developed based on **Xcode 26.5 and Swift 6**. So you can find here contents which are only available on iOS 17 or above.
 
-All the content here is boilerplates! The only more robust thing is how navigation is implemented. We do not use NavigationLink directly in the view. 
+All the content here is boilerplates! The only more robust thing is how navigation is implemented. Im not using NavigationLink directly, but some pattern similar to coordinator, which is what we usually see on real world.
 
 Here you can find:
 - SwiftUI 
-  - Stacks (VStack / HStack / ZStack)
-  - Texts (Labels)
-  - TextField
+  - Text (Custom fonts / modifiers)
+  - TextFields
   - Buttons and Actions
   - Pickers
-  - Toggle
-  - NavigationStack
-  - Property Wrappers
+  - Indicators
+  - Selectors
+  - Toggles
   - Haptics
   - Tab bars
   
@@ -25,7 +24,7 @@ Here you can find:
 - SwiftData
 - API Requests using [MovieDB](https://www.themoviedb.org/documentation/api) (async / await)
 - MapKit & Core Location
-- SwiftUI Preview Macros (iOS 17)
+- SwiftUI Preview Macros (iOS 17+)
 
 Other Contents:
 - Design System 
@@ -34,13 +33,12 @@ Other Contents:
 - Network Layer
 - Custom Fonts
 - Unit tests
-- String Catalogs (iOS 17)
-- Swift Macros (upcoming)
+- String Catalogs (iOS 17+)
 
 ## Minimum Requirements to run
 In order to run this project properly, its important to have your XCode and iOS versions updated. Its recommended to have the following:
-- Xcode 16.4
-- iOS 17
+- Xcode 26
+- iOS 26
 
 The project will request a Config.xcconfig to compile the project correctly. You can create this one by yourself with the following template:
 
