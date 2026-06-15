@@ -55,6 +55,11 @@ API_KEY = // https://www.themoviedb.org/
 
 This config file contains the basic needs to run the API section of the app. You need an account on The Movie DB website, and create a Movie DB API key. Once created, you can just paste the API KEY in the last line "API_KEY = YOUR_KEY". And run the app again! If you dont want to create, you can just create the xcconfig file.
 
+## Claude Instructions
+If you use AI, this project contains a CLAUDE.MD file providing instructions about how should work within this project. This repository received a lot of updates since created, but almost the entire code here was made by me (Author). I requested some instructions only to get better code documentations. 
+
+Im also using AI to explore all the capabilities, but always trying to keep up-to-date technically too. The instructions of this file is more to keep everything created untouched, and just create new things. If you want to base your project on this one, you can probably request for the agent to also read this file to guide you.
+
 ## What is SwiftUI?
 SwiftUI is Apple's brand new framework for building user interfaces for iOS, tvOS, macOS, and watchOS. Apple introduced SwiftUI in 2019 and the 
 framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit, SwiftUI is a cross-platform framework.
