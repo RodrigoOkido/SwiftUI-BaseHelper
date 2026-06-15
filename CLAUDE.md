@@ -10,46 +10,51 @@ with the existing codebase. The GitHub profile of the author is `https://github.
 ---
 
 ## 1. Main Rules
-1. **Mirror the existing architecture.** This project intentionally follows the
-   `SwiftUI-BaseHelper` reference architecture (MVVM + Clean layering, DI,
-   router-based navigation). Before adding a screen, store, or service, look at
-   how an existing equivalent is built and copy that shape. Deviate only when
-   there is a concrete technical reason, and call it out. 
-2. **Always build before declaring done.** Compile the app and run the test
-   suite (see §10). UI changes should be verified in the simulator with a
-   screenshot when practical.
-3. **Use the DesignSystem.** Never hardcode spacing, sizes, colors, fonts, or
-   reuse ad-hoc text fields/buttons. Use the components and design tokens in the
-   `DesignSystem` package (see §6). Avoid at all changing the existing package.
-   If you need to create a compoonent, you can create following the pattern 
-   in package.
-4. **No new files unless necessary**, and never create documentation files
+1. **Mirror the existing architecture.** (see §4 and onwards)
+2. **Use the DesignSystem.** (see §7)
+3. **No new files unless necessary**, and never create documentation files
    unprompted.
-5. **DO NOT, Never or regardless the condition** expose any private token, api token,
+4. **Always build before declaring done.** Compile the app and run the test
+   suite (see §11). UI changes should be verified in the simulator with a
+   screenshot when practical.
+5. **Always** review if you are **NOT** doing any bad practice or strict rule. (see §2)
+6. **Always** ask if the task is a good solution to finish what was requested. 
+   If agreed, you can check §3 to next steps.
+
+---
+
+## 2. Warnings & Strict Rules  
+1. **DO NOT, Never or regardless the condition** expose any private token, api token,
    keychains, or any sensitive content that might expose or harm user or developer 
    privacy and security.
    Never include in the commits, commit messages, branches without confirming with the
    developer the extreme necessity to it (in case of integrating some new API for example).
-6. **DO NOT** change or edit already documented functions, computed properties, class, 
+2. **DO NOT** change or edit already documented functions, computed properties, class, 
    structs or properties, unless really needed. You should ask for improvements if you feel 
    that its good and might be needed. But never change by your own.
+3. **DO NOT** do things by your own. For every step, check this doc to see if you can find some info that can guide you.
 
 ---
 
-## 2. Git rules
+## 3. Git rules
 1. **Only commit when explicitly asked.** Do not run `git commit`/`git push`
    unless the user requests it.
 2. **Keep comments meaningful.** Explain *why* (intent, trade-offs, non-obvious
    constraints), never narrate *what* the code obviously does.
 3. **USE CRUD** on commits. (Example: Created new view. / Updated viewModel logic). Deviate from this only if its really necessary. 
 4. **Provide a preview** of each commit. If many files changes included, separate in smaller commits to make each commit change more clear about its intention.
+5. **Try rebase** over merge to keep track of commits history.
+6. **DO NOT** force push or do any force operation unless extremely necessary. If needed, 
+   ask for confirmation.
 
 ---
 
-## 3. Project Layout
+## 4. Project Layout
 
-This project structure is based on the reference project (see 1. Main Rules). 
-So it will contain a generic name below.
+This project follows the architecture (MVVM + Clean layering, DI, router-based navigation).
+Before creating a screen, store, service, or component, look at how an existing equivalent 
+is built and copy that shape. Deviate only when there is a concrete technical reason, and 
+call it out. 
 
 ```
 MyProject/
@@ -71,12 +76,6 @@ MyProject/
 │   └── Views/                # Feature screens, each as <Feature>View + <Feature>ViewModel
 └── ReMeTests/                # XCTest unit tests (synchronized group)
 ```
-
-Because the app and test targets use **`PBXFileSystemSynchronizedRootGroup`**,
-new `.swift` files dropped into `MyProjectName/` or `MyProjectNameTests/` are picked up
-automatically — no `project.pbxproj` edit needed for ordinary source files. The
-pbxproj only needs manual editing for targets, build phases, dependencies, and
-package products.
 
 For new projects based on `SwiftUI-BaseHelper`, you can use the edit the MainView.swift 
 on /Views to be generic like this:
@@ -141,14 +140,9 @@ For `DTO` we should have `Remote` name before the model name. (ex: RemoteMovie.s
 For `Mappers` the model name followed by `Mapper` (ex: MovieMapper.swift)
 For `Repositories` the API name or some name that identifies better the endpoint followed by `Repository` (ex: MovieDBRepository.swift)
 
-Make sure to make the app build after the changes. Any doubt please check SwiftUI-BaseHelper to get some context.
-
-On /Core, if you find any API or file that looks more project related, and its not generic, you
-can remove or dont replicate. But always ask before removing to make sure.
-
 ---
 
-## 4. Architecture
+## 5. Architecture
 
 - **Pattern:** MVVM over a light Clean-Architecture layering (App / Core / Data /
   Domain / Views).
@@ -170,32 +164,33 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 5. Swift / Concurrency Conventions
+## 6. Swift / Concurrency Conventions
 
-- Build setting `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor` — types are
-  main-actor isolated by default. Keep this in mind for protocol conformances
-  and tests.
 - **Access control:** keep app-target types `internal` unless they must cross a
   module boundary. `DesignSystem` types that the app consumes are `public`.
   Avoid making app models `public` just to satisfy one call site — it cascades
   (this is why `Event` and `DestinationView` are deliberately `internal`).
 - **File headers:** every file starts with the standard Xcode header comment
   (`//  <Name>.swift` / `//  ProjectName` / author / date).
-- **Organization:** use `// MARK: -` sections (e.g. `Stored Properties`,
-  `Computed Properties`, `Content`, `Subviews`, `Helpers`). Views commonly put
-  subviews in a `private extension`.
+- **Organization:** use `// MARK: -` sections (e.g. `Private Properties`, 
+  `Public Properties`, `Computed Properties`, `Content`, `Helpers`, `Private Methods`, 
+  `Public Methods`). Views commonly put subviews in a `private extension`.
 - Prefer Swift's implicit-return `switch` expressions for simple mappings (see
   the enums for `title`/`color`/`iconName`).
 
 ---
 
-## 6. DesignSystem Usage
+## 7. DesignSystem Usage
+Never hardcode spacing, sizes, colors, fonts, or reuse ad-hoc text fields/buttons. 
+Use the components and design tokens in the `DesignSystem` package. **DO NOT** apply
+any code changes on the original code unless extremely necessary. If that happens, 
+provide clear instructions about why and reasons for it. Adding new content is fine.
 
 - **Components first:** text input → `SimpleTextField` / `TextAreaField` /
   `PasswordTextField`; buttons → `CustomButton`; cards → `SimpleCardView`, etc.;
   Always check if there is some DesignSystem component that can be used before 
-  creating a new one. If a new generic, reusable UI piece is needed, add it to `DesignSystem`
-  (`public`), not inline in the app.
+  creating a new one. If a new generic, reusable UI piece is needed, add it to `DesignSystem` (`public`), not inline in the app. And follow the pattern 
+  in package for this new component.
 - **Design tokens** live in `DesignSystem/Helpers/DesignTokens.swift`. Use them
   instead of magic numbers: `StackSpacing`, `InsetSpacing`, `IconSize`,
   `CornerRadius`, `OpacityLevel`, `HeightSize`/`WidthSize`, `BorderWidth`.
@@ -204,7 +199,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 7. Domain & Persistence
+## 8. Domain & Persistence
 
 - (`Domain/Model`) is the core model: `Hashable`, `Identifiable`. Its where we
   separate concerns from DTO models (API-related with API property namings) from our models.
@@ -219,7 +214,7 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 8. App Intents / Siri
+## 9. App Intents / Siri
 
 - The AppIntents metadata extractor cannot synthesize `AppEnum` conformance for
   a type defined in another module. So instead of conforming
@@ -229,16 +224,19 @@ can remove or dont replicate. But always ask before removing to make sure.
 
 ---
 
-## 9. Networking / API Requests
+## 10. Networking / API Requests
 
 The generic network infrastructure from the reference project is kept
 (`Core/Network`: `CoreNetworkProtocol`, builders, interceptors, response models,
 `ResponseHandler`, `ModelMapper`). If API or endpoints necessary, you can check 
 `2. Project Layout` section to get how the SwiftUI-BaseHelper does to follow the pattern.
 
+- **Async/Await** Use always this pattern over Closures/Completions
+- **AsyncImage** for loading images URLs or external images
+
 ---
 
-## 10. Testing
+## 11. Testing
 
 - **Framework:** XCTest (matches the reference project and `DesignSystemTests`).
 - **Location:** app tests in `ReMeTests/` (a unit-test target hosted by the
@@ -268,30 +266,9 @@ Build only:
 xcodebuild -project ReMe.xcodeproj -scheme ReMe -configuration Debug \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
 ```
-
 ---
 
-## 11. UI / UX Notes
-
-- **Home dashboard** has three mutually exclusive sections — *Happening Now*
-  (with an animated `LiveDot`), *Today Events*, *Future Events* — sorted
-  chronologically.
-- **Layout picker** (list vs. grid icons) is segmented and persisted via
-  `@AppStorage("eventLayout")`. The grid/compact row shows a **non-interactive**
-  ( `.allowsHitTesting(false)` ) chevron hint when more cards overflow to the
-  right, detected with `onScrollGeometryChange`.
-- **Filters** (`EventFilterBar`) sit between the picker and the cards: stackable
-  tag chips + time chips. Selections combine as (tag OR …) AND (time OR …). When
-  a filter combination matches nothing, show the "clear filters" state.
-- **Empty state** (no events at all): keep the picker on top, then a centered
-  icon + message + a primary `CustomButton` to add the first event. Filters are
-  only shown when at least one event exists.
-- **Tags** on full cards use `FlowLayout` so they wrap to new lines instead of
-  overlapping; the status pill is vertically centered against the tag block.
-
----
-
-## 12. Workflow Checklist
+## 11. Workflow Checklist
 
 When implementing a request:
 
@@ -301,5 +278,6 @@ When implementing a request:
 4. Add/extend XCTest coverage for new pure logic.
 5. Build + run tests; fix lints introduced by your change.
 6. Verify UI in the simulator (screenshot) when it changed.
-7. Commit/push **only** when explicitly asked, with a concise message focused on
+7. Verify for any possible warnings or strict rules breaks (see §3)
+8. Commit/push **only** when explicitly asked, with a concise message focused on
    the "why".
