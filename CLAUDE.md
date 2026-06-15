@@ -18,7 +18,7 @@ with the existing codebase. The GitHub profile of the author is `https://github.
    suite (see §11). UI changes should be verified in the simulator with a
    screenshot when practical.
 5. **Always** review if you are **NOT** doing any bad practice or strict rule. (see §2)
-6. **Always** ask if the task is a good solution to finish what was requested. 
+6. **Always** ask if the task or request is a good solution to finish what was requested. 
    If agreed, you can check §3 to next steps.
 
 ---
@@ -77,17 +77,40 @@ MyProject/
 └── ReMeTests/                # XCTest unit tests (synchronized group)
 ```
 
-For new projects based on `SwiftUI-BaseHelper`, you can use the edit the MainView.swift 
-on /Views to be generic like this:
+---
 
-```
-struct MainView: View {
+## 5. Swift / Concurrency Conventions
+
+- **Access control:** keep app-target types `internal` unless they must cross a
+  module boundary. `DesignSystem` types that the app consumes are `public`.
+  Avoid making app models `public` just to satisfy one call site — it cascades
+  (this is why `Event` and `DestinationView` are deliberately `internal`).
+- **File headers:** every file starts with the standard Xcode header comment
+  (`//  <Name>.swift` / `//  ProjectName` / author / date).
+- **Organization:** use `// MARK: -` sections. Order should be the following (Priority top-down). Only add each MARK section when necessary.
+  `Private Property Wrappers`
+  `Public Property Wrappers`
+  `Private Properties`, 
+  `Public Properties`, 
+  `Computed Properties`, 
+  `Initializer`
+  `Content`, 
+  `Private Methods`, 
+  `Public Methods`. 
+  Views commonly put subviews in a `private extension`.
+- Prefer Swift's implicit-return `switch` expressions for simple mappings (see
+  the enums for `title`/`color`/`iconName`).
+  
+Swift structure example for Views:
+  
+```swift
+struct MyView: View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     @AppStorage("appLanguage") private var appLanguage: AppLanguage = .English
 
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private let appDependencies: AppDependencies
     private let myRouter: Router<DestinationView> = Router<DestinationView>()
     
@@ -95,46 +118,64 @@ struct MainView: View {
     init(appDependencies: AppDependencies = AppDependencies()) {
         self.appDependencies = appDependencies
         self.appDependencies.setup()
-        registerCustomFonts()
     }
 
+    // MARK: - Content
     var body: some View {
-        TabView {
-            // Creates independent Navigation for each tab.
-            // NavigationViewFactory.make(.home, router: myRouter)
-                // .tabItem {
-                   // Label("My View", systemImage: "rectangle.3.group.fill")
-                // }
-        }
-        .environment(\.locale, .init(identifier: appLanguage.langCode))
-        .preferredColorScheme(isDarkMode ? .dark : .light)
+        Text("Hello World")
     }
 }
 
-extension MainView {
+// MARK: - Helpers
+extension MyView {
     
-    /// Just use this if needed
-    private func registerCustomFonts() {
-        do {
-            try OpenSans.registerFont()
-        } catch(let error) {
-            print(error)
-        }
+    // Just use this if needed
+    private func myHelperMethod() {
+        // My logic
     }
 }
 
 #Preview {
-    MainView()
+    MyView()
 }
 ```
 
-Feel free to edit this MainView to be simpler, but remember to make generic
-and simpler. The remaining Views used on the reference project, you can just 
-ignore and do not replicate.
+For ViewModels example:
 
+```swift
+import Foundation
+
+@Observable
+class MyViewModel: BaseViewModel {
+    
+    // MARK: - Private Properties
+    private var myAPIData: [Data]
+    
+    // MARK: - Initializer
+    init(myAPIData: [Data]) {
+        self.myAPIData = myAPIData
+    }
+    
+    // MARK: - Public Methods
+    @MainActor // -> Updates View use MainActor
+    func requestMyData() async throws {
+        viewState = .loading
+        let response = await callMyAPI()
+        
+        switch response {
+        case .success(let data):
+            myAPIData = data
+            viewState = .loaded
+        case .failure(let error):
+            viewState = .error(error)
+        }
+    }
+}
+```
+
+```
 For /Data folder, you can create a mock generic file example (you can change)
-this later on) of the `DTO`, `Mappers` and `Repositories`. You can use the 
-SwiftUI-BaseHelper examples to follow the same pattern.
+this later on) of the `DTO`, `Mappers` and `Repositories`. 
 
 For `DTO` we should have `Remote` name before the model name. (ex: RemoteMovie.swift)
 For `Mappers` the model name followed by `Mapper` (ex: MovieMapper.swift)
@@ -142,7 +183,7 @@ For `Repositories` the API name or some name that identifies better the endpoint
 
 ---
 
-## 5. Architecture
+## 6. Architecture
 
 - **Pattern:** MVVM over a light Clean-Architecture layering (App / Core / Data /
   Domain / Views).
@@ -161,22 +202,6 @@ For `Repositories` the API name or some name that identifies better the endpoint
 - **Shared state via Environment:** singletons like `SomeClass.shared` and the
   per-tab `Router` are injected with `.environment(...)` and read with
   `@Environment(...)`.
-
----
-
-## 6. Swift / Concurrency Conventions
-
-- **Access control:** keep app-target types `internal` unless they must cross a
-  module boundary. `DesignSystem` types that the app consumes are `public`.
-  Avoid making app models `public` just to satisfy one call site — it cascades
-  (this is why `Event` and `DestinationView` are deliberately `internal`).
-- **File headers:** every file starts with the standard Xcode header comment
-  (`//  <Name>.swift` / `//  ProjectName` / author / date).
-- **Organization:** use `// MARK: -` sections (e.g. `Private Properties`, 
-  `Public Properties`, `Computed Properties`, `Content`, `Helpers`, `Private Methods`, 
-  `Public Methods`). Views commonly put subviews in a `private extension`.
-- Prefer Swift's implicit-return `switch` expressions for simple mappings (see
-  the enums for `title`/`color`/`iconName`).
 
 ---
 
