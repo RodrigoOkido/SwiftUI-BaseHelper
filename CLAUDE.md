@@ -97,10 +97,13 @@ MyProject/
   `Content`, 
   `Private Methods`, 
   `Public Methods`. 
-  Views commonly put subviews in a `private extension`.
+  Views commonly put subviews in a `private extension`. You should use also `MARK: - Content` for this case too.
 - Prefer Swift's implicit-return `switch` expressions for simple mappings (see
   the enums for `title`/`color`/`iconName`).
   
+**You should** follow the structure of every file carefully. Keep the order of properties and functions always. You can take the guide of many files examples below.
+If your file is not related to any of the files below, check if do not exist a similar file in the project where you can follow.
+
 Swift structure example for Views:
   
 ```swift
@@ -123,6 +126,16 @@ struct MyView: View {
     // MARK: - Content
     var body: some View {
         Text("Hello World")
+    }
+}
+
+// MARK: - Content
+private extension MyView {
+    
+    var myComponentView: some View {
+        VStack {
+            Text("My helper component")
+        }
     }
 }
 
@@ -173,13 +186,115 @@ class MyViewModel: BaseViewModel {
 }
 ```
 
-```
 For /Data folder, you can create a mock generic file example (you can change)
 this later on) of the `DTO`, `Mappers` and `Repositories`. 
 
-For `DTO` we should have `Remote` name before the model name. (ex: RemoteMovie.swift)
-For `Mappers` the model name followed by `Mapper` (ex: MovieMapper.swift)
+### DTOs example:
+For `DTO` we should have `Remote` name before the model name. (ex: RemoteMovie.swift).
+The example below we receive a list within `results` property, which is a json object with a list of a model coming from the API.
+
+```swift
+public struct RemoteMyAPIModelList: Codable {
+
+    var results: [MyAPIModel]
+
+    public init(results: [MyAPIModel]) {
+        self.results = results
+    }
+}
+
+public struct RemoteMyAPIModel: Codable, Hashable {
+
+    // Properties coming from the API
+    var myProperty1: String?
+    var myProperty2: String?
+    var myProperty3: String?
+    // ...
+
+    public init(myProperty1: String?, myProperty2: String?, myProperty3: String?) {
+        self.myProperty1 = myProperty1
+        self.myProperty2 = myProperty2
+        self.myProperty3 = myProperty3
+        // ...
+    }
+}
+```
+
+For `Mappers` the name should end with `Mapper` preceded by the name of the object we want to build (ex: MovieMapper.swift) .
+
+```swift
+import Foundation
+
+public struct ApiModelMapper: ModelMapper {
+    public typealias T = MyAPIModel
+
+    public static func map<T>(_ input: some Codable) throws -> T {
+        guard let input: RemoteMyAPIModel = input as? RemoteMyAPIModel else {
+            throw RequestError(errorType: .couldNotMap, 
+                               errorMessage: "Could not map")
+        }
+
+        let movie = MyAPIModel(myProperty1: input.myProperty1 ?? "",
+                               myProperty2: input.myProperty2 ?? "",
+                               myProperty3: input.myProperty3 ?? "")
+
+        guard let result: T = movie as? T else {
+            throw RequestError(errorType: .couldNotMap, 
+                               errorMessage: "Could not map")
+        }
+        return result
+    }
+}
+
+public struct ApiModelListMapper: ModelMapper {
+    public typealias T = [RemoteMyAPIModel]
+
+    public static func map<T>(_ input: some Codable) throws -> T {
+        guard let apiInput: RemoteMyAPIModelList = input as? RemoteMyAPIModelList,
+              let input: [RemoteMyAPIModel] = apiInput.results as? [RemoteMyAPIModel] else {
+            throw RequestError(errorType: .couldNotMap,
+                               errorMessage: "Could not map")
+        }
+
+        let items: [MyAPIModel] = try input.map {
+            return try ApiModelMapper.map($0)
+        }
+        guard let result = items as? T else {
+            throw RequestError(errorType: .couldNotMap, 
+                               errorMessage: "Could not map")
+        }
+        return result
+    }
+}
+```
+
 For `Repositories` the API name or some name that identifies better the endpoint followed by `Repository` (ex: MovieDBRepository.swift)
+
+```swift
+
+public class MyAPIRepository: APIRepositoryProtocol {
+
+    // MARK: - Private Properties
+    private let network: CoreNetworkProtocol
+    
+    // MARK: - Initializer
+    public init(network: CoreNetworkProtocol = CoreNetwork()) {
+        self.network = network
+    }
+
+    func getMyDesiredData() async -> Result<[MyAPIModel], RequestError> {
+        
+        let requestResponse = await network.request(endpoint: MyAPIEndpoint.getData,
+                                                    method: .GET,
+                                                    interceptors: [MyAPIInterceptor()],
+                                                    responseType: RemoteMyAPIModelList.self,
+                                                    errorType:  NetworkRequestError.self)
+
+        return ResponseHandler.handle(mapper: ApiModelListMapper(), response: requestResponse)
+    }
+}
+
+```
 
 ---
 
