@@ -16,7 +16,8 @@ with the existing codebase. The GitHub profile of the author is `https://github.
    unprompted.
 4. **Always build before declaring done.** Compile the app and run the test
    suite (see §11). UI changes should be verified in the simulator with a
-   screenshot when practical.
+   screenshot when practical. The UI should behave the same regardless of the 
+   device size (iPhone SE size to Pro Max models).
 5. **Always** review if you are **NOT** doing any bad practice or strict rule. (see §2)
 6. **Always** ask if the task or request is a good solution to finish what was requested. 
    If agreed, you can check §3 to next steps.
@@ -87,7 +88,8 @@ MyProject/
   (this is why `Event` and `DestinationView` are deliberately `internal`).
 - **File headers:** every file starts with the standard Xcode header comment
   (`//  <Name>.swift` / `//  ProjectName` / author / date).
-- **Organization:** use `// MARK: -` sections. Order should be the following (Priority top-down). Only add each MARK section when necessary.
+- **Organization:** use `// MARK: -` sections. Order should be the following 
+  (Priority top-down). Only add each MARK section when necessary.
   `Private Property Wrappers`
   `Public Property Wrappers`
   `Private Properties`, 
@@ -97,11 +99,15 @@ MyProject/
   `Content`, 
   `Private Methods`, 
   `Public Methods`. 
-  Views commonly put subviews in a `private extension`. You should use also `MARK: - Content` for this case too.
+  Views commonly put subviews in a `private extension`. You should use also 
+  `MARK: - Content` for this case.
 - Prefer Swift's implicit-return `switch` expressions for simple mappings (see
   the enums for `title`/`color`/`iconName`).
-- **You should** follow the structure of every file carefully. Keep the order of properties and functions always. You can take the guide of many files examples below.
-If the file created is not related to any of the files below, check if do not exist a similar file in the project where you can follow.
+- **You should** follow the structure of every file carefully. Keep the order of 
+  properties and functions always. You can take the guide of many files examples below.
+
+If the file created is not related to any of the files below, check if do not 
+exist a similar file in the project where you can follow.
 
 Swift structure example for Views:
   
@@ -190,7 +196,8 @@ this later on) of the `DTO`, `Mappers` and `Repositories`.
 
 ### DTOs example:
 For `DTO` we should have `Remote` name before the model name. (ex: RemoteMovie.swift).
-The example below we receive a list within `results` property, which is a json object with a list of a model coming from the API.
+The example below we receive a list within `results` property, which is a json object 
+with a list of a model coming from the API.
 
 ```swift
 public struct RemoteMyAPIModelList: Codable {
@@ -219,7 +226,8 @@ public struct RemoteMyAPIModel: Codable, Hashable {
 }
 ```
 
-For `Mappers` the name should end with `Mapper` preceded by the name of the object we want to build (ex: MovieMapper.swift) .
+For `Mappers` the name should end with `Mapper` preceded by the name of the object 
+we want to build (ex: MovieMapper.swift) .
 
 ```swift
 import Foundation
@@ -267,7 +275,8 @@ public struct ApiModelListMapper: ModelMapper {
 }
 ```
 
-For `Repositories` the API name or some name that identifies better the endpoint followed by `Repository` (ex: MovieDBRepository.swift)
+For `Repositories` the API name or some name that identifies better the endpoint 
+followed by `Repository` (ex: MovieDBRepository.swift)
 
 ```swift
 
