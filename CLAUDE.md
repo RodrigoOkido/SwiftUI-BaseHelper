@@ -100,9 +100,8 @@ MyProject/
   Views commonly put subviews in a `private extension`. You should use also `MARK: - Content` for this case too.
 - Prefer Swift's implicit-return `switch` expressions for simple mappings (see
   the enums for `title`/`color`/`iconName`).
-  
-**You should** follow the structure of every file carefully. Keep the order of properties and functions always. You can take the guide of many files examples below.
-If your file is not related to any of the files below, check if do not exist a similar file in the project where you can follow.
+- **You should** follow the structure of every file carefully. Keep the order of properties and functions always. You can take the guide of many files examples below.
+If the file created is not related to any of the files below, check if do not exist a similar file in the project where you can follow.
 
 Swift structure example for Views:
   
