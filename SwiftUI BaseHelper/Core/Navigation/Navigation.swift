@@ -45,6 +45,18 @@ public struct Navigation<RootView: View>: View {
                         destination.makeView
                     }
             }
+            .presentationDragIndicator(.visible)
+            .presentationDetents(router.presentationDetents)
+        })
+        .fullScreenCover(item: $router.coveredView,
+                         onDismiss: { router.dismiss() },
+                         content: { rootCoverView in
+            NavigationStack(path: $router.bottomSheetPath) {
+                rootCoverView.makeView
+                    .navigationDestination(for: DestinationView.self) { destination in
+                        destination.makeView
+                    }
+            }
         })
     }
 }

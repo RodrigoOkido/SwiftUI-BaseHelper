@@ -12,14 +12,39 @@ struct PresentSheetView: View {
     
     // MARK: - Property Wrappers
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
-    @State private var showSheet: Bool = false
 
     var body: some View {
-        CustomButton(type: .tertiary,
-                     title: "Show Sheet",
-                     cornerRadius: .small) {
-            router.present(view: DestinationView.sheetView)
+        VStack(spacing: StackSpacing.quarck) {
+            CustomButton(type: .tertiary,
+                         title: "Show small Sheet",
+                         cornerRadius: .small) {
+                router.present(view: DestinationView.sheetView,
+                               detents: [.fraction(0.25)])
+            }
+            CustomButton(type: .tertiary,
+                         title: "Show Medium Sheet",
+                         cornerRadius: .small) {
+                router.present(view: DestinationView.sheetView,
+                               detents: [.medium])
+            }
+            CustomButton(type: .tertiary,
+                         title: "Show Medium / Large Sheet",
+                         cornerRadius: .small) {
+                router.present(view: DestinationView.sheetView,
+                               detents: [.medium, .large])
+            }
+            CustomButton(type: .tertiary,
+                         title: "Show Large Sheet",
+                         cornerRadius: .small) {
+                router.present(view: DestinationView.sheetView)
+            }
+            CustomButton(type: .tertiary,
+                         title: "Show Fullscreen Sheet",
+                         cornerRadius: .small) {
+                router.presentFullScreen(view: DestinationView.sheetView)
+            }
         }
+        .padding(.horizontal, InsetSpacing.xs)
     }
 }
 
@@ -31,11 +56,13 @@ struct SheetView: View {
     var body: some View {
         VStack {
             Text("Hello! I am a bottom sheet view!")
+            Text("If you selected Medium / Large option, you can drag the sheet view to make it larger or smaller.")
             CustomButton(title: "Dismiss me!",
                          cornerRadius: .small) {
                 router.dismiss()
             }
             .padding()
         }
+        .padding(InsetSpacing.xs)
     }
 }

@@ -19,12 +19,19 @@ public class Router<View: Hashable> {
     public var path = NavigationPath()
     public var bottomSheetPath = NavigationPath()
     public var presentedView: View?
+    public var presentationDetents: Set<PresentationDetent> = [.large]
+    public var coveredView: View?
+
+    // MARK: - Computed Properties
+    private var isPresentingOverlay: Bool {
+        presentedView != nil || coveredView != nil
+    }
 
     public init() {}
 
     // MARK: - Public Methods
     public func reset() {
-        guard presentedView != nil else {
+        guard isPresentingOverlay else {
             path = NavigationPath()
             return
         }
@@ -32,22 +39,31 @@ public class Router<View: Hashable> {
     }
 
     public func navigate(to view: any Hashable) {
-        presentedView != nil ? bottomSheetPath.append(view) : path.append(view)
+        isPresentingOverlay ? bottomSheetPath.append(view) : path.append(view)
     }
 
-    public func present(view: View) {
+    public func present(view: View, detents: Set<PresentationDetent> = [.large]) {
+        presentationDetents = detents
         presentedView = view
     }
-    
+
+    public func presentFullScreen(view: View) {
+        coveredView = view
+    }
+
     public func dismiss() {
-        presentedView = nil
+        if coveredView != nil {
+            coveredView = nil
+        } else {
+            presentedView = nil
+        }
     }
 
     public func pop() {
-        presentedView != nil ? bottomSheetPath.removeLast() : path.removeLast()
+        isPresentingOverlay ? bottomSheetPath.removeLast() : path.removeLast()
     }
 
     public func popToRoot() {
-        presentedView != nil ? bottomSheetPath.removeLast(bottomSheetPath.count) : path.removeLast(path.count)
+        isPresentingOverlay ? bottomSheetPath.removeLast(bottomSheetPath.count) : path.removeLast(path.count)
     }
 }
