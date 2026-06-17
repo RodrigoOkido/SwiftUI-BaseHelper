@@ -105,7 +105,6 @@ public struct OptionsSelectorView: View {
                 .buttonStyle(.plain)
             }
         }
-        .padding()
     }
     
     // MARK: - Private Methods

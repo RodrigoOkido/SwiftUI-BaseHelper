@@ -36,14 +36,14 @@ struct ButtonsView: View {
                 }
                 .buttonStyle(.tertiary)
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: CornerRadius.quarck)
                     .stroke(style: .init(lineWidth: 1))
             )
             
-            VStack(alignment: .leading) {
+            VStack(alignment: .leading, spacing: StackSpacing.nano) {
                 Text("Selectable buttons")
                     .font(.title2)
                     .bold()
@@ -56,7 +56,7 @@ struct ButtonsView: View {
                                     options: ["Option 1", "Option 2", "Option 3"],
                                     selected: $selectedOption)
             }
-            .frame(maxWidth: .infinity)
+            .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
             .overlay(
                 RoundedRectangle(cornerRadius: CornerRadius.quarck)
@@ -64,8 +64,11 @@ struct ButtonsView: View {
             )
             Spacer()
         }
-        .frame(maxWidth: .infinity)
-        .padding(InsetSpacing.quarck)
+        .padding(InsetSpacing.nano)
         .navigationTitle("Buttons")
     }
+}
+
+#Preview {
+    ButtonsView()
 }
