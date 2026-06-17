@@ -9,11 +9,12 @@ import DesignSystem
 
 struct CustomTextAndFontView: View {
     
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     
+    // MARK: - Content
     var body: some View {
         VStack {
-            
             // TEXT WITH MODIFIERS 
             VStack {
                 Text("TEXT WITH MODIFIERS")
@@ -60,7 +61,7 @@ struct CustomTextAndFontView: View {
             .padding(5)
             Spacer()
         }
-
+        .navigationTitle("Fonts")
     }
 }
 

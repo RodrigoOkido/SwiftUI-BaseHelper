@@ -88,7 +88,7 @@ public struct CustomButton: View {
                         .frame(width: height.size * 0.5, height: height.size * 0.5)
                 }
                 Text(title)
-                    .font(type.fontSize)
+                    .font(type.font)
                     .foregroundColor(type.textColor)
                     .bold()
                 if let trailingImage {

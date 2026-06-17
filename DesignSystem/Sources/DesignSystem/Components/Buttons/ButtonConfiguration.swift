@@ -8,13 +8,20 @@ import SwiftUI
 
 public enum ButtonType {
     
+    // Regular Actions
     case primary
     case secondary
     case tertiary
     
-    var fontSize: Font {
+    // Call to action
+    case success
+    case warning
+    case danger
+    
+    
+    var font: Font {
         switch self {
-        case .primary: .title3
+        case .primary, .success, .warning, .danger: .title3
         case .secondary: .headline
         case .tertiary: .callout
         }
@@ -24,11 +31,14 @@ public enum ButtonType {
         case .primary: .orange
         case .secondary: .cyan
         case .tertiary: .purple
+        case .success: .green
+        case .warning: .yellow
+        case .danger: .red
         }
     }
     var textColor: Color {
         switch self {
-        case .primary: .white
+        case .primary, .success, .warning, .danger: .white
         case .secondary: .black
         case .tertiary: .white
         }

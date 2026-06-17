@@ -9,6 +9,7 @@ import DesignSystem
 
 struct ProgressBarsView: View {
 
+    // MARK: - Private Properties
     private let teal = Color(red: 0.22, green: 0.78, blue: 0.68)
 
     var body: some View {

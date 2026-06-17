@@ -26,6 +26,7 @@ struct PickersAndTogglesView: View {
     @State var selectedColor: FavoriteColor
     @State var birthDate: Date
     
+    // MARK: - Initializer
     init(toggleStatus: Bool = false,
          selectedColor: FavoriteColor = .blue,
          birthDate: Date = Date()) {
@@ -34,6 +35,7 @@ struct PickersAndTogglesView: View {
         self.birthDate = birthDate
     }
     
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack {

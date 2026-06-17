@@ -11,7 +11,7 @@ import DesignSystem
 
 struct ChartsView: View {
     
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private var data: [Income] = [
         .init(month: Month.January, income: 300.00, color: "Purple"),
         .init(month: Month.May, income: 800.00, color: "Gray"),

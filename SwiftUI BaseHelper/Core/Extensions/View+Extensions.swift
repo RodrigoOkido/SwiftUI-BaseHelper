@@ -10,11 +10,6 @@ extension View {
                            color: Color = .blue) -> some View {
         modifier(ModifiedText(font: font, color: color))
     }
-    
-    func modifiedButtonStyle(color: Color = .blue, 
-                             textColor: Color = .black) -> some View {
-        modifier(ButtonModifier(color: color, textColor: textColor))
-    }
 }
 
 // Loader Modifier

@@ -45,6 +45,7 @@ struct PresentSheetView: View {
             }
         }
         .padding(.horizontal, InsetSpacing.xs)
+        .navigationTitle("Bottomsheet Types")
     }
 }
 

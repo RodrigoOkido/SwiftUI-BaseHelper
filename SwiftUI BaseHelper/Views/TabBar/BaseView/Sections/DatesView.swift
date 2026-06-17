@@ -85,6 +85,7 @@ struct DatesView: View {
                 }
             }
             .padding()
+            .navigationTitle("Dates Handlers")
         }
     }
 }

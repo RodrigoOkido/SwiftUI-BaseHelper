@@ -59,7 +59,7 @@ struct TextFieldView: View {
             }
         }
         .padding()
-        .navigationTitle("Textfield")
+        .navigationTitle("Textfields")
         .navigationBarTitleDisplayMode(.large)
     }
 }
