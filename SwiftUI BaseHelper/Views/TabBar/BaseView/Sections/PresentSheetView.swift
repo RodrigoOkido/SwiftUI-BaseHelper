@@ -44,8 +44,9 @@ struct PresentSheetView: View {
                 router.presentFullScreen(view: DestinationView.sheetView)
             }
         }
-        .padding(.horizontal, InsetSpacing.xs)
+        .padding(.horizontal, InsetSpacing.xxs)
         .navigationTitle("Bottomsheet Types")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 
@@ -55,15 +56,22 @@ struct SheetView: View {
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
 
     var body: some View {
-        VStack {
-            Text("Hello! I am a bottom sheet view!")
-            Text("If you selected Medium / Large option, you can drag the sheet view to make it larger or smaller.")
-            CustomButton(title: "Dismiss me!",
-                         cornerRadius: .small) {
-                router.dismiss()
+        ScrollView {
+            VStack(alignment: .leading) {
+                Text("Hello! I am a bottom sheet view!")
+                Text("If you selected Medium / Large option, you can drag the sheet view to make it larger or smaller.")
+                CustomButton(title: "Dismiss me!",
+                             cornerRadius: .small) {
+                    router.dismiss()
+                }
+                .padding()
             }
-            .padding()
+            .padding(InsetSpacing.xs)
         }
-        .padding(InsetSpacing.xs)
     }
+}
+
+#Preview {
+    PresentSheetView()
+        .environment(Router<DestinationView>())
 }

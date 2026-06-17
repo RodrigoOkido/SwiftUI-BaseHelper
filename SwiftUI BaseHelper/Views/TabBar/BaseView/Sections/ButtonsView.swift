@@ -64,8 +64,9 @@ struct ButtonsView: View {
             )
             Spacer()
         }
-        .padding(InsetSpacing.nano)
+        .padding(InsetSpacing.xxs)
         .navigationTitle("Buttons")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

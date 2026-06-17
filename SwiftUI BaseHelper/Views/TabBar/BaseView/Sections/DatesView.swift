@@ -27,7 +27,7 @@ struct DatesView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: StackSpacing.sm) {
+            VStack(alignment: .leading, spacing: StackSpacing.nano) {
                 Text("Handling Date formats")
                     .font(.title2)
                 Text("Converting String date into Date Object")
@@ -83,9 +83,20 @@ struct DatesView: View {
                     Text("Date Output: \(isoDate.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .padding()
+                .overlay(
+                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                        .stroke(style: .init(lineWidth: 1))
+                )
             }
-            .padding()
+            .padding(InsetSpacing.xxs)
             .navigationTitle("Dates Handlers")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
+}
+
+#Preview {
+    DatesView()
 }

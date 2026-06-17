@@ -14,52 +14,63 @@ struct HapticsFeedbackView: View {
         VStack {
             Text("You must test this on a real device to feel the different feedback types")
                 .padding(.bottom, StackSpacing.xxs)
-            Text("Notification Feedback types")
-                .bold()
-            HStack {
-                Button("Success") {
-                    UINotificationFeedbackGenerator().notificationOccurred(.success)
+            VStack {
+                Text("Notification Feedback types")
+                    .bold()
+                HStack {
+                    Button("Success") {
+                        UINotificationFeedbackGenerator().notificationOccurred(.success)
+                    }
+                    .buttonStyle(.success)
+                    Button("Error") {
+                        UINotificationFeedbackGenerator().notificationOccurred(.error)
+                    }
+                    .buttonStyle(.danger)
+                    Button("Warning") {
+                        UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                    }
+                    .buttonStyle(.warning)
                 }
-                .buttonStyle(.success)
-                Button("Error") {
-                    UINotificationFeedbackGenerator().notificationOccurred(.error)
+                Text("Impact Feedback types")
+                    .bold()
+                    .padding(.top, 30)
+                HStack {
+                    Button("Heavy") {
+                        UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
+                    }
+                    .buttonStyle(.primary)
+                    Button("Light") {
+                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
+                    }
+                    .buttonStyle(.primary)
                 }
-                .buttonStyle(.danger)
-                Button("Warning") {
-                    UINotificationFeedbackGenerator().notificationOccurred(.warning)
+                HStack {
+                    
+                    Button("Medium") {
+                        UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+                    }
+                    .buttonStyle(.primary)
+                    Button("Rigid") {
+                        UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
+                    }
+                    .buttonStyle(.primary)
+                    
+                    Button("Soft") {
+                        UIImpactFeedbackGenerator(style: .soft).impactOccurred()
+                    }
+                    .buttonStyle(.primary)
                 }
-                .buttonStyle(.warning)
+                .padding()
             }
-            Text("Impact Feedback types")
-                .bold()
-                .padding(.top, 30)
-            HStack {
-                Button("Heavy") {
-                    UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
-                }
-                .buttonStyle(.primary)
-                Button("Light") {
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                }
-                .buttonStyle(.primary)
-            }
-            HStack {
-                
-                Button("Medium") {
-                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-                }
-                .buttonStyle(.primary)
-                Button("Rigid") {
-                    UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
-                }
-                .buttonStyle(.primary)
-
-                Button("Soft") {
-                    UIImpactFeedbackGenerator(style: .soft).impactOccurred()
-                }
-                .buttonStyle(.primary)
-            }
+            .frame(maxWidth: .infinity)
+            .padding()
+            .overlay(
+                RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                    .stroke(style: .init(lineWidth: 1))
+            )
+            Spacer()
         }
+        .padding(InsetSpacing.xxs)
         .navigationTitle("Haptics")
         .navigationBarTitleDisplayMode(.large)
     }

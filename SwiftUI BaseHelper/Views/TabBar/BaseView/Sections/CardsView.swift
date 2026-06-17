@@ -32,6 +32,8 @@ struct CardsView: View {
                 }
             }
             .padding()
+            .navigationTitle("Cards")
+            .navigationBarTitleDisplayMode(.large)
         }
     }
 }

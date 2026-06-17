@@ -16,9 +16,9 @@ struct CustomTextAndFontView: View {
     var body: some View {
         VStack {
             // TEXT WITH MODIFIERS 
-            VStack {
+            VStack(alignment: .leading) {
                 Text("TEXT WITH MODIFIERS")
-                VStack {
+                VStack(alignment: .leading) {
                     Text("Hello i am a modified text!")
                         .modifiedTextStyle()
                     Text("Hello i am another modified text!")
@@ -27,18 +27,19 @@ struct CustomTextAndFontView: View {
                         .modifiedTextStyle(font: .title2,
                                            color: isDarkMode ? .white : .black)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
                         .stroke(style: .init(lineWidth: 1))
                 )
             }
-            .padding(5)
+            .padding(InsetSpacing.xxs)
 
             // CUSTOM FONTS
-            VStack {
+            VStack(alignment: .leading) {
                 Text("CUSTOM FONTS")
-                VStack {
+                VStack(alignment: .leading) {
                     Text("Text open sans bold")
                         .font(Font.openSans(.openSansBold, size: 24))
                     Text("Text open sans extra bold")
@@ -52,16 +53,18 @@ struct CustomTextAndFontView: View {
                     Text("Text open sans semi bold")
                         .font(Font.openSans(.openSansSemibold, size: 24))
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: 10)
+                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
                         .stroke(style: .init(lineWidth: 1))
                 )
             }
-            .padding(5)
+            .padding(InsetSpacing.xxs)
             Spacer()
         }
         .navigationTitle("Fonts")
+        .navigationBarTitleDisplayMode(.large)
     }
 }
 

@@ -47,14 +47,13 @@ struct PickersAndTogglesView: View {
                 toggleSectionView
             }
             .frame(maxWidth: .infinity)
-            .padding()
         }
         .navigationTitle("Actions & Pickers")
         .navigationBarTitleDisplayMode(.large)
     }
     
     private var pickersSectionView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Pickers")
             VStack {
                 Text("Favorite Color:")
@@ -90,15 +89,15 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: CornerRadius.quarck)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
-        .padding(5)
+        .padding(InsetSpacing.xxs)
     }
     
     private var datepickerSectionView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("DatePickers")
             VStack {
                 Text("Compact")
@@ -126,15 +125,16 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: CornerRadius.quarck)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
+        .padding(InsetSpacing.xxs)
     }
     
     
     private var toggleSectionView: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text("Toggles")
             VStack {
                 Toggle(isOn: $toggleStatus) {
@@ -159,11 +159,11 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: 10)
+                RoundedRectangle(cornerRadius: CornerRadius.quarck)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
-        .padding(5)
+        .padding(InsetSpacing.xxs)
     }
 }
     
