@@ -70,7 +70,7 @@ public struct ProgressBarView: View {
                 statusColor: Color = .green,
                 thickness: ProgressThickness = .medium
     ) {
-        self.progress = progress
+        self.progress = min(max(progress, 0), 1)
         self.style = style
         self.statusColor = statusColor
         self.thickness = thickness
@@ -94,7 +94,7 @@ public struct ProgressBarView: View {
                     .stroke(statusColor, style: StrokeStyle(lineWidth: thickness.rawValue - 1, lineCap: .round))
                     .rotationEffect(.degrees(-90))
                     .animation(.easeInOut, value: progress)
-                Text("\(Int(progress * 100))%")
+                Text(progress, format: .percent.precision(.fractionLength(0)))
                     .font(.headline)
                     .bold()
             }
