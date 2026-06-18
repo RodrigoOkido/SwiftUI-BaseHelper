@@ -11,11 +11,9 @@ import CoreLocation
 
 class MapViewModel: BaseViewModel {
 
-    // MARK: - Property Wrapper
+    // MARK: - Public Properties
     var isUserLocalizationAllowed: Bool
     var region: MKCoordinateRegion
-
-    // MARK: - Stored Properties
     var locationManager: CLLocationManager
 
     // MARK: - Computed Properties

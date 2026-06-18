@@ -12,6 +12,7 @@ struct ProgressBarsView: View {
     // MARK: - Private Properties
     private let teal = Color(red: 0.22, green: 0.78, blue: 0.68)
 
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 28) {

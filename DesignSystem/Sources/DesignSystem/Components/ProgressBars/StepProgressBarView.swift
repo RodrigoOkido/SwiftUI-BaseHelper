@@ -69,7 +69,7 @@ public struct StepProgressBarView: View {
     /// Style of the step progress style.
     private var style: StepProgressStyle
 
-    // MARK: - Init
+    // MARK: - Initializer
     public init(
         items: [StepItem],
         currentStep: Int = 0,

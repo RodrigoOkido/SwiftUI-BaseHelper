@@ -13,6 +13,7 @@ struct PresentSheetView: View {
     // MARK: - Property Wrappers
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
 
+    // MARK: - Content
     var body: some View {
         VStack(spacing: StackSpacing.quarck) {
             CustomButton(type: .tertiary,
@@ -55,6 +56,7 @@ struct SheetView: View {
     // MARK: - Property Wrappers
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
 
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {

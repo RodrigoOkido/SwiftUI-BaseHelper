@@ -33,7 +33,7 @@ public struct SimpleCardView: View {
     /// Action of the card when clicking (Optional).
     private let action: (() -> Void)?
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(headerImage: Image? = nil,
                 title: String,
                 description: String,

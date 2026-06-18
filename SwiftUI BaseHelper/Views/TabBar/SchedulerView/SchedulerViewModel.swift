@@ -9,14 +9,19 @@ import SwiftData
 
 class SchedulerViewModel: BaseViewModel {
     
-    var events: [Event]
+    // MARK: - Private Properties
     private let dataSource: SwiftDataEventService
+    
+    // MARK: - Public Properties
+    var events: [Event]
         
+    // MARK: - Initializer
     init(dataSource: SwiftDataEventService) {
         self.dataSource = dataSource
         events = dataSource.fetchEvents()
     }
     
+    // MARK: - Public Methods
     func addSampleEvent() {
         let event = Event(id: UUID(), name: "Sample Event", date: .now, eventDescription: "My description")
         dataSource.addEvent(event)

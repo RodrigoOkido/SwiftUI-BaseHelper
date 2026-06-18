@@ -34,6 +34,7 @@ struct TextFieldView: View {
         self.textAreaInputField = textAreaInputField
     }
 
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack {

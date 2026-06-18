@@ -17,19 +17,21 @@ public extension View {
     }
 }
 
-// MARK: - Button Component Modifier
 struct ButtonStyleModifier: ViewModifier {
     
-    // MARK: - Stored Properties
+    // MARK: - Public Properties
     var style: ButtonType
     
+    // MARK: - Initializer
     init(_ style: ButtonType) {
         self.style = style
     }
 
+    // MARK: - Content
     func body(content: Content) -> some View {
         content
             .padding()
+            .frame(maxWidth: .infinity)
             .background(style.backgroundColor)
             .font(style.font)
             .foregroundColor(style.textColor)

@@ -64,7 +64,7 @@ public struct ProgressBarView: View {
     /// Thickness of the progress bar.
     private var thickness: ProgressThickness
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(progress: CGFloat,
                 style: ProgressStyle = .linear,
                 statusColor: Color = .green,

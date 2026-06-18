@@ -9,22 +9,24 @@ import SwiftUI
 import DesignSystem
 
 struct DatesView: View {
-
+    
+    // MARK: - Private Properties
     // localDateType3 - dd/MM/yyyy
-    let localDateType3: String = "01/02/2016"
+    private let localDateType3: String = "01/02/2016"
     // regular - yyyy-MM-dd'T'HH:mm:ssZZZ
-    let regularDate: String = "2022-12-14T04:30:00+05:30"
+    private let regularDate: String = "2022-12-14T04:30:00+05:30"
     // isoDateTimeMilliSec - yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ
-    let isoDateTimeMilliSec: String = "2022-12-14T04:30:00.1234567+0000"
+    private let isoDateTimeMilliSec: String = "2022-12-14T04:30:00.1234567+0000"
     // birthDateFormat - yyyy-MM-dd'T'HH:mm:ss
-    let birthDateFormat: String = "1990-05-15T00:00:00"
+    private let birthDateFormat: String = "1990-05-15T00:00:00"
     // localDate - yyyy-MM-dd
-    let localDate: String = "2022-12-14"
+    private let localDate: String = "2022-12-14"
     // localDateType2 - yyyy/MM/dd
-    let localDateType2: String = "2022/12/14"
+    private let localDateType2: String = "2022/12/14"
     // isoDate - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
-    let isoDate: String = "2022-12-14T04:30:00.000Z"
+    private let isoDate: String = "2022-12-14T04:30:00.000Z"
 
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: StackSpacing.nano) {

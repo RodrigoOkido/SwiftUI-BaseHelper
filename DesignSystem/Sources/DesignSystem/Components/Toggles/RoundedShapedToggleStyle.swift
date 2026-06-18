@@ -17,7 +17,7 @@ import SwiftUI
 /// ```
 public struct RoundedShapedToggleStyle: ToggleStyle {
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(){}
     
     // MARK: - Content

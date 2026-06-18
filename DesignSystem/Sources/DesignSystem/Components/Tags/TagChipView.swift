@@ -39,7 +39,7 @@ public struct TagChipView: View {
     private let icon: String?
     private let style: TagChipStyle
 
-    // MARK: - Init
+    // MARK: - Initializer
     public init(label: String,
                 color: Color,
                 icon: String? = nil,
@@ -67,7 +67,6 @@ public struct TagChipView: View {
         .background(background)
     }
 
-    // MARK: - Private
     @ViewBuilder
     private var background: some View {
         switch style {

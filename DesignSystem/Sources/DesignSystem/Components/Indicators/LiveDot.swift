@@ -13,12 +13,12 @@ import SwiftUI
 /// up and fades out, mimicking the familiar broadcast "live" indicator.
 public struct LiveDot: View {
 
-    // MARK: - Wrappers
+    // MARK: - Property Wrappers
     
     /// Controls the dot pulsing animation.
     @State private var isPulsing = false
     
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     
     /// Color of the live dot.
     private let color: Color
@@ -26,7 +26,7 @@ public struct LiveDot: View {
     /// Size of the live dot.
     private let size: CGFloat
 
-    // MARK: - Init
+    // MARK: - Initializer
     public init(color: Color = .green, size: CGFloat = 10) {
         self.color = color
         self.size = size

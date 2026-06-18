@@ -22,7 +22,7 @@ public struct SquareShapedToggleStyle: ToggleStyle {
     /// Adds ON and OFF label to the toggle.
     private var withLabel: Bool
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(withLabel: Bool){
         self.withLabel = withLabel
     }

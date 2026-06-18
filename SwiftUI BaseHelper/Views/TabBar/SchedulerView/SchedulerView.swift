@@ -9,8 +9,10 @@ import SwiftData
 
 struct SchedulerView: View {
         
+    // MARK: - ViewModel
     var viewModel: SchedulerViewModel = SchedulerViewModel(dataSource: .shared)
     
+    // MARK: - Content
     var body: some View {
         VStack {
             Text("This is a Swift Data Sample")

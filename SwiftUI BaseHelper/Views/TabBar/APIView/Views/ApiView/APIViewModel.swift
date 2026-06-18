@@ -11,8 +11,10 @@ import SwiftUI
 @Observable
 class APIViewModel: BaseViewModel {
     
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private var movieDBService: MovieDBRepositoryProtocol
+    
+    // MARK: - Public Properties
     var popularMovies: [Movie]
     
     // MARK: - Initializer
@@ -22,8 +24,7 @@ class APIViewModel: BaseViewModel {
         self.movieDBService = movieDBService
     }
     
-    
-    // MARK: - API Request
+    // MARK: - Public Methods
     @MainActor
     func requestPopularMovies() async throws {
         viewState = .loading

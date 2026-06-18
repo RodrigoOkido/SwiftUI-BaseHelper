@@ -10,7 +10,7 @@ import DesignSystem
 
 struct SettingsView: View {
     
-    // MARK: - View Model
+    // MARK: - ViewModel
     @State var viewModel: SettingsViewModel
 
     // MARK: - Property Wrappers
@@ -22,6 +22,7 @@ struct SettingsView: View {
         self.viewModel = viewModel
     }
 
+    // MARK: - Content
     var body: some View {
         VStack(alignment: .leading) {
             List {

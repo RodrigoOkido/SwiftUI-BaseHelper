@@ -12,7 +12,7 @@ import DesignSystem
 
 struct MapView: View {
     
-    // MARK: - View Model
+    // MARK: - ViewModel
     @State private var viewModel: MapViewModel
 
     // MARK: - Property Wrappers
@@ -25,6 +25,7 @@ struct MapView: View {
         self.toggleStatus = toggleStatus
     }
 
+    // MARK: - Content
     var body: some View {
 
         ZStack {

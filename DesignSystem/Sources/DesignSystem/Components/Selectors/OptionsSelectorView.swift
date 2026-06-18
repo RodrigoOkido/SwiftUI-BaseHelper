@@ -28,7 +28,7 @@ public enum SelectorType {
 /// ```
 public struct OptionsSelectorView: View {
     
-    // MARK: - Wrappers
+    // MARK: - Property Wrappers
     
     /// Control all the selected options by the user
     @Binding var selected: [String]
@@ -41,7 +41,7 @@ public struct OptionsSelectorView: View {
     /// Option selectable list
     private let options: [String]
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(type: SelectorType,
                 options: [String],
                 selected: Binding<[String]>) {

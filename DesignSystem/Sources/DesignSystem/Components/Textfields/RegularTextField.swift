@@ -18,7 +18,7 @@ import SwiftUI
 /// ```
 public struct RegularTextField: CustomTextField, View {
     
-    // MARK: - Wrappers
+    // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
     @Binding public var textContent: String
     @FocusState public var isFocused: Bool
@@ -35,7 +35,7 @@ public struct RegularTextField: CustomTextField, View {
         isFocused ? .orange : isDarkMode ? .white : .black
     }
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(
          style: TextfieldStyle,
          fieldName: String,

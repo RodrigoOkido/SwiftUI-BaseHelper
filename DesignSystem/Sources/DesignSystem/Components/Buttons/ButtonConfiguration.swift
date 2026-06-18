@@ -18,7 +18,6 @@ public enum ButtonType {
     case warning
     case danger
     
-    
     var font: Font {
         switch self {
         case .primary, .success, .warning, .danger: .title3

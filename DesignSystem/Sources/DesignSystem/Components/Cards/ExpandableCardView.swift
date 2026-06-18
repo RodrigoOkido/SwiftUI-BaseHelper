@@ -27,7 +27,7 @@ import SwiftUI
 /// ```
 public struct ExpandableCardView<Content: View>: View {
     
-    // MARK: - Wrappers
+    // MARK: - Property Wrappers
     @State private var isExpanded = false
     
     // MARK: - Private Propeties
@@ -41,7 +41,7 @@ public struct ExpandableCardView<Content: View>: View {
     /// Content of the expandable card. It expects a View to provide flexibility to the expandable content.
     private let innerContent: () -> Content
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(icon: Image? = nil,
                 title: String,
                 @ViewBuilder innerContent: @escaping () -> Content) {

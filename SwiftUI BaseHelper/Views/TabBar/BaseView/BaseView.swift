@@ -10,8 +10,10 @@ import DesignSystem
 
 struct BaseView: View {
     
+    // MARK: - Property Wrappers
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
     
+    // MARK: - Content
     var body: some View {
         
         ScrollView(showsIndicators: false) {

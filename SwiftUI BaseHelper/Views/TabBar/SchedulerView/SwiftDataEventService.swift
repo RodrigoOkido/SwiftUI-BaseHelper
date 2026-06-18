@@ -7,12 +7,16 @@
 import SwiftData
 
 class SwiftDataEventService {
+    
+    // MARK: - Private Properties
     private let modelContainer: ModelContainer
     private let modelContext: ModelContext
     
+    // MARK: - Public Properties
     @MainActor
     static let shared = SwiftDataEventService()
     
+    // MARK: - Initializer
     @MainActor
     private init() {
         self.modelContainer = try! ModelContainer(for: Event.self,
@@ -20,6 +24,7 @@ class SwiftDataEventService {
         self.modelContext = modelContainer.mainContext
     }
     
+    // MARK: - Public Methods
     func fetchEvents() -> [Event] {
         do {
             return try modelContext.fetch(FetchDescriptor<Event>())

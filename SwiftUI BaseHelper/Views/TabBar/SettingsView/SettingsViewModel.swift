@@ -10,7 +10,7 @@ import DesignSystem
 
 class SettingsViewModel: BaseViewModel {
 
-    // MARK: - Property Wrapper
+    // MARK: - Public Properties
     var language: AppLanguage
 
     // MARK: - Initializer

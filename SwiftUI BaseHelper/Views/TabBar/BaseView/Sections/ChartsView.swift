@@ -21,6 +21,7 @@ struct ChartsView: View {
         .init(month: Month.December, income: 1500.00, color: "Black")
     ]
 
+    // MARK: - Content
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {

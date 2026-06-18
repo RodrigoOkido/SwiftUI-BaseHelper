@@ -16,7 +16,7 @@ import SwiftUI
 /// ```
 public struct CustomButton: View {
     
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     
     /// Preset of button type.
     private let type: ButtonType
@@ -49,7 +49,7 @@ public struct CustomButton: View {
     /// Action of the button when clicked.
     private let action: () -> Void
     
-    // MARK: - Init
+    // MARK: - Initializer
     public init(type: ButtonType = .primary,
                 title: String,
                 alignment: ButtonContentPosition = .center,
