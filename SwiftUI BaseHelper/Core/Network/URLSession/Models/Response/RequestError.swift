@@ -21,14 +21,14 @@ public enum RequestErrorType: Error, Equatable {
     case undefined
 }
 
-public class RequestError: Error, Equatable {
+public final class RequestError: Error, Equatable {
     
     public static func == (lhs: RequestError, rhs: RequestError) -> Bool {
         lhs.errorType == rhs.errorType
     }
 
-    public var errorType: RequestErrorType
-    public var errorMessage: String?
+    public let errorType: RequestErrorType
+    public let errorMessage: String?
 
     public init(errorType: RequestErrorType,
                 errorMessage: String? = nil) {
