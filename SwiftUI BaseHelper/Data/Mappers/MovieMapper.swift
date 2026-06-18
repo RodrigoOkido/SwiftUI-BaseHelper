@@ -33,12 +33,12 @@ public struct MoviesMapper: ModelMapper {
     public typealias T = [RemoteMovie]
 
     public static func map<T>(_ input: some Codable) throws -> T {
-        guard let apiInput: RemoteMovies = input as? RemoteMovies,
-              let input: [RemoteMovie] = apiInput.results as? [RemoteMovie] else {
+        guard let apiInput: RemoteMovies = input as? RemoteMovies else {
             throw RequestError(errorType: .couldNotMap,
                                errorMessage: "Could not map")
         }
 
+        let input: [RemoteMovie] = apiInput.results
         let items: [Movie] = try input.map {
             return try MovieMapper.map($0)
         }
