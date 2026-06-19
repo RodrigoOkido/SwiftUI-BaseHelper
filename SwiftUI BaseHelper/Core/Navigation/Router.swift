@@ -15,11 +15,12 @@ public enum PathType {
 @Observable
 public class Router<View: Hashable> {
 
-    // MARK: - Wrapped Properties
+    // MARK: - Public Properties
     public var path = NavigationPath()
     public var bottomSheetPath = NavigationPath()
     public var presentedView: View?
     public var presentationDetents: Set<PresentationDetent> = [.large]
+    public var isDynamicSheetHeight: Bool = false
     public var coveredView: View?
 
     // MARK: - Computed Properties
@@ -27,6 +28,7 @@ public class Router<View: Hashable> {
         presentedView != nil || coveredView != nil
     }
 
+    // MARK: - Initializer
     public init() {}
 
     // MARK: - Public Methods
@@ -43,7 +45,13 @@ public class Router<View: Hashable> {
     }
 
     public func present(view: View, detents: Set<PresentationDetent> = [.large]) {
+        isDynamicSheetHeight = false
         presentationDetents = detents
+        presentedView = view
+    }
+
+    public func presentWithDynamicHeight(view: View) {
+        isDynamicSheetHeight = true
         presentedView = view
     }
 
@@ -56,6 +64,7 @@ public class Router<View: Hashable> {
             coveredView = nil
         } else {
             presentedView = nil
+            isDynamicSheetHeight = false
         }
     }
 

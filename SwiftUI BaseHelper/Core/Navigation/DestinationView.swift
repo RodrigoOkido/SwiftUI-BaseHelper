@@ -17,6 +17,7 @@ public enum DestinationView: Identifiable, Hashable {
     case map
     case settings(appLanguage: AppLanguage)
     case sheetView
+    case dynamicSheetView
     
     case bindableView
     case buttonsView
@@ -70,6 +71,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "swiftData"
         case .cardsView:
             return "cardsView"
+        case .dynamicSheetView:
+            return "dynamicSheetView"
         case .buttonsView:
             return "buttonsView"
         }
@@ -114,6 +117,8 @@ public enum DestinationView: Identifiable, Hashable {
             SchedulerView()
         case .cardsView:
             CardsView()
+        case .dynamicSheetView:
+            DynamicSheetView()
         case .buttonsView:
             ButtonsView()
         }

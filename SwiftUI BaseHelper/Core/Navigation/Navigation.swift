@@ -22,11 +22,12 @@ public struct NavigationViewFactory {
 
 public struct Navigation<RootView: View>: View {
 
-    // MARK: - Stored Properties
+    // MARK: - Public Properties
     let rootView: RootView
 
     // MARK: - Wrapped Properties
     @State var router: Router<DestinationView>
+    @State var dynamicSheetHeight: CGFloat = 0
 
     // MARK: - Content
     public var body: some View {
@@ -46,7 +47,7 @@ public struct Navigation<RootView: View>: View {
                     }
             }
             .presentationDragIndicator(.visible)
-            .presentationDetents(router.presentationDetents)
+            .sheetDetents(router)
         })
         .fullScreenCover(item: $router.coveredView,
                          onDismiss: { router.dismiss() },
@@ -58,6 +59,22 @@ public struct Navigation<RootView: View>: View {
                     }
             }
         })
+    }
+}
+
+// MARK: - Sheet sizing
+private extension View {
+
+    /// Applies the native detents from the router, unless the presentation was
+    /// started via `presentWithDynamicHeight`, in which case the presented
+    /// content is left to size itself (via `dynamicContentBasedSheet`).
+    @ViewBuilder
+    func sheetDetents<V: Hashable>(_ router: Router<V>) -> some View {
+        if router.isDynamicSheetHeight {
+            self
+        } else {
+            self.presentationDetents(router.presentationDetents)
+        }
     }
 }
 

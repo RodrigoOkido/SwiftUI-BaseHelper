@@ -44,6 +44,11 @@ struct PresentSheetView: View {
                          cornerRadius: .small) {
                 router.presentFullScreen(view: DestinationView.sheetView)
             }
+            CustomButton(type: .tertiary,
+                         title: "Show Dynamic Sheet",
+                         cornerRadius: .small) {
+                router.presentWithDynamicHeight(view: DestinationView.dynamicSheetView)
+            }
         }
         .padding(.horizontal, InsetSpacing.xxs)
         .navigationTitle("Bottomsheet Types")
@@ -70,6 +75,29 @@ struct SheetView: View {
             }
             .padding(InsetSpacing.xs)
         }
+    }
+}
+
+struct DynamicSheetView: View {
+    
+    // MARK: - Property Wrappers
+    @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
+    @State var height: CGFloat = 0
+
+    // MARK: - Content
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text("Hello! I am a bottom sheet view!")
+            Text("If you selected Medium / Large option, you can drag the sheet view to make it larger or smaller.")
+            CustomButton(title: "Dismiss me!",
+                         cornerRadius: .small) {
+                router.dismiss()
+            }
+            .padding()
+        }
+        .fixedSize(horizontal: false, vertical: true)
+        .padding(InsetSpacing.xs)
+        .dynamicContentBasedSheet($height)
     }
 }
 
