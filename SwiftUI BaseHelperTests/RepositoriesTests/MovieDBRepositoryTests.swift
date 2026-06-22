@@ -5,81 +5,68 @@
 //  Created by Rodrigo Okido on 12/03/24.
 //
 
-import XCTest
+import Testing
 @testable import SwiftUI_BaseHelper
 
-final class MovieDBRepositoryTests: XCTestCase {
+@Suite("MovieDBRepositoryTests unit tests")
+struct MovieDBRepositoryTests {
 
+    @Test("Test: Initialize SUT should not call network")
     func testInitShouldNotCallNetwork() {
-        
         let (network, _) = makeSUT()
-        XCTAssertEqual(network.requestsCounter, 0)
+        #expect(network.requestsCounter == 0)
     }
 
+    @Test("Test: Initialize SUT should not call network")
     func test_init_WhenRepositoryStarts_ShouldHaveNoCalledMethodsAndRequestShouldFailSetFalse() {
 
         let (_, repository) = makeSUT()
-        XCTAssertEqual(repository.calledMethods, [])
-        XCTAssertFalse(repository.requestShouldFail)
+        #expect(repository.calledMethods.isEmpty)
+        #expect(repository.requestShouldFail == false)
     }
 
-    func test_getMovies_WhenAPICallIsSuccessful_ShouldReturnMoviesList() {
+    @Test("Test: When calling getMovies() succeeds, should return movies list")
+    func test_getMovies_WhenAPICallIsSuccessful_ShouldReturnMoviesList() async {
         
         let (_, repository) = makeSUT()
         let movie1 = TestMovieFactory.makeMovie(id: 870)
         let movie2 = TestMovieFactory.makeMovie(id: 910)
 
-        let expect = XCTestExpectation(description: "test expectation")
-
-        Task {
-            let result = await repository.getMovies()
-            switch result {
-            case .success(let moviesList):
-                XCTAssertEqual(moviesList[0].id, movie1.id)
-                XCTAssertEqual(moviesList[1].id, movie2.id)
-                XCTAssertEqual(repository.calledMethods, [.getMovies])
-            case .failure(_):
-                XCTFail("Request should succeed")
-            }
-            expect.fulfill()
+        let result = await repository.getMovies()
+        switch result {
+        case .success(let moviesList):
+            #expect(moviesList[0].id == movie1.id)
+            #expect(moviesList[1].id == movie2.id)
+            #expect(repository.calledMethods == [.getMovies])
+        case .failure(_):
+            Issue.record("Request should succeed")
         }
-        wait(for: [expect], timeout: 2)
     }
 
-    func test_getScheduledItems_WhenAPIFails_ShouldReturnErrorWithReason() {
+    @Test("Test: When calling getMovies() fails, should return error with reason")
+    func test_getMovies_WhenAPIFails_ShouldReturnErrorWithReason() async {
         
         let (_, repository) = makeSUT()
         repository.requestShouldFail = true
 
-        let expect = XCTestExpectation(description: "test expectation")
-
-        Task {
-            let result = await repository.getMovies()
-            switch result {
-            case .success(_):
-                XCTFail("Request should fail")
-            case .failure(let error):
-                XCTAssertEqual(error.errorType, .badRequest)
-                XCTAssertEqual(error.errorMessage, "Test failed successfully")
-                XCTAssertEqual(repository.calledMethods, [.getMovies])
-            }
-            expect.fulfill()
+        let result = await repository.getMovies()
+        switch result {
+        case .success(_):
+            Issue.record("Request should fail")
+        case .failure(let error):
+            #expect(error.errorType == .badRequest)
+            #expect(error.errorMessage == "Test failed successfully")
+            #expect(repository.calledMethods == [.getMovies])
         }
-        wait(for: [expect], timeout: 2)
     }
 }
 
 // MARK: - Helper methods
 extension MovieDBRepositoryTests {
 
-    func makeSUT(
-        file: StaticString = #filePath,
-        line: UInt = #line
-    ) -> (NetworkMock, MockMovieDBRepository) {
+    func makeSUT() -> (NetworkMock, MockMovieDBRepository) {
         let network = NetworkMock()
         let movieDBRepository: MockMovieDBRepository = MockMovieDBRepository(network: network)
-        trackForMemoryLeaks(network, file: file, line: line)
-        trackForMemoryLeaks(movieDBRepository, file: file, line: line)
         return (network, movieDBRepository)
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 @testable import SwiftUI_BaseHelper
 
-final class NetworkMock: CoreNetworkProtocol {
+final nonisolated class NetworkMock: CoreNetworkProtocol {
 
     var requestsCounter: Int
 

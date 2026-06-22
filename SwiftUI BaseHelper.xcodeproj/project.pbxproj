@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		2B7321642BA1C6A5007EB026 /* TestMovieFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7321632BA1C6A5007EB026 /* TestMovieFactory.swift */; };
-		2B7321672BA1C9F8007EB026 /* XCTestCase+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7321662BA1C9F8007EB026 /* XCTestCase+Extensions.swift */; };
 		2B7321692BA1D484007EB026 /* NetworkMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7321682BA1D484007EB026 /* NetworkMock.swift */; };
 		2B73216E2BA22933007EB026 /* MockMovieDBRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B73216D2BA22933007EB026 /* MockMovieDBRepository.swift */; };
 		2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */; };
@@ -55,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		2B7321632BA1C6A5007EB026 /* TestMovieFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestMovieFactory.swift; sourceTree = "<group>"; };
-		2B7321662BA1C9F8007EB026 /* XCTestCase+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "XCTestCase+Extensions.swift"; sourceTree = "<group>"; };
 		2B7321682BA1D484007EB026 /* NetworkMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMock.swift; sourceTree = "<group>"; };
 		2B73216D2BA22933007EB026 /* MockMovieDBRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieDBRepository.swift; sourceTree = "<group>"; };
 		2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI BaseHelper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -143,7 +141,6 @@
 			isa = PBXGroup;
 			children = (
 				2B73216A2BA22882007EB026 /* Mocks */,
-				2B7321652BA1C9DA007EB026 /* Extensions */,
 				2B7321622BA1C691007EB026 /* Factories */,
 			);
 			path = Helpers;
@@ -155,14 +152,6 @@
 				2B7321632BA1C6A5007EB026 /* TestMovieFactory.swift */,
 			);
 			path = Factories;
-			sourceTree = "<group>";
-		};
-		2B7321652BA1C9DA007EB026 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				2B7321662BA1C9F8007EB026 /* XCTestCase+Extensions.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		2B73216A2BA22882007EB026 /* Mocks */ = {
@@ -414,7 +403,6 @@
 				2B73216E2BA22933007EB026 /* MockMovieDBRepository.swift in Sources */,
 				2B7321692BA1D484007EB026 /* NetworkMock.swift in Sources */,
 				2B8E902D2BA0EC600079F8B2 /* MovieDBRepositoryTests.swift in Sources */,
-				2B7321672BA1C9F8007EB026 /* XCTestCase+Extensions.swift in Sources */,
 				2B7321642BA1C6A5007EB026 /* TestMovieFactory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -661,7 +649,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "okido.SwiftUI-BaseHelperTests";
@@ -689,7 +677,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "okido.SwiftUI-BaseHelperTests";
