@@ -12,7 +12,7 @@ public class CoreNetwork: CoreNetworkProtocol {
     // MARK: - Dependencies
     @Injected var environment: EnvironmentProtocol
 
-    // MARK: - Stored Properties
+    // MARK: - Privae Properties
     private let requestBuilder: RequestBuilder
     private let session: URLSession
 
@@ -21,6 +21,7 @@ public class CoreNetwork: CoreNetworkProtocol {
         [JSONInterceptor()]
     }
 
+    // MARK: - Initializer
     public init(requestBuilder: RequestBuilder = RequestBuilder(),
                 session: URLSession = URLSession(configuration: .default)) {
         self.requestBuilder = requestBuilder

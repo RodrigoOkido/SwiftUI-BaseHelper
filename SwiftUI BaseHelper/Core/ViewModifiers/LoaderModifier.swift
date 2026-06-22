@@ -9,12 +9,15 @@ import SwiftUI
 // MARK: - Loader Mofifier
 struct LoaderModifier: ViewModifier {
     
+    // MARK: - Property Wrappers
     @Binding private var isLoading: Bool
     
+    // MARK: - Initializer
     init(_ isLoading: Binding<Bool>) {
         self._isLoading = isLoading
     }
     
+    // MARK: - Content
     func body(content: Content) -> some View {
         ZStack {
             content

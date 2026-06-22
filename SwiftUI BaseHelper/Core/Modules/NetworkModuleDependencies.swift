@@ -8,9 +8,8 @@ import Foundation
 
 class NetworkModuleDependencies: ModuleDependencies {
 
+    // MARK: - Public Properties
     let factory = DependencyFactory.shared
-
-    // MARK: - Stored Properties
     let coreNetwork: CoreNetworkProtocol
     let movieDBService: MovieDBRepositoryProtocol
 

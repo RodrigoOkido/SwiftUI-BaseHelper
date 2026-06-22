@@ -18,6 +18,7 @@ struct APIMovieDetailView: View {
         self.viewModel = viewModel
     }
 
+    // MARK: - Content
     var body: some View {
         ScrollView {
             VStack {

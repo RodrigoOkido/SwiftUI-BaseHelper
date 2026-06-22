@@ -14,7 +14,7 @@ struct MainView: View {
     @AppStorage("isDarkMode") private var isDarkMode = false
     @AppStorage("appLanguage") private var appLanguage: AppLanguage = .English
 
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private let appDependencies: AppDependencies
     private let componentsRouter: Router<DestinationView> = Router<DestinationView>()
     private let apiRouter: Router<DestinationView> = Router<DestinationView>()
@@ -31,6 +31,7 @@ struct MainView: View {
         registerCustomFonts()
     }
 
+    // MARK: - Content
     var body: some View {
         TabView {
             // Creates independent Navigation for each tab.

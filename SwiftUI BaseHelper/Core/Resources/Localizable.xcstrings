@@ -152,7 +152,14 @@
       }
     },
     "Bottomsheet Types" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tipos de Sheets"
+          }
+        }
+      }
     },
     "Button 1 with viewModifier style" : {
       "comment" : "A button that uses a custom button style.",
@@ -201,7 +208,14 @@
       }
     },
     "Cards" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cards"
+          }
+        }
+      }
     },
     "Charts" : {
       "localizations" : {
@@ -214,7 +228,14 @@
       }
     },
     "Checkbox selector" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seletor checkbox"
+          }
+        }
+      }
     },
     "Compact" : {
       "comment" : "A label displayed for a compact date picker.",
@@ -295,7 +316,14 @@
       }
     },
     "Dates Handlers" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gerenciador de Datas"
+          }
+        }
+      }
     },
     "Error" : {
       "localizations" : {
@@ -328,7 +356,14 @@
       }
     },
     "Fonts" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fontes"
+          }
+        }
+      }
     },
     "Format - dd/MM/yyyy" : {
       "comment" : "A label displayed above the date format.",
@@ -498,32 +533,22 @@
         }
       }
     },
-    "Hello i am a modified text!" : {
+    "Hello i am a title!" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olá! Sou um texto modificado!"
+            "value" : "Olá! Sou um título!"
           }
         }
       }
     },
-    "Hello i am another modified text!" : {
+    "Hello i am regular text!" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Olá! Sou outro texto modificado!"
-          }
-        }
-      }
-    },
-    "Hello i am one more modified text!" : {
-      "localizations" : {
-        "pt-BR" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Olá! Sou um texto modificado!"
+            "value" : "Olá! Sou um texto regular"
           }
         }
       }
@@ -539,7 +564,14 @@
       }
     },
     "If you selected Medium / Large option, you can drag the sheet view to make it larger or smaller." : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Se selecionar opções Médio / Grande, você pode arrastar a Sheet para fazer maior ou menor."
+          }
+        }
+      }
     },
     "Impact Feedback types" : {
       "localizations" : {
@@ -836,7 +868,14 @@
       }
     },
     "Radio type selector" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Seletor Radio"
+          }
+        }
+      }
     },
     "Rectangle Mark" : {
       "localizations" : {
@@ -901,7 +940,14 @@
       }
     },
     "Selectable buttons" : {
-
+      "localizations" : {
+        "pt-BR" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Botões Selecionáveis"
+          }
+        }
+      }
     },
     "Settings" : {
       "localizations" : {
@@ -1073,19 +1119,15 @@
         }
       }
     },
-    "Textfield" : {
-      "extractionState" : "stale",
+    "Textfields" : {
       "localizations" : {
         "pt-BR" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Campo de Texto"
+            "value" : "Campos de Texto"
           }
         }
       }
-    },
-    "Textfields" : {
-
     },
     "This is a Swift Data Sample" : {
       "localizations" : {

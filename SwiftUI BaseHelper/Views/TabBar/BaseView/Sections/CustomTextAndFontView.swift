@@ -19,13 +19,10 @@ struct CustomTextAndFontView: View {
             VStack(alignment: .leading) {
                 Text("TEXT WITH MODIFIERS")
                 VStack(alignment: .leading) {
-                    Text("Hello i am a modified text!")
-                        .modifiedTextStyle()
-                    Text("Hello i am another modified text!")
-                        .modifiedTextStyle(font: .body)
-                    Text("Hello i am one more modified text!")
-                        .modifiedTextStyle(font: .title2,
-                                           color: isDarkMode ? .white : .black)
+                    Text("Hello i am a title!")
+                        .textStyle(.title)
+                    Text("Hello i am regular text!")
+                        .textStyle(.regular)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()

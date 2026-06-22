@@ -10,9 +10,8 @@ import Foundation
 // MARK: - ModuleDependencies
 class CoreModuleDependencies: ModuleDependencies {
 
+    // MARK: - Public Properties
     let factory = DependencyFactory.shared
-
-    // MARK: - Stored Properties
     var encoder: JSONEncoder
     var decoder: JSONDecoder
     var environment: BaseEnvironment?

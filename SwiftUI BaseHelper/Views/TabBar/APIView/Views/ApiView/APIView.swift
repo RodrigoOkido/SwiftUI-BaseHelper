@@ -22,16 +22,16 @@ enum MovieTabMenu: CaseIterable {
 
 struct APIView: View {
     
-    // MARK: - Environments
+    // MARK: - ViewModel
+    @State private var viewModel: APIViewModel
+    
+    // MARK: - Property Wrappers
     @Environment(\.colorScheme) var colorScheme
     @Environment(\.modelContext) var modelContext
     @Environment(Router<DestinationView>.self) var router: Router<DestinationView>
-    @Query(sort: \FavoriteMovie.title) var favoriteMovies: [FavoriteMovie]
-
-    // MARK: - Stored Properties
-    @State private var viewModel: APIViewModel
     @State private var selectedBar: MovieTabMenu = .movieList
     @State private var favMovies: [FavoriteMovie] = []
+    @Query(sort: \FavoriteMovie.title) var favoriteMovies: [FavoriteMovie]
     
     // MARK: - Computed Properties
     private var isDarkModeEnabled: Bool {
@@ -43,6 +43,7 @@ struct APIView: View {
         self.viewModel = viewModel
     }
 
+    // MARK: - Content
     var body: some View {
         VStack {
             switch viewModel.viewState {

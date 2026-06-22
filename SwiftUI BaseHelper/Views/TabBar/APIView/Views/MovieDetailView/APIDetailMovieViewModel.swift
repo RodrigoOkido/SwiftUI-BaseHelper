@@ -11,7 +11,7 @@ import SwiftUI
 @Observable
 class APIDetailMovieViewModel: BaseViewModel {
     
-    // MARK: - Stored properties
+    // MARK: - Public Properties
     var movie: Movie
 
     // MARK: - Initializer

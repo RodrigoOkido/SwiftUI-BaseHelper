@@ -15,7 +15,7 @@ public class BaseViewModel: NSObject {
         case error(Error)
     }
     
-    // MARK: - Stored Properties
+    // MARK: - Public Properties
     var viewState: ViewState = .loading
     
     // MARK: - Helpers

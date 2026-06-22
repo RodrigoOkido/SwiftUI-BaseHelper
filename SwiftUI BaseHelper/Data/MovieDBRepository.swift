@@ -9,7 +9,7 @@ import Foundation
 
 public class MovieDBRepository: MovieDBRepositoryProtocol {
 
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private let network: CoreNetworkProtocol
     
     // MARK: - Initializer

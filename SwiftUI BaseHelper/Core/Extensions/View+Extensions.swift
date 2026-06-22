@@ -3,15 +3,6 @@ import SwiftUI
 // MARK: - View Modifiers creations
 import DesignSystem
 
-// Components modifers
-extension View {
-    
-    func modifiedTextStyle(font: Font = .system(size: 21), 
-                           color: Color = .blue) -> some View {
-        modifier(ModifiedText(font: font, color: color))
-    }
-}
-
 // Loader Modifier
 extension View {
     

@@ -48,7 +48,7 @@ public enum ProgressStyle {
 /// ```
 public struct ProgressBarView: View {
     
-    // MARK: - Wrappers
+    // MARK: - Property Wrappers
     
     /// Progress value of the progress bar
     @State private var progress: CGFloat

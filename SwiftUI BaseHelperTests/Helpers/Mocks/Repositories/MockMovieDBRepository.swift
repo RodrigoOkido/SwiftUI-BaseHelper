@@ -15,8 +15,10 @@ public class MockMovieDBRepository: MovieDBRepositoryProtocol {
         case getMovies
     }
 
-    // MARK: - Stored Properties
+    // MARK: - Private Properties
     private let network: CoreNetworkProtocol
+    
+    // MARK: - Public Properties
     public var calledMethods: [Methods] = []
     public var requestShouldFail: Bool = false
 

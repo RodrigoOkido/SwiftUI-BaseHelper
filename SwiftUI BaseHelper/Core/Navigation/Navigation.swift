@@ -25,7 +25,7 @@ public struct Navigation<RootView: View>: View {
     // MARK: - Public Properties
     let rootView: RootView
 
-    // MARK: - Wrapped Properties
+    // MARK: - Property Wrappers
     @State var router: Router<DestinationView>
     @State var dynamicSheetHeight: CGFloat = 0
 

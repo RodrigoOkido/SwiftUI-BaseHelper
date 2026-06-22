@@ -7,15 +7,18 @@
 import SwiftUI
 
 /// Represents a ViewModifier to help set custom sheet height
-public struct DynamicSheetModifier: ViewModifier {
+struct DynamicSheetModifier: ViewModifier {
     
+    // MARK: - Property Wrappers
     @Binding var height: CGFloat
 
-    public init(height: Binding<CGFloat>) {
+    // MARK: - Initializer
+    init(height: Binding<CGFloat>) {
         _height = height
     }
 
-    public func body(content: Content) -> some View {
+    // MARK: - Content
+    func body(content: Content) -> some View {
         content.background(
             GeometryReader { geo -> Color in
                 DispatchQueue.main.async {
