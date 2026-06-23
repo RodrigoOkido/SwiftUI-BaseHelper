@@ -75,7 +75,7 @@ framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit,
 - Map 
 - Settings
 
-### v1.0
+### v1.0 (June 2026)
 - Huge improvements on Design System components
    - New components (Selectors, Tags, Indicators, Toggles)
    - Improvements on existing components (Cards, Textfields, Buttons, Texts)
@@ -84,6 +84,9 @@ framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit,
    - Created text and buttons styles as modifiers
 - Navigation improvements
    - Included new dynamic sheet modifier based on content size
+- Updates on the UI in Components section
+   - Improvements on some existing Views on Components Section
+- New Geometry Reader item on Components section 
 - Overall localization improvements
 - Overall project documentation improvements
 - Updated XCTestCase to Swift Testing
