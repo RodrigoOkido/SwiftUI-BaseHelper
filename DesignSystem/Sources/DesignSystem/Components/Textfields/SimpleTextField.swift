@@ -51,12 +51,15 @@ public struct SimpleTextField: CustomTextField, View {
         VStack(alignment: .leading) {
             Text(fieldName)
                 .bold()
+                .accessibilityLabel(fieldName)
+                .accessibilityAddTraits(.isStaticText)
             TextField(placeholder,
                       text: $textContent)
             .focused($isFocused)
             .padding()
             .overlay(styleOverlay)
             .animation(.easeInOut(duration: 0.2), value: isFocused)
+            .accessibilityLabel(placeholder)
         }
     }
     

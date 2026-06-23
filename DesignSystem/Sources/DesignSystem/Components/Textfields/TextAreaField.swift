@@ -63,6 +63,7 @@ public struct TextAreaField: CustomTextField, View {
                     .stroke(borderColor, lineWidth: 0.5)
             )
             .animation(.easeInOut(duration: 0.2), value: isFocused)
+            .accessibilityLabel(placeholder)
         }
     }
 }

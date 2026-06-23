@@ -53,6 +53,8 @@ public struct SimpleCardView: View {
                     .resizable()
                     .scaledToFill()
                     .frame(height: 150)
+                    .accessibilityLabel("Card header image")
+                    .accessibilityAddTraits(.isImage)
                 Divider()
                     .padding(.vertical, StackSpacing.nano)
             }
@@ -61,8 +63,12 @@ public struct SimpleCardView: View {
                     .font(.title2)
                     .bold()
                     .foregroundStyle(.black)
+                    .accessibilityLabel(title)
+                    .accessibilityAddTraits(.isStaticText)
                 Text(description)
                     .foregroundStyle(.black)
+                    .accessibilityLabel(description)
+                    .accessibilityAddTraits(.isStaticText)
             }
             .padding()
         }
@@ -74,6 +80,7 @@ public struct SimpleCardView: View {
                 action()
             }
         }
+        .accessibilityLabel("Content Card")
     }
 }
 

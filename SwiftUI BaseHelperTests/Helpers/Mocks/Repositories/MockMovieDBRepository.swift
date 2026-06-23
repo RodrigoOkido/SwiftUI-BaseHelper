@@ -8,7 +8,7 @@
 import Foundation
 @testable import SwiftUI_BaseHelper
 
-public nonisolated class MockMovieDBRepository: MovieDBRepositoryProtocol {
+public class MockMovieDBRepository: MovieDBRepositoryProtocol {
 
     // MARK: - Network Methods
     public enum Methods {

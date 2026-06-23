@@ -51,6 +51,8 @@ public struct PasswordTextField: CustomTextField, View {
         VStack(alignment: .leading) {
             Text(fieldName)
                 .bold()
+                .accessibilityLabel(fieldName)
+                .accessibilityAddTraits(.isStaticText)
             HStack(spacing: StackSpacing.quarck) {
                 
                 if shouldShowPassword {
@@ -60,6 +62,8 @@ public struct PasswordTextField: CustomTextField, View {
                     )
                     .focused($isFocused)
                     .padding(.horizontal, InsetSpacing.quarck)
+                    .accessibilityLabel(placeholder)
+                    .accessibilityHint("Insert your password")
                     
                     Spacer()
                     Image(systemName: "eye")
@@ -69,6 +73,8 @@ public struct PasswordTextField: CustomTextField, View {
                         .onTapGesture {
                             shouldShowPassword = false
                         }
+                        .accessibilityLabel("Hide password")
+                        .accessibilityAddTraits(.isButton)
                 } else {
                     SecureField(placeholder, text: $textContent)
                         .focused($isFocused)
@@ -81,6 +87,8 @@ public struct PasswordTextField: CustomTextField, View {
                         .onTapGesture {
                             shouldShowPassword = true
                         }
+                        .accessibilityLabel("Show password")
+                        .accessibilityAddTraits(.isButton)
                 }
 
             }

@@ -58,12 +58,17 @@ public struct ExpandableCardView<Content: View>: View {
                     icon
                         .resizable()
                         .frame(width: IconSize.xxs, height: IconSize.xxs)
+                        .accessibilityLabel("Card icon")
                 }
                 Text(title)
                     .font(.headline)
                     .foregroundStyle(.black)
+                    .accessibilityLabel(title)
+                    .accessibilityAddTraits(.isStaticText)
                 Spacer()
                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                    .accessibilityLabel(isExpanded ? "Expanded icon" : "Collapsed icon")
+
             }
             .padding()
             .onTapGesture {
@@ -71,6 +76,8 @@ public struct ExpandableCardView<Content: View>: View {
                     isExpanded.toggle()
                 }
             }
+            .accessibilityLabel("Expandable Card")
+            .accessibilityAddTraits(.isButton)
             
             if isExpanded {
                 innerContent()

@@ -79,9 +79,13 @@ public struct OptionsSelectorView: View {
                             }
                         }
                         Text(option)
+                            .accessibilityLabel(option)
+                            .accessibilityAddTraits(.isStaticText)
                     }
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(isOptionSelected(option) ? "Radio selected" : "Radio unselected")
+                .accessibilityAddTraits(.isButton)
             }
         }
     }
@@ -100,9 +104,13 @@ public struct OptionsSelectorView: View {
                             .foregroundColor(isOptionSelected(option) ? .blue : .gray)
                         
                         Text(option)
+                            .accessibilityLabel(option)
+                            .accessibilityAddTraits(.isStaticText)
                     }
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(isOptionSelected(option) ? "Checkbox selected" : "Checkbox unselected")
+                .accessibilityAddTraits(.isButton)
             }
         }
     }

@@ -56,6 +56,8 @@ public struct RegularTextField: CustomTextField, View {
         VStack(alignment: .leading) {
             Text(fieldName)
                 .bold()
+                .accessibilityLabel(fieldName)
+                .accessibilityAddTraits(.isStaticText)
             HStack(spacing: StackSpacing.quarck) {
                 if let leadingIcon {
                     leadingIcon
@@ -69,6 +71,7 @@ public struct RegularTextField: CustomTextField, View {
                 )
                 .focused($isFocused)
                 .padding(.horizontal, InsetSpacing.quarck)
+                .accessibilityLabel(placeholder)
                 if let trailingIcon {
                     Spacer()
                     trailingIcon
