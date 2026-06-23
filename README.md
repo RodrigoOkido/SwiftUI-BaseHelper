@@ -64,3 +64,33 @@ Im also using AI to explore all the capabilities, but always trying to keep up-t
 ## What is SwiftUI?
 SwiftUI is Apple's brand new framework for building user interfaces for iOS, tvOS, macOS, and watchOS. Apple introduced SwiftUI in 2019 and the 
 framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit, SwiftUI is a cross-platform framework.
+
+## Version History
+
+### Initial Release v0.1
+- Simple Design System
+- Coordinators
+- Navigation
+- API integration 
+- Map 
+- Settings
+
+### v1.0
+- Huge improvements on Design System components
+   - New components (Selectors, Tags, Indicators, Toggles)
+   - Improvements on existing components (Cards, Textfields, Buttons, Texts)
+   - Included accessibility
+   - Several localizations improvements
+   - Created text and buttons styles as modifiers
+- Navigation improvements
+   - Included new dynamic sheet modifier based on content size
+- Overall localization improvements
+- Overall project documentation improvements
+- Updated XCTestCase to Swift Testing
+- Bumped compiler from Swift 5 to Swift 6
+- Bumped deployment release from iOS 17 to iOS 26
+  created code by the author.
+- Moved entire project to Folders instead of Group (Shrinks a lot .pbxproj)
+- Integrated CLAUDE.md document for proper Claude usage without touching or changing
+
+
