@@ -64,10 +64,12 @@ public struct ExpandableCardView<Content: View>: View {
                     .font(.headline)
                     .foregroundStyle(.black)
                     .accessibilityLabel(title)
+                    .accessibilityValue(title)
                     .accessibilityAddTraits(.isStaticText)
                 Spacer()
                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                    .accessibilityLabel(isExpanded ? "Expanded icon" : "Collapsed icon")
+                    .accessibilityLabel("Expands or Collapse icon")
+                    .accessibilityValue(isExpanded ? "Expanded icon" : "Collapsed icon")
 
             }
             .padding()

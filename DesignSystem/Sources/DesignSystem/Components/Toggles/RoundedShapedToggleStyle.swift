@@ -38,6 +38,9 @@ public struct RoundedShapedToggleStyle: ToggleStyle {
                 .onTapGesture {
                     configuration.isOn.toggle()
                 }
+                .accessibilityLabel("Toggle")
+                .accessibilityValue(configuration.isOn ? "ON" : "OFF")
+                .accessibilityAddTraits(.isToggle)
         }
     }
 }

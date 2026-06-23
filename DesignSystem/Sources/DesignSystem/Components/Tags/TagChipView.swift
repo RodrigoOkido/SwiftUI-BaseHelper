@@ -56,6 +56,7 @@ public struct TagChipView: View {
             if let icon {
                 Image(systemName: icon)
                     .font(.caption2)
+                    .accessibilityHidden(true)
             }
             Text(label)
                 .font(.caption2)
@@ -65,6 +66,8 @@ public struct TagChipView: View {
         .padding(.horizontal, InsetSpacing.nano)
         .padding(.vertical, StackSpacing.quarck)
         .background(background)
+        .accessibilityLabel("Tag Chip")
+        .accessibilityValue("\(label) tag with color \(color.description)")
     }
 
     @ViewBuilder

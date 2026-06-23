@@ -72,6 +72,7 @@ public struct RegularTextField: CustomTextField, View {
                 .focused($isFocused)
                 .padding(.horizontal, InsetSpacing.quarck)
                 .accessibilityLabel(placeholder)
+                .accessibilityValue(textContent)
                 if let trailingIcon {
                     Spacer()
                     trailingIcon

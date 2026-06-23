@@ -64,10 +64,12 @@ public struct SimpleCardView: View {
                     .bold()
                     .foregroundStyle(.black)
                     .accessibilityLabel(title)
+                    .accessibilityValue(title)
                     .accessibilityAddTraits(.isStaticText)
                 Text(description)
                     .foregroundStyle(.black)
                     .accessibilityLabel(description)
+                    .accessibilityValue(description)
                     .accessibilityAddTraits(.isStaticText)
             }
             .padding()
@@ -80,7 +82,7 @@ public struct SimpleCardView: View {
                 action()
             }
         }
-        .accessibilityLabel("Content Card")
+        .accessibilityLabel("Card")
     }
 }
 

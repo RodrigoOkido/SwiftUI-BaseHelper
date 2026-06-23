@@ -85,6 +85,8 @@ public struct ProgressBarView: View {
                 .progressViewStyle(.linear)
                 .tint(statusColor)
                 .scaleEffect(x: 1, y: thickness.rawValue)
+                .accessibilityLabel("Linear Progress Bar")
+                .accessibilityValue(String(format: "%.0f%% completed", progress * 100))
         case .circular:
             ZStack {
                 Circle()
@@ -98,6 +100,8 @@ public struct ProgressBarView: View {
                     .font(.headline)
                     .bold()
             }
+            .accessibilityLabel("Circular Progress Bar")
+            .accessibilityValue(String(format: "%.0f%% completed", progress * 100))
         }
     }
 }
