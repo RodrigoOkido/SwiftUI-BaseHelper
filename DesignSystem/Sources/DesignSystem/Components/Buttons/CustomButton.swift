@@ -19,7 +19,7 @@ public struct CustomButton: View {
     // MARK: - Private Properties
     
     /// Preset of button type.
-    private let type: ButtonType
+    private let type: ButtonConfigurationStyle
     
     /// Title of the button.
     private let title: String
@@ -50,7 +50,7 @@ public struct CustomButton: View {
     private let action: () -> Void
     
     // MARK: - Initializer
-    public init(type: ButtonType = .regular,
+    public init(type: ButtonConfigurationStyle = .regular,
                 title: String,
                 alignment: ButtonContentPosition = .center,
                 leadingImage: Image? = nil,

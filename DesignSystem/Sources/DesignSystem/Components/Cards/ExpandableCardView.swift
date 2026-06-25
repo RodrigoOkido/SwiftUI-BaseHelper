@@ -59,6 +59,7 @@ public struct ExpandableCardView<Content: View>: View {
                         .resizable()
                         .frame(width: IconSize.xxs, height: IconSize.xxs)
                         .accessibilityLabel("Card icon")
+                        .accessibilityAddTraits(.isImage)
                 }
                 Text(title)
                     .font(.headline)
@@ -68,6 +69,7 @@ public struct ExpandableCardView<Content: View>: View {
                     .accessibilityAddTraits(.isStaticText)
                 Spacer()
                 Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
+                    .foregroundStyle(.black)
                     .accessibilityLabel("Expands or Collapse icon")
                     .accessibilityValue(isExpanded ? "Expanded icon" : "Collapsed icon")
 

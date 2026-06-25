@@ -6,7 +6,7 @@
 //
 import SwiftUI
 
-public enum ButtonType {
+public enum ButtonConfigurationStyle {
     
     case regular
     case success
@@ -14,7 +14,7 @@ public enum ButtonType {
     case danger
     
     var font: Font {
-        return .title3
+        return .body
     }
     var backgroundColor: Color {
         switch self {

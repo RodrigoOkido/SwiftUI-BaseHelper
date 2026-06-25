@@ -32,5 +32,6 @@ struct TextStyleModifier: ViewModifier {
         content
             .font(style.font)
             .foregroundColor(style.textColor)
+            .fontWeight(style.fontWeight)
     }
 }
