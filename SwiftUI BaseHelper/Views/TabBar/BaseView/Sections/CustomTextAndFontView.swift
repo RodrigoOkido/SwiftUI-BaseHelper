@@ -27,11 +27,11 @@ struct CustomTextAndFontView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                    RoundedRectangle(cornerRadius: CornerRadius.nano)
                         .stroke(style: .init(lineWidth: 1))
                 )
             }
-            .padding(InsetSpacing.xxs)
+            .padding(InsetSpacing.md)
 
             // CUSTOM FONTS
             VStack(alignment: .leading) {
@@ -53,11 +53,11 @@ struct CustomTextAndFontView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                    RoundedRectangle(cornerRadius: CornerRadius.quark)
                         .stroke(style: .init(lineWidth: 1))
                 )
             }
-            .padding(InsetSpacing.xxs)
+            .padding(InsetSpacing.md)
             Spacer()
         }
         .navigationTitle("Fonts")

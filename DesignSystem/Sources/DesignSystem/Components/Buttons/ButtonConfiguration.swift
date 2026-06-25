@@ -8,63 +8,52 @@ import SwiftUI
 
 public enum ButtonType {
     
-    // Regular Actions
-    case primary
-    case secondary
-    case tertiary
-    
-    // Call to action
+    case regular
     case success
     case warning
     case danger
     
     var font: Font {
-        switch self {
-        case .primary, .success, .warning, .danger: .title3
-        case .secondary: .headline
-        case .tertiary: .callout
-        }
+        return .title3
     }
     var backgroundColor: Color {
         switch self {
-        case .primary: .orange
-        case .secondary: .cyan
-        case .tertiary: .purple
+        case .regular: .orange
         case .success: .green
         case .warning: .yellow
         case .danger: .red
         }
     }
-    var textColor: Color {
+    var iconColor: Color {
         switch self {
-        case .primary, .success, .warning, .danger: .white
-        case .secondary: .black
-        case .tertiary: .white
+        case .regular: .white
+        default: .clear
         }
+    }
+    var textColor: Color {
+        return .adaptive(light: .black, dark: .white)
     }
 }
 
 public enum ButtonHeight {
     case small
-    case normal
-    case large
-    case extraLarge
+    case regular
+    case big
     
     var size: CGFloat {
         switch self {
         case .small:
+            return HeightSize.xxs
+        case .regular:
+            return HeightSize.xs
+        case .big:
             return HeightSize.sm
-        case .normal:
-            return HeightSize.md
-        case .large:
-            return HeightSize.lg
-        case .extraLarge:
-            return HeightSize.xl
         }
     }
 }
 
 public enum ButtonPadding {
+    case xsmall
     case small
     case normal
     case large
@@ -72,8 +61,10 @@ public enum ButtonPadding {
     
     var value: CGFloat {
         switch self {
-        case .small:
+        case .xsmall:
             return InsetSpacing.xs
+        case .small:
+            return InsetSpacing.sm
         case .normal:
             return InsetSpacing.md
         case .large:

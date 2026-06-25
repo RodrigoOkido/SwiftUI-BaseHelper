@@ -21,15 +21,15 @@ struct HapticsFeedbackView: View {
                     Button("Success") {
                         UINotificationFeedbackGenerator().notificationOccurred(.success)
                     }
-                    .buttonStyle(.success)
+                    .buttonStyle(PrimaryButtonStyle(.success))
                     Button("Error") {
                         UINotificationFeedbackGenerator().notificationOccurred(.error)
                     }
-                    .buttonStyle(.danger)
+                    .buttonStyle(PrimaryButtonStyle(.danger))
                     Button("Warning") {
                         UINotificationFeedbackGenerator().notificationOccurred(.warning)
                     }
-                    .buttonStyle(.warning)
+                    .buttonStyle(PrimaryButtonStyle(.warning))
                 }
                 Text("Impact Feedback types")
                     .bold()
@@ -38,39 +38,39 @@ struct HapticsFeedbackView: View {
                     Button("Heavy") {
                         UIImpactFeedbackGenerator(style: .heavy).impactOccurred()
                     }
-                    .buttonStyle(.primary)
+                    .buttonStyle(PrimaryButtonStyle(.regular))
                     Button("Light") {
                         UIImpactFeedbackGenerator(style: .light).impactOccurred()
                     }
-                    .buttonStyle(.primary)
+                    .buttonStyle(PrimaryButtonStyle(.regular))
                 }
                 HStack {
                     
                     Button("Medium") {
                         UIImpactFeedbackGenerator(style: .medium).impactOccurred()
                     }
-                    .buttonStyle(.primary)
+                    .buttonStyle(PrimaryButtonStyle(.regular))
                     Button("Rigid") {
                         UIImpactFeedbackGenerator(style: .rigid).impactOccurred()
                     }
-                    .buttonStyle(.primary)
-                    
+                    .buttonStyle(PrimaryButtonStyle(.regular))
+
                     Button("Soft") {
                         UIImpactFeedbackGenerator(style: .soft).impactOccurred()
                     }
-                    .buttonStyle(.primary)
+                    .buttonStyle(PrimaryButtonStyle(.regular))
                 }
                 .padding()
             }
             .frame(maxWidth: .infinity)
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                RoundedRectangle(cornerRadius: CornerRadius.nano)
                     .stroke(style: .init(lineWidth: 1))
             )
             Spacer()
         }
-        .padding(InsetSpacing.xxs)
+        .padding(InsetSpacing.md)
         .navigationTitle("Haptics")
         .navigationBarTitleDisplayMode(.large)
     }

@@ -27,8 +27,8 @@ struct APIMovieDetailView: View {
                 } placeholder: {
                     Text(viewModel.movie.title)
                 }
-                .frame(width: WidthSize.giant, 
-                       height: HeightSize.titan,
+                .frame(width: WidthSize.lg,
+                       height: HeightSize.xxl,
                        alignment: .center)
                 .cornerRadius(CornerRadius.sm)
                 VStack(alignment: .leading) {

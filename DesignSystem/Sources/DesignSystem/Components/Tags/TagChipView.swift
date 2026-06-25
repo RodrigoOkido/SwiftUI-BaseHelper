@@ -52,7 +52,7 @@ public struct TagChipView: View {
 
     // MARK: - Content
     public var body: some View {
-        HStack(spacing: StackSpacing.quarck) {
+        HStack(spacing: StackSpacing.quark) {
             if let icon {
                 Image(systemName: icon)
                     .font(.caption2)
@@ -64,7 +64,7 @@ public struct TagChipView: View {
         }
         .foregroundStyle(color)
         .padding(.horizontal, InsetSpacing.nano)
-        .padding(.vertical, StackSpacing.quarck)
+        .padding(.vertical, StackSpacing.quark)
         .background(background)
         .accessibilityLabel("Tag Chip")
         .accessibilityValue("\(label) tag with color \(color.description)")
@@ -80,10 +80,10 @@ public struct TagChipView: View {
             Capsule()
                 .stroke(color, lineWidth: BorderWidth.thin)
         case .squareFilled:
-            RoundedRectangle(cornerRadius: CornerRadius.quarck)
+            RoundedRectangle(cornerRadius: CornerRadius.quark)
                 .fill(color.opacity(OpacityLevel.transparent))
         case .squareOutlined:
-            RoundedRectangle(cornerRadius: CornerRadius.quarck)
+            RoundedRectangle(cornerRadius: CornerRadius.quark)
                 .stroke(color, lineWidth: BorderWidth.thin)
         }
     }

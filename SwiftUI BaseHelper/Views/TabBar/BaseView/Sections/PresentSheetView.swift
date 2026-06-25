@@ -15,42 +15,42 @@ struct PresentSheetView: View {
 
     // MARK: - Content
     var body: some View {
-        VStack(spacing: StackSpacing.quarck) {
-            CustomButton(type: .tertiary,
+        VStack(spacing: StackSpacing.nano) {
+            CustomButton(type: .regular,
                          title: "Show small Sheet",
                          cornerRadius: .small) {
                 router.present(view: DestinationView.sheetView,
                                detents: [.fraction(0.25)])
             }
-            CustomButton(type: .tertiary,
+            CustomButton(type: .regular,
                          title: "Show Medium Sheet",
                          cornerRadius: .small) {
                 router.present(view: DestinationView.sheetView,
                                detents: [.medium])
             }
-            CustomButton(type: .tertiary,
+            CustomButton(type: .regular,
                          title: "Show Medium / Large Sheet",
                          cornerRadius: .small) {
                 router.present(view: DestinationView.sheetView,
                                detents: [.medium, .large])
             }
-            CustomButton(type: .tertiary,
+            CustomButton(type: .regular,
                          title: "Show Large Sheet",
                          cornerRadius: .small) {
                 router.present(view: DestinationView.sheetView)
             }
-            CustomButton(type: .tertiary,
+            CustomButton(type: .regular,
                          title: "Show Fullscreen Sheet",
                          cornerRadius: .small) {
                 router.presentFullScreen(view: DestinationView.sheetView)
             }
-            CustomButton(type: .tertiary,
+            CustomButton(type: .regular,
                          title: "Show Dynamic Sheet",
                          cornerRadius: .small) {
                 router.presentWithDynamicHeight(view: DestinationView.dynamicSheetView)
             }
         }
-        .padding(.horizontal, InsetSpacing.xxs)
+        .padding(.horizontal, InsetSpacing.md)
         .navigationTitle("Bottomsheet Types")
         .navigationBarTitleDisplayMode(.large)
     }
@@ -73,7 +73,7 @@ struct SheetView: View {
                 }
                 .padding()
             }
-            .padding(InsetSpacing.xs)
+            .padding(InsetSpacing.sm)
         }
     }
 }

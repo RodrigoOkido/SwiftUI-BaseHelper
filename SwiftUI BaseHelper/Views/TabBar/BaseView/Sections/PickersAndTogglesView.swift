@@ -89,11 +89,11 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                RoundedRectangle(cornerRadius: CornerRadius.quark)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
-        .padding(InsetSpacing.xxs)
+        .padding(InsetSpacing.md)
     }
     
     private var datepickerSectionView: some View {
@@ -125,11 +125,11 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                RoundedRectangle(cornerRadius: CornerRadius.quark)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
-        .padding(InsetSpacing.xxs)
+        .padding(InsetSpacing.md)
     }
     
     
@@ -159,11 +159,11 @@ struct PickersAndTogglesView: View {
             }
             .padding()
             .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                RoundedRectangle(cornerRadius: CornerRadius.quark)
                     .stroke(style: .init(lineWidth: 1))
             )
         }
-        .padding(InsetSpacing.xxs)
+        .padding(InsetSpacing.md)
     }
 }
     

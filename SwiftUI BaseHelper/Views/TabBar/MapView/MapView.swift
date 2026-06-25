@@ -51,7 +51,7 @@ struct MapView: View {
                         .padding()
                         .foregroundColor(.white)
                 }
-                .padding(InsetSpacing.quarck)
+                .padding(InsetSpacing.quark)
                 .background(.black)
                 .opacity(OpacityLevel.opaque)
             }

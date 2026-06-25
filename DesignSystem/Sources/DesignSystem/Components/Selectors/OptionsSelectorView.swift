@@ -61,7 +61,7 @@ public struct OptionsSelectorView: View {
     }
     
     private var radioButtonSelectorView: some View {
-        VStack(alignment: .leading, spacing: StackSpacing.xxxs) {
+        VStack(alignment: .leading, spacing: StackSpacing.md) {
             ForEach(options, id: \.self) { option in
                 Button(action: {
                    setSelection(option)
@@ -92,7 +92,7 @@ public struct OptionsSelectorView: View {
     }
     
     private var checkboxSelectorView: some View {
-        VStack(alignment: .leading, spacing: StackSpacing.xxxs) {
+        VStack(alignment: .leading, spacing: StackSpacing.md) {
             ForEach(options, id: \.self) { option in
                 Button(action: {
                     setSelection(option)

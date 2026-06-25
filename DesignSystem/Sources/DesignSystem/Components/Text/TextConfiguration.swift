@@ -19,9 +19,6 @@ public enum TextStyle {
     }
 
     var textColor: Color {
-        switch self {
-        case .title: .black
-        case .regular: .black
-        }
+        return .adaptive(light: .black, dark: .white)
     }
 }

@@ -79,7 +79,7 @@ private extension GeometryReaderExampleView {
                 endPoint: .bottom
             )
 
-            VStack(alignment: .leading, spacing: StackSpacing.quarck) {
+            VStack(alignment: .leading, spacing: StackSpacing.quark) {
                 Text("Now Playing")
                     .font(.caption)
                     .foregroundStyle(.white.opacity(OpacityLevel.opaque))
@@ -96,7 +96,7 @@ private extension GeometryReaderExampleView {
                     .opacity(max(0, 1 - headerProgress * 2.5))
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding([.horizontal, .bottom], InsetSpacing.xxs)
+            .padding([.horizontal, .bottom], InsetSpacing.md)
         }
         .frame(maxWidth: .infinity)
         .frame(height: headerHeight(topInset: topInset), alignment: .bottom)
@@ -110,12 +110,12 @@ private extension GeometryReaderExampleView {
                 Color.clear
                     .frame(height: maxHeaderHeight + topInset)
 
-                VStack(spacing: StackSpacing.quarck) {
+                VStack(spacing: StackSpacing.nano) {
                     ForEach(sampleTracks.indices, id: \.self) { index in
                         trackRow(title: sampleTracks[index], index: index)
                     }
                 }
-                .padding(.horizontal, InsetSpacing.xxs)
+                .padding(.horizontal, InsetSpacing.md)
                 .padding(.vertical, InsetSpacing.nano)
             }
         }
@@ -147,7 +147,7 @@ private extension GeometryReaderExampleView {
                         .font(.body)
                 }
 
-            VStack(alignment: .leading, spacing: StackSpacing.quarck) {
+            VStack(alignment: .leading, spacing: StackSpacing.nano) {
                 Text(title)
                     .font(.headline)
                     .lineLimit(1)

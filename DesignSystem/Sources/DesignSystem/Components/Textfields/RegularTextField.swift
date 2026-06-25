@@ -58,7 +58,7 @@ public struct RegularTextField: CustomTextField, View {
                 .bold()
                 .accessibilityLabel(fieldName)
                 .accessibilityAddTraits(.isStaticText)
-            HStack(spacing: StackSpacing.quarck) {
+            HStack(spacing: StackSpacing.quark) {
                 if let leadingIcon {
                     leadingIcon
                         .resizable()
@@ -70,7 +70,7 @@ public struct RegularTextField: CustomTextField, View {
                           axis: .vertical
                 )
                 .focused($isFocused)
-                .padding(.horizontal, InsetSpacing.quarck)
+                .padding(.horizontal, InsetSpacing.quark)
                 .accessibilityLabel(placeholder)
                 .accessibilityValue(textContent)
                 if let trailingIcon {

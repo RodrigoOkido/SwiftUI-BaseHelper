@@ -105,8 +105,8 @@ struct APIView: View {
                                         .progressViewStyle(.circular)
                                 }
                             }
-                            .frame(width: WidthSize.xxl,
-                                   height: HeightSize.huge)
+                            .frame(width: WidthSize.xl,
+                                   height: HeightSize.xxxl)
                             .cornerRadius(CornerRadius.sm)
                             VStack(alignment: .leading) {
                                 HStack(spacing: 10) {

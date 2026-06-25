@@ -31,9 +31,9 @@ struct FavoriteMoviesView: View {
                         .bold()
                     TextField("Movie name",
                               text: $searchText)
-                        .padding(InsetSpacing.quarck)
+                        .padding(InsetSpacing.quark)
                         .background(.gray)
-                        .cornerRadius(CornerRadius.quarck)
+                        .cornerRadius(CornerRadius.nano)
                 }
                 .padding()
                 List(searchText.isEmpty ? favoriteMovies :  searchMovieResult) { movie in

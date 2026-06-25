@@ -38,41 +38,84 @@ public struct IconSize {
     public static let huge: CGFloat = 150
 }
 
+/// Some usual applications Width sizes
 public struct WidthSize {
 
-    public static let nano: CGFloat = 4
-    public static let xs: CGFloat = 20
-    public static let sm: CGFloat = 36
-    public static let md: CGFloat = 46
-    public static let lg: CGFloat = 64
-    public static let xl: CGFloat = 72
-    public static let xxl: CGFloat = 96
-    public static let xxxl: CGFloat = 110
-    public static let huge: CGFloat = 150
-    public static let giant: CGFloat = 280
+    /// xxxs:  Width size of 16pt
+    public static let xxxs: CGFloat = 16
+    
+    /// xxs:  Width size of 32pt
+    public static let xxs: CGFloat = 32
+    
+    /// xs:  Width size of 48pt
+    public static let xs: CGFloat = 48
+    
+    /// sm:  Width size of 64pt
+    public static let sm: CGFloat = 64
+    
+    /// md:  Width size of 128pt
+    public static let md: CGFloat = 128
+    
+    /// lg:  Width size of 160pt
+    public static let lg: CGFloat = 160
+    
+    /// xl:  Width size of 180pt
+    public static let xl: CGFloat = 180
+    
+    /// xxl:  Width size of 220pt
+    public static let xxl: CGFloat = 220
+    
+    /// xxxl:  Width size of 250pt
+    public static let xxxl: CGFloat = 250
+    
+    /// huge:  Width size of 200pt
+    public static let huge: CGFloat = 300
+    
+    /// giant:  Width size of 350pt
+    public static let giant: CGFloat = 350
+    
+    /// titan:  Width size of 400pt
+    public static let titan: CGFloat = 400
 }
 
+/// Some usual applications Height sizes
 public struct HeightSize {
 
-    public static let nano: CGFloat = 4
-    public static let xs: CGFloat = 20
-    public static let sm: CGFloat = 36
-    public static let md: CGFloat = 46
-    public static let lg: CGFloat = 64
-    public static let xl: CGFloat = 72
-    public static let xxl: CGFloat = 96
-    public static let xxxl: CGFloat = 110
-    public static let huge: CGFloat = 150
-    public static let giant: CGFloat = 300
-    public static let titan: CGFloat = 360
-}
-
-public struct ActionButtonSize {
-
-    public static let sm: CGFloat = 46
-    public static let md: CGFloat = 56
-    public static let lg: CGFloat = 64
-    public static let xl: CGFloat = 72
+    /// xxxs:  Height size of 16pt
+    public static let xxxs: CGFloat = 16
+    
+    /// xxs:  Height size of 32pt
+    public static let xxs: CGFloat = 32
+    
+    /// xs:  Height size of 48pt
+    public static let xs: CGFloat = 48
+    
+    /// sm:  Height size of 64pt
+    public static let sm: CGFloat = 64
+    
+    /// md:  Height size of 128pt
+    public static let md: CGFloat = 128
+    
+    /// lg:  Height size of 160pt
+    public static let lg: CGFloat = 160
+    
+    /// xl:  Height size of 180pt
+    public static let xl: CGFloat = 180
+    
+    /// xxl:  Height size of 220pt
+    public static let xxl: CGFloat = 220
+    
+    /// xxxl:  Height size of 250pt
+    public static let xxxl: CGFloat = 250
+    
+    /// huge:  Height size of 200pt
+    public static let huge: CGFloat = 300
+    
+    /// giant:  Height size of 350pt
+    public static let giant: CGFloat = 350
+    
+    /// titan:  Height size of 400pt
+    public static let titan: CGFloat = 400
 }
 
 /// CornerRadius to define how rounded the element or component should be.
@@ -81,8 +124,11 @@ public struct CornerRadius {
     /// none: CornerRadius of 0pt
     public static let none: CGFloat = 0
     
-    /// quarck: CornerRadius of 4pt
-    public static let quarck: CGFloat = 4
+    /// quark: CornerRadius of 2pt
+    public static let quark: CGFloat = 2
+    
+    /// nano: CornerRadius of 4pt
+    public static let nano: CGFloat = 4
     
     /// sm: CornerRadius of 8pt
     public static let sm: CGFloat = 8
@@ -97,88 +143,93 @@ public struct CornerRadius {
 /// StackSpacing to define space between elements. eg: VStack, HStack
 public struct StackSpacing {
 
-    /// quarck: StackSpacing of 4pt
-    public static let quarck: CGFloat = 4
+    /// quark: StackSpacing of 2pt
+    public static let quark: CGFloat = 2
     
-    /// nano: StackSpacing of 8pt
-    public static let nano: CGFloat = 8
+    /// nano: StackSpacing of 4pt
+    public static let nano: CGFloat = 4
     
-    /// micro: StackSpacing of 12pt
-    public static let micro: CGFloat = 12
+    /// micro: StackSpacing of 8pt
+    public static let micro: CGFloat = 8
     
-    /// xxxs: StackSpacing of 16pt
-    public static let xxxs: CGFloat = 16
+    /// xxs: StackSpacing of 10pt
+    public static let xxs: CGFloat = 10
     
-    /// xxs: StackSpacing of 24pt
-    public static let xxs: CGFloat = 24
+    /// xs: StackSpacing of 12pt
+    public static let xs: CGFloat = 12
     
-    /// xs: StackSpacing of 32pt
-    public static let xs: CGFloat = 32
+    /// sm: StackSpacing of 14pt
+    public static let sm: CGFloat = 14
     
-    /// sm: StackSpacing of 40pt
-    public static let sm: CGFloat = 40
+    /// md: StackSpacing of 16pt
+    public static let md: CGFloat = 16
     
-    /// md: StackSpacing of 48pt
-    public static let md: CGFloat = 48
+    /// lg: StackSpacing of 20pt
+    public static let lg: CGFloat = 20
     
-    /// lg: StackSpacing of 56pt
-    public static let lg: CGFloat = 56
+    /// xl: StackSpacing of 24pt
+    public static let xl: CGFloat = 24
     
-    /// xl: StackSpacing of 64pt
-    public static let xl: CGFloat = 64
+    /// xxl: StackSpacing of 28pt
+    public static let xxl: CGFloat = 28
     
-    /// xxl: StackSpacing of 80pt
-    public static let xxl: CGFloat = 80
+    /// xxxl: StackSpacing of 32pt
+    public static let xxxl: CGFloat = 32
     
-    /// xxxl: StackSpacing of 120pt
-    public static let xxxl: CGFloat = 120
+    /// huge: StackSpacing of 64pt
+    public static let huge: CGFloat = 64
     
-    /// huge: StackSpacing of 160pt
-    public static let huge: CGFloat = 160
-    
-    /// giant: StackSpacing of 200pt
-    public static let giant: CGFloat = 200
+    /// giant: StackSpacing of 128pt
+    public static let giant: CGFloat = 128
 }
 
 public struct InlineSpacing {
 
-    public static let quarck: CGFloat = 4
-    public static let nano: CGFloat = 8
-    public static let xxxs: CGFloat = 16
-    public static let xxs: CGFloat = 24
-    public static let xs: CGFloat = 32
-    public static let sm: CGFloat = 40
-    public static let md: CGFloat = 48
-    public static let lg: CGFloat = 64
-    public static let xl: CGFloat = 80
+    /// quark: InlineSpacing of 1pt
+    public static let quark: CGFloat = 1
+    
+    /// nano: InlineSpacing of 2pt
+    public static let nano: CGFloat = 2
+    
+    /// xs: InlineSpacing of 4pt
+    public static let xs: CGFloat = 4
+    
+    /// sm: InlineSpacing of 6pt
+    public static let sm: CGFloat = 6
+    
+    /// md: InlineSpacing of 10pt
+    public static let md: CGFloat = 10
+    
+    /// lg: InlineSpacing of 14pt
+    public static let lg: CGFloat = 14
+    
+    /// xl: InlineSpacing of 18pt
+    public static let xl: CGFloat = 18
 }
 
 /// InsetSpacing. Same terminology as Paddings
 public struct InsetSpacing {
 
-    /// quarck: InsetSpacing of 4pt
-    public static let quarck: CGFloat = 4
+    /// quark: InsetSpacing of 2pt
+    public static let quark: CGFloat = 2
     
-    /// nano: InsetSpacing of 8pt
-    public static let nano: CGFloat = 8
+    /// nano: InsetSpacing of 4pt
+    public static let nano: CGFloat = 4
     
-    /// xxxs: InsetSpacing of 12pt
-    public static let xxxs: CGFloat = 12
+    /// xs: InsetSpacing of 8pt
+    public static let xs: CGFloat = 8
     
-    /// xxs: InsetSpacing of 16pt
-    public static let xxs: CGFloat = 16
+    /// sm: InsetSpacing of 12pt
+    public static let sm: CGFloat = 12
     
-    /// xs: InsetSpacing of 24pt
-    public static let xs: CGFloat = 24
+    /// md: InsetSpacing of 16pt
+    public static let md: CGFloat = 16
     
-    /// md: InsetSpacing of 32pt
-    public static let md: CGFloat = 32
+    /// lg: InsetSpacing of 20pt
+    public static let lg: CGFloat = 20
     
-    /// lg: InsetSpacing of 40pt
-    public static let lg: CGFloat = 40
-    
-    /// xl: InsetSpacing of 72pt
-    public static let xl: CGFloat = 72
+    /// xl: InsetSpacing of 24pt
+    public static let xl: CGFloat = 24
 }
 
 /// OpacityLevel of a component
@@ -200,13 +251,25 @@ public struct OpacityLevel {
     public static let invisible: CGFloat = 0
 }
 
+/// BorderWidth of a component
 public struct BorderWidth {
 
+    /// none: Border width of 0
     public static let none: CGFloat = 0
-    public static let hairline: CGFloat = 1
-    public static let thin: CGFloat = 2
-    public static let medium: CGFloat = 3
-    public static let thick: CGFloat = 4
-    public static let heavy: CGFloat = 8
+    
+    /// hairline: Border width of 0.5
+    public static let hairline: CGFloat = 0.5
+    
+    /// thin: Border width of 1
+    public static let thin: CGFloat = 1
+    
+    /// medium: Border width of 1.5
+    public static let medium: CGFloat = 1.5
+    
+    /// thick: Border width of 2
+    public static let thick: CGFloat = 2
+    
+    /// heavy: Border width of 4
+    public static let heavy: CGFloat = 4
 }
 

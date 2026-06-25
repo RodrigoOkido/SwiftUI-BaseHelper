@@ -53,7 +53,7 @@ public struct PasswordTextField: CustomTextField, View {
                 .bold()
                 .accessibilityLabel(fieldName)
                 .accessibilityAddTraits(.isStaticText)
-            HStack(spacing: StackSpacing.quarck) {
+            HStack(spacing: StackSpacing.quark) {
                 
                 if shouldShowPassword {
                     TextField(placeholder,
@@ -61,7 +61,7 @@ public struct PasswordTextField: CustomTextField, View {
                               axis: .vertical
                     )
                     .focused($isFocused)
-                    .padding(.horizontal, InsetSpacing.quarck)
+                    .padding(.horizontal, InsetSpacing.quark)
                     .accessibilityLabel(placeholder)
                     .accessibilityHint("Insert your password")
                     
@@ -78,7 +78,7 @@ public struct PasswordTextField: CustomTextField, View {
                 } else {
                     SecureField(placeholder, text: $textContent)
                         .focused($isFocused)
-                        .padding(.horizontal, InsetSpacing.quarck)
+                        .padding(.horizontal, InsetSpacing.quark)
                     Spacer()
                     Image(systemName: "eye.slash")
                         .resizable()

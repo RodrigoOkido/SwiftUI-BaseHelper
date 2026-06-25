@@ -34,7 +34,7 @@ struct DatesView: View {
                     .font(.title2)
                 Text("Converting String date into Date Object")
 
-                VStack(alignment: .leading, spacing: StackSpacing.quarck) {
+                VStack(alignment: .leading, spacing: StackSpacing.nano) {
 
                     // localDateType3
                     Text("Format - dd/MM/yyyy")
@@ -88,11 +88,11 @@ struct DatesView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
                 .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.quarck)
+                    RoundedRectangle(cornerRadius: CornerRadius.nano)
                         .stroke(style: .init(lineWidth: 1))
                 )
             }
-            .padding(InsetSpacing.xxs)
+            .padding(InsetSpacing.md)
             .navigationTitle("Dates Handlers")
             .navigationBarTitleDisplayMode(.large)
         }

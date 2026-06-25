@@ -50,12 +50,12 @@ public struct CustomButton: View {
     private let action: () -> Void
     
     // MARK: - Initializer
-    public init(type: ButtonType = .primary,
+    public init(type: ButtonType = .regular,
                 title: String,
                 alignment: ButtonContentPosition = .center,
                 leadingImage: Image? = nil,
                 trailingImage: Image? = nil,
-                height: ButtonHeight = .normal,
+                height: ButtonHeight = .regular,
                 padding: ButtonPadding = .normal,
                 cornerRadius: ButtonCornerRadius = .small,
                 borderColor: Color? = nil,
@@ -124,10 +124,10 @@ public struct CustomButton: View {
     CustomButton(title: "Sample 3",
                  trailingImage: Image(systemName: "globe"),
                  action: {})
-    CustomButton(type: .secondary,
+    CustomButton(type: .regular,
                  title: "Sample secondary",
                  action: {})
-    CustomButton(type: .tertiary,
+    CustomButton(type: .regular,
                  title: "Sample tertiary",
                  action: {})
 }
