@@ -16,22 +16,3 @@ public extension View {
         modifier(TextStyleModifier(style))
     }
 }
-
-struct TextStyleModifier: ViewModifier {
-    
-    // MARK: - Public Properties
-    var style: TextStyle
-    
-    // MARK: - Initializer
-    init(_ style: TextStyle) {
-        self.style = style
-    }
-    
-    // MARK: - Content
-    func body(content: Content) -> some View {
-        content
-            .font(style.font)
-            .foregroundColor(style.textColor)
-            .fontWeight(style.fontWeight)
-    }
-}
