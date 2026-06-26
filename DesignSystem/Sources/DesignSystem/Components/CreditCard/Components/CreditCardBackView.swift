@@ -11,6 +11,11 @@ struct CreditCardBackView: View {
     // MARK: - Property Wrappers
     @Binding private var cvv: String
     
+    // MARK: - Computed Properties
+    private var cvvValue: String {
+        cvv.isEmpty ? "• • •" : cvv
+    }
+    
     // MARK: - Initializer
     init(cvv: Binding<String>) {
         self._cvv = cvv
@@ -19,7 +24,7 @@ struct CreditCardBackView: View {
     // MARK: - Content
     var body: some View {
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: CornerRadius.lg)
                 .fill(
                     LinearGradient(
                         colors: [Color(red: 0.18, green: 0.1, blue: 0.32), Color(red: 0.12, green: 0.12, blue: 0.25)],
@@ -37,38 +42,38 @@ struct CreditCardBackView: View {
 
                 Spacer().frame(height: 20)
 
-                HStack(spacing: 10) {
+                HStack(spacing: StackSpacing.xxs) {
                     ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(.white.opacity(0.9))
+                        RoundedRectangle(cornerRadius: CornerRadius.nano)
+                            .fill(.white.opacity(OpacityLevel.almostSolid))
                             .frame(height: 36)
 
-                        VStack(alignment: .leading, spacing: 4) {
+                        VStack(alignment: .leading, spacing: StackSpacing.nano) {
                             ForEach(0..<4) { _ in
-                                RoundedRectangle(cornerRadius: 2)
+                                RoundedRectangle(cornerRadius: CornerRadius.quark)
                                     .fill(Color(red: 0.5, green: 0.6, blue: 0.9).opacity(0.25))
                                     .frame(height: 4)
                             }
                         }
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 6)
+                        .padding(.horizontal, InsetSpacing.xxs)
+                        .padding(.vertical, InsetSpacing.xxs)
                     }
 
-                    VStack(spacing: 3) {
+                    VStack(spacing: StackSpacing.nano) {
                         Text("CVV")
                             .font(.system(size: 9, weight: .bold))
-                            .foregroundStyle(.white.opacity(0.5))
+                            .foregroundStyle(.white.opacity(OpacityLevel.medium))
                         ZStack {
-                            RoundedRectangle(cornerRadius: 6)
+                            RoundedRectangle(cornerRadius: CornerRadius.xxs)
                                 .fill(.white.opacity(0.12))
                                 .frame(width: 54, height: 36)
-                            Text(cvv.isEmpty ? "• • •" : cvv)
+                            Text(cvvValue)
                                 .font(.system(size: 16, weight: .bold))
-                                .foregroundStyle(.white.opacity(0.85))
+                                .foregroundStyle(.white.opacity(OpacityLevel.opaque))
                         }
                     }
                 }
-                .padding(.horizontal, 24)
+                .padding(.horizontal, InsetSpacing.xl)
 
                 Spacer()
 
@@ -76,31 +81,20 @@ struct CreditCardBackView: View {
                     Spacer()
                     Text("SWIFT BANK")
                         .font(.system(size: 11, weight: .semibold, design: .rounded))
-                        .foregroundStyle(.white.opacity(0.35))
+                        .foregroundStyle(.white.opacity(OpacityLevel.semiTransparent))
                         .tracking(3)
                 }
-                .padding(.horizontal, 24)
-                .padding(.bottom, 20)
+                .padding(.horizontal, InsetSpacing.xl)
+                .padding(.bottom, InsetSpacing.lg)
             }
         }
         .frame(width: 340, height: 210)
-        .shadow(color: .black.opacity(0.35), radius: 24, y: 12)
+        .shadow(color: .black.opacity(OpacityLevel.semiTransparent), radius: 24, y: 12)
     }
 }
 
 #Preview {
-    ZStack {
-        LinearGradient(colors: [.mint.opacity(0.3), .teal.opacity(0.3)], startPoint: .top, endPoint: .bottom)
-            .ignoresSafeArea()
-        VStack(spacing: 16) {
-            CreditCardView(accountNumber: .constant("4512 3456 7890 1234"),
-                           accountHolder: .constant("John Doe"),
-                           expirationDate: .constant("08/28"),
-                           cvv: .constant("123")
-            )
-            Text("Tap to flip")
-                .font(.footnote)
-                .foregroundStyle(.secondary)
-        }
+    VStack(spacing: 16) {
+        CreditCardBackView(cvv: .constant("123"))
     }
 }

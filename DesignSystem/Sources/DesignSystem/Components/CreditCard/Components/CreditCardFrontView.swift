@@ -13,6 +13,17 @@ struct CreditCardFrontView: View {
     @Binding private var accountHolder: String
     @Binding private var expirationDate: String
 
+    // MARK: - Computed Properties
+    private var accountNumberValue: String {
+        accountNumber.isEmpty ? "1234  5678  9012  3456" : accountNumber
+    }
+    private var accountHolderValue: String {
+        accountHolder.isEmpty ? "John Appleseed" : accountHolder
+    }
+    private var expirationDateValue: String {
+        expirationDate.isEmpty ? "01 / 32" : expirationDate
+    }
+    
     // MARK: - Initializer
     init(accountNumber: Binding<String>,
          accountHolder: Binding<String>,
@@ -26,7 +37,7 @@ struct CreditCardFrontView: View {
     // MARK: - Content
     var body: some View {
         ZStack(alignment: .topLeading) {
-            RoundedRectangle(cornerRadius: 20)
+            RoundedRectangle(cornerRadius: CornerRadius.lg)
                 .fill(
                     LinearGradient(
                         colors: [Color(red: 0.13, green: 0.13, blue: 0.28), Color(red: 0.25, green: 0.1, blue: 0.45)],
@@ -34,7 +45,6 @@ struct CreditCardFrontView: View {
                         endPoint: .bottomTrailing
                     )
                 )
-
             Circle()
                 .fill(.white.opacity(0.06))
                 .frame(width: 220, height: 220)
@@ -44,10 +54,9 @@ struct CreditCardFrontView: View {
                 .fill(.white.opacity(0.04))
                 .frame(width: 160, height: 160)
                 .offset(x: -40, y: 120)
-
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    RoundedRectangle(cornerRadius: 5)
+                    RoundedRectangle(cornerRadius: CornerRadius.nano)
                         .fill(
                             LinearGradient(
                                 colors: [Color(red: 0.85, green: 0.72, blue: 0.35), Color(red: 0.95, green: 0.85, blue: 0.55)],
@@ -57,12 +66,10 @@ struct CreditCardFrontView: View {
                         )
                         .frame(width: 42, height: 32)
                         .overlay(
-                            RoundedRectangle(cornerRadius: 5)
-                                .stroke(.yellow.opacity(0.4), lineWidth: 0.5)
+                            RoundedRectangle(cornerRadius: CornerRadius.nano)
+                                .stroke(.yellow.opacity(OpacityLevel.medium), lineWidth: 0.5)
                         )
-
                     Spacer()
-
                     HStack(spacing: -10) {
                         Circle()
                             .fill(Color.red.opacity(0.85))
@@ -72,24 +79,22 @@ struct CreditCardFrontView: View {
                             .frame(width: 30, height: 30)
                     }
                 }
-
                 Spacer()
-
-                Text(accountNumber.isEmpty ? "1234  5678  9012  3456" : accountNumber)
+                Text(accountNumberValue)
                     .font(.system(size: 17, weight: .medium, design: .monospaced))
-                    .foregroundStyle(.white.opacity(0.9))
+                    .foregroundStyle(.white.opacity(OpacityLevel.almostSolid))
                     .tracking(2)
 
                 Spacer().frame(height: 18)
 
                 HStack(alignment: .bottom) {
-                    VStack(alignment: .leading, spacing: 3) {
+                    VStack(alignment: .leading, spacing: StackSpacing.nano) {
                         Text("CARD HOLDER")
                             .font(.system(size: 9, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.5))
-                        Text(accountHolder.isEmpty ? "John Appleseed" : accountHolder)
+                            .foregroundStyle(.white.opacity(OpacityLevel.medium))
+                        Text(accountHolderValue)
                             .font(.system(size: 14, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.9))
+                            .foregroundStyle(.white.opacity(OpacityLevel.almostSolid))
                     }
 
                     Spacer()
@@ -97,10 +102,10 @@ struct CreditCardFrontView: View {
                     VStack(alignment: .trailing, spacing: 3) {
                         Text("EXPIRES")
                             .font(.system(size: 9, weight: .medium))
-                            .foregroundStyle(.white.opacity(0.5))
-                        Text(expirationDate.isEmpty ? "01 / 32" : expirationDate)
+                            .foregroundStyle(.white.opacity(OpacityLevel.medium))
+                        Text(expirationDateValue)
                             .font(.system(size: 14, weight: .semibold))
-                            .foregroundStyle(.white.opacity(0.9))
+                            .foregroundStyle(.white.opacity(OpacityLevel.almostSolid))
                     }
                 }
             }
@@ -108,7 +113,13 @@ struct CreditCardFrontView: View {
         }
         .frame(width: 340, height: 210)
         .aspectRatio(contentMode: .fit)
-        .shadow(color: .black.opacity(0.35), radius: 24, y: 12)
+        .shadow(color: .black.opacity(OpacityLevel.semiTransparent), radius: 24, y: 12)
     }
+}
+
+#Preview {
+    CreditCardFrontView(accountNumber: .constant("4512 3456 7890 1234"),
+                        accountHolder: .constant("John Doe"),
+                        expirationDate: .constant("08/28"))
 }
 

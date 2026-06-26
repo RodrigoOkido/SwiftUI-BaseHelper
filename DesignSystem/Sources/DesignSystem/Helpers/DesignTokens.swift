@@ -130,14 +130,23 @@ public struct CornerRadius {
     /// nano: CornerRadius of 4pt
     public static let nano: CGFloat = 4
     
-    /// sm: CornerRadius of 8pt
-    public static let sm: CGFloat = 8
+    /// xs: CornerRadius of 8pt
+    public static let xxs: CGFloat = 8
+    
+    /// xs: CornerRadius of 10pt
+    public static let xs: CGFloat = 10
+    
+    /// xs: CornerRadius of 12pt
+    public static let sm: CGFloat = 12
     
     /// md: CornerRadius of 16pt
     public static let md: CGFloat = 16
     
-    /// lg: CornerRadius of 24pt
-    public static let lg: CGFloat = 24
+    /// lg: CornerRadius of 20pt
+    public static let lg: CGFloat = 20
+    
+    /// xl: CornerRadius of 24pt
+    public static let xl: CGFloat = 24
 }
 
 /// StackSpacing to define space between elements. eg: VStack, HStack
@@ -216,8 +225,11 @@ public struct InsetSpacing {
     /// nano: InsetSpacing of 4pt
     public static let nano: CGFloat = 4
     
-    /// xs: InsetSpacing of 8pt
-    public static let xs: CGFloat = 8
+    /// xxs: InsetSpacing of 8pt
+    public static let xxs: CGFloat = 8
+    
+    /// xs: InsetSpacing of 10pt
+    public static let xs: CGFloat = 10
     
     /// sm: InsetSpacing of 12pt
     public static let sm: CGFloat = 12
@@ -238,11 +250,17 @@ public struct OpacityLevel {
     /// solid: OpacityLevel 100%
     public static let solid: CGFloat = 1
     
+    /// solid: OpacityLevel 90%
+    public static let almostSolid: CGFloat = 0.9
+    
     /// opaque: OpacityLevel 80%
     public static let opaque: CGFloat = 0.8
     
     /// medium: OpacityLevel 50%
     public static let medium: CGFloat = 0.5
+    
+    /// transparent: OpacityLevel 35%
+    public static let semiTransparent: CGFloat = 0.35
     
     /// transparent: OpacityLevel 20%
     public static let transparent: CGFloat = 0.2

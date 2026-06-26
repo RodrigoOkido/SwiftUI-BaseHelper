@@ -6,11 +6,9 @@
 //
 import SwiftUI
 
-//
-// A credit card that flips in 3D on tap, revealing the back (CVV side).
-// Uses rotation3DEffect with a FlipModifier that auto-hides each face
-// at the 90° midpoint for a seamless two-sided effect.
-
+/// A credit card that flips in 3D on tap, revealing the back (CVV side).
+/// Uses rotation3DEffect with a FlipModifier that auto-hides each face
+/// at the 90° midpoint for a seamless two-sided effect.
 public struct CreditCardView: View {
     
     // MARK: - Property Wrappers
@@ -53,8 +51,8 @@ public struct CreditCardView: View {
             CreditCardBackView(cvv: $cvv)
                 .modifier(FlipModifier(angle: flipped ? 0 : -180))
         }
-        .animation(.spring(response: 0.65,
-                           dampingFraction: 0.78),
+        .animation(.spring(response: 0.95,
+                           dampingFraction: 0.98),
                    value: flipped)
         .onTapGesture { flipped.toggle() }
     }
