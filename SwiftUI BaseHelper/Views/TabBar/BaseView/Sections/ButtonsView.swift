@@ -18,40 +18,34 @@ struct ButtonsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading) {
-                VStack(alignment: .leading, spacing: StackSpacing.md) {
+                VStack(alignment: .leading, spacing: StackSpacing.lg) {
                     
                     primaryStyleButtons
+                    Divider()
                     secondaryStyleButtons
+                    Divider()
                     tertiaryStyleButtons
+                    Divider()
                     quaternaryStyleButtons
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.nano)
-                        .stroke(style: .init(lineWidth: 1))
-                )
                 
                 Text("Selectable buttons")
                     .textStyle(.subtitle)
                     .padding(.top, InsetSpacing.md)
                 VStack(alignment: .leading, spacing: StackSpacing.xs) {
-                    Text("Checkbox selector")
+                    sectionHeader("Checkbox selector")
                     OptionsSelectorView(type: .checkbox,
                                         options: ["Option 1", "Option 2", "Option 3"],
                                         selected: $selectedOptions)
-                    Text("Radio type selector")
+                    Divider()
+                    sectionHeader("Radio type selector")
                         .padding(.top, InsetSpacing.xs)
                     OptionsSelectorView(type: .radio,
                                         options: ["Option 1", "Option 2", "Option 3"],
                                         selected: $selectedOption)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.nano)
-                        .stroke(style: .init(lineWidth: 1))
-                )
                 Spacer()
             }
             .padding(InsetSpacing.md)
@@ -62,8 +56,7 @@ struct ButtonsView: View {
     
     private var primaryStyleButtons: some View {
         VStack(alignment: .leading, spacing: StackSpacing.xs) {
-            Text("Style 1")
-                .textStyle(.subtitle2)
+            sectionHeader("Style 1")
             ScrollView {
                 Button("Home") {
                     print("Custom button")
@@ -87,8 +80,7 @@ struct ButtonsView: View {
     
     private var secondaryStyleButtons: some View {
         VStack(alignment: .leading, spacing: StackSpacing.xs) {
-            Text("Style 2")
-                .textStyle(.subtitle2)
+            sectionHeader("Style 2")
             ScrollView(.horizontal) {
                 HStack {
                     Button("Home") {
@@ -110,8 +102,8 @@ struct ButtonsView: View {
                 }
             }
             
-            Text("Style 2 Alternative")
-                .textStyle(.subtitle2)
+            sectionHeader("Style 2 alternative")
+                .padding(.top, StackSpacing.micro)
             ScrollView(.horizontal) {
                 HStack {
                     Button("Home") {
@@ -137,8 +129,7 @@ struct ButtonsView: View {
     
     private var tertiaryStyleButtons: some View {
         VStack(alignment: .leading, spacing: StackSpacing.xs) {
-            Text("Style 3")
-                .textStyle(.subtitle2)
+            sectionHeader("Style 3")
             ScrollView(.horizontal) {
                 HStack {
                     Button("Home") {
@@ -164,8 +155,7 @@ struct ButtonsView: View {
     
     private var quaternaryStyleButtons: some View {
         VStack(alignment: .leading, spacing: StackSpacing.xs) {
-            Text("Style 4")
-                .textStyle(.subtitle2)
+            sectionHeader("Style 4")
             ScrollView(.horizontal) {
                 HStack {
                     Button("Home") {
@@ -189,7 +179,14 @@ struct ButtonsView: View {
         }
     }
     
-    
+    @ViewBuilder
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
+    }
 }
 
 #Preview {

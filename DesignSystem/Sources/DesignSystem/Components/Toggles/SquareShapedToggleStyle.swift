@@ -44,6 +44,7 @@ public struct SquareShapedToggleStyle: ToggleStyle {
                     if withLabel {
                         Text(configuration.isOn ? "ON" : "OFF")
                             .offset(x: configuration.isOn ? 22 : -22)
+                            .foregroundStyle(.black)
                     }
                 }
                 .animation(.spring(duration: 0.1), value: configuration.isOn)

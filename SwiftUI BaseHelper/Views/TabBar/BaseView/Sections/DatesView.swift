@@ -29,73 +29,77 @@ struct DatesView: View {
     // MARK: - Content
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: StackSpacing.nano) {
+            VStack(alignment: .leading, spacing: StackSpacing.micro) {
                 Text("Handling Date formats")
-                    .font(.title2)
+                    .textStyle(.subtitle)
                 Text("Converting String date into Date Object")
+                    .padding(.bottom, StackSpacing.md)
 
-                VStack(alignment: .leading, spacing: StackSpacing.nano) {
+                VStack(alignment: .leading, spacing: StackSpacing.micro) {
 
                     // localDateType3
-                    Text("Format - dd/MM/yyyy")
-                        .font(.headline)
+                    sectionHeader("Format - dd/MM/yyyy")
                     Text("Input: \(localDateType3)")
                     Text("Date Output: \(localDateType3.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
+                    Divider()
 
                     // regular
-                    Text("Format - yyyy-MM-dd'T'HH:mm:ssZZZ")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy-MM-dd'T'HH:mm:ssZZZ")
                     Text("Input: \(regularDate)")
                     Text("Date Output: \(regularDate.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
+                    Divider()
 
                     // isoDateTimeMilliSec
-                    Text("Format - yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy-MM-dd'T'HH:mm:ss.SSSSSSSZ")
                     Text("Input: \(isoDateTimeMilliSec)")
                     Text("Date Output: \(isoDateTimeMilliSec.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
+                    Divider()
 
                     // birthDateFormat
-                    Text("Format - yyyy-MM-dd'T'HH:mm:ss")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy-MM-dd'T'HH:mm:ss")
                     Text("Input: \(birthDateFormat)")
                     Text("Date Output: \(birthDateFormat.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
+                    Divider()
 
                     // localDate
-                    Text("Format - yyyy-MM-dd")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy-MM-dd")
                     Text("Input: \(localDate)")
                     Text("Date Output: \(localDate.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
+                    Divider()
 
                     // localDateType2
-                    Text("Format - yyyy/MM/dd")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy/MM/dd")
                     Text("Input: \(localDateType2)")
                     Text("Date Output: \(localDateType2.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
-
+                    Divider()
                     // isoDate
-                    Text("Format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
-                        .font(.headline)
+                    sectionHeader("Format - yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+                        
                     Text("Input: \(isoDate)")
                     Text("Date Output: \(isoDate.asUTCDate?.description ?? "nil")")
                         .padding(.bottom, StackSpacing.sm)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.nano)
-                        .stroke(style: .init(lineWidth: 1))
-                )
             }
             .padding(InsetSpacing.md)
             .navigationTitle("Dates Handlers")
             .navigationBarTitleDisplayMode(.large)
         }
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
     }
 }
 

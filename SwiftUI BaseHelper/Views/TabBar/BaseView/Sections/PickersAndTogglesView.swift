@@ -53,33 +53,33 @@ struct PickersAndTogglesView: View {
     }
     
     private var pickersSectionView: some View {
-        VStack(alignment: .leading) {
-            Text("Pickers")
-            VStack {
+        VStack(alignment: .leading, spacing: StackSpacing.lg) {
+            sectionHeader("Pickers")
+            VStack(alignment: .leading, spacing: StackSpacing.md) {
                 Text("Favorite Color:")
                     .bold()
-                Text("Palette")
+                Text("> Palette")
                 Picker("Favorite Color", selection: $selectedColor) {
                     ForEach(FavoriteColor.allCases) { color in
                         Text(color.rawValue.capitalized)
                     }
                 }
                 .pickerStyle(.palette)
-                Text("Menu")
+                Text("> Menu")
                 Picker("Favorite Color", selection: $selectedColor) {
                     ForEach(FavoriteColor.allCases) { color in
                         Text(color.rawValue.capitalized)
                     }
                 }
                 .pickerStyle(.menu)
-                Text("Wheel")
+                Text("> Wheel")
                 Picker("Favorite Color", selection: $selectedColor) {
                     ForEach(FavoriteColor.allCases) { color in
                         Text(color.rawValue.capitalized)
                     }
                 }
                 .pickerStyle(.wheel)
-                Text("Segmented")
+                Text("> Segmented")
                 Picker("Favorite Color", selection: $selectedColor) {
                     ForEach(FavoriteColor.allCases) { color in
                         Text(color.rawValue.capitalized)
@@ -87,19 +87,15 @@ struct PickersAndTogglesView: View {
                 }
                 .pickerStyle(.segmented)
             }
-            .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quark)
-                    .stroke(style: .init(lineWidth: 1))
-            )
+            Divider()
         }
         .padding(InsetSpacing.md)
     }
     
     private var datepickerSectionView: some View {
-        VStack(alignment: .leading) {
-            Text("DatePickers")
-            VStack {
+        VStack(alignment: .leading, spacing: StackSpacing.lg) {
+            sectionHeader("Date Pickers")
+            VStack(alignment: .leading, spacing: StackSpacing.md) {
                 Text("Compact")
                 DatePicker(selection: $birthDate, in: ...Date(), displayedComponents: .date) {
                     Text("Select a date:")
@@ -123,11 +119,7 @@ struct PickersAndTogglesView: View {
                         .bold()
                 }.datePickerStyle(.automatic)
             }
-            .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quark)
-                    .stroke(style: .init(lineWidth: 1))
-            )
+            Divider()
         }
         .padding(InsetSpacing.md)
     }
@@ -135,7 +127,7 @@ struct PickersAndTogglesView: View {
     
     private var toggleSectionView: some View {
         VStack(alignment: .leading) {
-            Text("Toggles")
+            sectionHeader("Toggles")
             VStack {
                 Toggle(isOn: $toggleStatus) {
                     Text("Native Toggle")
@@ -157,13 +149,17 @@ struct PickersAndTogglesView: View {
                 Text(toggleStatus ? "Toggle on" : "Toggle off")
                     .animation(.linear)
             }
-            .padding()
-            .overlay(
-                RoundedRectangle(cornerRadius: CornerRadius.quark)
-                    .stroke(style: .init(lineWidth: 1))
-            )
         }
         .padding(InsetSpacing.md)
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
     }
 }
     
