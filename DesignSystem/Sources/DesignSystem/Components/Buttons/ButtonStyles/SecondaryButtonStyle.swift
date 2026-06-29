@@ -11,11 +11,13 @@ public struct SecondaryButtonStyle: ButtonStyle {
     // MARK: - Private Properties
     private let icon: Image
     private let style: ButtonConfigurationStyle
+    private let shouldShowLabel: Bool
     
     // MARK: - Initializer
-    public init(icon: Image, _ style: ButtonConfigurationStyle = .regular) {
+    public init(icon: Image, _ style: ButtonConfigurationStyle = .regular, shouldShowLabel: Bool) {
         self.icon = icon
         self.style = style
+        self.shouldShowLabel = shouldShowLabel
     }
 
     // MARK: - Content
@@ -33,12 +35,14 @@ public struct SecondaryButtonStyle: ButtonStyle {
                         .accessibilityLabel("Icon")
                         .accessibilityAddTraits(.isImage)
                 }
-            configuration.label
-                .font(style.font)
-                .foregroundColor(style.textColor)
-                .bold()
-                .accessibilityLabel("Label")
-                .accessibilityAddTraits(.isStaticText)
+            if shouldShowLabel {
+                configuration.label
+                    .font(style.font)
+                    .foregroundColor(style.textColor)
+                    .bold()
+                    .accessibilityLabel("Label")
+                    .accessibilityAddTraits(.isStaticText)
+            }
         }
         .padding(StackSpacing.nano)
         .contentShape(Rectangle())

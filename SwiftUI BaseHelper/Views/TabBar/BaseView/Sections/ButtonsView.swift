@@ -94,19 +94,42 @@ struct ButtonsView: View {
                     Button("Home") {
                         print("Custom button")
                     }
-                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "house")))
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "house"), shouldShowLabel: true))
                     Button("Food") {
                         print("Custom button")
                     }
-                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "fork.knife")))
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "fork.knife"), shouldShowLabel: true))
                     Button("Map") {
                         print("Custom button")
                     }
-                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "map")))
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "map"), shouldShowLabel: true))
                     Button("Settings") {
                         print("Custom button")
                     }
-                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "gear")))
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "gear"), shouldShowLabel: true))
+                }
+            }
+            
+            Text("Style 2 Alternative")
+                .textStyle(.subtitle2)
+            ScrollView(.horizontal) {
+                HStack {
+                    Button("Home") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "house"), shouldShowLabel: false))
+                    Button("Food") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "fork.knife"), shouldShowLabel: false))
+                    Button("Map") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "map"), shouldShowLabel: false))
+                    Button("Settings") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(SecondaryButtonStyle(icon: Image(systemName: "gear"), shouldShowLabel: false))
                 }
             }
         }
