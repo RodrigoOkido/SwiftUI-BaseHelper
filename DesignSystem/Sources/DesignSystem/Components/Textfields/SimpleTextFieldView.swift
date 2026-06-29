@@ -1,5 +1,5 @@
 //
-//  SimpleTextField.swift
+//  SimpleTextFieldView.swift
 //  DesignSystem
 //
 //  Created by Rodrigo Okido on 12/05/26.
@@ -17,7 +17,7 @@ import SwiftUI
 ///                     placeholder: "Insert your name",
 ///                     textContent: .constant(""))
 /// ```
-public struct SimpleTextField: CustomTextField, View {
+public struct SimpleTextFieldView: CustomTextField, View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -84,15 +84,15 @@ public struct SimpleTextField: CustomTextField, View {
 }
 
 #Preview {
-    SimpleTextField(style: .bordered,
+    SimpleTextFieldView(style: .bordered,
                     fieldName: "Name",
                     placeholder: "Insert your name",
                     textContent: .constant(""))
-    SimpleTextField(style: .underline,
+    SimpleTextFieldView(style: .underline,
                     fieldName: "Name",
                     placeholder: "Insert your name",
                     textContent: .constant(""))
-    SimpleTextField(style: .none,
+    SimpleTextFieldView(style: .none,
                     fieldName: "Name",
                     placeholder: "Insert your name",
                     textContent: .constant(""))

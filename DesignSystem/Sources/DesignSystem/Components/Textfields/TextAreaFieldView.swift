@@ -1,5 +1,5 @@
 //
-//  TextAreaField.swift
+//  TextAreaFieldView.swift
 //  DesignSystem
 //
 //  Created by Rodrigo Okido on 14/05/26.
@@ -16,7 +16,7 @@ import SwiftUI
 ///                   placeholder: "Enter your text",
 ///                   textContent: .constant(""))
 /// ```
-public struct TextAreaField: CustomTextField, View {
+public struct TextAreaFieldView: CustomTextField, View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -70,7 +70,7 @@ public struct TextAreaField: CustomTextField, View {
 }
 
 #Preview {
-    TextAreaField(fieldName: "Write your feedback",
+    TextAreaFieldView(fieldName: "Write your feedback",
                   placeholder: "Enter your text",
                   textContent: .constant(""))
 }

@@ -38,23 +38,23 @@ struct TextFieldView: View {
     var body: some View {
         ScrollView {
             VStack {
-                SimpleTextField(style: .bordered, fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
-                RegularTextField(style: .bordered,
+                SimpleTextFieldView(style: .bordered, fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
+                RegularTextFieldView(style: .bordered,
                                  fieldName: "Regular TextField",
                                  placeholder: "Enter your text",
                                  leadingIcon: Image(systemName: "person.crop.circle"),
                                  textContent: $regularTextFieldInput)
-                RegularTextField(style: .bordered,
+                RegularTextFieldView(style: .bordered,
                                  fieldName: "Regular TextField 2",
                                  placeholder: "Enter your text",
                                  trailingIcon: Image(systemName: "magnifyingglass"),
                                  textContent: $regularTextFieldInput2)
                 
-                PasswordTextField(style: .bordered,
+                PasswordTextFieldView(style: .bordered,
                                   fieldName: "Password TextField",
                                   placeholder: "Password",
                                   textContent: $passwordTextFieldInput)
-                TextAreaField(fieldName: "Area TextField",
+                TextAreaFieldView(fieldName: "Area TextField",
                               placeholder: "Enter your text",
                               textContent: $textAreaInputField)
             }

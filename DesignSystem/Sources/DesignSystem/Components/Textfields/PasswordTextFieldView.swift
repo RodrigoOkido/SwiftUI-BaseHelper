@@ -1,5 +1,5 @@
 //
-//  PasswordTextField.swift
+//  PasswordTextFieldView.swift
 //  DesignSystem
 //
 //  Created by Rodrigo Okido on 14/05/26.
@@ -15,7 +15,7 @@ import SwiftUI
 ///                     placeholder: "Your password",
 ///                     textContent: .constant(""))
 /// ```
-public struct PasswordTextField: CustomTextField, View {
+public struct PasswordTextFieldView: CustomTextField, View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -118,15 +118,15 @@ public struct PasswordTextField: CustomTextField, View {
 }
 
 #Preview {
-    PasswordTextField(style: .bordered,
+    PasswordTextFieldView(style: .bordered,
                     fieldName: "Password",
                     placeholder: "Your password",
                     textContent: .constant(""))
-    PasswordTextField(style: .underline,
+    PasswordTextFieldView(style: .underline,
                       fieldName: "Password",
                       placeholder: "Your password",
                       textContent: .constant(""))
-    PasswordTextField(style: .none,
+    PasswordTextFieldView(style: .none,
                       fieldName: "Password",
                       placeholder: "Your password",
                       textContent: .constant(""))

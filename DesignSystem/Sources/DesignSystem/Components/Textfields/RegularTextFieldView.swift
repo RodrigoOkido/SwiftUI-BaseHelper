@@ -1,5 +1,5 @@
 //
-//  RegularTextField.swift
+//  RegularTextFieldView.swift
 //  DesignSystem
 //
 //  Created by Rodrigo Okido on 14/05/26.
@@ -16,7 +16,7 @@ import SwiftUI
 ///                      placeholder: "Your name",
 ///                      leadingIcon: Image(systemName: "person.crop.circle")
 /// ```
-public struct RegularTextField: CustomTextField, View {
+public struct RegularTextFieldView: CustomTextField, View {
     
     // MARK: - Property Wrappers
     @AppStorage("isDarkMode") private var isDarkMode = false
@@ -107,17 +107,17 @@ public struct RegularTextField: CustomTextField, View {
 }
 
 #Preview {
-    RegularTextField(style: .bordered,
+    RegularTextFieldView(style: .bordered,
                      fieldName: "Name",
                      placeholder: "Your name",
                      leadingIcon: Image(systemName: "person.crop.circle"),
                      textContent: .constant(""))
-    RegularTextField(style: .underline,
+    RegularTextFieldView(style: .underline,
                      fieldName: "Name",
                      placeholder: "Your name",
                      leadingIcon: Image(systemName: "person.crop.circle"),
                      textContent: .constant(""))
-    RegularTextField(style: .none,
+    RegularTextFieldView(style: .none,
                      fieldName: "Name",
                      placeholder: "Your name",
                      leadingIcon: Image(systemName: "person.crop.circle"),

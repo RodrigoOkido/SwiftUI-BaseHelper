@@ -72,6 +72,7 @@ public struct ExpandableCardView<Content: View>: View {
                     .foregroundStyle(.black)
                     .accessibilityLabel("Expands or Collapse icon")
                     .accessibilityValue(isExpanded ? "Expanded icon" : "Collapsed icon")
+                    .accessibilityAddTraits(.isImage)
 
             }
             .padding()
