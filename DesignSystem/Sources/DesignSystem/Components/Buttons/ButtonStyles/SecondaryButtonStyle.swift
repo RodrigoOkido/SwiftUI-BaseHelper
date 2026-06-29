@@ -43,5 +43,6 @@ public struct SecondaryButtonStyle: ButtonStyle {
         .padding(StackSpacing.nano)
         .contentShape(Rectangle())
         .opacity(configuration.isPressed ? OpacityLevel.opaque : OpacityLevel.solid)
+        .accessibilityAddTraits(.isButton)
     }
 }

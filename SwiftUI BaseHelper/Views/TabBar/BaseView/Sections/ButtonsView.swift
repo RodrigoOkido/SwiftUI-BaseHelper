@@ -23,6 +23,7 @@ struct ButtonsView: View {
                     primaryStyleButtons
                     secondaryStyleButtons
                     tertiaryStyleButtons
+                    quaternaryStyleButtons
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding()
@@ -137,6 +138,35 @@ struct ButtonsView: View {
             }
         }
     }
+    
+    private var quaternaryStyleButtons: some View {
+        VStack(alignment: .leading, spacing: StackSpacing.xs) {
+            Text("Style 4")
+                .textStyle(.subtitle2)
+            ScrollView(.horizontal) {
+                HStack {
+                    Button("Home") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(QuaternaryButtonStyle(icon: Image(systemName: "house")))
+                    Button("Map") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(QuaternaryButtonStyle(icon: Image(systemName: "map")))
+                    Button("Food") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(QuaternaryButtonStyle(icon: Image(systemName: "fork.knife")))
+                    Button("Settings") {
+                        print("Custom button")
+                    }
+                    .buttonStyle(QuaternaryButtonStyle(icon: Image(systemName: "gear")))
+                }
+            }
+        }
+    }
+    
+    
 }
 
 #Preview {

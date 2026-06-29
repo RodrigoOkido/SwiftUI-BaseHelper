@@ -47,7 +47,7 @@ struct SettingsView: View {
                         }
                     }
                 }
-                Section(header: Text("Social")) {
+                Section(header: Text("Support Me!")) {
                     Link("Github Profile", destination: URL(string: "https://github.com/RodrigoOkido/")!)
                     Link("Linkedin Profile", destination: URL(string: "https://www.linkedin.com/in/rodrigo-okido/")!)
                 }

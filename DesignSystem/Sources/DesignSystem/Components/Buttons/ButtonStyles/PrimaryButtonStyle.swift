@@ -43,6 +43,7 @@ public struct PrimaryButtonStyle: ButtonStyle {
         .padding(.horizontal, ButtonPadding.large.value)
         .padding(.vertical, ButtonPadding.normal.value)
         .background(style.backgroundColor)
-        .cornerRadius(CornerRadius.nano)
+        .cornerRadius(CornerRadius.xxs)
+        .accessibilityAddTraits(.isButton)
     }
 }

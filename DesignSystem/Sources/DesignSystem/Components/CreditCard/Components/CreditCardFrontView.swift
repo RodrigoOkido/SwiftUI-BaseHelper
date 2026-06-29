@@ -18,10 +18,10 @@ struct CreditCardFrontView: View {
         accountNumber.isEmpty ? "1234  5678  9012  3456" : accountNumber
     }
     private var accountHolderValue: String {
-        accountHolder.isEmpty ? "John Appleseed" : accountHolder
+        accountHolder.isEmpty ? "John Doe" : accountHolder
     }
     private var expirationDateValue: String {
-        expirationDate.isEmpty ? "01 / 32" : expirationDate
+        expirationDate.isEmpty ? "01 / 99" : expirationDate
     }
     
     // MARK: - Initializer
@@ -45,15 +45,7 @@ struct CreditCardFrontView: View {
                         endPoint: .bottomTrailing
                     )
                 )
-            Circle()
-                .fill(.white.opacity(0.06))
-                .frame(width: 220, height: 220)
-                .offset(x: 160, y: -60)
 
-            Circle()
-                .fill(.white.opacity(0.04))
-                .frame(width: 160, height: 160)
-                .offset(x: -40, y: 120)
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
                     RoundedRectangle(cornerRadius: CornerRadius.nano)

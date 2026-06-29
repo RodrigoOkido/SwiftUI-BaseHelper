@@ -1,12 +1,13 @@
 //
-//  TertiaryButtonStyle.swift
+//  QuaternaryButtonStyle.swift
 //  DesignSystem
 //
-//  Created by Rodrigo Okido on 25/06/26.
+//  Created by Rodrigo Okido on 29/06/26.
 //
+
 import SwiftUI
 
-public struct TertiaryButtonStyle: ButtonStyle {
+public struct QuaternaryButtonStyle: ButtonStyle {
 
     // MARK: - Private Properties
     private let icon: Image
@@ -21,9 +22,9 @@ public struct TertiaryButtonStyle: ButtonStyle {
     // MARK: - Content
     public func makeBody(configuration: Configuration) -> some View {
         VStack {
-            RoundedRectangle(cornerRadius: CornerRadius.md)
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
                 .fill(style.backgroundColor)
-                .frame(width: 90, height: 120)
+                .frame(width: 85, height: 85)
                 .overlay {
                     VStack(alignment: .center, spacing: StackSpacing.quark) {
                         Spacer()
@@ -35,14 +36,6 @@ public struct TertiaryButtonStyle: ButtonStyle {
                             .accessibilityLabel("Icon")
                             .accessibilityAddTraits(.isImage)
                         Spacer()
-                        configuration.label
-                            .font(style.font)
-                            .foregroundColor(style.textColor)
-                            .bold()
-                            .padding(.horizontal, ButtonPadding.xsmall.value)
-                            .padding(.bottom, ButtonPadding.small.value)
-                            .accessibilityLabel("Label")
-                            .accessibilityAddTraits(.isStaticText)
                     }
                 }
         }

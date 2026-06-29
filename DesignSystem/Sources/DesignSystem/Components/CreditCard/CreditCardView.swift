@@ -34,9 +34,9 @@ public struct CreditCardView: View {
     
     public init(flipped: Bool = false) {
         self.flipped = flipped
-        self._accountNumber = .constant("4512 3456 7890 1234")
-        self._accountHolder = .constant("John Doe")
-        self._expirationDate = .constant("08/28")
+        self._accountNumber = .constant("")
+        self._accountHolder = .constant("")
+        self._expirationDate = .constant("")
         self._cvv = .constant("")
     }
 
@@ -59,9 +59,9 @@ public struct CreditCardView: View {
 }
 
 #Preview {
-    CreditCardView(accountNumber: .constant("4512 3456 7890 1234"),
+    CreditCardView(accountNumber: .constant("1234 5678 9012 3456"),
                    accountHolder: .constant("John Doe"),
-                   expirationDate: .constant("08/28"),
+                   expirationDate: .constant("01/99"),
                    cvv: .constant("123")
     )
 }
