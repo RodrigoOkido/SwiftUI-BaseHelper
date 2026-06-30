@@ -22,8 +22,7 @@ public struct OTPTextFieldView: View {
     private var otpSize: OtpSize
     
     // MARK: - Initializer
-    public init(otpSize: OtpSize,
-                optCode: [String]) {
+    public init(otpSize: OtpSize) {
         self.otpSize = otpSize
         self.otpCode = Array(repeating: "", count: otpSize.rawValue)
         self.fieldFocus = 0
@@ -85,5 +84,5 @@ private struct OTPTextField: View {
 }
 
 #Preview {
-    OTPTextFieldView(otpSize: .sixDigits, optCode: [])
+    OTPTextFieldView(otpSize: .sixDigits)
 }

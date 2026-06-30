@@ -61,7 +61,8 @@ struct TextFieldView: View {
                               placeholder: "Enter your text",
                               textContent: $textAreaInputField)
                 Text("OTP Textfield")
-                OTPTextFieldView(otpSize: .sixDigits, optCode: [])
+                    .bold()
+                OTPTextFieldView(otpSize: .sixDigits)
             }
         }
         .padding()
