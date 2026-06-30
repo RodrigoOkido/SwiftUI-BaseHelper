@@ -15,44 +15,56 @@ struct PresentSheetView: View {
 
     // MARK: - Content
     var body: some View {
-        VStack(spacing: StackSpacing.nano) {
-            CustomButton(type: .regular,
-                         title: "Show small Sheet",
-                         cornerRadius: .small) {
-                router.present(view: DestinationView.sheetView,
-                               detents: [.fraction(0.25)])
-            }
-            CustomButton(type: .regular,
-                         title: "Show Medium Sheet",
-                         cornerRadius: .small) {
-                router.present(view: DestinationView.sheetView,
-                               detents: [.medium])
-            }
-            CustomButton(type: .regular,
-                         title: "Show Medium / Large Sheet",
-                         cornerRadius: .small) {
-                router.present(view: DestinationView.sheetView,
-                               detents: [.medium, .large])
-            }
-            CustomButton(type: .regular,
-                         title: "Show Large Sheet",
-                         cornerRadius: .small) {
-                router.present(view: DestinationView.sheetView)
-            }
-            CustomButton(type: .regular,
-                         title: "Show Fullscreen Sheet",
-                         cornerRadius: .small) {
-                router.presentFullScreen(view: DestinationView.sheetView)
-            }
-            CustomButton(type: .regular,
-                         title: "Show Dynamic Sheet",
-                         cornerRadius: .small) {
-                router.presentWithDynamicHeight(view: DestinationView.dynamicSheetView)
+        VStack(alignment: .leading, spacing: StackSpacing.lg) {
+            sectionHeader("Bottomsheet Options")
+            VStack(spacing: StackSpacing.nano) {
+                CustomButton(type: .regular,
+                             title: "Show small Sheet",
+                             cornerRadius: .small) {
+                    router.present(view: DestinationView.sheetView,
+                                   detents: [.fraction(0.25)])
+                }
+                CustomButton(type: .regular,
+                             title: "Show Medium Sheet",
+                             cornerRadius: .small) {
+                    router.present(view: DestinationView.sheetView,
+                                   detents: [.medium])
+                }
+                CustomButton(type: .regular,
+                             title: "Show Medium / Large Sheet",
+                             cornerRadius: .small) {
+                    router.present(view: DestinationView.sheetView,
+                                   detents: [.medium, .large])
+                }
+                CustomButton(type: .regular,
+                             title: "Show Large Sheet",
+                             cornerRadius: .small) {
+                    router.present(view: DestinationView.sheetView)
+                }
+                CustomButton(type: .regular,
+                             title: "Show Fullscreen Sheet",
+                             cornerRadius: .small) {
+                    router.presentFullScreen(view: DestinationView.sheetView)
+                }
+                CustomButton(type: .regular,
+                             title: "Show Dynamic Sheet",
+                             cornerRadius: .small) {
+                    router.presentWithDynamicHeight(view: DestinationView.dynamicSheetView)
+                }
             }
         }
         .padding(.horizontal, InsetSpacing.md)
         .navigationTitle("Bottomsheet Types")
         .navigationBarTitleDisplayMode(.large)
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
     }
 }
 

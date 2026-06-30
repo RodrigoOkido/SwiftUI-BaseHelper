@@ -30,6 +30,22 @@ struct CardsView: View {
                         .foregroundStyle(.black)
                         .padding()
                 }
+                
+                ExpandableCardView(title: "Expandable Card", backgroundColor: .blue) {
+                    VStack {
+                        Text("This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card.")
+                            .foregroundStyle(.black)
+                            .padding()
+                    }
+                }
+                
+                ExpandableCardView(title: "Expandable Card", backgroundColor: .gray) {
+                    VStack {
+                        Text("This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card.")
+                            .foregroundStyle(.black)
+                            .padding()
+                    }
+                }
             }
             .padding()
             .navigationTitle("Cards")

@@ -38,26 +38,33 @@ public struct ExpandableCardView<Content: View>: View {
     /// Title of the card.
     private let title: String
     
+    /// Adds a background color to the card. The color is used to the border, and for the
+    /// not expanded card background. Adding a cool style to the accordion.
+    private let backgroundColor: Color?
+    
     /// Content of the expandable card. It expects a View to provide flexibility to the expandable content.
     private let innerContent: () -> Content
     
     // MARK: - Initializer
     public init(icon: Image? = nil,
                 title: String,
+                backgroundColor: Color? = nil,
                 @ViewBuilder innerContent: @escaping () -> Content) {
         self.icon = icon
         self.title = title
         self.innerContent = innerContent
+        self.backgroundColor = backgroundColor
     }
     
     // MARK: - Content
     public var body: some View {
-        VStack {
+        VStack(spacing: 0) {
             HStack {
                 if let icon {
                     icon
                         .resizable()
                         .frame(width: IconSize.xxs, height: IconSize.xxs)
+                        .foregroundStyle(.black)
                         .accessibilityLabel("Card icon")
                         .accessibilityAddTraits(.isImage)
                 }
@@ -76,6 +83,7 @@ public struct ExpandableCardView<Content: View>: View {
 
             }
             .padding()
+            .background(backgroundColor?.mix(with: .white, by: 0.75) ?? .white)
             .onTapGesture {
                 withAnimation {
                     isExpanded.toggle()
@@ -85,12 +93,22 @@ public struct ExpandableCardView<Content: View>: View {
             .accessibilityAddTraits(.isButton)
             
             if isExpanded {
-                innerContent()
-                    .transition(.opacity)
+                VStack(spacing: 0) {
+                    if let backgroundColor {
+                        Divider()
+                            .background(backgroundColor)
+                    }
+                    innerContent()
+                        .transition(.opacity)
+                }
             }
         }
         .background(Color.white)
         .cornerRadius(CornerRadius.sm)
+        .overlay(
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(backgroundColor ?? .clear, lineWidth: 1)
+        )
         .shadow(radius: 5)
     }
 }
@@ -108,7 +126,8 @@ public struct ExpandableCardView<Content: View>: View {
     .padding()
     ExpandableCardView(
         icon: Image(systemName: "globe"),
-        title: "Expandable Card"
+        title: "Expandable Card",
+        backgroundColor: .red
     ) {
         VStack {
             Text("This is the hidden content that appears when the card is expanded. You can put any information here that you want to show when the user taps on the card.")

@@ -16,26 +16,26 @@ struct CustomTextAndFontView: View {
     var body: some View {
         VStack {
             // TEXT WITH MODIFIERS 
-            VStack(alignment: .leading) {
-                Text("TEXT WITH MODIFIERS")
+            VStack(alignment: .leading, spacing: StackSpacing.lg) {
+                sectionHeader("Textstyle modifier")
                 VStack(alignment: .leading) {
                     Text("Hello i am a title!")
                         .textStyle(.title)
+                    Text("Hello i am Subtitle!")
+                        .textStyle(.subtitle)
+                    Text("Hello i am secondary Subtitle!")
+                        .textStyle(.subtitle2)
                     Text("Hello i am regular text!")
                         .textStyle(.regular)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.nano)
-                        .stroke(style: .init(lineWidth: 1))
-                )
+                Divider()
             }
             .padding(InsetSpacing.md)
 
             // CUSTOM FONTS
-            VStack(alignment: .leading) {
-                Text("CUSTOM FONTS")
+            VStack(alignment: .leading, spacing: StackSpacing.lg) {
+                sectionHeader("CUSTOM FONTS")
                 VStack(alignment: .leading) {
                     Text("Text open sans bold")
                         .font(Font.openSans(.openSansBold, size: 24))
@@ -51,17 +51,21 @@ struct CustomTextAndFontView: View {
                         .font(Font.openSans(.openSansSemibold, size: 24))
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-                .overlay(
-                    RoundedRectangle(cornerRadius: CornerRadius.quark)
-                        .stroke(style: .init(lineWidth: 1))
-                )
             }
             .padding(InsetSpacing.md)
             Spacer()
         }
         .navigationTitle("Fonts")
         .navigationBarTitleDisplayMode(.large)
+    }
+    
+    @ViewBuilder
+    private func sectionHeader(_ title: String) -> some View {
+        Text(title)
+            .font(.footnote)
+            .fontWeight(.semibold)
+            .foregroundStyle(.secondary)
+            .textCase(.uppercase)
     }
 }
 
