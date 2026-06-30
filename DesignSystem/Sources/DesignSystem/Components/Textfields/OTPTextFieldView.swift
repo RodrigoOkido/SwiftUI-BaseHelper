@@ -35,42 +35,53 @@ public struct OTPTextFieldView: View {
             ForEach(0..<otpSize.rawValue, id: \.self) { index in
                 OTPTextField(text: $otpCode[index],
                              isFocused: fieldFocus == index)
-                    .focused($fieldFocus, equals: index)
-                    .onChange(of: otpCode[index]) { oldValue, newValue in
-                        if newValue.count > 0 && index < otpSize.rawValue {
-                            fieldFocus = index + 1
-                        } else if newValue.isEmpty && oldValue.count > 0 && index > 0 {
-                            fieldFocus = index - 1
-                        }
+                .focused($fieldFocus, equals: index)
+                .onChange(of: otpCode[index]) { oldValue, newValue in
+                    if newValue.count > 0 && index < otpSize.rawValue {
+                        fieldFocus = index + 1
+                    } else if newValue.isEmpty && oldValue.count > 0 && index > 0 {
+                        fieldFocus = index - 1
                     }
+                }
             }
         }
     }
 }
 
-struct OTPTextField: View {
-  @Binding var text: String
-  var isFocused: Bool
-  
-  var body: some View {
-      ZStack {
-          RoundedRectangle(cornerRadius: CornerRadius.sm)
-              .stroke(isFocused ? Color.blue : Color.gray.opacity(OpacityLevel.semiTransparent), lineWidth: 2)
-              .frame(width: 45, height: 60)
-          
-          TextField("", text: $text)
-              .keyboardType(.numberPad)
-              .multilineTextAlignment(.center)
-              .font(.title2.bold())
-              .foregroundColor(.primary)
-              .frame(width: 45, height: 60)
-              .onReceive(Just(text)) { _ in
-                  if text.count > 1 {
-                      text = String(text.prefix(1))
-                  }
-              }
-      }
-  }
+private struct OTPTextField: View {
+    
+    // MARK: - Property Wrappers
+    @Binding var text: String
+    
+    // MARK: - Private Propeties
+    private var isFocused: Bool
+    
+    // MARK: - Initializer
+    init(text: Binding<String>, isFocused: Bool) {
+        self._text = text
+        self.isFocused = isFocused
+    }
+    
+    // MARK: - Content
+    var body: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: CornerRadius.sm)
+                .stroke(isFocused ? Color.blue : Color.gray.opacity(OpacityLevel.semiTransparent), lineWidth: 2)
+                .frame(width: 45, height: 60)
+            
+            TextField("", text: $text)
+                .keyboardType(.numberPad)
+                .multilineTextAlignment(.center)
+                .font(.title2.bold())
+                .foregroundColor(.primary)
+                .frame(width: 45, height: 60)
+                .onReceive(Just(text)) { _ in
+                    if text.count > 1 {
+                        text = String(text.prefix(1))
+                    }
+                }
+        }
+    }
 }
 
 #Preview {
