@@ -37,7 +37,7 @@ public struct OTPTextFieldView: View {
                              isFocused: fieldFocus == index)
                     .focused($fieldFocus, equals: index)
                     .onChange(of: otpCode[index]) { oldValue, newValue in
-                        if newValue.count > 0 && index < 3 {
+                        if newValue.count > 0 && index < otpSize.rawValue {
                             fieldFocus = index + 1
                         } else if newValue.isEmpty && oldValue.count > 0 && index > 0 {
                             fieldFocus = index - 1

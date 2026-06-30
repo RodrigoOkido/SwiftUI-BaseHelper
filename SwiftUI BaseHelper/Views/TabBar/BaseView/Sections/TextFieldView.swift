@@ -37,8 +37,11 @@ struct TextFieldView: View {
     // MARK: - Content
     var body: some View {
         ScrollView {
-            VStack {
-                SimpleTextFieldView(style: .bordered, fieldName: "Simple TextField", placeholder: "Simple Text Field", textContent: $simpleTextFieldInput)
+            VStack(alignment: .leading, spacing: StackSpacing.lg) {
+                SimpleTextFieldView(style: .bordered,
+                                    fieldName: "Simple TextField",
+                                    placeholder: "Simple Text Field",
+                                    textContent: $simpleTextFieldInput)
                 RegularTextFieldView(style: .bordered,
                                  fieldName: "Regular TextField",
                                  placeholder: "Enter your text",
@@ -57,6 +60,8 @@ struct TextFieldView: View {
                 TextAreaFieldView(fieldName: "Area TextField",
                               placeholder: "Enter your text",
                               textContent: $textAreaInputField)
+                Text("OTP Textfield")
+                OTPTextFieldView(otpSize: .sixDigits, optCode: [])
             }
         }
         .padding()
