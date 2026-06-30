@@ -86,7 +86,7 @@ public enum DestinationView: Identifiable, Hashable {
         case .movies:
             APIView()
         case .movieDetails(let movie):
-            APIMovieDetailView(viewModel: APIDetailMovieViewModel(movie: movie))
+            APIMovieDetailView(viewModel: APIMovieDetailViewModel(movie: movie))
         case .map:
             MapView()
         case .settings(let appLanguage):

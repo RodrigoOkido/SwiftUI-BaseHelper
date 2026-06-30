@@ -1,5 +1,5 @@
 //
-//  APIDetailMovieViewModel.swift
+//  APIMovieDetailViewModel.swift
 //  SwiftUI BaseHelper
 //
 //  Created by Rodrigo Yukio Okido on 14/10/22.
@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 @Observable
-class APIDetailMovieViewModel: BaseViewModel {
+class APIMovieDetailViewModel: BaseViewModel {
     
     // MARK: - Public Properties
     var movie: Movie

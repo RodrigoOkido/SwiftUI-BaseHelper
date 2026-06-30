@@ -11,10 +11,10 @@ import DesignSystem
 struct APIMovieDetailView: View {
     
     // MARK: - ViewModel
-    @State var viewModel: APIDetailMovieViewModel
+    @State var viewModel: APIMovieDetailViewModel
 
     // MARK: - Initializer
-    init(viewModel: APIDetailMovieViewModel) {
+    init(viewModel: APIMovieDetailViewModel) {
         self.viewModel = viewModel
     }
 

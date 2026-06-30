@@ -8,6 +8,7 @@
 import Foundation
 import DesignSystem
 
+@Observable
 class SettingsViewModel: BaseViewModel {
 
     // MARK: - Public Properties

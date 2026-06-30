@@ -9,21 +9,22 @@ import Foundation
 import MapKit
 import CoreLocation
 
+@Observable
 class MapViewModel: BaseViewModel {
-
+    
     // MARK: - Public Properties
     var isUserLocalizationAllowed: Bool
     var region: MKCoordinateRegion
     var locationManager: CLLocationManager
-
+    
     // MARK: - Computed Properties
     var defaultMapLocation: MKCoordinateRegion {
-        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5, 
+        MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5,
                                                           longitude: -0.12),
-                           span: MKCoordinateSpan(latitudeDelta: 0.2, 
+                           span: MKCoordinateSpan(latitudeDelta: 0.2,
                                                   longitudeDelta: 0.2))
     }
-
+    
     // MARK: - Initializer
     init(permissionDenied: Bool = false,
          region: MKCoordinateRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: 51.5,
@@ -35,7 +36,7 @@ class MapViewModel: BaseViewModel {
         self.region = region
         self.locationManager = locationManager
     }
-
+    
     // MARK: - Setup
     private func setupLocationManager() {
         locationManager.delegate = self
@@ -43,12 +44,15 @@ class MapViewModel: BaseViewModel {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.distanceFilter = 5000
     }
-
+    
     private func setupRegion() {
         region = defaultMapLocation
     }
+}
 
-    // MARK: - Public Methods
+// MARK: - Public Methods
+extension MapViewModel {
+
     func checkUserAuthorizationStatus() {
 
         switch locationManager.authorizationStatus {
@@ -67,7 +71,6 @@ class MapViewModel: BaseViewModel {
         }
     }
 
-    // MARK: - Public Methods
     func renderRegion(_ location: CLLocation) {
         let coordinate = CLLocationCoordinate2D(latitude: location.coordinate.latitude,
                                                 longitude: location.coordinate.longitude)

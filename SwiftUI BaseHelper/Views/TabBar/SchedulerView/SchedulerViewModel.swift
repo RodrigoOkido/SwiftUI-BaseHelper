@@ -7,6 +7,7 @@
 import SwiftUI
 import SwiftData
 
+@Observable
 class SchedulerViewModel: BaseViewModel {
     
     // MARK: - Private Properties
@@ -20,8 +21,11 @@ class SchedulerViewModel: BaseViewModel {
         self.dataSource = dataSource
         events = dataSource.fetchEvents()
     }
+}
+
+// MARK: - Public Methods
+extension SchedulerViewModel {
     
-    // MARK: - Public Methods
     func addSampleEvent() {
         let event = Event(id: UUID(), name: "Sample Event", date: .now, eventDescription: "My description")
         dataSource.addEvent(event)

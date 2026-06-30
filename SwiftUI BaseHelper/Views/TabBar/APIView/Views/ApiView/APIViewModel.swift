@@ -23,9 +23,11 @@ class APIViewModel: BaseViewModel {
         self.popularMovies = popularMovies
         self.movieDBService = movieDBService
     }
+}
+
+// MARK: - Public Methods
+extension APIViewModel {
     
-    // MARK: - Public Methods
-    @MainActor
     func requestPopularMovies() async throws {
         viewState = .loading
         let response = await movieDBService.getMovies()
