@@ -101,7 +101,7 @@ struct DynamicSheetView: View {
         VStack(alignment: .leading) {
             Text("Hello! I am a dynamic bottom sheet view!")
             Text("You will notice that the sheet is based on the content size! Generated text for height below: \n")
-            Text("The lighthouse blinked twice before the fog swallowed the coast. Marketing wants the report by Thursday, but the data is still loading. A copper kettle whistled somewhere down the narrow hallway. She traded her bicycle for a map of a country that no longer exists. Quarterly numbers climbed nine percent against everyone's expectations. The cat ignored the expensive bed and slept inside the cardboard box. Rain tapped the window in a rhythm nobody bothered to name. He memorized forty digits of pi and forgot his own phone number. The orchard smelled of cinnamon, rust, and the end of summer.Somewhere a server rebooted and a thousand sessions quietly vanished.")
+            Text("Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do. Eiusmod tempor incididunt ut labore et dolore magna aliqua enim. Ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut. Aliquip ex ea commodo consequat duis aute irure dolor in. Reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla. Pariatur excepteur sint occaecat cupidatat non proident sunt in culpa. Qui officia deserunt mollit anim id est laborum sed perspiciatis. Unde omnis iste natus error sit voluptatem accusantium doloremque totam. Rem aperiam eaque ipsa quae ab illo inventore veritatis et. Quasi architecto beatae vitae dicta sunt explicabo nemo enim ipsam.")
             CustomButton(title: "Dismiss me!",
                          cornerRadius: .small) {
                 router.dismiss()
