@@ -12,28 +12,28 @@ import SwiftUI
 public struct CreditCardView: View {
     
     // MARK: - Property Wrappers
-    @State private var flipped = false
+    @Binding private var flipped: Bool
     @Binding private var accountNumber: String
     @Binding private var accountHolder: String
     @Binding private var expirationDate: String
     @Binding private var cvv: String
     
     // MARK: - Initializer
-    public init(flipped: Bool = false,
+    public init(flipped: Binding<Bool>,
          accountNumber: Binding<String>,
          accountHolder: Binding<String>,
          expirationDate: Binding<String>,
          cvv: Binding<String>
     ) {
-        self.flipped = flipped
+        self._flipped = flipped
         self._accountNumber = accountNumber
         self._accountHolder = accountHolder
         self._expirationDate = expirationDate
         self._cvv = cvv
     }
     
-    public init(flipped: Bool = false) {
-        self.flipped = flipped
+    public init(flipped: Binding<Bool> = .constant(false)) {
+        self._flipped = flipped
         self._accountNumber = .constant("")
         self._accountHolder = .constant("")
         self._expirationDate = .constant("")
@@ -59,7 +59,8 @@ public struct CreditCardView: View {
 }
 
 #Preview {
-    CreditCardView(accountNumber: .constant("1234 5678 9012 3456"),
+    CreditCardView(flipped: .constant(false),
+                   accountNumber: .constant("1234 5678 9012 3456"),
                    accountHolder: .constant("John Doe"),
                    expirationDate: .constant("01/99"),
                    cvv: .constant("123")

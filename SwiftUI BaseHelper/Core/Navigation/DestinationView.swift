@@ -22,6 +22,7 @@ public enum DestinationView: Identifiable, Hashable {
     case bindableView
     case buttonsView
     case cardsView
+    case paymentFormView
     case chartsView
     case customTextAndFontsView
     case datesView
@@ -55,6 +56,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "progressBarsView"
         case .chartsView:
             return "chartsView"
+        case .paymentFormView:
+            return "paymentFormView"
         case .geometryReaderExampleView:
             return "geometryReaderExampleView"
         case .hapticsFeedbackView:
@@ -95,6 +98,8 @@ public enum DestinationView: Identifiable, Hashable {
             SheetView()
         case .textFieldView:
             TextFieldView()
+        case .paymentFormView:
+            PaymentFormView()
         case .pickersAndTogglesView:
             PickersAndTogglesView()
         case .progressBarsView:

@@ -80,6 +80,11 @@ struct BaseView: View {
                                  action: {
                         router.navigate(to: DestinationView.customTextAndFontsView)
                     })
+                    CustomButton(title: "Payment Form",
+                                 alignment: .leading,
+                                 action: {
+                        router.navigate(to: DestinationView.paymentFormView)
+                    })
                     CustomButton(title: "iOS17 Bindable Example",
                                  alignment: .leading,
                                  action: {

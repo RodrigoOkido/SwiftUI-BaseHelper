@@ -6,8 +6,9 @@
 //
 import SwiftUI
 
-/// Textfield that provides input with optional for styling inserting icons on
-/// leading or trailing.
+/// More powerful Textfield compared to SimpleTextField that provides input with
+/// optional styling with leading or trailing icon. Also, it provides the capability to provide
+/// some action when the input field is on Focus externally.
 ///
 /// Usage example:
 /// ```swift
@@ -29,6 +30,7 @@ public struct RegularTextFieldView: CustomTextField, View {
     public var placeholder: String
     public var leadingIcon: Image?
     public var trailingIcon: Image?
+    public var focusedStatusAction: (Bool) -> Void
     
     // MARK: - Computed Properties
     private var borderColor: Color {
@@ -42,13 +44,15 @@ public struct RegularTextFieldView: CustomTextField, View {
          placeholder: String,
          leadingIcon: Image? = nil,
          trailingIcon: Image? = nil,
-         textContent: Binding<String>) {
+         textContent: Binding<String>,
+         focusedStatusAction: @escaping (Bool) -> Void = { _ in }) {
         self.style = style
         self.fieldName = fieldName
         self.placeholder = placeholder
         self.leadingIcon = leadingIcon
         self.trailingIcon = trailingIcon
         self._textContent = textContent
+        self.focusedStatusAction = focusedStatusAction
     }
     
     // MARK: - Content
@@ -80,6 +84,9 @@ public struct RegularTextFieldView: CustomTextField, View {
                         .aspectRatio(contentMode: .fit)
                         .frame(width: IconSize.xs, height: IconSize.xs)
                 }
+            }
+            .onChange(of: isFocused) {
+                focusedStatusAction(isFocused)
             }
             .padding()
             .overlay(styleOverlay)

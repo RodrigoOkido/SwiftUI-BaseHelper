@@ -85,7 +85,8 @@ struct SheetView: View {
                 }
                 .padding()
             }
-            .padding(InsetSpacing.sm)
+            .padding(.top, InsetSpacing.xxs)
+            .padding(InsetSpacing.lg)
         }
     }
 }
@@ -109,6 +110,7 @@ struct DynamicSheetView: View {
             .padding()
         }
         .fixedSize(horizontal: false, vertical: true)
+        .padding(.top, InsetSpacing.xxs)
         .padding(InsetSpacing.lg)
         .dynamicContentBasedSheet($height)
     }

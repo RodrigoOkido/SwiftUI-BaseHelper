@@ -9,6 +9,7 @@ Here you can find:
 - SwiftUI 
   - Text (Custom fonts / modifiers)
   - TextFields
+  - Credit Card component
   - Buttons and Actions
   - Pickers
   - Indicators
@@ -16,6 +17,8 @@ Here you can find:
   - Toggles
   - Haptics
   - Tab bars
+  - Progress Bars
+  - Geometry Reader
   
 - SwiftUI Charts
 - SwiftUI Lock Screen Widgets
@@ -43,11 +46,6 @@ In order to run this project properly, its important to have your XCode and iOS 
 The project will request a Config.xcconfig to compile the project correctly. You can create this one by yourself with the following template:
 
 ```
-// TEMP
-API_URL = api.themoviedb.org/3/movie/popular?api_key=$(API_KEY)
-API_URL_POSTER_IMAGE = image.tmdb.org/t/p/w500
-// =======
-
 HTTP_SCHEME = https
 BASE_URL = api.themoviedb.org/
 API_KEY = // https://www.themoviedb.org/
@@ -67,13 +65,21 @@ framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit,
 
 ## Version History
 
-### Initial Release v0.1
-- Simple Design System
-- Coordinators
-- Navigation
-- API integration 
-- Map 
-- Settings
+### v1.0.1 (June, 30 - 2026)
+- New components added to Design System
+    - Credit Card component view
+    - Added OTP Textfield type component
+    - Improved RegularTextField to support tracking of focus state externally from the component
+    - Alternative style for Expandable Card
+- Added OTP textfield example to "Textfields" on Components Tab
+- Created "Payment Form" on Components Tab to show the Credit Card example
+- UI fixes on some design system components to adapt to Dark Mode properly
+- Several UI updates on several views in Components tab
+- More Buttons alternatives styles added
+- Removed some info.plist unused keys
+- ViewModels all support @Observable
+- Localizations improvements
+- Accessibility improvements
 
 ### v1.0 (June 2026)
 - Huge improvements on Design System components
@@ -84,7 +90,7 @@ framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit,
    - Created text and buttons styles as modifiers
 - Navigation improvements
    - Included new dynamic sheet modifier based on content size
-- Updates on the UI in Components section
+- Updates on the UI in Components section tab
    - Improvements on some existing Views on Components Section
 - New Geometry Reader item on Components section 
 - Overall localization improvements
@@ -92,8 +98,28 @@ framework has been evolving at a rapid pace ever since. Unlike UIKit and AppKit,
 - Updated XCTestCase to Swift Testing
 - Bumped compiler from Swift 5 to Swift 6
 - Bumped deployment release from iOS 17 to iOS 26
-  created code by the author.
 - Moved entire project to Folders instead of Group (Shrinks a lot .pbxproj)
-- Integrated CLAUDE.md document for proper Claude usage without touching or changing
+- Integrated CLAUDE.md document for proper Claude usage without touching or changing any code created by the author.
 
+
+### Initial Release v0.1
+
+Project originally built with iOS 17 deployment and Swift 5
+- Simple Design System 
+    - Buttons
+    - Cards
+    - Textfields
+    - Texts
+    - Custom Fonts
+- Coordinators for Navigation
+- Network
+    - Native Swift network layer
+- API integration 
+    - Async / Await
+- Map 
+    - Map Kit
+    - Core Location
+- Settings
+    - Dark Mode support
+    - Language change support (EN / PT-BR)
 
