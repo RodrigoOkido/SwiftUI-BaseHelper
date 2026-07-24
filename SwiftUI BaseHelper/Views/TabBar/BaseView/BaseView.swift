@@ -29,6 +29,11 @@ struct BaseView: View {
                                  action: {
                         router.navigate(to: DestinationView.cardsView)
                     })
+                    CustomButton(title: "Chatbot",
+                                 alignment: .leading,
+                                 action: {
+                        router.navigate(to: DestinationView.chatbotView)
+                    })
                     CustomButton(title: "Charts",
                                  alignment: .leading,
                                  action: {

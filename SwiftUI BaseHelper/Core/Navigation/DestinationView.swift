@@ -22,6 +22,7 @@ public enum DestinationView: Identifiable, Hashable {
     case bindableView
     case buttonsView
     case cardsView
+    case chatbotView
     case paymentFormView
     case chartsView
     case customTextAndFontsView
@@ -74,6 +75,8 @@ public enum DestinationView: Identifiable, Hashable {
             return "swiftData"
         case .cardsView:
             return "cardsView"
+        case .chatbotView:
+            return "chatbotView"
         case .dynamicSheetView:
             return "dynamicSheetView"
         case .buttonsView:
@@ -122,6 +125,8 @@ public enum DestinationView: Identifiable, Hashable {
             SchedulerView()
         case .cardsView:
             CardsView()
+        case .chatbotView:
+            ChatbotView()
         case .dynamicSheetView:
             DynamicSheetView()
         case .buttonsView:
