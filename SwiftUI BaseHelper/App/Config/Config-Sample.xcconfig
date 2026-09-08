@@ -1,0 +1,10 @@
+//
+//  Config-Sample.xcconfig
+//  SwiftUI BaseHelper
+//
+//  Created by Rodrigo Okido on 02/09/26.
+//
+
+HTTP_SCHEME = https
+BASE_URL = api.themoviedb.org/
+API_KEY = YOUR_TMDB_API_KEY_HERE
