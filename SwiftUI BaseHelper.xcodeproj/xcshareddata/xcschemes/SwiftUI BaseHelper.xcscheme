@@ -39,6 +39,17 @@
                ReferencedContainer = "container:SwiftUI BaseHelper.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "CoreNetworkLayerTests"
+               BuildableName = "CoreNetworkLayerTests"
+               BlueprintName = "CoreNetworkLayerTests"
+               ReferencedContainer = "container:CoreNetworkLayer">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

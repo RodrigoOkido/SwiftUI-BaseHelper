@@ -30,10 +30,10 @@ Here you can find:
 - SwiftUI Preview Macros (iOS 17+)
 
 Other Contents:
-- Design System 
+- Design System (local Swift package: `DesignSystem`)
 - Dependency Injection
 - Repositories
-- Network Layer
+- Network Layer (local Swift package: `CoreNetworkLayer`)
 - Custom Fonts
 - Unit tests
 - String Catalogs (iOS 17+)

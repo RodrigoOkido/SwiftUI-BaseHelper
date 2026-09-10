@@ -7,7 +7,10 @@
 
 import Foundation
 
-protocol EnvironmentProtocol: AnyObject {
+/// - Note: `nonisolated` because the target defaults every type to `@MainActor`. Everything
+///   here reads `Bundle.main.infoDictionary`, which needs no isolation, and the network layer
+///   reads these values off the main actor.
+nonisolated protocol EnvironmentProtocol: AnyObject {
 
     var infoDictionary: [String: Any] { get }
     var baseURL: String { get }

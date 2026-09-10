@@ -1,4 +1,5 @@
 import Foundation
+import CoreNetworkLayer
 
 public struct MovieMapper: ModelMapper {
     public typealias T = Movie

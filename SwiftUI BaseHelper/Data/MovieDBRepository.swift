@@ -6,22 +6,25 @@
 //
 
 import Foundation
+import CoreNetworkLayer
 
 public class MovieDBRepository: MovieDBRepositoryProtocol {
 
     // MARK: - Private Properties
     private let network: CoreNetworkProtocol
-    
+    private let apiKey: String
+
     // MARK: - Initializer
-    public init(network: CoreNetworkProtocol = CoreNetwork()) {
+    public init(network: CoreNetworkProtocol, apiKey: String) {
         self.network = network
+        self.apiKey = apiKey
     }
 
     func getMovies() async -> Result<[Movie], RequestError> {
-        
+
         let requestResponse = await network.request(endpoint: MovieDBEndpoint.getMovies,
                                                     method: .GET,
-                                                    interceptors: [MovieDBInterceptor()],
+                                                    interceptors: [MovieDBInterceptor(apiKey: apiKey)],
                                                     responseType: RemoteMovies.self,
                                                     errorType:  NetworkRequestError.self)
 

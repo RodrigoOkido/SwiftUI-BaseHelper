@@ -5,6 +5,7 @@
 //  Created by Rodrigo Okido on 30/06/25.
 //
 import SwiftUI
+import CoreNetworkLayer
 
 @Observable
 public class BaseViewModel: NSObject {

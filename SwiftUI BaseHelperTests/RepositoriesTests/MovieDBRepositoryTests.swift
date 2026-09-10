@@ -6,6 +6,7 @@
 //
 
 import Testing
+import CoreNetworkLayer
 @testable import SwiftUI_BaseHelper
 
 @Suite("MovieDBRepositoryTests unit tests")

@@ -62,9 +62,13 @@ MyProject/
 ├── MyProject.xcodeproj            # objectVersion 77, file-system synchronized groups
 ├── DesignSystem/             # Local Swift package (NOT a remote dependency)
 │   └── Sources/DesignSystem/Components, Helpers, Extensions, Fonts ...
+├── CoreNetworkLayer/           # Local Swift package (NOT a remote dependency)
+│   └── Sources/CoreNetworkLayer/CoreNetwork, Builders, Interceptors, Models, Mapping ...
 ├── MyProject/                     # App target (synchronized group — new files auto-added)
 │   ├── App/                  # App bootstrap + environment + DI setup
-│   ├── Core/                 # Reusable infra: Navigation, Network, Extensions, DI
+│   ├── Core/                 # Reusable infra: Navigation, Extensions, DI
+|       ├── Network/          # ONLY the app-specific bits: Endpoints/ and Interceptors/.
+                              # The engine itself lives in the CoreNetworkLayer package.
 │   ├── Data/                 # Network calls happens (endpoints, API, etc)
 |       ├── DTO/              # API related Models. Its `Codable` and receives the data coming from API.
 |       ├── Mappers/          # Model used for our end. Not related to APIs. Usually are pure classes or structs. 
@@ -374,11 +378,24 @@ provide clear instructions about why and reasons for it. Adding new content is f
 
 ## 10. Networking / API Requests
 
-The generic network infrastructure from the reference project is kept
-(`Core/Network`: `CoreNetworkProtocol`, builders, interceptors, response models,
-`ResponseHandler`, `ModelMapper`). If API or endpoints necessary, you can check 
-`2. Project Layout` section to get how the SwiftUI-BaseHelper does to follow the pattern.
+The generic network infrastructure lives in the **`CoreNetworkLayer` local Swift package**
+(`CoreNetworkProtocol`, `CoreNetwork`, builders, `RequestInterceptor` + `JSONInterceptor`,
+response models, `RequestError`, `ResponseHandler`, `ModelMapper`). Add `import CoreNetworkLayer`
+wherever the app touches those types. If API or endpoints necessary, you can check
+`4. Project Layout` section to get how the SwiftUI-BaseHelper does to follow the pattern.
 
+What stays in the **app target** is only what knows about a specific API:
+`Core/Network/Endpoints/` (an `Endpoint` enum per API) and `Core/Network/Interceptors/`
+(auth/query interceptors), plus `Data/` and `Domain/` as before.
+
+- **The package never reads `DependencyFactory`.** It cannot see it. Anything it needs is
+  passed through its initializer — the base URL via `NetworkConfiguration`, plus the
+  `JSONEncoder`/`JSONDecoder`. `AppDependencies.makeDefaultDependencies()` is the one place
+  that stack is composed; do not add DI-resolving defaults back to those initializers.
+- **App types crossing into the package must be `nonisolated`.** The app target sets
+  `SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor`, so a type conforming to a package protocol that
+  refines `Sendable` (e.g. `NetworkConfiguration`, `Endpoint`, `RequestInterceptor`) needs to
+  opt out — see `BaseEnvironment` / `EnvironmentProtocol`.
 - **Async/Await** Use always this pattern over Closures/Completions
 - **AsyncImage** for loading images URLs or external images
 
@@ -413,6 +430,15 @@ Build only:
 ```bash
 xcodebuild -project ReMe.xcodeproj -scheme ReMe -configuration Debug \
   -destination 'platform=iOS Simulator,name=iPhone 17' build
+```
+
+**`CoreNetworkLayer` tests** live in the package (`CoreNetworkLayer/Tests/CoreNetworkLayerTests/`)
+and use swift-testing, matching the existing networking tests. The package is pure Foundation
+and declares macOS support, so they run on the host in about a second — no simulator. Run them
+first when touching the network layer; they fail far faster than the app suite:
+
+```bash
+cd CoreNetworkLayer && swift test
 ```
 ---
 

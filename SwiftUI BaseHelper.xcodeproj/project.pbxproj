@@ -13,6 +13,7 @@
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BC0FE12300000000000AA03 /* CoreNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC0FE11300000000000AA02 /* CoreNetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		2B98C3622902CB85001BCBEC /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		2B98C3642902CB85001BCBEC /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		2BB3EFA22900961400E31F94 /* SwiftUI-BaseHelper-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "SwiftUI-BaseHelper-Info.plist"; path = "SwiftUI BaseHelper/App/SwiftUI-BaseHelper-Info.plist"; sourceTree = SOURCE_ROOT; };
+		2BC0FE10300000000000AA01 /* CoreNetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreNetworkLayer; sourceTree = "<group>"; };
 		2BCE1DCD3048A09E009E6C90 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		2BCE1DCE3048A0C5009E6C90 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2B8E8FED2BA09FBD0079F8B2 /* DesignSystem in Frameworks */,
+				2BC0FE12300000000000AA03 /* CoreNetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				2B8E8FEA2BA09F600079F8B2 /* DesignSystem */,
+				2BC0FE10300000000000AA01 /* CoreNetworkLayer */,
 			);
 			name = Packages;
 			sourceTree = "<group>";
@@ -210,6 +214,7 @@
 			name = "SwiftUI BaseHelper";
 			packageProductDependencies = (
 				2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */,
+				2BC0FE11300000000000AA02 /* CoreNetworkLayer */,
 			);
 			productName = "SwiftUI BaseHelper";
 			productReference = 2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */;
@@ -730,6 +735,10 @@
 		2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
+		};
+		2BC0FE11300000000000AA02 /* CoreNetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNetworkLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

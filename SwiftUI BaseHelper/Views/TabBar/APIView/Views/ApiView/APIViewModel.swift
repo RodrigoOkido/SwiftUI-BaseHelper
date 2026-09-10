@@ -18,10 +18,15 @@ class APIViewModel: BaseViewModel {
     var popularMovies: [Movie]
     
     // MARK: - Initializer
+    /// - Note: `MovieDBRepository` can no longer be default-constructed, since building one
+    ///   now requires the network stack composed in `AppDependencies`. Passing `nil` resolves
+    ///   the instance registered by `NetworkModuleDependencies`; tests still pass a mock.
     init(popularMovies: [Movie] = [],
-         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
+         movieDBService: MovieDBRepositoryProtocol? = nil) {
+        @Injected var injectedMovieDBService: MovieDBRepositoryProtocol
+
         self.popularMovies = popularMovies
-        self.movieDBService = movieDBService
+        self.movieDBService = movieDBService ?? injectedMovieDBService
     }
 }
 

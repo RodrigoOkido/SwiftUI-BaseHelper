@@ -5,6 +5,7 @@
 //  Created by Rodrigo Okido on 03/07/25.
 //
 import Foundation
+import CoreNetworkLayer
 
 class NetworkModuleDependencies: ModuleDependencies {
 
@@ -14,8 +15,11 @@ class NetworkModuleDependencies: ModuleDependencies {
     let movieDBService: MovieDBRepositoryProtocol
 
     // MARK: - Initializers
-    init(coreNetwork: CoreNetworkProtocol = CoreNetwork(),
-         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
+    /// - Note: There are no default arguments here on purpose. `CoreNetworkLayer` cannot read
+    ///   the app's `DependencyFactory`, so a network stack can only be built by handing it a
+    ///   `NetworkConfiguration`. Composing it is `AppDependencies`' job.
+    init(coreNetwork: CoreNetworkProtocol,
+         movieDBService: MovieDBRepositoryProtocol) {
         self.coreNetwork = coreNetwork
         self.movieDBService = movieDBService
     }
