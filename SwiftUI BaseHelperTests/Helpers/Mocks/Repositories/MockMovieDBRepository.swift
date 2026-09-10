@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreNetworkLayer
 @testable import SwiftUI_BaseHelper
 
 public class MockMovieDBRepository: MovieDBRepositoryProtocol {

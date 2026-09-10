@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import CoreNetworkLayer
 @testable import SwiftUI_BaseHelper
 
-final class NetworkMock: CoreNetworkProtocol {
+nonisolated final class NetworkMock: CoreNetworkProtocol {
 
     var requestsCounter: Int
 
@@ -88,7 +89,7 @@ final class NetworkMock: CoreNetworkProtocol {
 }
 
 // MARK: - Result Mocks
-extension NetworkMock {
+nonisolated extension NetworkMock {
 
     func mockResult<T, E>(response: T?,
                           error: E?) -> RequestResponse<T, E> where T : Codable, E : Codable, E : Error {

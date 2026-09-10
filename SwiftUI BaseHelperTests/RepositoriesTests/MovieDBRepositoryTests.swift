@@ -17,7 +17,7 @@ struct MovieDBRepositoryTests {
         #expect(network.requestsCounter == 0)
     }
 
-    @Test("Test: Initialize SUT should not call network")
+    @Test("Test: Initialize SUT should not call any methods")
     func test_init_WhenRepositoryStarts_ShouldHaveNoCalledMethodsAndRequestShouldFailSetFalse() {
 
         let (_, repository) = makeSUT()

@@ -14,6 +14,7 @@
 		2B98C3632902CB85001BCBEC /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3622902CB85001BCBEC /* WidgetKit.framework */; };
 		2B98C3652902CB85001BCBEC /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B98C3642902CB85001BCBEC /* SwiftUI.framework */; };
 		2B98C36E2902CB86001BCBEC /* SimpleLockScreenWidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 2B98C3602902CB85001BCBEC /* SimpleLockScreenWidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2BC0FE21300000000000BB02 /* CoreNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2BC0FE20300000000000BB01 /* CoreNetworkLayer */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +98,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BC0FE21300000000000BB02 /* CoreNetworkLayer in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -237,6 +239,9 @@
 				2BE54B692FEAE7E500201D86 /* SwiftUI BaseHelperTests */,
 			);
 			name = "SwiftUI BaseHelperTests";
+			packageProductDependencies = (
+				2BC0FE20300000000000BB01 /* CoreNetworkLayer */,
+			);
 			productName = "SwiftUI BaseHelperTests";
 			productReference = 2B8E902A2BA0EC600079F8B2 /* SwiftUI BaseHelperTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -739,6 +744,10 @@
 		2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;
+		};
+		2BC0FE20300000000000BB01 /* CoreNetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNetworkLayer;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
