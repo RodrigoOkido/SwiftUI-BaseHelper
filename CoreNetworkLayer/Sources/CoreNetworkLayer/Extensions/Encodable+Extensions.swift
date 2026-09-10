@@ -24,9 +24,7 @@ extension Encodable {
     ///   let dict = user.asDictionary()
     ///   // ["id": 1, "name": "Rodrigo"]
     ///   ```
-    func asDictionary() -> [String: Any]? {
-
-        @Injected var encoder: JSONEncoder
+    func asDictionary(encoder: JSONCoder) -> [String: Any]? {
 
         guard let data = try? encoder.encode(self),
               let dictionary = try? JSONSerialization.jsonObject(

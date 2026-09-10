@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2B0FC9B830530C3300523794 /* CoreNetworkLayer in Frameworks */ = {isa = PBXBuildFile; productRef = 2B0FC9B730530C3300523794 /* CoreNetworkLayer */; };
 		2B7AE53428F353E200B09959 /* SwiftUI_BaseHelperApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */; };
 		2B8E8FED2BA09FBD0079F8B2 /* DesignSystem in Frameworks */ = {isa = PBXBuildFile; productRef = 2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */; };
 		2B927CB42B98D370000EA840 /* AppDependencies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B927CB32B98D370000EA840 /* AppDependencies.swift */; };
@@ -47,6 +48,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2B0FC9B63053018100523794 /* CoreNetworkLayer */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = CoreNetworkLayer; sourceTree = "<group>"; };
 		2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SwiftUI BaseHelper.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B7AE53328F353E200B09959 /* SwiftUI_BaseHelperApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUI_BaseHelperApp.swift; sourceTree = "<group>"; };
 		2B8E8FEA2BA09F600079F8B2 /* DesignSystem */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = DesignSystem; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B0FC9B830530C3300523794 /* CoreNetworkLayer in Frameworks */,
 				2B8E8FED2BA09FBD0079F8B2 /* DesignSystem in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -168,6 +171,7 @@
 		2B8E8FE82BA09EE50079F8B2 /* Packages */ = {
 			isa = PBXGroup;
 			children = (
+				2B0FC9B63053018100523794 /* CoreNetworkLayer */,
 				2B8E8FEA2BA09F600079F8B2 /* DesignSystem */,
 			);
 			name = Packages;
@@ -210,6 +214,7 @@
 			name = "SwiftUI BaseHelper";
 			packageProductDependencies = (
 				2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */,
+				2B0FC9B730530C3300523794 /* CoreNetworkLayer */,
 			);
 			productName = "SwiftUI BaseHelper";
 			productReference = 2B7AE53028F353E200B09959 /* SwiftUI BaseHelper.app */;
@@ -727,6 +732,10 @@
 /* End XCConfigurationList section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2B0FC9B730530C3300523794 /* CoreNetworkLayer */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = CoreNetworkLayer;
+		};
 		2B8E8FEC2BA09FBD0079F8B2 /* DesignSystem */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = DesignSystem;

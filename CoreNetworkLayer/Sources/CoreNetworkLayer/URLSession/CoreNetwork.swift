@@ -9,10 +9,9 @@ import Foundation
 
 public class CoreNetwork: CoreNetworkProtocol {
 
-    // MARK: - Dependencies
-    @Injected var environment: EnvironmentProtocol
-
-    // MARK: - Privae Properties
+    // MARK: - Private Properties
+    private var baseURL: String
+    private var jsonCoder: JSONCoder
     private let requestBuilder: RequestBuilder
     private let session: URLSession
 
@@ -22,8 +21,12 @@ public class CoreNetwork: CoreNetworkProtocol {
     }
 
     // MARK: - Initializer
-    public init(requestBuilder: RequestBuilder = RequestBuilder(),
+    public init(baseURL: String,
+                jsonCoder: JSONCoder = JSONCoder(),
+                requestBuilder: RequestBuilder = RequestBuilder(),
                 session: URLSession = URLSession(configuration: .default)) {
+        self.baseURL = baseURL
+        self.jsonCoder = jsonCoder
         self.requestBuilder = requestBuilder
         self.session = session
     }
@@ -37,7 +40,7 @@ public class CoreNetwork: CoreNetworkProtocol {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
-                                     parameters: parameters.asDictionary() ?? [:],
+                                     parameters: parameters.asDictionary(encoder: jsonCoder) ?? [:],
                                      interceptors: defaultInterceptors + interceptors)
 
         switch result {
@@ -98,7 +101,7 @@ public class CoreNetwork: CoreNetworkProtocol {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
-                                     parameters: parameters.asDictionary() ?? [:],
+                                     parameters: parameters.asDictionary(encoder: jsonCoder) ?? [:],
                                      interceptors: defaultInterceptors + interceptors)
 
         switch result {
@@ -120,7 +123,7 @@ extension CoreNetwork {
                            interceptors: [RequestInterceptor]) async -> Result<RestResponse, NetworkRequestError> {
 
         // URL build
-        guard let urlRequest = await requestBuilder.makeRequest(host: environment.baseURL,
+        guard let urlRequest = await requestBuilder.makeRequest(host: baseURL,
                                                                 path: endpoint.path,
                                                                 method: method,
                                                                 parameters: parameters,

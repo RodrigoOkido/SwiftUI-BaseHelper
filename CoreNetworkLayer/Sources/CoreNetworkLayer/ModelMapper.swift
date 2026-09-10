@@ -7,7 +7,7 @@
 
 import Foundation
 
-// Protocol used to map object that comes from server into our domain object.
+/// Protocol used to map object that comes from server-side into our domain object.
 public protocol ModelMapper {
 
     associatedtype T

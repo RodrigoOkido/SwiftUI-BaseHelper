@@ -1,11 +1,15 @@
 import Foundation
 
 public class BodyBuilder {
+    
+    var encoder: JSONCoder
 
-    public init() {}
+    public init(encoder: JSONCoder = JSONCoder()) {
+        self.encoder = encoder
+    }
     
     func build(parameters: Codable) -> Data? {
-        guard let dict = parameters.asDictionary() else { return nil }
+        guard let dict = parameters.asDictionary(encoder: encoder) else { return nil }
         return build(parameters: dict)
     }
 
