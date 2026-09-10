@@ -10,8 +10,8 @@ import Foundation
 public class CoreNetwork: CoreNetworkProtocol {
 
     // MARK: - Private Properties
-    private var baseURL: String
-    private var jsonCoder: JSONCoder
+    private let baseURL: String
+    private let jsonCoder: JSONCoder
     private let requestBuilder: RequestBuilder
     private let session: URLSession
 
@@ -40,7 +40,7 @@ public class CoreNetwork: CoreNetworkProtocol {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
-                                     parameters: parameters.asDictionary(encoder: jsonCoder) ?? [:],
+                                     parameters: parameters.asDictionary(coder: jsonCoder) ?? [:],
                                      interceptors: defaultInterceptors + interceptors)
 
         switch result {
@@ -101,7 +101,7 @@ public class CoreNetwork: CoreNetworkProtocol {
 
         let result = await doRequest(endpoint: endpoint,
                                      method: method,
-                                     parameters: parameters.asDictionary(encoder: jsonCoder) ?? [:],
+                                     parameters: parameters.asDictionary(coder: jsonCoder) ?? [:],
                                      interceptors: defaultInterceptors + interceptors)
 
         switch result {
@@ -156,7 +156,8 @@ extension CoreNetwork {
         }
 
         return .success(RestResponse(request: urlRequest,
-                                     dataResponse: dataResponse))
+                                     dataResponse: dataResponse,
+                                     jsonCoder: jsonCoder))
     }
 
     private func serializeResponse<T: Decodable,

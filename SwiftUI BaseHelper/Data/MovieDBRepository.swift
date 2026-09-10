@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreNetworkLayer
 
 public class MovieDBRepository: MovieDBRepositoryProtocol {
 
@@ -13,7 +14,7 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
     private let network: CoreNetworkProtocol
     
     // MARK: - Initializer
-    public init(network: CoreNetworkProtocol = CoreNetwork()) {
+    public init(network: CoreNetworkProtocol) {
         self.network = network
     }
 

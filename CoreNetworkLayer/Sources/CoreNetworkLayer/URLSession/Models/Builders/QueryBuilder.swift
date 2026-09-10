@@ -1,17 +1,8 @@
 import Foundation
 
 public class QueryBuilder {
-    
-    var encoder: JSONCoder
 
-    public init(encoder: JSONCoder = JSONCoder()) {
-        self.encoder = encoder
-    }
-
-    public func build(parameters: Codable) -> [URLQueryItem] {
-        guard let dict = parameters.asDictionary(encoder: encoder) else { return [] }
-        return build(parameters: dict)
-    }
+    public init() {}
 
     public func build(parameters: [String: Any]) -> [URLQueryItem] {
         var queryItems: [URLQueryItem] = []

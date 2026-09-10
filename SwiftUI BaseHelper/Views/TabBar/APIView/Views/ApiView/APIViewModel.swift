@@ -19,9 +19,11 @@ class APIViewModel: BaseViewModel {
     
     // MARK: - Initializer
     init(popularMovies: [Movie] = [],
-         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
+         movieDBService: MovieDBRepositoryProtocol? = nil) {
+        @Injected var injectedMovieDBService: MovieDBRepositoryProtocol
+
         self.popularMovies = popularMovies
-        self.movieDBService = movieDBService
+        self.movieDBService = movieDBService ?? injectedMovieDBService
     }
 }
 

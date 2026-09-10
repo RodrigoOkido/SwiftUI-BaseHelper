@@ -28,19 +28,6 @@ extension RequestBuilder {
     func makeRequest(host: String,
                      path: String,
                      method: HTTPVerb,
-                     parameters: Codable?,
-                     interceptors: [RequestInterceptor]) async -> URLRequest? {
-
-        return await makeRequest(host: host,
-                           path: path,
-                           method: method,
-                           parameters: parameters?.asDictionary() ?? [:],
-                           interceptors: interceptors)
-    }
-
-    func makeRequest(host: String,
-                     path: String,
-                     method: HTTPVerb,
                      parameters: [String: Any],
                      interceptors: [RequestInterceptor]) async -> URLRequest? {
 

@@ -7,10 +7,10 @@
 
 import Foundation
 
-struct ResponseHandler {
+public struct ResponseHandler {
 
-    static func handle<T>(mapper: some ModelMapper,
-                          response: RequestResponse<some Codable, NetworkRequestError>) -> Result<T, RequestError> {
+    public static func handle<T>(mapper: some ModelMapper,
+                                 response: RequestResponse<some Codable, NetworkRequestError>) -> Result<T, RequestError> {
         switch response {
         case .success(let items):
             do {

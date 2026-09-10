@@ -5,6 +5,7 @@
 //  Created by Rodrigo Okido on 03/07/25.
 //
 import Foundation
+import CoreNetworkLayer
 
 class NetworkModuleDependencies: ModuleDependencies {
 
@@ -14,8 +15,8 @@ class NetworkModuleDependencies: ModuleDependencies {
     let movieDBService: MovieDBRepositoryProtocol
 
     // MARK: - Initializers
-    init(coreNetwork: CoreNetworkProtocol = CoreNetwork(),
-         movieDBService: MovieDBRepositoryProtocol = MovieDBRepository()) {
+    init(coreNetwork: CoreNetworkProtocol,
+         movieDBService: MovieDBRepositoryProtocol) {
         self.coreNetwork = coreNetwork
         self.movieDBService = movieDBService
     }

@@ -1,10 +1,9 @@
 import Foundation
-import UIKit
 
 struct RestResponse {
 
-    // MARK: - Dependencies
-    @Injected var decoder: JSONDecoder
+    // MARK: - Private Properties
+    private let jsonCoder: JSONCoder
 
     // MARK: - Properties
     public let request: URLRequest?
@@ -22,9 +21,11 @@ struct RestResponse {
 
     // MARK: - Initialization
     public init(request: URLRequest?,
-                dataResponse: (data: Data, urlResponse: URLResponse)) {
+                dataResponse: (data: Data, urlResponse: URLResponse),
+                jsonCoder: JSONCoder) {
         self.request = request
         self.dataResponse = dataResponse
+        self.jsonCoder = jsonCoder
     }
 }
 
@@ -59,7 +60,7 @@ extension RestResponse {
 
         if isRequestSucceeded {
             do {
-                let model = try decoder.decode(modelType, from: dataResponse.data)
+                let model = try jsonCoder.decode(modelType, from: dataResponse.data)
                 return Result.success(model)
             } catch let error {
 #if DEBUG
@@ -73,7 +74,7 @@ extension RestResponse {
     }
 
     private func getRequestError<E: Codable & Error>(errorType: E.Type) -> Error {
-        if let error = try? decoder.decode(errorType, from: dataResponse.data) {
+        if let error = try? jsonCoder.decode(errorType, from: dataResponse.data) {
             return error
         } else {
             return defaultError

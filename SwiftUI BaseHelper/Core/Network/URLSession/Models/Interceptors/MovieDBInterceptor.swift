@@ -11,7 +11,6 @@ import CoreNetworkLayer
 struct MovieDBInterceptor: RequestInterceptor {
 
     // MARK: - Dependencies
-    @Injected var encoder: JSONEncoder
     @Injected var environment: EnvironmentProtocol
 
     let queryBuilder = QueryBuilder()
