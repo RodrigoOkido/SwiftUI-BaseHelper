@@ -12,26 +12,14 @@ class CoreModuleDependencies: ModuleDependencies {
 
     // MARK: - Public Properties
     let factory = DependencyFactory.shared
-    var encoder: JSONEncoder
-    var decoder: JSONDecoder
     var environment: BaseEnvironment?
 
     // MARK: - Initializers
-    init(encoder: JSONEncoder = JSONEncoder(),
-         decoder: JSONDecoder = JSONDecoder(),
-         environment: BaseEnvironment? = nil) {
-        self.encoder = encoder
-        self.decoder = decoder
+    init(environment: BaseEnvironment? = nil) {
         self.environment = environment
     }
 
     func setupDependencies() {
-
-        encoder.dateEncodingStrategy = .formatted(.iso8601Full)
-        factory.register(encoder, as: JSONEncoder.self)
-
-        decoder.dateDecodingStrategy = .formatted(.iso8601Full)
-        factory.register(decoder, as: JSONDecoder.self)
 
         let environment = self.environment ?? BaseEnvironment()
         factory.register(environment, as: EnvironmentProtocol.self)
