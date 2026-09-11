@@ -54,8 +54,8 @@ struct MovieDBRepositoryTests {
         case .success(_):
             Issue.record("Request should fail")
         case .failure(let error):
-            #expect(error.errorType == .badRequest)
-            #expect(error.errorMessage == "Test failed successfully")
+            #expect(error.kind == .badRequest)
+            #expect(error.message == "Test failed successfully")
             #expect(repository.calledMethods == [.getMovies])
         }
     }

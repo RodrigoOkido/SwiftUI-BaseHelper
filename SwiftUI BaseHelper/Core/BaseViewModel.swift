@@ -5,7 +5,6 @@
 //  Created by Rodrigo Okido on 30/06/25.
 //
 import SwiftUI
-import CoreNetworkLayer
 
 @Observable
 public class BaseViewModel: NSObject {
@@ -22,9 +21,8 @@ public class BaseViewModel: NSObject {
     // MARK: - Helpers
     public func getRequestErrorMessage(from error: Error) -> String {
         switch error {
-        case is RequestError:
-            let error = error as? RequestError
-            return error?.errorMessage ?? "Unknown error"
+        case let error as DomainError:
+            return error.message ?? "Unknown error"
         default:
             return error.localizedDescription
         }

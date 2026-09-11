@@ -18,7 +18,7 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
         self.network = network
     }
 
-    func getMovies() async -> Result<[Movie], RequestError> {
+    func getMovies() async -> Result<[Movie], DomainError> {
         
         let requestResponse = await network.request(endpoint: MovieDBEndpoint.getMovies,
                                                     method: .GET,
@@ -27,5 +27,6 @@ public class MovieDBRepository: MovieDBRepositoryProtocol {
                                                     errorType:  NetworkRequestError.self)
 
         return ResponseHandler.handle(mapper: MoviesMapper(), response: requestResponse)
+            .mapError(DomainError.init)
     }
 }
