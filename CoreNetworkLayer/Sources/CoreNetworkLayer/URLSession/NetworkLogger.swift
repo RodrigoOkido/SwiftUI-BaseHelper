@@ -45,8 +45,22 @@ struct NetworkLogger {
     }
 
     static func log(request: URLRequest?) {
-        let url = request?.url?.absoluteString
-        print("⚪️ REQUEST: " + (url ?? "-"), "\n")
+        print("⚪️ REQUEST: " + redactedURL(from: request), "\n")
+    }
+
+    /// Query values are masked before logging: the logger cannot tell an `api_key` from a `page`,
+    /// and console output routinely ends up in screenshots and bug reports.
+    static func redactedURL(from request: URLRequest?) -> String {
+        guard let url = request?.url,
+              var components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
+            return request?.url?.absoluteString ?? "-"
+        }
+
+        components.queryItems = components.queryItems?.map {
+            URLQueryItem(name: $0.name, value: "•••")
+        }
+
+        return components.url?.absoluteString ?? "-"
     }
 
     static func log(httpResponse: RestResponse) {
