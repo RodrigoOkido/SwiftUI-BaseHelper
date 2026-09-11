@@ -12,19 +12,26 @@ import SwiftUI
 class APIViewModel: BaseViewModel {
     
     // MARK: - Private Properties
-    private var movieDBService: MovieDBRepositoryProtocol
+    @ObservationIgnored
+    private let injectedMovieDBService: MovieDBRepositoryProtocol?
     
     // MARK: - Public Properties
     var popularMovies: [Movie]
     
+    // MARK: - Computed Properties
+    private var movieDBService: MovieDBRepositoryProtocol {
+        if let injectedMovieDBService {
+            return injectedMovieDBService
+        }
+        @Injected var resolvedMovieDBService: MovieDBRepositoryProtocol
+        return resolvedMovieDBService
+    }
+    
     // MARK: - Initializer
     init(popularMovies: [Movie] = [],
          movieDBService: MovieDBRepositoryProtocol? = nil) {
-        
-        @Injected var injectedMovieDBService: MovieDBRepositoryProtocol
-        
         self.popularMovies = popularMovies
-        self.movieDBService = movieDBService ?? injectedMovieDBService
+        self.injectedMovieDBService = movieDBService
     }
 }
 
