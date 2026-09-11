@@ -1,6 +1,6 @@
 import Foundation
 
-public class BodyBuilder {
+public final class BodyBuilder {
 
     public init() {}
 

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class CoreNetwork: CoreNetworkProtocol {
+public final class CoreNetwork: CoreNetworkProtocol {
 
     // MARK: - Private Properties
     private let baseURL: String

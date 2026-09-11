@@ -1,6 +1,6 @@
 import Foundation
 
-public class QueryBuilder {
+public final class QueryBuilder {
 
     public init() {}
 

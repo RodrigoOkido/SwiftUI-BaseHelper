@@ -1,6 +1,6 @@
 import Foundation
 
-public class InterceptorBuilder {
+public final class InterceptorBuilder {
 
     public init() {}
 

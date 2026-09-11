@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class RequestBuilder {
+public final class RequestBuilder {
 
     let queryBuilder: QueryBuilder
     let bodyBuilder: BodyBuilder
