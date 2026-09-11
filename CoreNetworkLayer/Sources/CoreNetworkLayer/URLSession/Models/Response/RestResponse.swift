@@ -6,8 +6,8 @@ struct RestResponse {
     private let jsonCoder: JSONCoder
 
     // MARK: - Properties
-    public let request: URLRequest?
-    public let dataResponse: (data: Data, urlResponse: URLResponse)
+    let request: URLRequest?
+    let dataResponse: (data: Data, urlResponse: URLResponse)
 
     // MARK: - Computed Properties
     var isRequestSucceeded: Bool {
@@ -20,9 +20,9 @@ struct RestResponse {
     }
 
     // MARK: - Initialization
-    public init(request: URLRequest?,
-                dataResponse: (data: Data, urlResponse: URLResponse),
-                jsonCoder: JSONCoder) {
+    init(request: URLRequest?,
+         dataResponse: (data: Data, urlResponse: URLResponse),
+         jsonCoder: JSONCoder) {
         self.request = request
         self.dataResponse = dataResponse
         self.jsonCoder = jsonCoder
@@ -32,12 +32,12 @@ struct RestResponse {
 // MARK: - Response Properties
 extension RestResponse {
 
-    public var statusCode: Int {
+    var statusCode: Int {
         guard let httpResponse = dataResponse.urlResponse as? HTTPURLResponse else { return -1 }
         return httpResponse.statusCode
     }
 
-    public var headers: [AnyHashable: Any]? {
+    var headers: [AnyHashable: Any]? {
         guard let httpResponse = dataResponse.urlResponse as? HTTPURLResponse else { return nil }
         return httpResponse.allHeaderFields
     }
@@ -46,7 +46,7 @@ extension RestResponse {
 // MARK: - Response Data Conversion
 extension RestResponse {
 
-    public func result<E: Codable & Error>(errorType: E.Type) -> Result<String, Error> {
+    func result<E: Codable & Error>(errorType: E.Type) -> Result<String, Error> {
 
         if isRequestSucceeded {
             return Result.success("")
@@ -55,8 +55,8 @@ extension RestResponse {
         }
     }
 
-    public func result<T: Codable,
-                       E: Codable & Error>(modelType: T.Type, errorType: E.Type) -> Result<Codable, Error> {
+    func result<T: Codable,
+                E: Codable & Error>(modelType: T.Type, errorType: E.Type) -> Result<Codable, Error> {
 
         if isRequestSucceeded {
             do {
