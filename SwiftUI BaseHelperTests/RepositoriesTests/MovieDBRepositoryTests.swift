@@ -62,8 +62,8 @@ struct MovieDBRepositoryTests {
         }
     }
 
-    @Test("Test: When the API fails, should return a domain error carrying the reason")
-    func test_getMovies_WhenAPIFails_ShouldReturnDomainErrorWithReason() async {
+    @Test("Test: When the API fails, should return an error carrying the reason")
+    func test_getMovies_WhenAPIFails_ShouldReturnErrorWithReason() async {
 
         let (network, repository) = makeSUT()
         network.stubbedError = NetworkRequestError(statusCode: 400,
@@ -75,17 +75,17 @@ struct MovieDBRepositoryTests {
         case .success:
             Issue.record("Request should fail")
         case .failure(let error):
-            #expect(error.kind == .badRequest)
-            #expect(error.message == "Test failed successfully")
+            #expect(error.errorType == .badRequest)
+            #expect(error.errorMessage == "Test failed successfully")
         }
     }
 
-    @Test("Test: Every failing status code should map to its domain error kind",
-          arguments: [(401, DomainError.Kind.tokenError),
-                      (404, DomainError.Kind.notFound),
-                      (500, DomainError.Kind.serverError)])
-    func test_getMovies_WhenAPIFailsWithStatus_ShouldMapToDomainKind(statusCode: Int,
-                                                                    expected: DomainError.Kind) async {
+    @Test("Test: Every failing status code should map to its error type",
+          arguments: [(401, RequestErrorType.tokenError),
+                      (404, RequestErrorType.notFound),
+                      (500, RequestErrorType.serverError)])
+    func test_getMovies_WhenAPIFailsWithStatus_ShouldMapToErrorType(statusCode: Int,
+                                                                    expected: RequestErrorType) async {
 
         let (network, repository) = makeSUT()
         network.stubbedError = NetworkRequestError(statusCode: statusCode,
@@ -97,7 +97,7 @@ struct MovieDBRepositoryTests {
             Issue.record("Request should fail")
             return
         }
-        #expect(error.kind == expected)
+        #expect(error.errorType == expected)
     }
 }
 

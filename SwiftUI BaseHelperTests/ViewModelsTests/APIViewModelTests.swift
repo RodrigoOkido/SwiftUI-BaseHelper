@@ -6,6 +6,7 @@
 //
 
 import Testing
+import CoreNetworkLayer
 @testable import SwiftUI_BaseHelper
 
 @Suite("APIViewModel unit tests")
@@ -51,24 +52,24 @@ struct APIViewModelTests {
             Issue.record("State should be .error")
             return
         }
-        #expect((error as? DomainError)?.kind == .badRequest)
+        #expect((error as? RequestError)?.errorType == .badRequest)
     }
 
-    @Test("Test: The error message shown to the user should come from the domain error")
-    func test_getRequestErrorMessage_WhenErrorIsDomainError_ShouldReturnItsMessage() {
+    @Test("Test: The error message shown to the user should come from the request error")
+    func test_getRequestErrorMessage_WhenErrorIsRequestError_ShouldReturnItsMessage() {
 
         let (_, viewModel) = makeSUT()
-        let error = DomainError(kind: .notFound, message: "Nothing here")
+        let error = RequestError(errorType: .notFound, errorMessage: "Nothing here")
 
         #expect(viewModel.getRequestErrorMessage(from: error) == "Nothing here")
     }
 
-    @Test("Test: A domain error without message should fall back to a generic one")
-    func test_getRequestErrorMessage_WhenDomainErrorHasNoMessage_ShouldReturnFallback() {
+    @Test("Test: A request error without message should fall back to a generic one")
+    func test_getRequestErrorMessage_WhenRequestErrorHasNoMessage_ShouldReturnFallback() {
 
         let (_, viewModel) = makeSUT()
 
-        #expect(viewModel.getRequestErrorMessage(from: DomainError(kind: .undefined)) == "Unknown error")
+        #expect(viewModel.getRequestErrorMessage(from: RequestError(errorType: .undefined)) == "Unknown error")
     }
 }
 

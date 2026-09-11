@@ -39,7 +39,7 @@ extension MockMovieDBRepository {
         return mockedRemoteMovies
     }
 
-    public func getMovies() async -> Result<[Movie], DomainError> {
+    public func getMovies() async -> Result<[Movie], RequestError> {
 
         calledMethods.append(.getMovies)
         let response: RemoteMovies = RemoteMovies(results: createMockRemoteMovies())
@@ -51,6 +51,5 @@ extension MockMovieDBRepository {
 
         return ResponseHandler.handle(mapper: MoviesMapper(), 
                                       response: requestShouldFail ? requestResponseFail : requestResponseSuccess)
-            .mapError(DomainError.init)
     }
 }
