@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum HTTPVerb: String {
+public enum HTTPVerb: String, Sendable {
 
     case DELETE
     case GET

@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum RequestErrorType: Error, Equatable {
+public enum RequestErrorType: Error, Equatable, Sendable {
     
     case tokenError
     case badRequest
@@ -21,7 +21,7 @@ public enum RequestErrorType: Error, Equatable {
     case undefined
 }
 
-public final class RequestError: Error, Equatable {
+public struct RequestError: Error, Equatable, Sendable {
     
     public static func == (lhs: RequestError, rhs: RequestError) -> Bool {
         lhs.errorType == rhs.errorType

@@ -13,3 +13,5 @@ public enum RequestEmptyResponse<E: Codable & Error> {
     case customError(E)
     case failure(NetworkRequestError)
 }
+
+extension RequestEmptyResponse: Sendable {}

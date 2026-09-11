@@ -13,3 +13,5 @@ public enum RequestResponse<D: Codable, E: Codable & Error> {
     case customError(E)
     case failure(NetworkRequestError)
 }
+
+extension RequestResponse: Sendable where D: Sendable {}

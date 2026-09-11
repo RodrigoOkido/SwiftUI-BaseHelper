@@ -8,7 +8,7 @@
 import Foundation
 
 /// Request error object providing informations about what went wrong in the REST request
-public struct NetworkRequestError: Codable, Error {
+public struct NetworkRequestError: Codable, Error, Sendable {
 
     public var statusCode: Int?
     public var error: String?
